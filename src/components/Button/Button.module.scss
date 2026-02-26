@@ -1,115 +1,115 @@
+@use 'styles/variables.scss' as var;
+@use 'styles/_mixins.scss' as mixin;
+
 .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 700;
-  border: 2px solid #333;
-  border-radius: 1rem;
+  height: fit-content;
+  width: fit-content;
+  @include mixin.flex($justify: center, $align: center, $gap: 0.5rem);
+  font-weight: var.$font-weight-medium;
+  border: 2px solid var.$color-border-default;
   cursor: pointer;
-  box-shadow: 0 4px 0 0 #333;
+  color: var.$color-text-default;
+  box-shadow: 0 4px 0 0 var.$color-border-default;
   transition:
-    transform 0.1s,
-    box-shadow 0.1s,
+    transform 0.2s,
+    box-shadow 0.2s,
     filter 0.2s;
 
-  &:not(:disabled):hover {
-    filter: brightness(0.95);
+  &:hover {
+    filter: brightness(1.1) contrast(1.1) saturate(1.5);
   }
 
-  &:not(:disabled):active {
-    box-shadow: 0 0px 0 0 #333;
+  &:active {
+    box-shadow: 0 0px 0 0 var.$color-border-default;
     transform: translateY(4px);
   }
 
   &:disabled {
     pointer-events: none;
-    opacity: 0.6;
-    filter: grayscale(0.4);
+    opacity: 0.8;
+    filter: grayscale(0.6);
   }
 
   &:focus-visible {
-    outline: 2px dashed #333;
-    outline-offset: 4px;
+    outline: 2px dashed var.$color-border-default;
+    outline-offset: 2px;
   }
-}
 
-.primary {
-  background-color: #ff9aa2;
-  color: #333;
-}
-
-.secondary {
-  background-color: #c7ceea;
-  color: #333;
-}
-
-.danger {
-  background-color: #ff6b6b;
-  color: #333;
-}
-
-.success {
-  background-color: #b5ead7;
-  color: #333;
-}
-
-.warning {
-  background-color: #ffdac1;
-  color: #333;
-}
-
-.info {
-  background-color: #b2e2f2;
-  color: #333;
-}
-
-.light {
-  background-color: #f3f4f6;
-  color: #333;
-}
-
-.dark {
-  background-color: #333;
-  color: white;
-  box-shadow: 0 4px 0 0 #666;
-}
-
-.link {
-  background: none;
-  border: none;
-  box-shadow: none;
-  color: #333;
-  text-decoration: underline;
-  &:not(:disabled):active {
-    transform: none;
+  &.sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 1em;
   }
-}
 
-.sm {
-  height: 40px;
-  padding: 0 16px;
-  font-size: 0.875rem;
-}
-.md {
-  height: 56px;
-  padding: 0 24px;
-  font-size: 1rem;
-}
-.lg {
-  height: 64px;
-  padding: 0 32px;
-  font-size: 1.125rem;
+  &.md {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 1em;
+  }
+
+  &.lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+    border-radius: 1em;
+  }
+
+  &.primary {
+    background-color: var.$color-primary-bg;
+  }
+
+  &.secondary {
+    background-color: var.$color-secondary-bg;
+  }
+
+  &.danger {
+    background-color: var.$color-danger-bg;
+  }
+
+  &.success {
+    background-color: var.$color-success-bg;
+  }
+
+  &.warning {
+    background-color: var.$color-warning-bg;
+  }
+
+  &.info {
+    background-color: var.$color-info-bg;
+  }
+
+  &.light {
+    background-color: var.$color-light-bg;
+  }
+
+  &.dark {
+    background-color: var.$color-dark-bg;
+    color: var.$color-dark-text;
+    box-shadow: 0 4px 0 0 var.$color-dark-shadow;
+
+    &:active {
+      box-shadow: 0 0px 0 0 var.$color-border-default;
+    }
+  }
+
+  &.link {
+    background: none;
+    border: none;
+    box-shadow: none;
+    text-decoration: underline;
+
+    &:active {
+      transform: none;
+    }
+  }
 }
 
 .loader {
-  width: 1.2em;
-  height: 1.2em;
-  border: 3px solid currentColor;
+  width: 1em;
+  height: 1em;
+  border: 0.15em solid currentColor;
   border-top-color: transparent;
   border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
