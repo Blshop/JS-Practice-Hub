@@ -20,15 +20,16 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   loading?: boolean;
 };
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   children,
   className,
+  type = 'button',
   variant = 'primary',
   size = 'md',
   loading = false,
   disabled,
   ...props
-}) => {
+}: ButtonProps) => {
   return (
     <button
       className={classNames(
@@ -37,6 +38,7 @@ const Button: React.FC<ButtonProps> = ({
         styles[size],
         { [styles.loading]: loading },
         className,
+        type,
       )}
       disabled={disabled || loading}
       {...props}
@@ -47,4 +49,5 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 
+Button.displayName = 'Button';
 export default Button;
