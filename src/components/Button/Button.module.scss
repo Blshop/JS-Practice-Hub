@@ -5,11 +5,13 @@
   height: fit-content;
   width: fit-content;
   @include mixin.flex($justify: center, $align: center, $gap: 0.5rem);
-  font-weight: var.$font-weight-medium;
-  border: 2px solid var.$color-border-default;
+  padding: 0.5rem 1rem;
+  border: 2px solid var.$color-neutral-900;
+  border-radius: 1em;
+  font-size: 1rem;
+  color: var.$color-neutral-900;
+  box-shadow: 0 4px 0 0 var.$color-neutral-900;
   cursor: pointer;
-  color: var.$color-text-default;
-  box-shadow: 0 4px 0 0 var.$color-border-default;
   transition:
     transform 0.2s,
     box-shadow 0.2s,
@@ -20,7 +22,7 @@
   }
 
   &:active {
-    box-shadow: 0 0px 0 0 var.$color-border-default;
+    box-shadow: 0 0px 0 0 var.$color-neutral-900;
     transform: translateY(4px);
   }
 
@@ -30,64 +32,56 @@
     filter: grayscale(0.6);
   }
 
-  &:focus-visible {
-    outline: 2px dashed var.$color-border-default;
-    outline-offset: 2px;
-  }
-
   &.small {
     padding: 0.25rem 0.5rem;
     font-size: 0.75rem;
-    border-radius: 1em;
   }
 
   &.medium {
     padding: 0.5rem 1rem;
     font-size: 1rem;
-    border-radius: 1em;
   }
 
   &.large {
     padding: 0.75rem 1.5rem;
     font-size: 1.25rem;
-    border-radius: 1em;
   }
 
   &.primary {
-    background-color: var.$color-primary-bg;
+    background-color: var.$color-primary;
   }
 
   &.secondary {
-    background-color: var.$color-secondary-bg;
+    background-color: var.$color-secondary;
   }
 
   &.danger {
-    background-color: var.$color-danger-bg;
+    background-color: var.$color-danger;
   }
 
   &.success {
-    background-color: var.$color-success-bg;
+    background-color: var.$color-success;
   }
 
   &.warning {
-    background-color: var.$color-warning-bg;
+    background-color: var.$color-warning;
   }
 
   &.info {
-    background-color: var.$color-info-bg;
+    background-color: var.$color-info;
   }
 
   &.light {
-    background-color: var.$color-light-bg;
+    background-color: var.$color-neutral-100;
   }
 
   &.dark {
-    background-color: var.$color-dark-bg;
-    color: var.$color-dark-text;
-    box-shadow: 0 4px 0 0 var.$color-dark-shadow;
+    background-color: var.$color-neutral-900;
+    color: var.$color-neutral-100;
+    box-shadow: 0 4px 0 0 var.$color-neutral-500;
 
     &:active {
-      box-shadow: 0 0px 0 0 var.$color-border-default;
+      box-shadow: 0 0px 0 0 var.$color-neutral-900;
     }
   }
 

@@ -2,23 +2,22 @@
 @use 'styles/_mixins.scss' as mixin;
 
 .input {
-  padding: 0.5rem 1rem;
-  border-radius: 1em;
-  font-size: 1rem;
-  font-weight: var.$font-weight-medium;
-  border: 2px solid var.$color-border-default;
-  background-color: var.$color-light-bg;
-  color: var.$color-text-default;
-  box-shadow: 0 4px 0 0 var.$color-border-default;
   outline: none;
+  padding: 0.5rem 1rem;
+  border: 2px solid var.$color-neutral-900;
+  border-radius: 1em;
+  background-color: var.$color-neutral-100;
+  font-size: 1rem;
+  color: var.$color-neutral-900;
+  box-shadow: 0 4px 0 0 var.$color-neutral-900;
   transition: border-color 0.2s;
 
   &::placeholder {
-    color: var.$color-text-muted;
+    color: var.$color-neutral-300;
   }
 
   &:focus {
-    border-color: var.$color-primary-bg;
+    border-color: var.$color-primary;
   }
 
   &:disabled {
@@ -29,14 +28,13 @@
   &.large {
     padding: 0.75rem 1.5rem;
     font-size: 1.25rem;
-    border-radius: 1em;
   }
 
   &.error {
-    border-color: var.$color-danger-bg;
+    border-color: var.$color-danger;
   }
 
   &.success {
-    border-color: var.$color-success-bg;
+    border-color: var.$color-success;
   }
 }

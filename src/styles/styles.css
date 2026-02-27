@@ -1,8 +1,9 @@
 @import '../../node_modules/@fontsource/roboto-mono/400.css';
-@import '../../node_modules/@fontsource/roboto-mono/500.css';
 @import '../../node_modules/@fontsource/roboto-mono/700.css';
 @import '../../node_modules/modern-normalize/modern-normalize.css';
 
 body {
   font-family: 'Roboto Mono', monospace;
+  font-weight: 400;
+  color: #333333;
 }
