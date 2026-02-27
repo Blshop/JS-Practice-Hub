@@ -1,0 +1,48 @@
+@use 'styles/variables.scss' as var;
+
+.text {
+  font-weight: var.$font-weight-medium;
+  color: var.$color-text-default;
+
+  &.h1 {
+    font-size: 2.5rem;
+  }
+
+  &.h2 {
+    font-size: 2rem;
+  }
+
+  &.h3 {
+    font-size: 1.75rem;
+  }
+
+  &.h4 {
+    font-size: 1.5rem;
+  }
+
+  &.h5 {
+    font-size: 1.25rem;
+  }
+
+  &.h6 {
+    font-size: 1rem;
+  }
+
+  &.p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  &.label {
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+
+  &.muted {
+    color: var.$color-text-muted;
+  }
+
+  &.bold {
+    font-weight: var.$font-weight-bold;
+  }
+}
