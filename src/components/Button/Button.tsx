@@ -12,7 +12,8 @@ export type ButtonVariant =
   | 'light'
   | 'dark'
   | 'link';
-export type ButtonSize = 'sm' | 'md' | 'lg';
+
+export type ButtonSize = 'small' | 'medium' | 'large';
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
@@ -25,7 +26,7 @@ const Button = ({
   className,
   type = 'button',
   variant = 'primary',
-  size = 'md',
+  size = 'medium',
   loading = false,
   disabled,
   ...props
@@ -50,4 +51,5 @@ const Button = ({
 };
 
 Button.displayName = 'Button';
+
 export default Button;
