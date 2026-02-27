@@ -8,9 +8,10 @@ export type TextProps = React.HTMLAttributes<HTMLElement> & {
   tag?: TextElement;
   muted?: boolean;
   bold?: boolean;
+  error?: boolean;
 };
 
-const Text = ({ tag, className, children, muted, bold, ...props }: TextProps) => {
+const Text = ({ tag, className, children, muted, bold, error, ...props }: TextProps) => {
   const Component = tag ?? 'div';
 
   return (
@@ -20,6 +21,7 @@ const Text = ({ tag, className, children, muted, bold, ...props }: TextProps) =>
         styles[Component],
         { [styles.muted]: muted },
         { [styles.bold]: bold },
+        { [styles.error]: error },
         className,
       )}
       {...props}
