@@ -45,7 +45,7 @@ const Button = ({
       {...props}
     >
       {children}
-      {loading ? <span className={styles.loader} /> : <></>}
+      {loading && <span className={styles.loader} />}
     </button>
   );
 };
