@@ -1,27 +1,56 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './Input.module.scss';
+import Text from 'components/Text';
 
-export type InputVariant = 'default' | 'error' | 'success';
+export type InputSize = 'small' | 'medium' | 'large';
 
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
-  large?: boolean;
-  variant?: InputVariant;
+  label?: string;
+  error?: string;
+  elementSize?: InputSize;
+  success?: boolean;
 };
 
 const Input = ({
   className,
-  type = 'text',
-  variant = 'default',
-  large = false,
+  label,
+  error,
+  elementSize = 'medium',
+  success,
+  id,
   ...props
 }: InputProps) => {
   return (
-    <input
-      type={type}
-      className={classNames(styles.input, styles[variant], { [styles.large]: large }, className)}
-      {...props}
-    />
+    <div className={styles.container}>
+      {label && (
+        <Text tag="label" className={classNames(styles.label, styles[elementSize])}>
+          {label}
+        </Text>
+      )}
+
+      <div className={styles.wrapper}>
+        <input
+          id={id}
+          className={classNames(
+            styles.input,
+            styles[elementSize],
+            {
+              [styles.error]: !!error,
+              [styles.success]: success && !error,
+            },
+            className,
+          )}
+          {...props}
+        />
+      </div>
+
+      {error && (
+        <Text tag="span" error className={styles.message}>
+          {error}
+        </Text>
+      )}
+    </div>
   );
 };
 
