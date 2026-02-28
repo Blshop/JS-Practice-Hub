@@ -5,7 +5,22 @@ import Text from 'components/Text';
 
 export type InputSize = 'small' | 'medium' | 'large';
 
+export type InputTypes =
+  | 'text'
+  | 'password'
+  | 'email'
+  | 'tel'
+  | 'url'
+  | 'search'
+  | 'number'
+  | 'date'
+  | 'datetime-local'
+  | 'month'
+  | 'week'
+  | 'time';
+
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  type?: InputTypes;
   label?: string;
   error?: string;
   elementSize?: InputSize;
@@ -19,19 +34,24 @@ const Input = ({
   elementSize = 'medium',
   success,
   id,
+  type = 'text',
   ...props
 }: InputProps) => {
+  const generatedId = React.useId();
+  const inputId = id ?? generatedId;
+
   return (
     <div className={styles.container}>
       {label && (
-        <Text tag="label" className={classNames(styles.label, styles[elementSize])}>
+        <label htmlFor={inputId} className={classNames(styles.label, styles[elementSize])}>
           {label}
-        </Text>
+        </label>
       )}
 
       <div className={styles.wrapper}>
         <input
-          id={id}
+          id={inputId}
+          type={type}
           className={classNames(
             styles.input,
             styles[elementSize],
