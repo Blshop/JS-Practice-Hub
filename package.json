@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist -u \"github-actions[bot] <github-actions[bot]@users.noreply.github.com>\" --repo=https://x-access-token:${GITHUB_TOKEN}@github.com/Blshop/JS-Practice-Hub.git",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix",
     "preview": "vite preview",
