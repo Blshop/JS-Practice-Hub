@@ -32,11 +32,6 @@ jobs:
           cd dist
           cp index.html 404.html
 
-      - name: Configure Git identity (fixes gh-pages commit error)
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
       - name: Deploy to GitHub Pages
         run: npm run deploy
         env:
