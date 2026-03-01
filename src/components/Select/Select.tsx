@@ -95,7 +95,7 @@ const Select = ({
 
   return (
     <div className={styles.container} ref={containerRef}>
-      {label && <span className={classNames(styles.label, styles[elementSize])}>{label}</span>}
+      {label && <div className={classNames(styles.label, styles[elementSize])}>{label}</div>}
 
       <div className={styles.wrapper}>
         <div
@@ -110,11 +110,6 @@ const Select = ({
           )}
           onClick={handleToggle}
           onKeyDown={handleKeyDown}
-          tabIndex={disabled ? -1 : 0}
-          role="combobox"
-          aria-expanded={isOpen}
-          aria-haspopup="listbox"
-          aria-disabled={disabled}
         >
           <span className={styles.select_text}>{displayText}</span>
           <span className={styles.arrow} />
@@ -131,9 +126,6 @@ const Select = ({
                     [styles.disabled]: option.disabled,
                   })}
                   onClick={() => handleSelect(option.value, option.disabled)}
-                  role="option"
-                  aria-selected={option.value === selectedValue}
-                  aria-disabled={option.disabled}
                 >
                   {option.label}
                 </div>
