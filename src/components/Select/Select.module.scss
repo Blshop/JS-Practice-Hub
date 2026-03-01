@@ -4,14 +4,14 @@
 .container {
   @include mixin.flex($direction: column, $gap: 0.5rem);
   position: relative;
+  width: 100%;
+}
 
-  & .wrapper {
-    position: relative;
-  }
+.wrapper {
+  position: relative;
 }
 
 .select {
-  width: 100%;
   padding: 0.75rem 2.5rem 0.75rem 1rem;
   border: 2px solid var.$color-neutral-900;
   border-radius: 1em;
@@ -29,7 +29,7 @@
   position: relative;
   user-select: none;
 
-  &:hover:not(.disabled) {
+  &:hover {
     filter: brightness(1.1) contrast(1.1) saturate(1.5);
   }
 
@@ -57,13 +57,14 @@
     padding: 1rem 3rem 1rem 1.5rem;
     font-size: 1.25rem;
   }
-}
 
-.selectText {
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  &_text {
+    width: 0;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 .arrow {
@@ -100,10 +101,9 @@
   border: 2px solid var.$color-neutral-900;
   border-radius: 1em;
   box-shadow: 0 4px 0 0 var.$color-neutral-900;
-  max-height: 200px;
-  overflow-y: auto;
+  overflow: hidden;
   z-index: 1000;
-  animation: slideDown 0.2s ease-out;
+  animation: slide-down 0.2s ease-out;
 
   &.small {
     font-size: 0.75rem;
@@ -112,9 +112,15 @@
   &.large {
     font-size: 1.25rem;
   }
+
+  &_inner {
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 1em;
+  }
 }
 
-@keyframes slideDown {
+@keyframes slide-down {
   from {
     opacity: 0;
     transform: translateY(-10px);
@@ -132,19 +138,21 @@
     background-color 0.15s,
     color 0.15s;
   user-select: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
-  &:hover:not(.optionDisabled) {
+  &:hover {
     background-color: var.$color-primary;
   }
 
   &.selected {
-    background-color: var.$color-success;
+    background-color: var.$color-secondary;
     font-weight: var.$font-weight-bold;
   }
 
-  &_disabled {
-    color: var.$color-neutral-300;
-    cursor: not-allowed;
+  &.disabled {
+    pointer-events: none;
     opacity: 0.6;
   }
 
@@ -160,6 +168,7 @@
 .label {
   font-size: 1rem;
   margin-left: 0.5rem;
+  cursor: pointer;
 
   &.small {
     font-size: 0.75rem;

@@ -20,14 +20,12 @@ export type SelectProps = {
   disabled?: boolean;
   placeholder?: string;
   className?: string;
-  id?: string;
 };
 
 const Select = ({
   className,
   label,
   elementSize = 'medium',
-  id,
   options,
   value,
   defaultValue,
@@ -38,8 +36,6 @@ const Select = ({
   const [isOpen, setIsOpen] = useState(false);
   const [internalValue, setInternalValue] = useState(defaultValue || '');
   const containerRef = useRef<HTMLDivElement>(null);
-  const generatedId = React.useId();
-  const selectId = id ?? generatedId;
   const isControlled = value !== undefined;
   const selectedValue = isControlled ? value : internalValue;
   const selectedOption = options.find((opt) => opt.value === selectedValue);
@@ -99,15 +95,10 @@ const Select = ({
 
   return (
     <div className={styles.container} ref={containerRef}>
-      {label && (
-        <label htmlFor={selectId} className={classNames(styles.label, styles[elementSize])}>
-          {label}
-        </label>
-      )}
+      {label && <span className={classNames(styles.label, styles[elementSize])}>{label}</span>}
 
       <div className={styles.wrapper}>
         <div
-          id={selectId}
           className={classNames(
             styles.select,
             styles[elementSize],
@@ -125,27 +116,29 @@ const Select = ({
           aria-haspopup="listbox"
           aria-disabled={disabled}
         >
-          <span className={styles.selectText}>{displayText}</span>
+          <span className={styles.select_text}>{displayText}</span>
           <span className={styles.arrow} />
         </div>
 
         {isOpen && (
           <div className={classNames(styles.dropdown, styles[elementSize])}>
-            {options.map((option) => (
-              <div
-                key={option.value}
-                className={classNames(styles.option, {
-                  [styles.selected]: option.value === selectedValue,
-                  [styles.option_disabled]: option.disabled,
-                })}
-                onClick={() => handleSelect(option.value, option.disabled)}
-                role="option"
-                aria-selected={option.value === selectedValue}
-                aria-disabled={option.disabled}
-              >
-                {option.label}
-              </div>
-            ))}
+            <div className={styles.dropdown_inner}>
+              {options.map((option) => (
+                <div
+                  key={option.value}
+                  className={classNames(styles.option, {
+                    [styles.selected]: option.value === selectedValue,
+                    [styles.disabled]: option.disabled,
+                  })}
+                  onClick={() => handleSelect(option.value, option.disabled)}
+                  role="option"
+                  aria-selected={option.value === selectedValue}
+                  aria-disabled={option.disabled}
+                >
+                  {option.label}
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>
