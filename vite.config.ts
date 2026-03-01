@@ -21,7 +21,7 @@ const parseTsConfigPaths = (paths: Record<string, string[]>): Record<string, str
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/',
+  base: './',
   plugins: [
     react({
       babel: {
