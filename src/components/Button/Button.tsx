@@ -16,6 +16,7 @@ export type ButtonVariant =
 export type ButtonSize = 'small' | 'medium' | 'large';
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  children: React.ReactNode;
   variant?: ButtonVariant;
   size?: ButtonSize;
   loading?: boolean;
@@ -41,6 +42,7 @@ const Button = ({
         className,
         type,
       )}
+      aria-busy={loading}
       disabled={disabled || loading}
       {...props}
     >

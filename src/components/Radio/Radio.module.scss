@@ -75,6 +75,10 @@
       height: 18px;
     }
   }
+
+  &.error {
+    background-color: var.$color-danger;
+  }
 }
 
 .label {
@@ -87,5 +91,14 @@
 
   &.large {
     font-size: 1.25rem;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  &.error {
+    color: var.$color-danger;
   }
 }

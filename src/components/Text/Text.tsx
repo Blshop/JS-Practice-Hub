@@ -12,22 +12,22 @@ export type TextProps = React.HTMLAttributes<HTMLElement> & {
 };
 
 const Text = ({ tag, className, children, muted, bold, error, ...props }: TextProps) => {
-  const Component = tag ?? 'div';
+  const Tag = tag ?? 'div';
 
   return (
-    <Component
+    <Tag
       className={classNames(
         styles.text,
-        styles[Component],
+        styles[Tag],
         { [styles.muted]: muted },
         { [styles.bold]: bold },
-        { [styles.error]: error },
+        { [styles.error]: !!error },
         className,
       )}
       {...props}
     >
       {children}
-    </Component>
+    </Tag>
   );
 };
 

@@ -4,12 +4,22 @@ import styles from './Radio.module.scss';
 
 export type RadioSize = 'small' | 'medium' | 'large';
 
-export type RadioProps = React.InputHTMLAttributes<HTMLInputElement> & {
+export type RadioProps = React.ComponentPropsWithRef<'input'> & {
   elementSize?: RadioSize;
   label?: string;
+  error?: boolean;
 };
 
-const Radio = ({ className, label, elementSize = 'medium', id, ...props }: RadioProps) => {
+const Radio = ({
+  className,
+  label,
+  error,
+  elementSize = 'medium',
+  id,
+  disabled,
+  ref,
+  ...props
+}: RadioProps) => {
   const generatedId = React.useId();
   const inputId = id ?? generatedId;
 
@@ -19,11 +29,25 @@ const Radio = ({ className, label, elementSize = 'medium', id, ...props }: Radio
         <input
           id={inputId}
           type="radio"
-          className={classNames(styles.input, styles[elementSize], className)}
+          disabled={disabled}
+          ref={ref}
+          aria-invalid={!!error}
+          className={classNames(
+            styles.input,
+            styles[elementSize],
+            { [styles.error]: !!error },
+            className,
+          )}
           {...props}
         />
         {label && (
-          <label htmlFor={inputId} className={classNames(styles.label, styles[elementSize])}>
+          <label
+            htmlFor={inputId}
+            className={classNames(styles.label, styles[elementSize], {
+              [styles.error]: !!error,
+              [styles.disabled]: !!disabled,
+            })}
+          >
             {label}
           </label>
         )}

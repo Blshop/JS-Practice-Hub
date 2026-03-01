@@ -19,7 +19,7 @@ export type InputTypes =
   | 'week'
   | 'time';
 
-export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+export type InputProps = Omit<React.ComponentPropsWithRef<'input'>, 'type'> & {
   type?: InputTypes;
   label?: string;
   error?: string;
@@ -35,6 +35,7 @@ const Input = ({
   success,
   id,
   type = 'text',
+  ref,
   ...props
 }: InputProps) => {
   const generatedId = React.useId();
@@ -52,6 +53,8 @@ const Input = ({
         <input
           id={inputId}
           type={type}
+          ref={ref}
+          aria-invalid={!!error}
           className={classNames(
             styles.input,
             styles[elementSize],

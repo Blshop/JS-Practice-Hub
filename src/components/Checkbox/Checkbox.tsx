@@ -4,10 +4,10 @@ import styles from './Checkbox.module.scss';
 
 export type CheckboxSize = 'small' | 'medium' | 'large';
 
-export type CheckboxProps = React.InputHTMLAttributes<HTMLInputElement> & {
+export type CheckboxProps = React.ComponentPropsWithRef<'input'> & {
   elementSize?: CheckboxSize;
   label?: string;
-  error?: string;
+  error?: boolean;
 };
 
 const Checkbox = ({
@@ -16,6 +16,8 @@ const Checkbox = ({
   error,
   elementSize = 'medium',
   id,
+  disabled,
+  ref,
   ...props
 }: CheckboxProps) => {
   const generatedId = React.useId();
@@ -27,18 +29,25 @@ const Checkbox = ({
         <input
           id={inputId}
           type="checkbox"
+          disabled={disabled}
+          ref={ref}
+          aria-invalid={!!error}
           className={classNames(
             styles.input,
             styles[elementSize],
-            {
-              [styles.error]: !!error,
-            },
+            { [styles.error]: !!error },
             className,
           )}
           {...props}
         />
         {label && (
-          <label htmlFor={inputId} className={classNames(styles.label, styles[elementSize])}>
+          <label
+            htmlFor={inputId}
+            className={classNames(styles.label, styles[elementSize], {
+              [styles.error]: !!error,
+              [styles.disabled]: !!disabled,
+            })}
+          >
             {label}
           </label>
         )}
