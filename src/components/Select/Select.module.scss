@@ -113,9 +113,18 @@
   }
 
   &_inner {
+    max-height: calc((1.5rem + 1em) * 4 + 10px);
     overflow-y: auto;
     overflow-x: hidden;
     border-radius: 1em;
+  }
+
+  .small {
+    max-height: calc((0.8rem + 1em) * 4 + 8px);
+  }
+
+  .large {
+    max-height: calc((2rem + 1em) * 4 + 12px);
   }
 }
 

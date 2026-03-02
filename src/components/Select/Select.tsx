@@ -32,6 +32,7 @@ const Select = ({
   onChange,
   disabled,
   placeholder = '',
+  ...props
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [internalValue, setInternalValue] = useState(defaultValue || '');
@@ -168,6 +169,7 @@ const Select = ({
           onClick={handleToggle}
           onKeyDown={handleKeyDown}
           tabIndex={disabled ? -1 : 0}
+          {...props}
         >
           <span className={styles.select_text}>{displayText}</span>
           <span className={styles.arrow} />
@@ -175,7 +177,7 @@ const Select = ({
 
         {isOpen && (
           <div className={classNames(styles.dropdown, styles[elementSize])}>
-            <div className={styles.dropdown_inner}>
+            <div className={classNames(styles.dropdown_inner, styles[elementSize])}>
               {options.map((option, index) => (
                 <div
                   key={option.value}
