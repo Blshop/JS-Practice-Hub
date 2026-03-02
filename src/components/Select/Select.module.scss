@@ -141,6 +141,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 
+  &.hover,
   &:hover {
     background-color: var.$color-primary;
   }
