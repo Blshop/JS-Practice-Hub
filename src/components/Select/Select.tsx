@@ -11,6 +11,7 @@ export type SelectOption = {
 };
 
 export type SelectProps = {
+  id?: string;
   elementSize?: SelectSize;
   label?: string;
   options: SelectOption[];
@@ -23,6 +24,7 @@ export type SelectProps = {
 };
 
 const Select = ({
+  id,
   className,
   label,
   elementSize = 'medium',
@@ -34,6 +36,11 @@ const Select = ({
   placeholder = '',
   ...props
 }: SelectProps) => {
+  const generatedId = React.useId();
+  const selectId = id ?? generatedId;
+  const listboxId = `${selectId}-listbox`;
+  const labelId = `${selectId}-label`;
+
   const [isOpen, setIsOpen] = useState(false);
   const [internalValue, setInternalValue] = useState(defaultValue || '');
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
@@ -62,7 +69,12 @@ const Select = ({
 
   const handleToggle = () => {
     if (!disabled) {
-      setIsOpen(!isOpen);
+      setIsOpen((prev) => !prev);
+
+      if (!isOpen) {
+        const currentIndex = options.findIndex((opt) => opt.value === selectedValue);
+        setHighlightedIndex(currentIndex >= 0 ? currentIndex : 0);
+      }
     }
   };
 
@@ -87,8 +99,10 @@ const Select = ({
       case 'ArrowDown':
         event.preventDefault();
         if (!isOpen) {
+          const index = options.findIndex((opt) => opt.value === selectedValue);
+
           setIsOpen(true);
-          setHighlightedIndex(options.findIndex((opt) => opt.value === selectedValue));
+          setHighlightedIndex(index >= 0 ? index : 0);
         } else {
           setHighlightedIndex((prev) => {
             if (prev === null) return 0;
@@ -108,8 +122,10 @@ const Select = ({
       case 'ArrowUp':
         event.preventDefault();
         if (!isOpen) {
+          const index = options.findIndex((opt) => opt.value === selectedValue);
+
           setIsOpen(true);
-          setHighlightedIndex(options.findIndex((opt) => opt.value === selectedValue));
+          setHighlightedIndex(index >= 0 ? index : options.length - 1);
         } else {
           setHighlightedIndex((prev) => {
             if (prev === null) return options.length - 1;
@@ -136,11 +152,7 @@ const Select = ({
             handleSelect(opt.value, opt.disabled);
           }
         } else {
-          setIsOpen(!isOpen);
-
-          if (!isOpen) {
-            setHighlightedIndex(options.findIndex((opt) => opt.value === selectedValue));
-          }
+          handleToggle();
         }
         break;
 
@@ -153,10 +165,24 @@ const Select = ({
 
   return (
     <div className={styles.container} ref={containerRef}>
-      {label && <div className={classNames(styles.label, styles[elementSize])}>{label}</div>}
+      {label && (
+        <div id={labelId} className={classNames(styles.label, styles[elementSize])}>
+          {label}
+        </div>
+      )}
 
       <div className={styles.wrapper}>
         <div
+          role="combobox"
+          aria-expanded={isOpen}
+          aria-haspopup="listbox"
+          aria-controls={listboxId}
+          aria-labelledby={label ? labelId : undefined}
+          aria-activedescendant={
+            highlightedIndex !== null ? `${selectId}-option-${highlightedIndex}` : undefined
+          }
+          aria-disabled={disabled}
+          tabIndex={disabled ? -1 : 0}
           className={classNames(
             styles.select,
             styles[elementSize],
@@ -168,7 +194,6 @@ const Select = ({
           )}
           onClick={handleToggle}
           onKeyDown={handleKeyDown}
-          tabIndex={disabled ? -1 : 0}
           {...props}
         >
           <span className={styles.select_text}>{displayText}</span>
@@ -177,10 +202,18 @@ const Select = ({
 
         {isOpen && (
           <div className={classNames(styles.dropdown, styles[elementSize])}>
-            <div className={classNames(styles.dropdown_inner, styles[elementSize])}>
+            <div
+              id={listboxId}
+              role="listbox"
+              className={classNames(styles.dropdown_inner, styles[elementSize])}
+            >
               {options.map((option, index) => (
                 <div
                   key={option.value}
+                  id={`${selectId}-option-${index}`}
+                  role="option"
+                  aria-selected={option.value === selectedValue}
+                  aria-disabled={option.disabled}
                   className={classNames(styles.option, {
                     [styles.selected]: option.value === selectedValue,
                     [styles.disabled]: option.disabled,
