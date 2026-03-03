@@ -1,0 +1,15 @@
+@use 'styles/variables.scss' as var;
+@use 'styles/_mixins.scss' as mixin;
+
+.auth {
+  @include mixin.flex($justify: center, $align: center);
+  flex: 1;
+  height: auto;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 1.5rem;
+  }
+}
