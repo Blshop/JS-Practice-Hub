@@ -16,4 +16,8 @@ export const routes = {
       register: () => '/auth/register',
     },
   },
+  demo: {
+    mask: '/demo',
+    create: () => `/demo`,
+  },
 };

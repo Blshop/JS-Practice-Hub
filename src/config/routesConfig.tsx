@@ -5,6 +5,7 @@ import { routes } from './routes';
 import Auth from 'pages/Auth';
 import LoginForm from 'pages/Auth/components/LoginForm';
 import RegisterForm from 'pages/Auth/components/RegisterForm';
+import Demo from 'pages/Demo';
 
 export const routesConfig: RouteObject[] = [
   {
@@ -37,6 +38,10 @@ export const routesConfig: RouteObject[] = [
             element: <RegisterForm />,
           },
         ],
+      },
+      {
+        path: routes.demo.mask,
+        element: <Demo />,
       },
     ],
   },
