@@ -2,6 +2,7 @@ import { Navigate } from 'react-router';
 import type { RouteObject } from 'react-router';
 import App from '../App';
 import { routes } from './routes';
+import Demo from 'pages/Demo';
 
 export const routesConfig: RouteObject[] = [
   {
@@ -34,6 +35,10 @@ export const routesConfig: RouteObject[] = [
             element: <>Форма регистрации</>,
           },
         ],
+      },
+      {
+        path: routes.demo.mask,
+        element: <Demo />,
       },
     ],
   },
