@@ -1,18 +1,16 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate, Outlet, useLocation } from 'react-router-dom';
 import { routes } from 'config/routes';
-import LoginForm from './components/LoginForm';
-import RegisterForm from './components/RegisterForm';
 import Text from 'components/Text';
 import styles from './Auth.module.scss';
 
 const Auth: React.FC = () => {
-  const location = useLocation();
   const navigate = useNavigate();
-  const isLogin = location.pathname === routes.auth.create.login();
+  const location = useLocation();
+  const isLogin = location.pathname === routes.auth.login;
 
   const handleToggle = () => {
-    const newPath = isLogin ? routes.auth.create.register() : routes.auth.create.login();
+    const newPath = isLogin ? routes.auth.register : routes.auth.login;
     navigate(newPath);
   };
 
@@ -26,7 +24,7 @@ const Auth: React.FC = () => {
           </Text>
 
           <div className={styles.auth__formContainer}>
-            {isLogin ? <LoginForm /> : <RegisterForm />}
+            <Outlet />
           </div>
 
           <Text className={styles.auth__switch}>
