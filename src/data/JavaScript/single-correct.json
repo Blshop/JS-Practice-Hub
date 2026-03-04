@@ -1,0 +1,269 @@
+[
+    {
+        "id": "js-single-001",
+        "type": "single-correct",
+        "difficulty": "easy",
+        "question": "What does `typeof NaN` return?",
+        "options": [
+            {
+                "id": "a",
+                "text": "\"number\""
+            },
+            {
+                "id": "b",
+                "text": "\"NaN\""
+            },
+            {
+                "id": "c",
+                "text": "\"undefined\""
+            },
+            {
+                "id": "d",
+                "text": "NaN"
+            }
+        ],
+        "correctId": "a",
+        "explanation": "NaN is a special numeric value → typeof NaN === 'number'"
+    },
+    {
+        "id": "js-single-002",
+        "type": "single-correct",
+        "difficulty": "easy",
+        "question": "Which operator performs strict equality comparison (same value and type)?",
+        "options": [
+            {
+                "id": "a",
+                "text": "=="
+            },
+            {
+                "id": "b",
+                "text": "==="
+            },
+            {
+                "id": "c",
+                "text": "!="
+            },
+            {
+                "id": "d",
+                "text": "!=="
+            }
+        ],
+        "correctId": "b",
+        "explanation": "=== checks both value and type without coercion"
+    },
+    {
+        "id": "js-single-003",
+        "type": "single-correct",
+        "difficulty": "easy",
+        "question": "What is the result of `!!0`?",
+        "options": [
+            {
+                "id": "a",
+                "text": "true"
+            },
+            {
+                "id": "b",
+                "text": "false"
+            },
+            {
+                "id": "c",
+                "text": "0"
+            },
+            {
+                "id": "d",
+                "text": "undefined"
+            }
+        ],
+        "correctId": "b",
+        "explanation": "0 is falsy → !0 = true → !!0 = false"
+    },
+    {
+        "id": "js-single-004",
+        "type": "single-correct",
+        "difficulty": "medium",
+        "question": "What is logged?",
+        "code": "console.log(x);\nvar x = 10;\nconsole.log(x);",
+        "options": [
+            {
+                "id": "a",
+                "text": "10 → 10"
+            },
+            {
+                "id": "b",
+                "text": "undefined → 10"
+            },
+            {
+                "id": "c",
+                "text": "ReferenceError"
+            },
+            {
+                "id": "d",
+                "text": "null → 10"
+            }
+        ],
+        "correctId": "b",
+        "explanation": "var is hoisted to the top of the scope and initialized with undefined"
+    },
+    {
+        "id": "js-single-005",
+        "type": "single-correct",
+        "difficulty": "medium",
+        "question": "What happens when this code runs?",
+        "code": "console.log(a);\nlet a = 42;",
+        "options": [
+            {
+                "id": "a",
+                "text": "undefined"
+            },
+            {
+                "id": "b",
+                "text": "42"
+            },
+            {
+                "id": "c",
+                "text": "ReferenceError: Cannot access 'a' before initialization"
+            },
+            {
+                "id": "d",
+                "text": "SyntaxError"
+            }
+        ],
+        "correctId": "c",
+        "explanation": "let and const are in the Temporal Dead Zone (TDZ) until declaration"
+    },
+    {
+        "id": "js-single-006",
+        "type": "single-correct",
+        "difficulty": "medium",
+        "question": "What is the correct order of console logs?",
+        "code": "console.log('start');\nsetTimeout(() => console.log('timer'), 0);\nPromise.resolve().then(() => console.log('promise'));\nconsole.log('end');",
+        "options": [
+            {
+                "id": "a",
+                "text": "start → end → promise → timer"
+            },
+            {
+                "id": "b",
+                "text": "start → promise → end → timer"
+            },
+            {
+                "id": "c",
+                "text": "start → timer → promise → end"
+            },
+            {
+                "id": "d",
+                "text": "start → end → timer → promise"
+            }
+        ],
+        "correctId": "a",
+        "explanation": "Synchronous code → microtasks (Promise) → macrotasks (setTimeout)"
+    },
+    {
+        "id": "js-single-007",
+        "type": "single-correct",
+        "difficulty": "medium",
+        "question": "What is the value of `this` inside the arrow function?",
+        "code": "const obj = {\n  name: 'test',\n  say: function() {\n    const arrow = () => console.log(this.name);\n    arrow();\n  }\n};\nobj.say();",
+        "options": [
+            {
+                "id": "a",
+                "text": "\"test\""
+            },
+            {
+                "id": "b",
+                "text": "undefined"
+            },
+            {
+                "id": "c",
+                "text": "window / globalThis"
+            },
+            {
+                "id": "d",
+                "text": "null"
+            }
+        ],
+        "correctId": "a",
+        "explanation": "Arrow functions inherit `this` from the surrounding lexical scope"
+    },
+    {
+        "id": "js-single-008",
+        "type": "single-correct",
+        "difficulty": "hard",
+        "question": "What is logged?",
+        "code": "function Animal() {}\nAnimal.prototype.sound = 'generic';\nconst dog = new Animal();\ndog.sound = 'woof';\nconsole.log(dog.hasOwnProperty('sound'));\nconsole.log(Animal.prototype.sound);",
+        "options": [
+            {
+                "id": "a",
+                "text": "true → \"generic\""
+            },
+            {
+                "id": "b",
+                "text": "false → \"woof\""
+            },
+            {
+                "id": "c",
+                "text": "true → \"woof\""
+            },
+            {
+                "id": "d",
+                "text": "false → \"generic\""
+            }
+        ],
+        "correctId": "a",
+        "explanation": "Assigning dog.sound creates an own property on the instance → prototype remains unchanged"
+    },
+    {
+        "id": "js-single-009",
+        "type": "single-correct",
+        "difficulty": "hard",
+        "question": "What is the final value of `result`?",
+        "code": "const data = { user: { profile: null } };\nconst result = data?.user?.profile?.name ?? 'anonymous';",
+        "options": [
+            {
+                "id": "a",
+                "text": "\"anonymous\""
+            },
+            {
+                "id": "b",
+                "text": "null"
+            },
+            {
+                "id": "c",
+                "text": "undefined"
+            },
+            {
+                "id": "d",
+                "text": "TypeError"
+            }
+        ],
+        "correctId": "a",
+        "explanation": "profile is null → optional chaining returns undefined → ?? falls back to 'anonymous'"
+    },
+    {
+        "id": "js-single-010",
+        "type": "single-correct",
+        "difficulty": "hard",
+        "question": "What does this classic closure trap output?",
+        "code": "for (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 100);\n}",
+        "options": [
+            {
+                "id": "a",
+                "text": "0 1 2"
+            },
+            {
+                "id": "b",
+                "text": "3 3 3"
+            },
+            {
+                "id": "c",
+                "text": "0 0 0"
+            },
+            {
+                "id": "d",
+                "text": "1 2 3"
+            }
+        ],
+        "correctId": "b",
+        "explanation": "var is function-scoped → all timeouts share the same final value of i (which is 3)"
+    }
+]
