@@ -2,7 +2,7 @@
     {
         "id": "js-single-001",
         "type": "single-correct",
-        "difficulty": "easy",
+        "theme": "Type Coercion & typeof Operator",
         "question": "What does `typeof NaN` return?",
         "options": [
             {
@@ -28,7 +28,7 @@
     {
         "id": "js-single-002",
         "type": "single-correct",
-        "difficulty": "easy",
+        "theme": "Equality Operators",
         "question": "Which operator performs strict equality comparison (same value and type)?",
         "options": [
             {
@@ -54,7 +54,7 @@
     {
         "id": "js-single-003",
         "type": "single-correct",
-        "difficulty": "easy",
+        "theme": "Truthy & Falsy Values",
         "question": "What is the result of `!!0`?",
         "options": [
             {
@@ -80,7 +80,7 @@
     {
         "id": "js-single-004",
         "type": "single-correct",
-        "difficulty": "medium",
+        "theme": "Hoisting with var",
         "question": "What is logged?",
         "code": "console.log(x);\nvar x = 10;\nconsole.log(x);",
         "options": [
@@ -107,7 +107,7 @@
     {
         "id": "js-single-005",
         "type": "single-correct",
-        "difficulty": "medium",
+        "theme": "Temporal Dead Zone (TDZ)",
         "question": "What happens when this code runs?",
         "code": "console.log(a);\nlet a = 42;",
         "options": [
@@ -134,7 +134,7 @@
     {
         "id": "js-single-006",
         "type": "single-correct",
-        "difficulty": "medium",
+        "theme": "Event Loop & Microtasks/Macrotasks",
         "question": "What is the correct order of console logs?",
         "code": "console.log('start');\nsetTimeout(() => console.log('timer'), 0);\nPromise.resolve().then(() => console.log('promise'));\nconsole.log('end');",
         "options": [
@@ -161,7 +161,7 @@
     {
         "id": "js-single-007",
         "type": "single-correct",
-        "difficulty": "medium",
+        "theme": "this Binding in Arrow Functions",
         "question": "What is the value of `this` inside the arrow function?",
         "code": "const obj = {\n  name: 'test',\n  say: function() {\n    const arrow = () => console.log(this.name);\n    arrow();\n  }\n};\nobj.say();",
         "options": [
@@ -188,7 +188,7 @@
     {
         "id": "js-single-008",
         "type": "single-correct",
-        "difficulty": "hard",
+        "theme": "Prototypes & hasOwnProperty",
         "question": "What is logged?",
         "code": "function Animal() {}\nAnimal.prototype.sound = 'generic';\nconst dog = new Animal();\ndog.sound = 'woof';\nconsole.log(dog.hasOwnProperty('sound'));\nconsole.log(Animal.prototype.sound);",
         "options": [
@@ -215,7 +215,7 @@
     {
         "id": "js-single-009",
         "type": "single-correct",
-        "difficulty": "hard",
+        "theme": "Optional Chaining & Nullish Coalescing",
         "question": "What is the final value of `result`?",
         "code": "const data = { user: { profile: null } };\nconst result = data?.user?.profile?.name ?? 'anonymous';",
         "options": [
@@ -242,7 +242,7 @@
     {
         "id": "js-single-010",
         "type": "single-correct",
-        "difficulty": "hard",
+        "theme": "Closures & var in Loops with setTimeout",
         "question": "What does this classic closure trap output?",
         "code": "for (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 100);\n}",
         "options": [

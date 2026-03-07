@@ -2,7 +2,7 @@
     {
         "id": "js-multi-011",
         "type": "multiple-correct",
-        "difficulty": "easy",
+        "theme": "Truthy & Falsy Values",
         "question": "Which of these values are **truthy** in JavaScript?",
         "options": [
             {
@@ -46,7 +46,7 @@
     {
         "id": "js-multi-012",
         "type": "multiple-correct",
-        "difficulty": "medium",
+        "theme": "Array Methods – Mutation",
         "question": "Which methods **do NOT** create a new array (i.e. mutate the original)?",
         "options": [
             {
@@ -89,7 +89,7 @@
     {
         "id": "js-multi-013",
         "type": "multiple-correct",
-        "difficulty": "medium",
+        "theme": "Equality & Coercion",
         "question": "In which cases does **loose equality (==)** return true?",
         "options": [
             {
@@ -129,7 +129,7 @@
     {
         "id": "js-multi-014",
         "type": "multiple-correct",
-        "difficulty": "medium",
+        "theme": "Type Checking & Arrays",
         "question": "Which of the following are valid ways to check if a value is an array?",
         "options": [
             {
@@ -164,7 +164,7 @@
     {
         "id": "js-multi-015",
         "type": "multiple-correct",
-        "difficulty": "medium",
+        "theme": "Arrow Functions",
         "question": "Which statements about arrow functions are **true**?",
         "options": [
             {
@@ -198,7 +198,7 @@
     {
         "id": "js-multi-016",
         "type": "multiple-correct",
-        "difficulty": "hard",
+        "theme": "Event Loop & Microtasks",
         "question": "Which tasks are processed in the **microtask queue**?",
         "options": [
             {
@@ -237,7 +237,7 @@
     {
         "id": "js-multi-017",
         "type": "multiple-correct",
-        "difficulty": "hard",
+        "theme": "Object Immutability & Descriptors",
         "question": "Which operations are **allowed** on an Object.seal() object?",
         "options": [
             {
@@ -270,7 +270,7 @@
     {
         "id": "js-multi-018",
         "type": "multiple-correct",
-        "difficulty": "hard",
+        "theme": "Infinite Loops & Stack Overflow",
         "question": "Which of these can cause an **infinite loop** or **stack overflow**?",
         "options": [
             {
@@ -305,7 +305,7 @@
     {
         "id": "js-multi-019",
         "type": "multiple-correct",
-        "difficulty": "medium",
+        "theme": "Object Creation & Prototypes",
         "question": "Which of the following are valid ways to create an object with **no prototype**?",
         "options": [
             {
@@ -337,7 +337,7 @@
     {
         "id": "js-multi-020",
         "type": "multiple-correct",
-        "difficulty": "hard",
+        "theme": "Type Checking & Arrays",
         "question": "Which of these return **true** when tested with Array.isArray()?",
         "options": [
             {

@@ -2,7 +2,7 @@
     {
         "id": "js-dnd-001",
         "type": "drag-and-drop",
-        "difficulty": "easy",
+        "theme": "Truthy & Falsy Values",
         "question": "Sort these values from falsy to truthy (drag to reorder)",
         "items": [
             {
@@ -38,7 +38,7 @@
     {
         "id": "js-dnd-002",
         "type": "drag-and-drop",
-        "difficulty": "easy",
+        "theme": "Array Methods – Mutation",
         "question": "Match each method to whether it mutates the original array",
         "items": [
             {
@@ -83,7 +83,7 @@
     {
         "id": "js-dnd-003",
         "type": "drag-and-drop",
-        "difficulty": "medium",
+        "theme": "CSS Selectors Specificity",
         "question": "Arrange these from lowest to highest CSS selector specificity",
         "items": [
             {
@@ -119,7 +119,7 @@
     {
         "id": "js-dnd-004",
         "type": "drag-and-drop",
-        "difficulty": "medium",
+        "theme": "Event Loop",
         "question": "Sort these from earliest to latest in the event loop cycle",
         "items": [
             {
@@ -150,7 +150,7 @@
     {
         "id": "js-dnd-005",
         "type": "drag-and-drop",
-        "difficulty": "medium",
+        "theme": "Variable Scope & Hoisting",
         "question": "Match each keyword to its correct scope behavior",
         "items": [
             {
@@ -185,7 +185,7 @@
     {
         "id": "js-dnd-006",
         "type": "drag-and-drop",
-        "difficulty": "hard",
+        "theme": "this Binding & Context",
         "question": "Arrange these from lowest to highest priority when determining `this` value",
         "items": [
             {
@@ -216,7 +216,7 @@
     {
         "id": "js-dnd-007",
         "type": "drag-and-drop",
-        "difficulty": "hard",
+        "theme": "Array Methods – Return Values",
         "question": "Match each array method to what it returns",
         "items": [
             {
@@ -265,7 +265,7 @@
     {
         "id": "js-dnd-008",
         "type": "drag-and-drop",
-        "difficulty": "hard",
+        "theme": "Object Creation Patterns",
         "question": "Sort these object creation methods from most to least commonly used in modern code",
         "items": [
             {
@@ -301,7 +301,7 @@
     {
         "id": "js-dnd-009",
         "type": "drag-and-drop",
-        "difficulty": "hard",
+        "theme": "ECMAScript History & Features",
         "question": "Match each feature to the ECMAScript edition it was introduced in",
         "items": [
             {
@@ -345,7 +345,7 @@
     {
         "id": "js-dnd-010",
         "type": "drag-and-drop",
-        "difficulty": "hard",
+        "theme": "Equality & Comparison",
         "question": "Arrange these from lowest to highest when comparing object equality methods",
         "items": [
             {
