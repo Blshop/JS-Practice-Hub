@@ -9,7 +9,8 @@ import Button from 'components/Button';
 const NAV_ITEMS = [
   { label: 'Home', path: routes.main.mask, disabled: false },
   { label: 'Profile', path: routes.main.mask, disabled: true },
-  { label: 'About', path: routes.about.mask, disabled: false },
+  { label: 'About', path: routes.about.mask, disabled: true },
+  { label: 'Demo', path: routes.demo.mask, disabled: false },
 ] as const;
 
 export const Header: React.FC = () => {
