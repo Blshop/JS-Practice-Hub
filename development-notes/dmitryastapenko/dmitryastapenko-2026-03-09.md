@@ -11,3 +11,5 @@
 После написал ПР и уведомил команду.
 
 Жду ревью.
+
+После записал видео Feature Component Week 3 Checkpoint: https://www.youtube.com/watch?v=9mrLo_FK32E
