@@ -74,10 +74,7 @@ export const Header: React.FC = () => {
                 key={item.label}
                 variant="secondary"
                 onClick={() => handleNavigation(item.path, item.disabled)}
-                className={classNames(styles.header__link, styles.header__button, {
-                  [styles.header__button_active]: isActive,
-                  [styles.header__button_disabled]: item.disabled,
-                })}
+                className={classNames(styles.header__link, styles.header__button, {})}
                 disabled={item.disabled}
                 aria-current={isActive ? 'page' : undefined}
               >
@@ -101,7 +98,6 @@ export const Header: React.FC = () => {
           <span className={styles.burgerMenu__line}></span>
         </Button>
       </div>
-      {isOpen && <div className={styles.overlay} onClick={closeMenu} aria-hidden="true" />}
     </header>
   );
 };
