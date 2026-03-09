@@ -1,0 +1,31 @@
+@use 'styles/variables.scss' as var;
+@use 'styles/mixins.scss' as mixin;
+
+.header {
+  padding: 1rem;
+  border-bottom: 4px solid var.$color-neutral-200;
+}
+
+.header__container {
+  @include mixin.flex($direction: row, $justify: space-between, $align: center);
+}
+
+.header__heading {
+  font-size: 2rem;
+}
+
+.header__nav {
+  @include mixin.flex($direction: row, $justify: flex-start, $align: center, $gap: 2rem);
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.header__link {
+  text-decoration: none;
+}
+
+.header__button {
+  width: 100%;
+}
