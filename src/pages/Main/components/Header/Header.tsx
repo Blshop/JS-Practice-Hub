@@ -37,14 +37,14 @@ export const Header: React.FC = () => {
           <Button
             variant="secondary"
             onClick={() => handleNavigation(routes.main.mask)}
-            className={styles.header__link}
+            className={classNames(styles.header__link, styles.header__button)}
           >
             <Text bold>Home</Text>
           </Button>
           <Button
             variant="secondary"
             onClick={() => handleNavigation('#')}
-            className={styles.header__link}
+            className={classNames(styles.header__link, styles.header__button)}
           >
             <Text bold>Profile</Text>
           </Button>
