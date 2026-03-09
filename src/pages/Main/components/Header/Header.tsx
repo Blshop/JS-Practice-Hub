@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
-import Text from '../../../../components/Text';
+import Text from 'components/Text';
 import { routes } from 'config/routes';
 import styles from './Header.module.scss';
 import Button from 'components/Button';
 
 export const Header: React.FC = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -14,6 +16,11 @@ export const Header: React.FC = () => {
 
   const closeMenu = () => {
     setIsOpen(false);
+  };
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    closeMenu();
   };
 
   return (
@@ -27,21 +34,27 @@ export const Header: React.FC = () => {
             [styles.header__nav_open]: isOpen,
           })}
         >
-          <a href={routes.main.mask} className={styles.header__link}>
-            <Button variant="secondary" onClick={closeMenu}>
-              <Text bold>Home</Text>
-            </Button>
-          </a>
-          <a href={`#`} className={styles.header__link}>
-            <Button variant="secondary" onClick={closeMenu}>
-              <Text bold>Profile</Text>
-            </Button>
-          </a>
-          <a href={routes.about.mask} className={styles.header__link}>
-            <Button className={styles.header__button} variant="secondary" onClick={closeMenu}>
-              <Text bold>About</Text>
-            </Button>
-          </a>
+          <Button
+            variant="secondary"
+            onClick={() => handleNavigation(routes.main.mask)}
+            className={styles.header__link}
+          >
+            <Text bold>Home</Text>
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={() => handleNavigation('#')}
+            className={styles.header__link}
+          >
+            <Text bold>Profile</Text>
+          </Button>
+          <Button
+            className={classNames(styles.header__link, styles.header__button)}
+            variant="secondary"
+            onClick={() => handleNavigation(routes.about.mask)}
+          >
+            <Text bold>About</Text>
+          </Button>
         </nav>
         <Button
           className={classNames(styles.burgerMenu__toggle, {
