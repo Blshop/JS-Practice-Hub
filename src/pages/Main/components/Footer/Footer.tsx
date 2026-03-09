@@ -2,6 +2,12 @@ import React from 'react';
 import Text from '../../../../components/Text';
 import styles from './Footer.module.scss';
 
+const DEVELOPERS = [
+  { name: 'Blshop', github: 'https://github.com/Blshop' },
+  { name: 'DmitryAstapenko', github: 'https://github.com/DmitryAstapenko' },
+  { name: 'GorodeN', github: 'https://github.com/GorodeN' },
+] as const;
+
 export const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
@@ -9,21 +15,19 @@ export const Footer: React.FC = () => {
         <Text tag="span" bold>
           CodePain 2026
         </Text>
-        <a className={styles.footer__link} href="https://github.com/Blshop">
-          <Text className={styles.footer__linkText} tag="span" bold>
-            Blshop
-          </Text>
-        </a>
-        <a className={styles.footer__link} href="https://github.com/GorodeN">
-          <Text className={styles.footer__linkText} tag="span" bold>
-            DmitryAstapenko
-          </Text>
-        </a>
-        <a className={styles.footer__link} href="https://github.com/DmitryAstapenko">
-          <Text className={styles.footer__linkText} tag="span" bold>
-            GorodeN
-          </Text>
-        </a>
+        {DEVELOPERS.map((dev) => (
+          <a
+            key={dev.name}
+            className={styles.footer__link}
+            href={dev.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Text className={styles.footer__linkText} tag="span" bold>
+              {dev.name}
+            </Text>
+          </a>
+        ))}
       </div>
     </footer>
   );

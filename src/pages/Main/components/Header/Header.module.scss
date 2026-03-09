@@ -4,6 +4,7 @@
 .header {
   padding: 1rem;
   border-bottom: 2px solid var.$color-neutral-200;
+  position: relative;
 }
 
 .header__container {
@@ -12,10 +13,10 @@
 
 .header__heading {
   position: relative;
-  z-index: 1000;
+  z-index: var.$z-index-header;
   font-size: 1.5rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: var.$breakpoint-mobile) {
     font-size: 1.25rem;
   }
 }
@@ -23,16 +24,17 @@
 .header__nav {
   @include mixin.flex($direction: row, $justify: flex-start, $align: center, $gap: 2rem);
 
-  @media (max-width: 768px) {
+  @media (max-width: var.$breakpoint-mobile) {
     @include mixin.flex($direction: column, $justify: center, $align: center, $gap: 2rem);
     top: 0;
     right: -100%;
     position: fixed;
-    padding: 12vh 24vw;
+    padding: 6rem 2rem;
     width: 100%;
     height: 100%;
     background-color: var.$color-neutral-100;
-    transition: right 0.2s ease;
+    transition: right 0.3s ease-in-out;
+    z-index: var.$z-index-header;
   }
 }
 
@@ -45,18 +47,21 @@
 }
 
 .header__button {
-  width: 100%;
+  @media (max-width: var.$breakpoint-mobile) {
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
 .burgerMenu__toggle {
   @include mixin.flex($direction: column, $justify: space-between, $align: center, $gap: 0.1rem);
   display: none;
   width: 60px;
-  height: 50px;
+  height: 47px;
   position: relative;
-  z-index: 1000;
+  z-index: var.$z-index-burger;
 
-  @media (max-width: 768px) {
+  @media (max-width: var.$breakpoint-mobile) {
     display: flex;
   }
 }
