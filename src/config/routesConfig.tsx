@@ -19,6 +19,10 @@ export const routesConfig: RouteObject[] = [
         element: <Main />,
       },
       {
+        path: routes.profile.mask,
+        element: <>Профиль пользователя</>,
+      },
+      {
         path: routes.about.mask,
         element: <>О приложении</>,
       },

@@ -7,10 +7,10 @@ import styles from './Header.module.scss';
 import Button from 'components/Button';
 
 const NAV_ITEMS = [
-  { label: 'Home', path: routes.main.mask, disabled: false },
-  { label: 'Profile', path: routes.main.mask, disabled: true },
-  { label: 'About', path: routes.about.mask, disabled: true },
-  { label: 'Demo', path: routes.demo.mask, disabled: false },
+  { label: 'Home', path: routes.main.mask },
+  { label: 'Profile', path: routes.profile.mask },
+  { label: 'About', path: routes.about.mask },
+  { label: 'Demo', path: routes.demo.mask },
 ] as const;
 
 export const Header: React.FC = () => {
@@ -26,8 +26,7 @@ export const Header: React.FC = () => {
     setIsOpen((prev) => !prev);
   };
 
-  const handleNavigation = (path: string, disabled?: boolean) => {
-    if (disabled) return;
+  const handleNavigation = (path: string) => {
     navigate(path);
     closeMenu();
   };
@@ -73,9 +72,8 @@ export const Header: React.FC = () => {
               <Button
                 key={item.label}
                 variant="secondary"
-                onClick={() => handleNavigation(item.path, item.disabled)}
+                onClick={() => handleNavigation(item.path)}
                 className={classNames(styles.header__link, styles.header__button, {})}
-                disabled={item.disabled}
                 aria-current={isActive ? 'page' : undefined}
               >
                 <Text bold>{item.label}</Text>
@@ -92,6 +90,7 @@ export const Header: React.FC = () => {
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isOpen}
           aria-controls="main-navigation"
+          aria-hidden="true"
         >
           <span className={styles.burgerMenu__line}></span>
           <span className={styles.burgerMenu__line}></span>
