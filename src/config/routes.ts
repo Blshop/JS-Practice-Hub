@@ -20,4 +20,8 @@ export const routes = {
     mask: '/demo',
     create: () => `/demo`,
   },
+  quiz: {
+    mask: '/quiz',
+    create: () => `/quiz`,
+  },
 };
