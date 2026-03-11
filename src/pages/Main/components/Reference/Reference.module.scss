@@ -1,0 +1,237 @@
+@use '../../../../styles/variables.scss' as var;
+@use '../../../../styles/_mixins.scss' as mixin;
+
+.reference {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.referenceButton {
+  @include mixin.flex($align: center, $gap: 8px);
+  padding: 0.75rem 1.25rem;
+  background: var.$color-info;
+  color: var.$color-neutral-900;
+  border: 3px solid var.$color-neutral-900;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: var.$font-weight-bold;
+  cursor: pointer;
+  box-shadow: 0 4px 0 0 var.$color-neutral-900;
+  transition: all 0.2s ease;
+  font-family: var.$font-family-base;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    filter: brightness(1.1) contrast(1.1) saturate(1.5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 0 var.$color-neutral-900;
+  }
+
+  &:active {
+    transform: translateY(4px);
+    box-shadow: 0 0px 0 0 var.$color-neutral-900;
+  }
+
+  &Icon {
+    font-size: 1.2rem;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  @include mixin.flex($align: center, $justify: center);
+  z-index: 1001;
+  padding: 20px;
+}
+
+.modalContent {
+  background: var.$color-neutral-100;
+  border: 3px solid var.$color-neutral-900;
+  border-radius: 1rem;
+  max-width: 800px;
+  max-height: 80vh;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 8px 0 0 var.$color-neutral-900;
+  animation: modalAppear 0.3s ease;
+}
+
+.modalHeader {
+  @include mixin.flex($align: center, $justify: space-between);
+  padding: 1.5rem;
+  border-bottom: 3px solid var.$color-neutral-900;
+  background: var.$color-secondary;
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: var.$font-weight-bold;
+    color: var.$color-neutral-900;
+    @include mixin.flex($align: center, $gap: 12px);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__close {
+    background: var.$color-danger;
+    border: 2px solid var.$color-neutral-900;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var.$color-neutral-900;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: var.$font-weight-bold;
+    box-shadow: 0 3px 0 0 var.$color-neutral-900;
+    transition: all 0.2s ease;
+
+    &:hover {
+      filter: brightness(1.1) contrast(1.1) saturate(1.5);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 0 0 var.$color-neutral-900;
+    }
+
+    &:active {
+      transform: translateY(3px);
+      box-shadow: 0 0px 0 0 var.$color-neutral-900;
+    }
+  }
+}
+
+.modalBody {
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: calc(80vh - 100px);
+}
+
+.topicsList {
+  display: grid;
+  gap: 20px;
+}
+
+.topicCard {
+  border: 3px solid var.$color-neutral-900;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background: white;
+  box-shadow: 0 4px 0 0 var.$color-neutral-900;
+
+  &:hover {
+    filter: brightness(1.05) contrast(1.05) saturate(1.2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 0 var.$color-neutral-900;
+  }
+
+  &:active {
+    transform: translateY(4px);
+    box-shadow: 0 0px 0 0 var.$color-neutral-900;
+  }
+
+  &__header {
+    @include mixin.flex($align: center, $gap: 12px);
+    margin-bottom: 12px;
+  }
+
+  &__icon {
+    font-size: 1.8rem;
+    background: var.$color-warning;
+    border: 2px solid var.$color-neutral-900;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    box-shadow: 0 2px 0 0 var.$color-neutral-900;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: var.$font-weight-bold;
+    color: var.$color-neutral-900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__description {
+    color: var.$color-neutral-500;
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 16px;
+    font-weight: var.$font-weight-regular;
+  }
+
+  &__example {
+    background: var.$color-neutral-900;
+    border: 2px solid var.$color-neutral-900;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-family: var.$font-family-base;
+    font-size: 0.9rem;
+    color: var.$color-success;
+    font-weight: var.$font-weight-regular;
+    box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.2);
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+// Responsive design
+@media (max-width: var.$breakpoint-mobile) {
+  .reference {
+    top: 10px;
+    right: 10px;
+  }
+
+  .referenceButton {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .modal {
+    padding: 10px;
+  }
+
+  .modalContent {
+    max-height: 90vh;
+  }
+
+  .modalHeader {
+    padding: 1rem;
+
+    &__title {
+      font-size: 1.2rem;
+    }
+  }
+
+  .modalBody {
+    padding: 1rem;
+  }
+
+  .topicCard {
+    padding: 1rem;
+
+    &__title {
+      font-size: 1rem;
+    }
+
+    &__example {
+      font-size: 0.8rem;
+    }
+  }
+}
