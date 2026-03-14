@@ -75,6 +75,7 @@
 
   &__switch {
     text-align: center;
+    user-select: none;
 
     &Link {
       cursor: pointer;
