@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 import classNames from 'classnames';
 import Text from 'components/Text';
 import { routes } from 'config/routes';
+import { authStore } from 'store/AuthStore';
 import styles from './Header.module.scss';
 import Button from 'components/Button';
 
@@ -13,7 +15,7 @@ const NAV_ITEMS = [
   { label: 'Demo', path: routes.demo.mask },
 ] as const;
 
-export const Header: React.FC = () => {
+export const Header: React.FC = observer(() => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
@@ -28,6 +30,12 @@ export const Header: React.FC = () => {
 
   const handleNavigation = (path: string) => {
     navigate(path);
+    closeMenu();
+  };
+
+  const handleLogout = () => {
+    authStore.logout();
+    navigate(routes.main.mask);
     closeMenu();
   };
 
@@ -80,6 +88,15 @@ export const Header: React.FC = () => {
               </Button>
             );
           })}
+          {authStore.isAuthenticated && (
+            <Button
+              variant="danger"
+              onClick={handleLogout}
+              className={classNames(styles.header__link, styles.header__button)}
+            >
+              <Text bold>Logout</Text>
+            </Button>
+          )}
         </nav>
         <Button
           className={classNames(styles.burgerMenu__toggle, {
@@ -99,4 +116,4 @@ export const Header: React.FC = () => {
       </div>
     </header>
   );
-};
+});
