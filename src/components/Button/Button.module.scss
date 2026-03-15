@@ -1,0 +1,108 @@
+@use 'styles/variables.scss' as var;
+@use 'styles/_mixins.scss' as mixin;
+
+.button {
+  height: fit-content;
+  width: fit-content;
+  @include mixin.flex($justify: center, $align: center, $gap: 0.5rem);
+  padding: 0.75rem 1rem;
+  border: 2px solid var.$color-neutral-900;
+  border-radius: 1em;
+  font-size: 1rem;
+  color: var.$color-neutral-900;
+  box-shadow: 0 4px 0 0 var.$color-neutral-900;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    filter 0.2s;
+
+  &:hover {
+    filter: brightness(1.1) contrast(1.1) saturate(1.5);
+  }
+
+  &:active {
+    box-shadow: 0 0px 0 0 var.$color-neutral-900;
+    transform: translateY(4px);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.8;
+    filter: grayscale(0.6);
+  }
+
+  &.small {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  &.large {
+    padding: 1rem 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  &.primary {
+    background-color: var.$color-primary;
+  }
+
+  &.secondary {
+    background-color: var.$color-secondary;
+  }
+
+  &.danger {
+    background-color: var.$color-danger;
+  }
+
+  &.success {
+    background-color: var.$color-success;
+  }
+
+  &.warning {
+    background-color: var.$color-warning;
+  }
+
+  &.info {
+    background-color: var.$color-info;
+  }
+
+  &.light {
+    background-color: var.$color-neutral-100;
+  }
+
+  &.dark {
+    background-color: var.$color-neutral-900;
+    color: var.$color-neutral-100;
+    box-shadow: 0 4px 0 0 var.$color-neutral-500;
+
+    &:active {
+      box-shadow: 0 0px 0 0 var.$color-neutral-900;
+    }
+  }
+
+  &.link {
+    background: none;
+    border: none;
+    box-shadow: none;
+    text-decoration: underline;
+
+    &:active {
+      transform: none;
+    }
+  }
+}
+
+.loader {
+  width: 1em;
+  height: 1em;
+  border: 0.15em solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -3,10 +3,10 @@ import Text, { type TextProps } from 'components/Text';
 import styles from './HighlightedText.module.scss';
 
 type HighlightedTextProps = TextProps & {
-  text: string;
+  text?: string;
 };
 
-const HighlightedText: React.FC<HighlightedTextProps> = ({ text, ...props }) => {
+const HighlightedText: React.FC<HighlightedTextProps> = ({ text = '', tag = 'span', ...props }) => {
   const regex =
     /\*\*(.*?)\*\*|\b(const|let|var|if|else|return|function|class|new)\b|===|!==|==|!=|\b(true|false|null|undefined)\b|\d+|"[^"]*"|'[^']*'/g;
 
@@ -52,7 +52,7 @@ const HighlightedText: React.FC<HighlightedTextProps> = ({ text, ...props }) => 
   }
 
   return (
-    <Text {...props} className={styles.container}>
+    <Text {...props} tag={tag} className={styles.container}>
       {result}
     </Text>
   );
