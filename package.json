@@ -19,6 +19,8 @@
     "@fontsource/roboto-mono": "^5.2.8",
     "@hookform/resolvers": "^5.2.2",
     "classnames": "^2.5.1",
+    "mobx": "^6.15.0",
+    "mobx-react-lite": "^4.1.1",
     "modern-normalize": "^3.0.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
