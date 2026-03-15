@@ -1,0 +1,82 @@
+[
+    {
+        "id": "js-yesno-001",
+        "type": "yes-no",
+        "theme": "NaN & Equality",
+        "question": "Is `NaN` equal to itself when using strict equality (`NaN === NaN`)?",
+        "correct": "no",
+        "explanation": "NaN is never equal to anything — even itself (`NaN === NaN` is false)."
+    },
+    {
+        "id": "js-yesno-002",
+        "type": "yes-no",
+        "theme": "typeof Operator",
+        "question": "Does `typeof null` return `\"object\"`?",
+        "correct": "yes",
+        "explanation": "This is a well-known historical bug in JavaScript: `typeof null` returns `\"object\"`."
+    },
+    {
+        "id": "js-yesno-003",
+        "type": "yes-no",
+        "theme": "Arrow Functions",
+        "question": "Are arrow functions allowed to be used as constructors with `new`?",
+        "correct": "no",
+        "explanation": "Arrow functions cannot be constructors — calling them with `new` throws TypeError."
+    },
+    {
+        "id": "js-yesno-004",
+        "type": "yes-no",
+        "theme": "Hoisting & Temporal Dead Zone",
+        "question": "Is `var` hoisted in the same way as `let` and `const` (including Temporal Dead Zone)?",
+        "correct": "no",
+        "explanation": "`var` is hoisted and initialized with `undefined`. `let`/`const` are hoisted but stay in TDZ until declaration."
+    },
+    {
+        "id": "js-yesno-005",
+        "type": "yes-no",
+        "theme": "Object Immutability (freeze)",
+        "question": "Does `Object.freeze()` prevent changing the values of existing properties?",
+        "correct": "yes",
+        "explanation": "`freeze()` makes the object completely immutable: no adding, deleting, or changing property values/descriptors."
+    },
+    {
+        "id": "js-yesno-006",
+        "type": "yes-no",
+        "theme": "this Binding in Strict Mode",
+        "question": "In strict mode, does `this` inside a regular (non-arrow) function called standalone point to the global object?",
+        "correct": "no",
+        "explanation": "In strict mode, `this` in a standalone function is `undefined` (not the global object)."
+    },
+    {
+        "id": "js-yesno-007",
+        "type": "yes-no",
+        "theme": "Type Checking & Arrays",
+        "question": "Does `Array.isArray(new Array())` return `true`?",
+        "correct": "yes",
+        "explanation": "`Array.isArray()` correctly identifies arrays created with `new Array()`."
+    },
+    {
+        "id": "js-yesno-008",
+        "type": "yes-no",
+        "theme": "Object Immutability (seal)",
+        "question": "Does `Object.seal()` allow changing the values of existing properties?",
+        "correct": "yes",
+        "explanation": "`seal()` prevents adding/deleting properties and changing descriptors, but existing writable properties can still have their values changed."
+    },
+    {
+        "id": "js-yesno-009",
+        "type": "yes-no",
+        "theme": "Type Checking & Realms",
+        "question": "Is it safe to rely on `instanceof Array` to detect arrays across different iframes / realms?",
+        "correct": "no",
+        "explanation": "`instanceof` can fail across different global contexts (e.g., iframes). `Array.isArray()` is the reliable way."
+    },
+    {
+        "id": "js-yesno-010",
+        "type": "yes-no",
+        "theme": "Symbols",
+        "question": "Does `Symbol('id') === Symbol('id')` return `true`?",
+        "correct": "no",
+        "explanation": "Every call to `Symbol()` creates a unique new symbol — even with the same description."
+    }
+]
