@@ -1,0 +1,376 @@
+[
+    {
+        "id": "js-dnd-001",
+        "type": "drag-and-drop",
+        "theme": "Truthy & Falsy Values",
+        "question": "Sort these values from falsy to truthy (drag to reorder)",
+        "items": [
+            {
+                "id": "1",
+                "text": "false"
+            },
+            {
+                "id": "2",
+                "text": "0"
+            },
+            {
+                "id": "3",
+                "text": "null"
+            },
+            {
+                "id": "4",
+                "text": "\"hello\""
+            },
+            {
+                "id": "5",
+                "text": "[]"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ],
+        "explanation": "Falsy: false, 0, null. Truthy: non-empty string, array."
+    },
+    {
+        "id": "js-dnd-002",
+        "type": "drag-and-drop",
+        "theme": "Array Methods – Mutation",
+        "question": "Match each method to whether it mutates the original array",
+        "items": [
+            {
+                "id": "a",
+                "text": "push"
+            },
+            {
+                "id": "b",
+                "text": "map"
+            },
+            {
+                "id": "c",
+                "text": "splice"
+            },
+            {
+                "id": "d",
+                "text": "filter"
+            },
+            {
+                "id": "e",
+                "text": "sort"
+            },
+            {
+                "id": "f",
+                "text": "slice"
+            }
+        ],
+        "correctGroups": {
+            "mutates": [
+                "a",
+                "c",
+                "e"
+            ],
+            "new-array": [
+                "b",
+                "d",
+                "f"
+            ]
+        },
+        "explanation": "push, splice, sort → mutate original. map, filter, slice → return new array."
+    },
+    {
+        "id": "js-dnd-003",
+        "type": "drag-and-drop",
+        "theme": "CSS Selectors Specificity",
+        "question": "Arrange these from lowest to highest CSS selector specificity",
+        "items": [
+            {
+                "id": "1",
+                "text": "div"
+            },
+            {
+                "id": "2",
+                "text": ".button"
+            },
+            {
+                "id": "3",
+                "text": "#main"
+            },
+            {
+                "id": "4",
+                "text": "[data-type]"
+            },
+            {
+                "id": "5",
+                "text": ":hover"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "5",
+            "4",
+            "3"
+        ],
+        "explanation": "element (0,0,0,1) < class / pseudo-class (0,0,1,0) < attribute (0,0,1,0) < id (0,1,0,0)"
+    },
+    {
+        "id": "js-dnd-004",
+        "type": "drag-and-drop",
+        "theme": "Event Loop",
+        "question": "Sort these from earliest to latest in the event loop cycle",
+        "items": [
+            {
+                "id": "1",
+                "text": "Execute current macrotask"
+            },
+            {
+                "id": "2",
+                "text": "Run all microtasks"
+            },
+            {
+                "id": "3",
+                "text": "Render / paint the page"
+            },
+            {
+                "id": "4",
+                "text": "Wait for next macrotask (timer, click, etc.)"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Macrotask → Microtasks → Render → Next macrotask"
+    },
+    {
+        "id": "js-dnd-005",
+        "type": "drag-and-drop",
+        "theme": "Variable Scope & Hoisting",
+        "question": "Match each keyword to its correct scope behavior",
+        "items": [
+            {
+                "id": "a",
+                "text": "var"
+            },
+            {
+                "id": "b",
+                "text": "let"
+            },
+            {
+                "id": "c",
+                "text": "const"
+            },
+            {
+                "id": "d",
+                "text": "function declaration"
+            }
+        ],
+        "correctGroups": {
+            "function-scoped": [
+                "a",
+                "d"
+            ],
+            "block-scoped": [
+                "b",
+                "c"
+            ]
+        },
+        "explanation": "var and function declarations → function scope. let and const → block scope."
+    },
+    {
+        "id": "js-dnd-006",
+        "type": "drag-and-drop",
+        "theme": "this Binding & Context",
+        "question": "Arrange these from lowest to highest priority when determining `this` value",
+        "items": [
+            {
+                "id": "1",
+                "text": "Default (global / undefined in strict mode)"
+            },
+            {
+                "id": "2",
+                "text": "Object method call (obj.method())"
+            },
+            {
+                "id": "3",
+                "text": "Explicit bind / call / apply"
+            },
+            {
+                "id": "4",
+                "text": "Arrow function (lexical this)"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "Default < method call < explicit binding < arrow function lexical binding"
+    },
+    {
+        "id": "js-dnd-007",
+        "type": "drag-and-drop",
+        "theme": "Array Methods – Return Values",
+        "question": "Match each array method to what it returns",
+        "items": [
+            {
+                "id": "a",
+                "text": "map"
+            },
+            {
+                "id": "b",
+                "text": "forEach"
+            },
+            {
+                "id": "c",
+                "text": "reduce"
+            },
+            {
+                "id": "d",
+                "text": "find"
+            },
+            {
+                "id": "e",
+                "text": "some"
+            },
+            {
+                "id": "f",
+                "text": "every"
+            }
+        ],
+        "correctGroups": {
+            "new-array": [
+                "a"
+            ],
+            "undefined": [
+                "b"
+            ],
+            "any-type": [
+                "c",
+                "d"
+            ],
+            "boolean": [
+                "e",
+                "f"
+            ]
+        },
+        "explanation": "map → array, forEach → undefined, reduce/find → any value, some/every → boolean."
+    },
+    {
+        "id": "js-dnd-008",
+        "type": "drag-and-drop",
+        "theme": "Object Creation Patterns",
+        "question": "Sort these object creation methods from most to least commonly used in modern code",
+        "items": [
+            {
+                "id": "1",
+                "text": "Object.create(null)"
+            },
+            {
+                "id": "2",
+                "text": "Object literal {}"
+            },
+            {
+                "id": "3",
+                "text": "Object.assign({}, source)"
+            },
+            {
+                "id": "4",
+                "text": "structuredClone(source)"
+            },
+            {
+                "id": "5",
+                "text": "new Object()"
+            }
+        ],
+        "correctOrder": [
+            "2",
+            "3",
+            "4",
+            "1",
+            "5"
+        ],
+        "explanation": "Most used: {} > Object.assign > structuredClone > Object.create(null) > new Object()"
+    },
+    {
+        "id": "js-dnd-009",
+        "type": "drag-and-drop",
+        "theme": "ECMAScript History & Features",
+        "question": "Match each feature to the ECMAScript edition it was introduced in",
+        "items": [
+            {
+                "id": "a",
+                "text": "let / const"
+            },
+            {
+                "id": "b",
+                "text": "Optional chaining (?.)"
+            },
+            {
+                "id": "c",
+                "text": "var"
+            },
+            {
+                "id": "d",
+                "text": "Promise.allSettled"
+            },
+            {
+                "id": "e",
+                "text": "Array.prototype.at()"
+            }
+        ],
+        "correctGroups": {
+            "ES1–ES5": [
+                "c"
+            ],
+            "ES6": [
+                "a"
+            ],
+            "ES2020": [
+                "b",
+                "d"
+            ],
+            "ES2022": [
+                "e"
+            ]
+        },
+        "explanation": "var → ancient, let/const → ES6, ?. & allSettled → ES2020, at() → ES2022."
+    },
+    {
+        "id": "js-dnd-010",
+        "type": "drag-and-drop",
+        "theme": "Equality & Comparison",
+        "question": "Arrange these from lowest to highest when comparing object equality methods",
+        "items": [
+            {
+                "id": "1",
+                "text": "=="
+            },
+            {
+                "id": "2",
+                "text": "==="
+            },
+            {
+                "id": "3",
+                "text": "Object.is()"
+            },
+            {
+                "id": "4",
+                "text": "JSON.stringify(a) === JSON.stringify(b)"
+            }
+        ],
+        "correctOrder": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "explanation": "== (most coercion) < === < Object.is (handles -0/NaN differently) < deep stringify compare"
+    }
+]
