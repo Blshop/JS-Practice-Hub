@@ -39,11 +39,15 @@ PR с тестами: https://github.com/Blshop/JS-Practice-Hub/pull/58
 
 #### @DmitryAstapenko
 
-Что тестирую: ...
+Что тестирую: базовые UI-компоненты (Button, Input, Checkbox, Radio, Select, Text)
 
-| Файл       | Описание |
-| ---------- | -------- |
-| `.test.ts` |          |
-| `.test.ts` |          |
+| Файл                                                  | Описание                                                                                    |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `src/components/Button/__tests__/Button.test.tsx`     | Рендеринг, variant/size классы, состояния (disabled, loading), вызов onClick                |
+| `src/components/Input/__tests__/Input.test.tsx`       | Рендеринг с label, type, elementSize, отображение ошибок, aria-invalid                      |
+| `src/components/Checkbox/__tests__/Checkbox.test.tsx` | Рендеринг с label, elementSize, состояния (error, disabled), взаимодействие (checked)       |
+| `src/components/Radio/__tests__/Radio.test.tsx`       | Рендеринг с label, elementSize, состояния (error, disabled), взаимодействие (checked)       |
+| `src/components/Select/__tests__/Select.test.tsx`     | Рендеринг с label/placeholder, elementSize, открытие dropdown, выбор опции, вызов onChange  |
+| `src/components/Text/__tests__/Text.test.tsx`         | Рендеринг текста, использование тегов (h1, p, span), применение стилей (muted, bold, error) |
 
-PR с тестами: https://github.com/Blshop/JS-Practice-Hub/pull/
+PR с тестами: https://github.com/Blshop/JS-Practice-Hub/pull/64
