@@ -8,8 +8,8 @@ type HighlightedTextProps = TextProps & {
 
 const HighlightedText: React.FC<HighlightedTextProps> = ({ text = '', tag = 'span', ...props }) => {
   const regex =
-    /\*\*(.*?)\*\*|\b(const|let|var|if|else|return|function|class|new)\b|===|!==|==|!=|\b(true|false|null|undefined)\b|\d+|"[^"]*"|'[^']*'/g;
-
+    /0/g;
+  // /\*\*(.*?)\*\*|\b(const|let|var|if|else|return|function|class|new)\b|===|!==|==|!=|\b(true|false|null|undefined)\b|\d+|"[^"]*"|'[^']*'/g;
   const result: React.ReactNode[] = [];
   let lastIndex = 0;
   let key = 0;
