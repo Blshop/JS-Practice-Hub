@@ -1,47 +1,6 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import type { User } from 'types/User';
-
-const mockLogin = (email: string, password: string): Promise<{ user: User; jwt: string }> => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (password === 'Error1') {
-        reject(new Error('Invalid credentials'));
-      } else {
-        resolve({
-          user: {
-            id: 1,
-            username: email.split('@')[0] || 'user',
-            email,
-          },
-          jwt: 'fake-jwt-token',
-        });
-      }
-    }, 1000);
-  });
-};
-
-const mockRegister = (
-  username: string,
-  email: string,
-  password: string,
-): Promise<{ user: User; jwt: string }> => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (password === 'Error1') {
-        reject(new Error('Registration failed'));
-      } else {
-        resolve({
-          user: {
-            id: 1,
-            username,
-            email,
-          },
-          jwt: 'fake-jwt-token',
-        });
-      }
-    }, 1000);
-  });
-};
+import { mockLogin, mockRegister } from '../__mocks__/mockAuth';
 
 class AuthStore {
   user: User | null = null;
