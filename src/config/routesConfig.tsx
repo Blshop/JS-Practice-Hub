@@ -2,6 +2,11 @@ import { Navigate } from 'react-router';
 import type { RouteObject } from 'react-router';
 import App from '../App';
 import { routes } from './routes';
+import Auth from 'pages/Auth';
+import LoginForm from 'pages/Auth/components/LoginForm';
+import RegisterForm from 'pages/Auth/components/RegisterForm';
+import Demo from 'pages/Demo';
+import Main from 'pages/Main';
 
 export const routesConfig: RouteObject[] = [
   {
@@ -11,7 +16,11 @@ export const routesConfig: RouteObject[] = [
     children: [
       {
         path: routes.main.mask,
-        element: <>Главная</>,
+        element: <Main />,
+      },
+      {
+        path: routes.profile.mask,
+        element: <>Профиль пользователя</>,
       },
       {
         path: routes.about.mask,
@@ -19,7 +28,7 @@ export const routesConfig: RouteObject[] = [
       },
       {
         path: routes.auth.mask,
-        element: <>Авторизация/Регистрация</>,
+        element: <Auth />,
         children: [
           {
             index: true,
@@ -27,13 +36,17 @@ export const routesConfig: RouteObject[] = [
           },
           {
             path: 'login',
-            element: <>Форма логина</>,
+            element: <LoginForm />,
           },
           {
             path: 'register',
-            element: <>Форма регистрации</>,
+            element: <RegisterForm />,
           },
         ],
+      },
+      {
+        path: routes.demo.mask,
+        element: <Demo />,
       },
     ],
   },
