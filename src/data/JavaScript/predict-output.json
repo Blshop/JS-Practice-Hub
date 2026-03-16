@@ -1,0 +1,92 @@
+[
+    {
+        "id": "js-predict-001",
+        "type": "predict-output",
+        "theme": "Type Coercion & String Concatenation",
+        "question": "What will be printed in the console?",
+        "code": "console.log(5 + '5');\nconsole.log(5 - '5');",
+        "answer": "55\n0",
+        "explanation": "The first line uses string concatenation: 5 + '5' becomes '55'. The second line performs numeric subtraction: 5 - '5' converts the string '5' to number 5, giving 0."
+    },
+    {
+        "id": "js-predict-002",
+        "type": "predict-output",
+        "theme": "Truthy & Falsy Coercion",
+        "question": "What four values will be logged?",
+        "code": "console.log(!![]);\nconsole.log(!!\"\");\nconsole.log(!!{});\nconsole.log(!!0);",
+        "answer": "true\nfalse\ntrue\nfalse",
+        "explanation": "!![] is true (non-empty array is truthy). !!'' is false (empty string is falsy). !!{} is true (object is truthy). !!0 is false (0 is falsy)."
+    },
+    {
+        "id": "js-predict-003",
+        "type": "predict-output",
+        "theme": "Hoisting & Variable Scope",
+        "question": "What two values will be printed?",
+        "code": "var x = 10;\n(function() {\n  console.log(x);\n  var x = 20;\n  console.log(x);\n})();",
+        "answer": "undefined\n20",
+        "explanation": "Due to hoisting, var x inside the function is hoisted and initialized as undefined before assignment. First console.log prints undefined, second prints 20."
+    },
+    {
+        "id": "js-predict-004",
+        "type": "predict-output",
+        "theme": "Event Loop & Microtasks/Macrotasks",
+        "question": "In which order will these numbers appear?",
+        "code": "console.log(1);\nsetTimeout(() => console.log(2), 0);\nPromise.resolve().then(() => console.log(3));\nconsole.log(4);",
+        "answer": "1\n4\n3\n2",
+        "explanation": "Synchronous logs run first: 1 and 4. Promises (microtasks) run next: 3. setTimeout (macrotask) runs last: 2."
+    },
+    {
+        "id": "js-predict-005",
+        "type": "predict-output",
+        "theme": "Sparse Arrays & length Property",
+        "question": "What number will be printed as arr.length?",
+        "code": "let arr = [1, 2, 3];\narr[10] = 99;\nconsole.log(arr.length);",
+        "answer": "11",
+        "explanation": "Setting arr[10] creates empty slots from index 3 to 9. Array length is highest index + 1, which is 11."
+    },
+    {
+        "id": "js-predict-006",
+        "type": "predict-output",
+        "theme": "Object Immutability (freeze)",
+        "question": "What will be printed?",
+        "code": "const obj = { x: 10 };\nObject.freeze(obj);\nobj.x = 20;\nconsole.log(obj.x);",
+        "answer": "10",
+        "explanation": "Object.freeze prevents modification. obj.x cannot be changed, so it remains 10."
+    },
+    {
+        "id": "js-predict-007",
+        "type": "predict-output",
+        "theme": "Floating Point Precision",
+        "question": "What exact number will appear in the console?",
+        "code": "console.log(0.1 + 0.2);",
+        "answer": "0.30000000000000004",
+        "explanation": "Floating point numbers cannot represent 0.1 and 0.2 precisely, leading to rounding errors. Hence the result is 0.30000000000000004."
+    },
+    {
+        "id": "js-predict-008",
+        "type": "predict-output",
+        "theme": "this Binding in Arrow Functions",
+        "question": "What value will be printed?",
+        "code": "const obj = { x: 100 };\nconst fn = () => console.log(this.x);\nobj.fn = fn;\nobj.fn();",
+        "answer": "undefined",
+        "explanation": "Arrow functions do not have their own 'this'; they inherit it from the lexical scope. Here 'this' refers to the outer scope, not obj, so undefined is logged."
+    },
+    {
+        "id": "js-predict-009",
+        "type": "predict-output",
+        "theme": "Array.reduce Usage",
+        "question": "What object will be printed?",
+        "code": "const result = [1,2,3].reduce((acc, cur) => {\n  acc[cur] = cur * 2;\n  return acc;\n}, {});\nconsole.log(result);",
+        "answer": "{ '1': 2, '2': 4, '3': 6 }",
+        "explanation": "Reduce iterates over array, assigning each element * 2 to the object keyed by the element. Resulting object is { '1':2, '2':4, '3':6 }."
+    },
+    {
+        "id": "js-predict-010",
+        "type": "predict-output",
+        "theme": "Closures & var in Loops with setTimeout",
+        "question": "What three numbers will be printed (in order)?",
+        "code": "for (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 100);\n}",
+        "answer": "3\n3\n3",
+        "explanation": "var is function-scoped. The loop completes before timeouts execute, so i is 3 for all callbacks."
+    }
+]
