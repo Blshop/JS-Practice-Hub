@@ -11,7 +11,8 @@
       "store": ["store/*"],
       "config": ["config/*"],
       "styles": ["styles/*"],
-      "types": ["types/*"]
+      "types": ["types/*"],
+      "data": ["data/*"]
     }
   }
 }
