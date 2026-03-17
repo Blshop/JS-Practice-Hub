@@ -2,14 +2,22 @@
 @use 'styles/_mixins.scss' as mixin;
 
 .wrapper {
-  @include mixin.flex($direction: column);
+  @include mixin.flex();
 
   &.topInfo {
     flex-direction: column;
+
+    & .progressInfo {
+      align-items: end;
+    }
   }
 
   &.bottomInfo {
     flex-direction: column-reverse;
+
+    & .progressInfo {
+      align-items: start;
+    }
   }
 }
 
@@ -41,7 +49,7 @@
 }
 
 .progressInfo {
-  @include mixin.flex($align: end);
+  @include mixin.flex();
   color: var.$color-neutral-900;
   font-family: var.$font-family-base;
   font-size: 1rem;
@@ -70,4 +78,28 @@
   100% {
     transform: translateX(100%);
   }
+}
+
+.primary {
+  background: var.$color-primary;
+}
+
+.secondary {
+  background: var.$color-secondary;
+}
+
+.danger {
+  background: var.$color-danger;
+}
+
+.success {
+  background: var.$color-success;
+}
+
+.warning {
+  background: var.$color-warning;
+}
+
+.info {
+  background: var.$color-info;
 }
