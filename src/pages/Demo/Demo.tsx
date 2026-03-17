@@ -5,6 +5,7 @@ import Input from 'components/Input';
 import Checkbox from 'components/Checkbox';
 import Radio from 'components/Radio';
 import Select from 'components/Select';
+import ProgressBar from 'components/ProgressBar';
 
 const Demo: React.FC = () => {
   return (
@@ -30,11 +31,14 @@ const Demo: React.FC = () => {
           <Text tag="p" muted>
             Muted paragraph text
           </Text>
+          <Text tag="span" muted>
+            Muted span text
+          </Text>
           <Text tag="span" error>
             Error span text
           </Text>
-          <Text tag="label" muted>
-            Muted label text
+          <Text tag="span" success>
+            Success span text
           </Text>
         </div>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
@@ -44,8 +48,19 @@ const Demo: React.FC = () => {
           <Text tag="p" bold>
             Bold paragraph text
           </Text>
-          <Text tag="label" bold>
-            Bold label text
+          <Text tag="span" bold>
+            Bold span text
+          </Text>
+        </div>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          <Text tag="h1" uppercase>
+            Uppercase h1 Heading
+          </Text>
+          <Text tag="p" uppercase>
+            Uppercase paragraph text
+          </Text>
+          <Text tag="span" uppercase>
+            Uppercase span text
           </Text>
         </div>
       </div>
@@ -190,6 +205,7 @@ const Demo: React.FC = () => {
           <Checkbox label="Disabled checkbox" disabled />
           <Checkbox label="Disabled checked" defaultChecked disabled />
           <Checkbox label="Error checkbox" error />
+          <Checkbox label="Success checkbox" success />
         </div>
       </div>
       <div style={{ padding: '4rem 0 1rem 0', display: 'grid', gap: '2rem' }}>
@@ -205,6 +221,25 @@ const Demo: React.FC = () => {
           <Radio label="Disabled radio" disabled name="group2" />
           <Radio label="Disabled checked" disabled defaultChecked name="group3" />
           <Radio label="Error radio" error name="group1" />
+          <Radio label="Success radio" success name="group4" />
+        </div>
+      </div>
+
+      <div style={{ padding: '4rem 0 1rem 0', display: 'grid', gap: '2rem' }}>
+        <Text tag="h2" bold>
+          Progress Bar Component Demo
+        </Text>
+        <div style={{ display: 'grid', gap: '1rem', maxWidth: '75%' }}>
+          <ProgressBar current={10} total={100} label="Primary" variant="primary" />
+          <ProgressBar current={20} total={100} label="Progress without %" showPercentage={false} />
+          <ProgressBar current={30} total={100} label="Bottom info" positionInfo="bottom" />
+          <ProgressBar current={40} total={100} showPercentage={false} />
+          <ProgressBar current={50} total={100} />
+          <ProgressBar current={60} total={100} label="Secondary" variant="secondary" />
+          <ProgressBar current={70} total={100} label="Success" variant="success" />
+          <ProgressBar current={80} total={100} label="Danger" variant="danger" />
+          <ProgressBar current={90} total={100} label="Warning" variant="warning" />
+          <ProgressBar current={100} total={100} label="Info" variant="info" />
         </div>
       </div>
     </div>
