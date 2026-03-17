@@ -18,12 +18,16 @@ class AuthStore {
   }
 
   loadFromStorage(): void {
-    const jwt = localStorage.getItem('jwt');
-    const user = localStorage.getItem('user');
+    try {
+      const jwt = localStorage.getItem('jwt');
+      const user = localStorage.getItem('user');
 
-    if (jwt && user) {
-      this.jwt = jwt;
-      this.user = JSON.parse(user);
+      if (jwt && user) {
+        this.jwt = jwt;
+        this.user = JSON.parse(user);
+      }
+    } catch (error) {
+      console.error('Failed to load auth data from storage:', error); // todo: уведомление
     }
   }
 

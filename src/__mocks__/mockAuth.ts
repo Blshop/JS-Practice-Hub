@@ -1,12 +1,14 @@
 import type { User } from 'types/User';
 
+export const MOCK_AUTH_ERROR_TRIGGER = 'Error1';
+
 export const mockLogin = (
   email: string,
   password: string,
 ): Promise<{ user: User; jwt: string }> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (password === 'Error1') {
+      if (password === MOCK_AUTH_ERROR_TRIGGER) {
         reject(new Error('Invalid credentials'));
       } else {
         resolve({
@@ -29,7 +31,7 @@ export const mockRegister = (
 ): Promise<{ user: User; jwt: string }> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (password === 'Error1') {
+      if (password === MOCK_AUTH_ERROR_TRIGGER) {
         reject(new Error('Registration failed'));
       } else {
         resolve({
