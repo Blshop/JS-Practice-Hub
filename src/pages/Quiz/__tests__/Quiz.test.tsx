@@ -1,8 +1,9 @@
-import { describe, it, beforeEach, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import QuizPage from '../Quiz';
-import * as useQuestionsModule from 'hooks/useQuestions';
+import { useQuestions } from 'hooks/useQuestions';
 import type { Question } from 'types/Questions';
+
+jest.mock('hooks/useQuestions');
 
 const mockQuestions: Question[] = [
   {
@@ -50,11 +51,10 @@ const mockQuestions: Question[] = [
   },
 ];
 
-vi.mock('hooks/useQuestions');
-
 describe('QuizPage', () => {
   beforeEach(() => {
-    vi.mocked(useQuestionsModule.useQuestions).mockReturnValue({
+    jest.clearAllMocks();
+    (useQuestions as jest.Mock).mockReturnValue({
       questions: mockQuestions,
       loading: false,
       error: null,
@@ -64,11 +64,12 @@ describe('QuizPage', () => {
   const startQuiz = async (category = 'JavaScript') => {
     render(<QuizPage />);
     fireEvent.click(screen.getByText(category));
+    await screen.findByText('What is 2+2?');
   };
 
   it('renders first question', async () => {
     await startQuiz();
-    expect(await screen.findByText('What is 2+2?')).toBeInTheDocument();
+    expect(screen.getByText('What is 2+2?')).toBeInTheDocument();
     expect(screen.getByLabelText('3')).toBeInTheDocument();
     expect(screen.getByLabelText('4')).toBeInTheDocument();
   });
@@ -121,6 +122,7 @@ describe('QuizPage', () => {
 
   it('handles predict-output question', async () => {
     await startQuiz();
+
     fireEvent.click(screen.getByLabelText('4'));
     fireEvent.click(screen.getByText('Check Answer'));
     fireEvent.click(screen.getByText('Next Question'));
@@ -134,8 +136,7 @@ describe('QuizPage', () => {
     fireEvent.click(screen.getByText('Check Answer'));
     fireEvent.click(screen.getByText('Next Question'));
 
-    const fourthQuestion = await screen.findByText(/Console output of 5 \+ "5"\?/i);
-    expect(fourthQuestion).toBeInTheDocument();
+    expect(await screen.findByText(/Console output of 5 \+ "5"\?/i)).toBeInTheDocument();
 
     const input = screen.getByLabelText('Your answer') as HTMLInputElement;
     fireEvent.change(input, { target: { value: '55' } });
