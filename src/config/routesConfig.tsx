@@ -7,6 +7,7 @@ import LoginForm from 'pages/Auth/components/LoginForm';
 import RegisterForm from 'pages/Auth/components/RegisterForm';
 import Demo from 'pages/Demo';
 import Main from 'pages/Main';
+import QuizPage from 'pages/Quiz';
 
 export const routesConfig: RouteObject[] = [
   {
@@ -47,6 +48,10 @@ export const routesConfig: RouteObject[] = [
       {
         path: routes.demo.mask,
         element: <Demo />,
+      },
+      {
+        path: routes.quiz.mask,
+        element: <QuizPage />,
       },
     ],
   },
