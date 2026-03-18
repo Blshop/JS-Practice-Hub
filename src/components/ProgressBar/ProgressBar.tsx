@@ -12,28 +12,32 @@ export type ProgressBarVariant =
   | 'warning'
   | 'info';
 
-interface ProgressBarProps {
+type ProgressBarProps = React.HTMLAttributes<HTMLElement> & {
   current: number;
   total: number;
   label?: string;
   showPercentage?: boolean;
   positionInfo?: 'top' | 'bottom';
   variant?: ProgressBarVariant;
-}
+};
 
-const ProgressBar: React.FC<ProgressBarProps> = ({
+const ProgressBar = ({
   current,
   total,
   label,
   showPercentage = true,
   positionInfo = 'top',
   variant = 'primary',
+  className,
   ...props
-}) => {
+}: ProgressBarProps) => {
   const percentage = total > 0 ? Math.round((current / total) * 100) : 0;
 
   return (
-    <div className={classNames(styles.wrapper, styles[`${positionInfo}Info`])} {...props}>
+    <div
+      className={classNames(styles.wrapper, styles[`${positionInfo}Info`], className)}
+      {...props}
+    >
       <div className={styles.progressInfo}>
         {label && (
           <Text uppercase bold>
