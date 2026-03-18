@@ -1,4 +1,6 @@
 import React from 'react';
+import Badge from 'components/Badge';
+import Text from 'components/Text';
 import styles from './ProgressBar.module.scss';
 import classNames from 'classnames';
 
@@ -33,11 +35,15 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   return (
     <div className={classNames(styles.wrapper, styles[`${positionInfo}Info`])} {...props}>
       <div className={styles.progressInfo}>
-        {label && <span className={styles.progressInfo__label}>{label}</span>}
+        {label && (
+          <Text uppercase bold>
+            {label}
+          </Text>
+        )}
         {showPercentage && (
-          <span className={classNames(styles.progressInfo__percentage, styles[variant])}>
+          <Badge className={styles.progressInfo__percentage} variant={variant}>
             {percentage}%
-          </span>
+          </Badge>
         )}
       </div>
 

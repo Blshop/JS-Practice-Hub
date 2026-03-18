@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'components/Button';
+import Badge from 'components/Badge';
 import Text from 'components/Text';
 import Input from 'components/Input';
 import Checkbox from 'components/Checkbox';
@@ -118,6 +119,26 @@ const Demo: React.FC = () => {
           <Button variant="link" disabled>
             Disabled
           </Button>
+        </div>
+      </div>
+      <div style={{ padding: '4rem 0 1rem 0', display: 'grid', gap: '2rem' }}>
+        <Text tag="h2" bold>
+          Badge Component Demo
+        </Text>
+        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          <Badge size="small">Small</Badge>
+          <Badge size="medium">Medium</Badge>
+          <Badge size="large">Large</Badge>
+        </div>
+        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          <Badge variant="primary">Primary</Badge>
+          <Badge variant="secondary">Secondary</Badge>
+          <Badge variant="danger">Danger</Badge>
+          <Badge variant="success">Success</Badge>
+          <Badge variant="warning">Warning</Badge>
+          <Badge variant="info">Info</Badge>
+          <Badge variant="light">Light</Badge>
+          <Badge variant="dark">Dark</Badge>
         </div>
       </div>
       <div style={{ padding: '4rem 0 1rem 0', display: 'grid', gap: '2rem' }}>
