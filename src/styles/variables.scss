@@ -12,12 +12,16 @@ $color-warning: #fdf2cc;
 $color-info: #bfeff1;
 
 $font-family-base: 'Roboto Mono', monospace;
-
 $font-weight-regular: 400;
 $font-weight-bold: 700;
 
 $breakpoint-mobile: 768px;
 
 $z-index-header: 1000;
-$z-index-overlay: 999;
 $z-index-burger: 1001;
+
+$border-default: 2px solid $color-neutral-900;
+$border-radius-default: 0.6em;
+$box-shadow-default: 0 4px 0 0 $color-neutral-900;
+$box-shadow-focused: 0 2px 0 0 $color-neutral-900;
+$hover-filter-default: brightness(1.05) contrast(1.05) saturate(1.2);

@@ -13,10 +13,10 @@
   appearance: none;
   width: 28px;
   height: 28px;
-  border: 2px solid var.$color-neutral-900;
+  border: var.$border-default;
   border-radius: 0.4em;
   background-color: var.$color-neutral-100;
-  box-shadow: 0 4px 0 0 var.$color-neutral-900;
+  box-shadow: var.$box-shadow-default;
   cursor: pointer;
   position: relative;
   transition:
@@ -25,7 +25,7 @@
     filter 0.2s;
 
   &:hover:not(:disabled) {
-    filter: brightness(1.1) contrast(1.1) saturate(1.5);
+    filter: var.$hover-filter-default;
   }
 
   &:active:not(:disabled) {
