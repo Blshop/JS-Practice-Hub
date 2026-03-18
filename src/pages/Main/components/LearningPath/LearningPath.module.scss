@@ -1,0 +1,11 @@
+@use 'styles/variables' as var;
+@use 'styles/_mixins' as mixin;
+
+.learningPath {
+  @include mixin.flex($direction: column, $gap: 2rem);
+
+  &__title {
+    text-align: center;
+    margin: 2rem 0 0 0;
+  }
+}
