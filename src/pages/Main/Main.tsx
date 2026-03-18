@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import learningPathData from 'data/learning-path-data.json';
+import learningPathData from 'data/js-learning-path-data.json';
 import userLessonsProgress from 'data/mock-user-lessons-progress.json';
 import {
   type Module,
