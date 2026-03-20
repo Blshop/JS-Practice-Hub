@@ -1,0 +1,22 @@
+@use 'styles/variables.scss' as var;
+@use 'styles/_mixins.scss' as mixin;
+
+.notFound {
+  @include mixin.flex($direction: column, $justify: center, $align: center, $gap: 24px);
+  flex: 1;
+  text-align: center;
+  padding: 2rem;
+
+  &__title {
+    font-size: 6rem;
+    color: var.$color-danger;
+    margin: 0;
+  }
+
+  &__message {
+    font-size: 1.25rem;
+    max-width: 600px;
+    color: var.$color-neutral-900;
+    margin: 0;
+  }
+}

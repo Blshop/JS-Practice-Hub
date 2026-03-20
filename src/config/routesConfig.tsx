@@ -8,6 +8,7 @@ import RegisterForm from 'pages/Auth/components/RegisterForm';
 import Demo from 'pages/Demo';
 import Main from 'pages/Main';
 import PrivateRoute from 'components/PrivateRoute';
+import NotFound from 'pages/NotFound';
 
 export const routesConfig: RouteObject[] = [
   {
@@ -61,10 +62,10 @@ export const routesConfig: RouteObject[] = [
         path: routes.demo.mask,
         element: <Demo />,
       },
+      {
+        path: '*',
+        element: <NotFound />,
+      },
     ],
-  },
-  {
-    path: '*',
-    element: <Navigate to={routes.main.mask} replace />,
   },
 ];
