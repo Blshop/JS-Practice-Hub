@@ -1,33 +1,35 @@
-// vite.config.ts
-import { defineConfig } from 'vitest/config'; // <-- use vitest/config
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+
 import path from 'path';
+
 import tsconfig from './tsconfig.json';
 
 const SRC_PATH = path.resolve(__dirname, 'src');
 
 const parseTsConfigPaths = (paths: Record<string, string[]>): Record<string, string> => {
-  const aliases: Record<string, string> = {};
+  const webpackConfigAliases: Record<string, string> = {};
 
-  Object.entries(paths).forEach(([alias, pathsArr]) => {
-    const cleanAlias = alias.replace(/\/\*$/, '');
-    const aliasPath = pathsArr[0].replace(/\/\*$/, '');
-    aliases[cleanAlias] = path.join(SRC_PATH, aliasPath);
+  Object.entries(paths).forEach(([alias, paths]) => {
+    const aliasPath = paths[0].replace(/[^a-zA-Z]/g, '');
+
+    webpackConfigAliases[alias] = path.join(SRC_PATH, aliasPath);
   });
 
-  return aliases;
+  return webpackConfigAliases;
 };
 
+// https://vite.dev/config/
 export default defineConfig({
   base: '/',
-  plugins: [react()],
+  plugins: [
+    react({
+      babel: {
+        plugins: [['babel-plugin-react-compiler']],
+      },
+    }),
+  ],
   resolve: {
     alias: parseTsConfigPaths(tsconfig.compilerOptions.paths),
-  },
-  test: {  // <-- now TypeScript will accept this
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/setupTests.ts',
-    include: ['src/**/*.test.{ts,tsx}'],
   },
 });

@@ -11,33 +11,15 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "assets": [
-        "assets/*"
-      ],
-      "components": [
-        "components/*"
-      ],
-      "pages": [
-        "pages/*"
-      ],
-      "services": [
-        "services/*"
-      ],
-      "store": [
-        "store/*"
-      ],
-      "config": [
-        "config/*"
-      ],
-      "styles": [
-        "styles/*"
-      ],
-      "types": [
-        "types/*"
-      ],
-      "hooks": [
-        "hooks/*"
-      ]
+      "assets": ["assets/*"],
+      "components": ["components/*"],
+      "pages": ["pages/*"],
+      "services": ["services/*"],
+      "store": ["store/*"],
+      "config": ["config/*"],
+      "styles": ["styles/*"],
+      "types": ["types/*"],
+      "hooks": ["hooks/*"]
     }
   }
 }
