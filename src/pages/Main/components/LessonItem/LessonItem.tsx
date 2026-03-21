@@ -12,18 +12,11 @@ interface LessonItemProps {
   lesson: Lesson;
 }
 
-const getVariantByStatus = (status: Lesson['status']) => {
-  switch (status) {
-    case STATUS.COMPLETED:
-      return 'success' as const;
-    case STATUS.PROGRESS:
-      return 'warning' as const;
-    case STATUS.WAIT:
-      return 'light' as const;
-    default:
-      return 'light' as const;
-  }
-};
+const STATUS_VARIANT = {
+  [STATUS.COMPLETED]: 'success',
+  [STATUS.PROGRESS]: 'warning',
+  [STATUS.WAIT]: 'light',
+} as const;
 
 const LessonItem: React.FC<LessonItemProps> = ({ lesson }) => {
   const navigate = useNavigate();
@@ -35,12 +28,12 @@ const LessonItem: React.FC<LessonItemProps> = ({ lesson }) => {
 
   return (
     <div className={styles.lessonItem}>
-      <Badge variant={getVariantByStatus(lesson.status)} size="small">
+      <Badge variant={STATUS_VARIANT[lesson.status]} size="small">
         +{lesson.xpReward} XP
       </Badge>
       <Button
         className={styles.lessonButton}
-        variant={getVariantByStatus(lesson.status)}
+        variant={STATUS_VARIANT[lesson.status]}
         onClick={() => handleLessonClick(lesson)}
         title={lesson.title}
       >
