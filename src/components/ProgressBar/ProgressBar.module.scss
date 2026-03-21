@@ -37,14 +37,6 @@
   border-radius: 6px;
   transition: width 0.6s ease;
   position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    animation: shimmer 2s infinite;
-  }
 }
 
 .progressInfo {
@@ -52,15 +44,6 @@
 
   &__percentage {
     margin-left: auto;
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
   }
 }
 
