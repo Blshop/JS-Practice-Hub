@@ -6,13 +6,14 @@
     "paths": {
       "assets": ["assets/*"],
       "components": ["components/*"],
+      "config": ["config/*"],
+      "data": ["data/*"],
       "pages": ["pages/*"],
       "services": ["services/*"],
       "store": ["store/*"],
-      "config": ["config/*"],
       "styles": ["styles/*"],
       "types": ["types/*"],
-      "data": ["data/*"]
+      "utils": ["utils/*"]
     }
   }
 }
