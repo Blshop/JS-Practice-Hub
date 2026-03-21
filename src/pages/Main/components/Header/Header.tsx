@@ -63,57 +63,59 @@ export const Header: React.FC = observer(() => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.header__container}>
-        <Text className={styles.header__heading} tag="h1" bold>
-          JS-Practice-Hub
-        </Text>
-        <nav
-          className={classNames(styles.header__nav, {
-            [styles.header__nav_open]: isOpen,
-          })}
-          role="navigation"
-          aria-label="Main navigation"
-        >
-          {NAV_ITEMS.map((item) => {
-            const isActive = location.pathname === item.path;
-            return (
-              <Button
-                key={item.label}
-                variant="secondary"
-                onClick={() => handleNavigation(item.path)}
-                className={classNames(styles.header__link, styles.header__button, {})}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                <Text bold>{item.label}</Text>
-              </Button>
-            );
-          })}
-          {authStore.isAuthenticated && (
+      <Text className={styles.header__heading} tag="h1" bold>
+        JS-Practice-Hub
+      </Text>
+      <nav
+        className={classNames(styles.header__nav, {
+          [styles.header__nav_open]: isOpen,
+        })}
+        role="navigation"
+        aria-label="Main navigation"
+      >
+        {NAV_ITEMS.map((item) => {
+          const isActive = location.pathname === item.path;
+          return (
             <Button
-              variant="danger"
-              onClick={handleLogout}
+              key={item.label}
+              variant="secondary"
+              onClick={() => handleNavigation(item.path)}
               className={classNames(styles.header__link, styles.header__button)}
+              aria-current={isActive ? 'page' : undefined}
             >
-              <Text bold>Logout</Text>
+              <Text uppercase bold>
+                {item.label}
+              </Text>
             </Button>
-          )}
-        </nav>
-        <Button
-          className={classNames(styles.burgerMenu__toggle, {
-            [styles.burgerMenu__toggle_active]: isOpen,
-          })}
-          onClick={toggleMenu}
-          variant="secondary"
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={isOpen}
-          aria-controls="main-navigation"
-          aria-hidden="true"
-        >
-          <span className={styles.burgerMenu__line}></span>
-          <span className={styles.burgerMenu__line}></span>
-          <span className={styles.burgerMenu__line}></span>
-        </Button>
-      </div>
+          );
+        })}
+        {authStore.isAuthenticated && (
+          <Button
+            variant="danger"
+            onClick={handleLogout}
+            className={classNames(styles.header__link, styles.header__button)}
+          >
+            <Text bold>Logout</Text>
+          </Button>
+        )}
+      </nav>
+      <Button
+        className={classNames(styles.burgerMenu__toggle)}
+        onClick={toggleMenu}
+        variant="secondary"
+        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={isOpen}
+        aria-controls="main-navigation"
+        aria-hidden="true"
+      >
+        <Text tag="span" bold>
+          {isOpen ? '✖' : '☰'}
+        </Text>
+      </Button>
     </header>
   );
 });
+
+Header.displayName = 'Header';
+
+export default Header;

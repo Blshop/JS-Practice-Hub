@@ -1,0 +1,20 @@
+@use 'styles/variables' as var;
+@use 'styles/_mixins' as mixin;
+
+.lessonItem {
+  @include mixin.flex($direction: column, $align: center, $gap: 0.5rem);
+}
+
+.lessonButton {
+  width: 100px;
+  height: 100px;
+  font-size: 1.75rem;
+  font-weight: var.$font-weight-bold;
+}
+
+.lessonTitle {
+  max-width: min-content;
+  text-align: center;
+  font-size: 1rem;
+  margin: 0;
+}
