@@ -1,36 +1,42 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { loginSchema } from '../../schemas/loginSchema';
+import type { LoginFormData } from '../../schemas/loginSchema';
 import Input from 'components/Input';
 import Button from 'components/Button';
 import styles from 'pages/Auth/Auth.module.scss';
 
 const LoginForm: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<LoginFormData>({
+    resolver: zodResolver(loginSchema),
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Login', { email, password });
+  const onSubmit = (data: LoginFormData) => {
+    console.log('Login', data);
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.auth__form}>
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.auth__form}>
       <Input
         type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
         placeholder="Email"
         autoComplete="email"
-        required
+        error={errors.email?.message}
+        {...register('email')}
       />
       <Input
         type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
         autoComplete="current-password"
-        required
+        error={errors.password?.message}
+        {...register('password')}
       />
-      <Button type="submit" variant="primary" size="medium">
+      <Button type="submit" variant="primary" size="medium" disabled={isSubmitting}>
         Login
       </Button>
     </form>

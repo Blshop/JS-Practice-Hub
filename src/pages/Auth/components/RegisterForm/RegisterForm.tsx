@@ -1,44 +1,48 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { registerSchema } from '../../schemas/registerSchema';
+import type { RegisterFormData } from '../../schemas/registerSchema';
 import Input from 'components/Input';
 import Button from 'components/Button';
 import styles from 'pages/Auth/Auth.module.scss';
 
 const RegisterForm: React.FC = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<RegisterFormData>({
+    resolver: zodResolver(registerSchema),
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Register', { username, email, password });
+  const onSubmit = (data: RegisterFormData) => {
+    console.log('Register', data);
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.auth__form}>
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.auth__form}>
       <Input
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
         placeholder="Username"
         autoComplete="username"
-        required
+        error={errors.username?.message}
+        {...register('username')}
       />
       <Input
         type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
         placeholder="Email"
         autoComplete="email"
-        required
+        error={errors.email?.message}
+        {...register('email')}
       />
       <Input
         type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
         autoComplete="new-password"
-        required
+        error={errors.password?.message}
+        {...register('password')}
       />
-      <Button type="submit" variant="primary" size="medium">
+      <Button type="submit" variant="primary" size="medium" disabled={isSubmitting}>
         Register
       </Button>
     </form>

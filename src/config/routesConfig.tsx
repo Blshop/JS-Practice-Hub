@@ -7,6 +7,7 @@ import LoginForm from 'pages/Auth/components/LoginForm';
 import RegisterForm from 'pages/Auth/components/RegisterForm';
 import Demo from 'pages/Demo';
 import QuizPage from 'pages/Quiz';
+import Main from 'pages/Main';
 
 export const routesConfig: RouteObject[] = [
   {
@@ -16,7 +17,11 @@ export const routesConfig: RouteObject[] = [
     children: [
       {
         path: routes.main.mask,
-        element: <>Главная</>,
+        element: <Main />,
+      },
+      {
+        path: routes.profile.mask,
+        element: <>Профиль пользователя</>,
       },
       {
         path: routes.about.mask,

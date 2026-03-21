@@ -35,6 +35,9 @@
       "types": [
         "types/*"
       ],
+      "data": [
+        "data/*"
+      ],
       "hooks": [
         "hooks/*"
       ]

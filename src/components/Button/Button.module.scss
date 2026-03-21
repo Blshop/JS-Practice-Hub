@@ -6,11 +6,11 @@
   width: fit-content;
   @include mixin.flex($justify: center, $align: center, $gap: 0.5rem);
   padding: 0.75rem 1rem;
-  border: 2px solid var.$color-neutral-900;
-  border-radius: 1em;
+  border: var.$border-default;
+  border-radius: var.$border-radius-default;
   font-size: 1rem;
   color: var.$color-neutral-900;
-  box-shadow: 0 4px 0 0 var.$color-neutral-900;
+  box-shadow: var.$box-shadow-default;
   cursor: pointer;
   transition:
     transform 0.2s,
@@ -18,7 +18,9 @@
     filter 0.2s;
 
   &:hover {
-    filter: brightness(1.1) contrast(1.1) saturate(1.5);
+    filter: var.$hover-filter-default;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 0 var.$color-neutral-900;
   }
 
   &:active {
@@ -73,10 +75,18 @@
   &.dark {
     background-color: var.$color-neutral-900;
     color: var.$color-neutral-100;
+    border-color: var.$color-neutral-500;
     box-shadow: 0 4px 0 0 var.$color-neutral-500;
 
+    &:hover {
+      filter: var.$hover-filter-default;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 0 var.$color-neutral-500;
+    }
+
     &:active {
-      box-shadow: 0 0px 0 0 var.$color-neutral-900;
+      box-shadow: 0 0px 0 0 var.$color-neutral-500;
+      transform: translateY(4px);
     }
   }
 
