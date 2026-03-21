@@ -1,5 +1,6 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import type { User } from 'types/User';
+import { notifySuccess, notifyError, notifyInfo } from 'utils/notify';
 import { mockLogin, mockRegister } from '../__mocks__/mockAuth';
 
 class AuthStore {
@@ -27,7 +28,7 @@ class AuthStore {
         this.user = JSON.parse(user);
       }
     } catch (error) {
-      console.error('Failed to load auth data from storage:', error); // todo: уведомление
+      notifyError(`Failed to load auth data: ${error}`);
     }
   }
 
@@ -57,12 +58,18 @@ class AuthStore {
         this.isLoading = false;
       });
 
+      notifySuccess(`Welcome, ${response.user.username}!`);
+
       return true;
     } catch (error) {
+      const message = error instanceof Error ? error.message : 'Login failed';
+
       runInAction(() => {
-        this.error = error instanceof Error ? error.message : 'Login failed';
+        this.error = message;
         this.isLoading = false;
       });
+
+      notifyError(message);
 
       return false;
     }
@@ -82,12 +89,18 @@ class AuthStore {
         this.isLoading = false;
       });
 
+      notifySuccess(`Account created successfully! Welcome, ${username}!`);
+
       return true;
     } catch (error) {
+      const message = error instanceof Error ? error.message : 'Registration failed';
+
       runInAction(() => {
-        this.error = error instanceof Error ? error.message : 'Registration failed';
+        this.error = message;
         this.isLoading = false;
       });
+
+      notifyError(message);
 
       return false;
     }
@@ -98,6 +111,7 @@ class AuthStore {
     this.jwt = null;
     this.error = null;
     this.clearStorage();
+    notifyInfo('You have been logged out.');
   }
 }
 

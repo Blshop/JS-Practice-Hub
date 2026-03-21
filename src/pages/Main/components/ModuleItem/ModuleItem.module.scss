@@ -1,0 +1,19 @@
+@use 'styles/variables' as var;
+@use 'styles/_mixins' as mixin;
+
+.moduleItem {
+  @include mixin.flex($direction: column, $gap: 2rem);
+}
+
+.moduleHeader {
+  text-align: center;
+
+  &__progress {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.lessonsPath {
+  @include mixin.flex($direction: column, $gap: 2rem);
+}

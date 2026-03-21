@@ -1,0 +1,58 @@
+@use 'styles/variables.scss' as var;
+@use 'styles/_mixins.scss' as mixin;
+
+.badge {
+  height: fit-content;
+  width: fit-content;
+  @include mixin.flex($justify: center, $align: center, $inline: true);
+  padding: 0.3rem 0.6rem;
+  border: var.$border-default;
+  border-radius: 0.4em;
+  font-size: 1rem;
+  font-weight: var.$font-weight-bold;
+  color: var.$color-neutral-900;
+
+  &.small {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  &.large {
+    padding: 0.4rem 0.8rem;
+    font-size: 1.2rem;
+  }
+
+  &.primary {
+    background-color: var.$color-primary;
+  }
+
+  &.secondary {
+    background-color: var.$color-secondary;
+  }
+
+  &.success {
+    background-color: var.$color-success;
+  }
+
+  &.danger {
+    background-color: var.$color-danger;
+  }
+
+  &.warning {
+    background-color: var.$color-warning;
+  }
+
+  &.info {
+    background-color: var.$color-info;
+  }
+
+  &.light {
+    background-color: var.$color-neutral-100;
+  }
+
+  &.dark {
+    background-color: var.$color-neutral-900;
+    color: var.$color-neutral-100;
+    border-color: var.$color-neutral-500;
+  }
+}

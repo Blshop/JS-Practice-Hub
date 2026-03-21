@@ -1,0 +1,124 @@
+{
+  "modules": [
+    {
+      "id": "basics",
+      "title": "JavaScript Basics",
+      "description": "Core syntax and data types",
+      "lessons": [
+        {
+          "id": "js-basics-1",
+          "title": "Variables: let, const, var",
+          "xpReward": 10,
+          "totalTasks": 3
+        },
+        { "id": "js-basics-2", "title": "Data Types and typeof", "xpReward": 10, "totalTasks": 3 },
+        { "id": "js-basics-3", "title": "Type Coercion", "xpReward": 15, "totalTasks": 3 },
+        { "id": "js-basics-4", "title": "Comparison Operators", "xpReward": 10, "totalTasks": 3 },
+        { "id": "js-basics-5", "title": "Truthy and Falsy Values", "xpReward": 15, "totalTasks": 3 }
+      ]
+    },
+    {
+      "id": "control-flow",
+      "title": "Control Flow",
+      "description": "Conditions and loops",
+      "lessons": [
+        { "id": "js-cf-1", "title": "if / else", "xpReward": 10, "totalTasks": 3 },
+        { "id": "js-cf-2", "title": "Ternary Operator", "xpReward": 10, "totalTasks": 3 },
+        { "id": "js-cf-3", "title": "switch", "xpReward": 15, "totalTasks": 3 },
+        { "id": "js-cf-4", "title": "for Loop", "xpReward": 15, "totalTasks": 3 },
+        { "id": "js-cf-5", "title": "while and do...while", "xpReward": 15, "totalTasks": 3 }
+      ]
+    },
+    {
+      "id": "functions",
+      "title": "Functions",
+      "description": "Working with functions and scope",
+      "lessons": [
+        {
+          "id": "js-fn-1",
+          "title": "Function Declaration vs Expression",
+          "xpReward": 15,
+          "totalTasks": 3
+        },
+        { "id": "js-fn-2", "title": "Arrow Functions", "xpReward": 15, "totalTasks": 3 },
+        { "id": "js-fn-3", "title": "Parameters and return", "xpReward": 15, "totalTasks": 3 },
+        { "id": "js-fn-4", "title": "Scope", "xpReward": 20, "totalTasks": 3 },
+        { "id": "js-fn-5", "title": "Closures", "xpReward": 20, "totalTasks": 3 }
+      ]
+    },
+    {
+      "id": "arrays-strings",
+      "title": "Arrays and Strings",
+      "description": "Working with collections",
+      "lessons": [
+        { "id": "js-arr-1", "title": "Basic Array Methods", "xpReward": 15, "totalTasks": 3 },
+        { "id": "js-arr-2", "title": "Array Iteration", "xpReward": 15, "totalTasks": 3 },
+        { "id": "js-arr-3", "title": "map, filter, reduce", "xpReward": 20, "totalTasks": 3 },
+        { "id": "js-arr-4", "title": "String Methods", "xpReward": 15, "totalTasks": 3 },
+        { "id": "js-arr-5", "title": "Template Literals", "xpReward": 15, "totalTasks": 3 }
+      ]
+    },
+    {
+      "id": "objects",
+      "title": "Objects",
+      "description": "Data structures and this keyword",
+      "lessons": [
+        { "id": "js-obj-1", "title": "Creating Objects", "xpReward": 15, "totalTasks": 3 },
+        { "id": "js-obj-2", "title": "this keyword", "xpReward": 20, "totalTasks": 3 },
+        { "id": "js-obj-3", "title": "Destructuring", "xpReward": 15, "totalTasks": 3 },
+        { "id": "js-obj-4", "title": "Spread and Rest", "xpReward": 15, "totalTasks": 3 },
+        { "id": "js-obj-5", "title": "Object Copying", "xpReward": 20, "totalTasks": 3 }
+      ]
+    },
+    {
+      "id": "advanced",
+      "title": "Advanced Concepts",
+      "description": "Deep JavaScript behavior",
+      "lessons": [
+        { "id": "js-adv-1", "title": "Hoisting with var", "xpReward": 20, "totalTasks": 3 },
+        { "id": "js-adv-2", "title": "Temporal Dead Zone", "xpReward": 20, "totalTasks": 3 },
+        { "id": "js-adv-3", "title": "this in Arrow Functions", "xpReward": 25, "totalTasks": 3 },
+        { "id": "js-adv-4", "title": "IIFE", "xpReward": 20, "totalTasks": 3 },
+        { "id": "js-adv-5", "title": "Recursion", "xpReward": 25, "totalTasks": 3 }
+      ]
+    },
+    {
+      "id": "dom",
+      "title": "DOM and Events",
+      "description": "Browser interaction",
+      "lessons": [
+        { "id": "js-dom-1", "title": "Selecting Elements", "xpReward": 15, "totalTasks": 3 },
+        { "id": "js-dom-2", "title": "Manipulating DOM", "xpReward": 15, "totalTasks": 3 },
+        { "id": "js-dom-3", "title": "Events", "xpReward": 20, "totalTasks": 3 },
+        { "id": "js-dom-4", "title": "Event Delegation", "xpReward": 20, "totalTasks": 3 }
+      ]
+    },
+    {
+      "id": "async",
+      "title": "Asynchronous JavaScript",
+      "description": "Event Loop and async patterns",
+      "lessons": [
+        { "id": "js-async-1", "title": "Event Loop", "xpReward": 30, "totalTasks": 3 },
+        {
+          "id": "js-async-2",
+          "title": "setTimeout and setInterval",
+          "xpReward": 20,
+          "totalTasks": 3
+        },
+        { "id": "js-async-3", "title": "Promises", "xpReward": 25, "totalTasks": 3 },
+        { "id": "js-async-4", "title": "async / await", "xpReward": 25, "totalTasks": 3 },
+        { "id": "js-async-5", "title": "Error Handling", "xpReward": 25, "totalTasks": 3 }
+      ]
+    },
+    {
+      "id": "modern",
+      "title": "Modern JavaScript",
+      "description": "ES6+ features",
+      "lessons": [
+        { "id": "js-modern-1", "title": "Optional Chaining", "xpReward": 20, "totalTasks": 3 },
+        { "id": "js-modern-2", "title": "Nullish Coalescing", "xpReward": 20, "totalTasks": 3 },
+        { "id": "js-modern-3", "title": "Modules (import/export)", "xpReward": 20, "totalTasks": 3 }
+      ]
+    }
+  ]
+}

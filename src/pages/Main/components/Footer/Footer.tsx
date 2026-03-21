@@ -32,3 +32,7 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+
+Footer.displayName = 'Footer';
+
+export default Footer;
