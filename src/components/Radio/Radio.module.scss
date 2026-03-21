@@ -13,7 +13,7 @@
   appearance: none;
   width: 28px;
   height: 28px;
-  border: 2px solid var.$color-neutral-900;
+  border: var.$border-default;
   border-radius: 50%;
   background-color: var.$color-neutral-100;
   box-shadow:
@@ -27,7 +27,7 @@
     filter 0.2s;
 
   &:hover {
-    filter: brightness(1.1) contrast(1.1) saturate(1.5);
+    filter: var.$hover-filter-default;
   }
 
   &:active {
@@ -101,4 +101,11 @@
   &.error {
     color: var.$color-danger;
   }
+}
+.input.success {
+  background-color: var.$color-success;
+}
+
+.label.success {
+  color: var.$color-success;
 }
