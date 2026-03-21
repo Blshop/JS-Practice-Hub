@@ -7,6 +7,7 @@
       "assets": ["assets/*"],
       "components": ["components/*"],
       "config": ["config/*"],
+      "data": ["data/*"],
       "pages": ["pages/*"],
       "services": ["services/*"],
       "store": ["store/*"],

@@ -13,12 +13,12 @@
 
 .select {
   padding: 0.75rem 2.5rem 0.75rem 1rem;
-  border: 2px solid var.$color-neutral-900;
-  border-radius: 1em;
+  border: var.$border-default;
+  border-radius: var.$border-radius-default;
   background-color: var.$color-neutral-100;
   font-size: 1rem;
   color: var.$color-neutral-900;
-  box-shadow: 0 4px 0 0 var.$color-neutral-900;
+  box-shadow: var.$box-shadow-default;
   outline: none;
   cursor: pointer;
   transition:
@@ -29,18 +29,14 @@
   position: relative;
   user-select: none;
 
-  &:hover {
-    filter: brightness(1.1) contrast(1.1) saturate(1.5);
-  }
-
   &:focus {
     transform: translateY(2px);
-    box-shadow: 0 2px 0 0 var.$color-neutral-900;
+    box-shadow: var.$box-shadow-focused;
   }
 
   &.open {
     transform: translateY(2px);
-    box-shadow: 0 2px 0 0 var.$color-neutral-900;
+    box-shadow: var.$box-shadow-focused;
   }
 
   &.disabled {
@@ -98,33 +94,26 @@
   left: 0;
   right: 0;
   background-color: var.$color-neutral-100;
-  border: 2px solid var.$color-neutral-900;
-  border-radius: 1em;
+  border: var.$border-default;
+  border-radius: var.$border-radius-default;
   overflow: hidden;
   z-index: 1000;
   animation: slide-down 0.2s ease-out;
-
-  &.small {
-    font-size: 0.75rem;
-  }
-
-  &.large {
-    font-size: 1.25rem;
-  }
 
   &_inner {
     max-height: calc((1.5rem + 1em) * 4 + 10px);
     overflow-y: auto;
     overflow-x: hidden;
-    border-radius: 1em;
   }
 
   .small {
     max-height: calc((0.8rem + 1em) * 4 + 8px);
+    font-size: 0.75rem;
   }
 
   .large {
     max-height: calc((2rem + 1em) * 4 + 12px);
+    font-size: 1.25rem;
   }
 }
 
