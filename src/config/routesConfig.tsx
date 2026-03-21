@@ -7,6 +7,7 @@ import LoginForm from 'pages/Auth/components/LoginForm';
 import RegisterForm from 'pages/Auth/components/RegisterForm';
 import Demo from 'pages/Demo';
 import Main from 'pages/Main';
+import PrivateRoute from 'components/PrivateRoute';
 
 export const routesConfig: RouteObject[] = [
   {
@@ -16,11 +17,19 @@ export const routesConfig: RouteObject[] = [
     children: [
       {
         path: routes.main.mask,
-        element: <Main />,
+        element: (
+          <PrivateRoute>
+            <Main />
+          </PrivateRoute>
+        ),
       },
       {
         path: routes.profile.mask,
-        element: <>Профиль пользователя</>,
+        element: (
+          <PrivateRoute>
+            <>Профиль пользователя</>
+          </PrivateRoute>
+        ),
       },
       {
         path: routes.about.mask,
@@ -28,7 +37,11 @@ export const routesConfig: RouteObject[] = [
       },
       {
         path: routes.auth.mask,
-        element: <Auth />,
+        element: (
+          <PrivateRoute inverted>
+            <Auth />
+          </PrivateRoute>
+        ),
         children: [
           {
             index: true,
