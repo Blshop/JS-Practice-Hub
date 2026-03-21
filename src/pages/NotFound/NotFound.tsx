@@ -14,7 +14,7 @@ const NotFound: React.FC = () => {
 
   return (
     <div className={styles.notFound}>
-      <Text tag="h1" className={styles.notFound__title}>
+      <Text tag="h1" error className={styles.notFound__title}>
         404
       </Text>
       <Text tag="p" className={styles.notFound__message}>

@@ -2,14 +2,13 @@
 @use 'styles/_mixins.scss' as mixin;
 
 .notFound {
-  @include mixin.flex($direction: column, $justify: center, $align: center, $gap: 24px);
+  @include mixin.flex($direction: column, $justify: center, $align: center, $gap: 1.5rem);
   flex: 1;
   text-align: center;
   padding: 2rem;
 
   &__title {
     font-size: 6rem;
-    color: var.$color-danger;
     margin: 0;
   }
 
