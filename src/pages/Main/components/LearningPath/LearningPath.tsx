@@ -15,13 +15,19 @@ const LearningPath: React.FC<LearningPathProps> = ({ modules }) => {
       <Text tag="h2" className={styles.learningPath__title} uppercase bold>
         Learning JavaScript
       </Text>
-      {modules.map((module) => (
-        <ModuleItem key={module.id} module={module}>
-          {module.lessons.map((lesson) => (
-            <LessonItem key={lesson.id} lesson={lesson} />
-          ))}
-        </ModuleItem>
-      ))}
+      {modules.length === 0 ? (
+        <Text className={styles.learningPath__emptyMessage} tag="p" bold error>
+          No modules available yet. Check back soon!
+        </Text>
+      ) : (
+        modules.map((module) => (
+          <ModuleItem key={module.id} module={module}>
+            {module.lessons.map((lesson) => (
+              <LessonItem key={lesson.id} lesson={lesson} />
+            ))}
+          </ModuleItem>
+        ))
+      )}
     </div>
   );
 };
