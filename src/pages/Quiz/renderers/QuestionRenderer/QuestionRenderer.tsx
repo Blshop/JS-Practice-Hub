@@ -1,0 +1,64 @@
+import React from 'react';
+import type { Question } from 'types/Questions';
+import type { AnswerType } from 'pages/Quiz/useQuiz';
+
+import SingleCorrectRenderer from '../SingleCorrectRenderer/SingleCorrectrenderer';
+import MultipleCorrectRenderer from '../MultipleCorrectRenderer/MultipleCorrectRenderer';
+import YesNoRenderer from '../YesNoRenderer/YesNoRenderer';
+import PredictOutputRenderer from '../PredictOutputRenderer/PredictOutputRenderer';
+
+interface Props {
+  question: Question;
+  userAnswer?: AnswerType;
+  isChecked: boolean;
+  onAnswer: (a: AnswerType) => void;
+}
+
+const QuestionRenderer: React.FC<Props> = ({ question, userAnswer, isChecked, onAnswer }) => {
+  switch (question.type) {
+    case 'single-correct':
+      return (
+        <SingleCorrectRenderer
+          question={question}
+          userAnswer={userAnswer}
+          isChecked={isChecked}
+          onAnswer={onAnswer}
+        />
+      );
+
+    case 'multiple-correct':
+      return (
+        <MultipleCorrectRenderer
+          question={question}
+          userAnswer={userAnswer}
+          isChecked={isChecked}
+          onAnswer={onAnswer}
+        />
+      );
+
+    case 'yes-no':
+      return (
+        <YesNoRenderer
+          question={question}
+          userAnswer={userAnswer}
+          isChecked={isChecked}
+          onAnswer={onAnswer}
+        />
+      );
+
+    case 'predict-output':
+      return (
+        <PredictOutputRenderer
+          question={question}
+          userAnswer={userAnswer}
+          isChecked={isChecked}
+          onAnswer={onAnswer}
+        />
+      );
+
+    default:
+      return <div>Unsupported question type</div>;
+  }
+};
+
+export default QuestionRenderer;

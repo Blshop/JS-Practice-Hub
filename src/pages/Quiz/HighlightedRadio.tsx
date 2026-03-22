@@ -4,22 +4,24 @@ import styles from 'components/Radio/Radio.module.scss';
 
 export type RadioSize = 'small' | 'medium' | 'large';
 
-export type HighlightedRadioProps = React.ComponentPropsWithRef<'input'> & {
+export type RadioProps = React.ComponentPropsWithRef<'input'> & {
   elementSize?: RadioSize;
   label?: React.ReactNode;
   error?: boolean;
+  success?: boolean;
 };
 
-const HighlightedRadio = ({
+const Radio = ({
   className,
   label,
   error,
+  success,
   elementSize = 'medium',
   id,
   disabled,
   ref,
   ...props
-}: HighlightedRadioProps) => {
+}: RadioProps) => {
   const generatedId = React.useId();
   const inputId = id ?? generatedId;
 
@@ -36,6 +38,7 @@ const HighlightedRadio = ({
             styles.input,
             styles[elementSize],
             { [styles.error]: !!error },
+            { [styles.success]: !!success },
             className,
           )}
           {...props}
@@ -45,6 +48,7 @@ const HighlightedRadio = ({
             htmlFor={inputId}
             className={classNames(styles.label, styles[elementSize], {
               [styles.error]: !!error,
+              [styles.success]: !!success,
               [styles.disabled]: !!disabled,
             })}
           >
@@ -56,6 +60,6 @@ const HighlightedRadio = ({
   );
 };
 
-HighlightedRadio.displayName = 'Radio';
+Radio.displayName = 'Radio';
 
-export default HighlightedRadio;
+export default Radio;
