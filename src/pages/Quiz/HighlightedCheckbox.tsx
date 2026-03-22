@@ -4,22 +4,24 @@ import styles from 'components/Checkbox/Checkbox.module.scss';
 
 export type CheckboxSize = 'small' | 'medium' | 'large';
 
-export type HighlightedCheckboxProps = React.ComponentPropsWithRef<'input'> & {
+export type CheckboxProps = React.ComponentPropsWithRef<'input'> & {
   elementSize?: CheckboxSize;
   label?: React.ReactNode;
   error?: boolean;
+  success?: boolean;
 };
 
-const HighlightedCheckbox = ({
+const Checkbox = ({
   className,
   label,
   error,
+  success,
   elementSize = 'medium',
   id,
   disabled,
   ref,
   ...props
-}: HighlightedCheckboxProps) => {
+}: CheckboxProps) => {
   const generatedId = React.useId();
   const inputId = id ?? generatedId;
 
@@ -36,6 +38,7 @@ const HighlightedCheckbox = ({
             styles.input,
             styles[elementSize],
             { [styles.error]: !!error },
+            { [styles.success]: !!success },
             className,
           )}
           {...props}
@@ -45,6 +48,7 @@ const HighlightedCheckbox = ({
             htmlFor={inputId}
             className={classNames(styles.label, styles[elementSize], {
               [styles.error]: !!error,
+              [styles.success]: !!success,
               [styles.disabled]: !!disabled,
             })}
           >
@@ -56,6 +60,6 @@ const HighlightedCheckbox = ({
   );
 };
 
-HighlightedCheckbox.displayName = 'Checkbox';
+Checkbox.displayName = 'Checkbox';
 
-export default HighlightedCheckbox;
+export default Checkbox;

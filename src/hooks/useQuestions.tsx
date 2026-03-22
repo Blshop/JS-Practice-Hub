@@ -8,7 +8,7 @@ type QuestionModule = {
   default: Question[];
 };
 
-const questionModules = import.meta.glob<QuestionModule>('/src/data/**/*.json');
+const questionModules = import.meta.glob<QuestionModule>('/src/data/**/**/*.json');
 
 export function useQuestions(category: Category | null, fileId: string | null) {
   const [questions, setQuestions] = useState<Question[]>([]);
