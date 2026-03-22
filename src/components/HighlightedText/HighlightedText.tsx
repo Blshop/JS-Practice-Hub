@@ -7,49 +7,22 @@ type HighlightedTextProps = TextProps & {
 };
 
 const HighlightedText: React.FC<HighlightedTextProps> = ({ text = '', tag = 'span', ...props }) => {
-  const regex =
-    /\*\*(.*?)\*\*|\b(const|let|var|if|else|return|function|class|new)\b|===|!==|==|!=|\b(true|false|null|undefined)\b|\d+|"[^"]*"|'[^']*'/g;
+  const parts = text.split(/(`[^`]+`)/g);
 
-  const result: React.ReactNode[] = [];
-  let lastIndex = 0;
-  let key = 0;
+  const result = parts.map((part, index) => {
+    const isCode = part.startsWith('`') && part.endsWith('`');
 
-  for (const match of text.matchAll(regex)) {
-    const index = match.index ?? 0;
-    const value = match[0];
-    const emphasis = match[1];
-    const keyword = match[2];
-
-    if (index > lastIndex) {
-      result.push(text.slice(lastIndex, index));
-    }
-
-    if (emphasis) {
-      result.push(
-        <span key={key++} className={styles.emphasis}>
-          {emphasis}
-        </span>,
-      );
-    } else if (keyword) {
-      result.push(
-        <span key={key++} className={styles.keyword}>
-          {keyword}
-        </span>,
-      );
-    } else {
-      result.push(
-        <code key={key++} className={styles.code}>
-          {value}
-        </code>,
+    if (isCode) {
+      const content = part.slice(1, -1);
+      return (
+        <code key={index} className={styles.code}>
+          {content}
+        </code>
       );
     }
 
-    lastIndex = index + value.length;
-  }
-
-  if (lastIndex < text.length) {
-    result.push(text.slice(lastIndex));
-  }
+    return <React.Fragment key={index}>{part}</React.Fragment>;
+  });
 
   return (
     <Text {...props} tag={tag} className={styles.container}>
