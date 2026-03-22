@@ -1,21 +1,22 @@
 import { useState, useEffect } from 'react';
 import type { Question } from 'types/Questions';
 
+// TODO Correct for actual categories
 type Category = 'JavaScript' | 'typescript' | 'css';
 
 type QuestionModule = {
   default: Question[];
 };
 
-const questionModules = import.meta.glob<QuestionModule>('/src/data/**/predict-output.json');
+const questionModules = import.meta.glob<QuestionModule>('/src/data/**/*.json');
 
-export function useQuestions(category: Category | null = null) {
+export function useQuestions(category: Category | null, fileId: string | null) {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!category) return;
+    if (!category || !fileId) return;
 
     let isMounted = true;
 
@@ -23,32 +24,33 @@ export function useQuestions(category: Category | null = null) {
       setLoading(true);
       setError(null);
 
-      const loaded: Question[] = [];
-      const prefix = `/src/data/${category}/`;
+      const targetPath = `/src/data/${category}/${fileId}.json`;
 
-      for (const [path, importer] of Object.entries(questionModules)) {
-        if (!path.startsWith(prefix)) continue;
+      const importer = questionModules[targetPath];
 
-        try {
-          const module = await importer();
-          const data = module.default;
-
-          if (Array.isArray(data)) {
-            loaded.push(...data);
-          } else {
-            console.warn(`Invalid data in ${path}: expected array`);
-          }
-        } catch (err) {
-          console.warn(`Failed to load ${path}:`, err);
-          if (isMounted) {
-            setError(`Failed to load ${path}`);
-          }
-        }
+      if (!importer) {
+        setError(`File not found: ${targetPath}`);
+        setLoading(false);
+        return;
       }
 
-      if (isMounted) {
-        setQuestions(loaded);
-        setLoading(false);
+      try {
+        const module = await importer();
+        const data = module.default;
+
+        if (isMounted) {
+          if (Array.isArray(data)) {
+            setQuestions(data);
+          } else {
+            setError(`Invalid data format in ${targetPath}`);
+          }
+        }
+      } catch {
+        if (isMounted) {
+          setError(`Failed to load ${targetPath}`);
+        }
+      } finally {
+        if (isMounted) setLoading(false);
       }
     };
 
@@ -57,7 +59,7 @@ export function useQuestions(category: Category | null = null) {
     return () => {
       isMounted = false;
     };
-  }, [category]);
+  }, [category, fileId]);
 
   return { questions, loading, error };
 }
