@@ -23,7 +23,7 @@ const LessonItem: React.FC<LessonItemProps> = ({ lesson }) => {
 
   const handleLessonClick = (lesson: Lesson) => {
     // TODO: заменить на страницу с заданием
-    navigate(routes.main.mask, { state: { lessonId: lesson.id } });
+    navigate(routes.quiz.mask, { state: { lessonId: lesson.id } });
   };
 
   return (
