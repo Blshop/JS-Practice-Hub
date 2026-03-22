@@ -15,7 +15,6 @@
         box-shadow 0.2s ease,
         transform 0.15s ease;
 
-    /* Hover effect only when not checked */
     &:hover:not(.correct):not(.incorrect) {
         background-color: #f7f7f7;
         border-color: #c5c5c5;
@@ -26,14 +25,12 @@
 
 .correct {
     background-color: rgba(46, 204, 113, 0.15);
-    /* soft green */
     border-color: #2ecc71;
     box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.3);
 }
 
 .incorrect {
     background-color: rgba(231, 76, 60, 0.15);
-    /* soft red */
     border-color: #e74c3c;
     box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.3);
 }

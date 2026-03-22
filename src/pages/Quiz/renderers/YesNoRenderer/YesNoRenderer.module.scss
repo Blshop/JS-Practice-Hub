@@ -5,7 +5,6 @@
     margin-top: 20px;
 }
 
-/* Optional: make buttons feel like part of the quiz UI */
 .yesNo button {
     min-width: 120px;
     padding: 12px 18px;
@@ -19,41 +18,35 @@
         transform 0.15s ease;
 }
 
-/* Hover lift */
 .yesNo button:not(:disabled):hover {
     transform: translateY(-1px);
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* Success (correct) */
 .yesNo button.success {
     background-color: #2ecc71;
     border-color: #27ae60;
     color: #ffffff;
 }
 
-/* Danger (incorrect) */
 .yesNo button.danger {
     background-color: #e74c3c;
     border-color: #c0392b;
     color: #ffffff;
 }
 
-/* Info (selected before checking) */
 .yesNo button.info {
     background-color: #3498db;
     border-color: #2980b9;
     color: #ffffff;
 }
 
-/* Light (default) */
 .yesNo button.light {
     background-color: #f2f2f2;
     border-color: #d0d0d0;
     color: #333333;
 }
 
-/* Disabled state */
 .yesNo button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
