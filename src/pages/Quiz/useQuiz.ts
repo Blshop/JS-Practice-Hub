@@ -36,6 +36,40 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
   const currentQuestion = questions[currentIndex];
   const totalQuestions = questions.length;
 
+  const isFinished = currentIndex >= totalQuestions;
+
+  const correctCount = questions.reduce((acc, q) => {
+    const userAns = userAnswers[q.id];
+    let correct = false;
+
+    switch (q.type) {
+      case 'single-correct':
+        correct = userAns === (q as SingleCorrectQuestion).correctId;
+        break;
+
+      case 'multiple-correct': {
+        const mcq = q as MultipleCorrectQuestion;
+        correct =
+          Array.isArray(userAns) &&
+          userAns.length === mcq.correctIds.length &&
+          userAns.every((id) => mcq.correctIds.includes(id));
+        break;
+      }
+
+      case 'yes-no':
+        correct = userAns === (q as YesNoQuestion).answer;
+        break;
+
+      case 'predict-output':
+        correct =
+          typeof userAns === 'string' &&
+          userAns.trim() === (q as PredictOutputQuestion).answer.trim();
+        break;
+    }
+
+    return acc + (correct ? 1 : 0);
+  }, 0);
+
   const handleAnswer = (answer: AnswerType) => {
     if (!currentQuestion) return;
     setUserAnswers((prev) => ({ ...prev, [currentQuestion.id]: answer }));
@@ -91,37 +125,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
       return;
     }
 
-    const correctCount = questions.reduce((acc, q) => {
-      const userAns = userAnswers[q.id];
-      let correct = false;
-
-      switch (q.type) {
-        case 'single-correct':
-          correct = userAns === (q as SingleCorrectQuestion).correctId;
-          break;
-
-        case 'multiple-correct': {
-          const mcq = q as MultipleCorrectQuestion;
-          correct =
-            Array.isArray(userAns) &&
-            userAns.length === mcq.correctIds.length &&
-            userAns.every((id) => mcq.correctIds.includes(id));
-          break;
-        }
-
-        case 'yes-no':
-          correct = userAns === (q as YesNoQuestion).answer;
-          break;
-
-        case 'predict-output':
-          correct =
-            typeof userAns === 'string' &&
-            userAns.trim() === (q as PredictOutputQuestion).answer.trim();
-          break;
-      }
-
-      return acc + (correct ? 1 : 0);
-    }, 0);
+    setCurrentIndex(totalQuestions);
 
     onComplete?.({
       correct: correctCount,
@@ -145,5 +149,8 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
     handleAnswer,
     handleCheck,
     handleNext,
+
+    isFinished,
+    correctCount,
   };
 };

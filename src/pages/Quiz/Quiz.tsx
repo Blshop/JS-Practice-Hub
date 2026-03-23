@@ -26,6 +26,8 @@ const QuizPage: React.FC = () => {
     handleAnswer,
     handleCheck,
     handleNext,
+    isFinished,
+    correctCount,
   } = useQuiz(lessonId);
 
   const currentAnswer = currentQuestion ? userAnswers[currentQuestion.id] : undefined;
@@ -34,8 +36,43 @@ const QuizPage: React.FC = () => {
     (Array.isArray(currentAnswer) && currentAnswer.length === 0) ||
     (typeof currentAnswer === 'string' && currentAnswer.trim() === '');
 
+  if (isFinished) {
+    return (
+      <div className={styles.quiz}>
+        <Text tag="h1" bold className={styles.title}>
+          Quiz Completed!
+        </Text>
+
+        <div className={styles.results}>
+          <Text tag="h2" bold>
+            Your Score
+          </Text>
+
+          <Text className={styles.score}>
+            {correctCount} / {totalQuestions}
+          </Text>
+
+          <ProgressBar
+            current={correctCount}
+            total={totalQuestions}
+            variant="success"
+            label="Correct Answers"
+            positionInfo="top"
+          />
+
+          <Text className={styles.percentage}>
+            Accuracy: {Math.round((correctCount / totalQuestions) * 100)}%
+          </Text>
+
+          <Button variant="primary" size="large" onClick={() => window.location.reload()}>
+            Try Again
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    // Possibly get real theme
     <div className={styles.quiz}>
       <Text tag="h1" bold className={styles.title}>
         JavaScript Quiz
@@ -48,7 +85,7 @@ const QuizPage: React.FC = () => {
         variant="info"
         positionInfo="top"
       />
-      {/* Update for actual loading effect */}
+
       {loading && <Text>Loading questions...</Text>}
       {error && <Text error>{error}</Text>}
 
