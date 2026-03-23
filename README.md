@@ -5,17 +5,29 @@
 В приложении реализованы уровни сложности, что позволяет постепенно углублять знания — от базовых тем до продвинутых концепций. Также предусмотрено хранение статистики для отслеживания прогресса пользователя и анализа результатов. Проект направлен на развитие глубокого понимания асинхронности, работы event loop, замыканий, прототипов и других ключевых механизмов JavaScript.
 
 ## Ссылка на deploy
+
 - https://blshop.github.io/JS-Practice-Hub/
 
 ## 👨‍💻 Состав команды
 
-- **Nikita Erechtchenko** — https://github.com/Blshop 
-- **Roman Shamaluk**— https://github.com/GorodeN  
-- **Dmitry Astapenko** — https://github.com/DmitryAstapenko   
+- **Nikita Erechtchenko** — https://github.com/Blshop
+- **Roman Shamaluk**— https://github.com/GorodeN
+- **Dmitry Astapenko** — https://github.com/DmitryAstapenko
 
 ## 🎓 Ментор
+
 - **Alina Husarava** — https://github.com/spadarynjaALINA
 
 ## 🏫 Организация
 
-- **The Rolling Scopes (@rollingscopes)** — https://github.com/rollingscopes  
+- **The Rolling Scopes (@rollingscopes)** — https://github.com/rollingscopes
+
+## 📹 Видео-доказательство функциональности (Страница 404, Loading state, Обработка ошибок API)
+
+Демонстрация корректной работы приложения:
+
+- Страница 404 при переходе на несуществующий URL
+- Loading state при загрузке данных
+- Обработка ошибок API
+
+**Ссылка на видео:** https://youtu.be/P-2lO-0YiLI
