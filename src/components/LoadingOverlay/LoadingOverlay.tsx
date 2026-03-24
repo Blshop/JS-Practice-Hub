@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import Loader, { type LoaderSize } from 'components/Loader';
 import Button from 'components/Button';
-import Text from 'components/Text/Text';
+import Text from 'components/Text';
 import styles from './LoadingOverlay.module.scss';
 
 export type LoadingOverlayProps = {
