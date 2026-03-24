@@ -1,9 +1,8 @@
 .yesNo {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 20px;
+    @include flex(row, center, stretch, 1rem);
+    margin-top: 1.25rem;
 }
+
 
 .yesNo button {
     min-width: 120px;

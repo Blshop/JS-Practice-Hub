@@ -1,8 +1,7 @@
 .predict {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+    @include flex(column, flex-start, stretch, 0.85rem);
 }
+
 
 .explanation {
     padding: 16px 18px;

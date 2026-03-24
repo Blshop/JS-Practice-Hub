@@ -4,8 +4,7 @@ import Radio from 'components/Radio';
 import HighlightedText from 'components/HighlightedText';
 import styles from './SingleCorrectRenderer.module.scss';
 
-import type { SingleCorrectQuestion } from 'types/Questions';
-import type { AnswerType } from 'pages';
+import type { SingleCorrectQuestion, AnswerType } from 'types/Questions';
 
 interface Props {
   question: SingleCorrectQuestion;
