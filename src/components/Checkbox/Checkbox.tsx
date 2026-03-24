@@ -6,7 +6,7 @@ export type CheckboxSize = 'small' | 'medium' | 'large';
 
 export type CheckboxProps = React.ComponentPropsWithRef<'input'> & {
   elementSize?: CheckboxSize;
-  label?: string;
+  label?: string | React.ReactNode;
   error?: boolean;
   success?: boolean;
 };

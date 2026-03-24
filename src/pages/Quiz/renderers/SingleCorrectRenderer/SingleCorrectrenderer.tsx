@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import HighlightedRadio from '../../HighlightedRadio';
+import Radio from 'components/Radio';
 import HighlightedText from 'components/HighlightedText';
 import styles from './SingleCorrectRenderer.module.scss';
 
@@ -30,7 +30,7 @@ const SingleCorrectRenderer: React.FC<Props> = ({ question, userAnswer, isChecke
               [styles.incorrect]: isChecked && isSelected && !isCorrectOption,
             })}
           >
-            <HighlightedRadio
+            <Radio
               label={<HighlightedText text={opt.text} />}
               name={question.id}
               elementSize="medium"

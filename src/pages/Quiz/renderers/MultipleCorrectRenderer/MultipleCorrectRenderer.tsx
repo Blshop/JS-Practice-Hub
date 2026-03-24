@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import HighlightedCheckbox from '../../HighlightedCheckbox';
+import Checkbox from 'components/Checkbox';
 import HighlightedText from 'components/HighlightedText';
 import styles from './MultipleCorrectRenderer.module.scss';
 
@@ -40,7 +40,7 @@ const MultipleCorrectRenderer: React.FC<Props> = ({
               [styles.incorrect]: isChecked && showError,
             })}
           >
-            <HighlightedCheckbox
+            <Checkbox
               label={<HighlightedText text={opt.text} />}
               elementSize="medium"
               checked={isSelected}
