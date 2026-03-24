@@ -1,20 +1,15 @@
 import { useState } from 'react';
-import { useQuestions } from 'hooks/useQuestions';
+import { useQuestions } from './useQuestions';
 import { useMemo } from 'react';
 import type {
+  AnswerType,
+  QuizSummary,
   Question,
   SingleCorrectQuestion,
   MultipleCorrectQuestion,
   YesNoQuestion,
   PredictOutputQuestion,
 } from 'types/Questions';
-
-export type AnswerType = string | string[] | 'yes' | 'no';
-
-interface QuizSummary {
-  correct: number;
-  total: number;
-}
 
 export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) => void) => {
   const [currentIndex, setCurrentIndex] = useState(0);

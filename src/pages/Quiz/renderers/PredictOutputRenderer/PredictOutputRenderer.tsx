@@ -4,8 +4,7 @@ import Input from 'components/Input';
 import Text from 'components/Text';
 import styles from './PredictOutputRenderer.module.scss';
 
-import type { PredictOutputQuestion } from 'types/Questions';
-import type { AnswerType } from 'pages/Quiz/useQuiz';
+import type { PredictOutputQuestion, AnswerType } from 'types/Questions';
 
 interface Props {
   question: PredictOutputQuestion;

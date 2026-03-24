@@ -38,9 +38,6 @@
       "data": [
         "data/*"
       ],
-      "hooks": [
-        "hooks/*"
-      ],
       "utils": [
         "utils/*"
       ]

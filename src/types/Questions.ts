@@ -36,3 +36,10 @@ export type Question =
   | MultipleCorrectQuestion
   | YesNoQuestion
   | PredictOutputQuestion;
+
+export type AnswerType = string | string[] | 'yes' | 'no';
+
+export interface QuizSummary {
+  correct: number;
+  total: number;
+}

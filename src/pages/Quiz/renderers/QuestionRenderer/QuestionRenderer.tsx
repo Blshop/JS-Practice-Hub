@@ -1,6 +1,5 @@
 import React from 'react';
-import type { Question } from 'types/Questions';
-import type { AnswerType } from 'pages/Quiz/useQuiz';
+import type { Question, AnswerType } from 'types/Questions';
 
 import SingleCorrectRenderer from '../SingleCorrectRenderer';
 import MultipleCorrectRenderer from '../MultipleCorrectRenderer';

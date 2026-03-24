@@ -3,8 +3,7 @@ import Button from 'components/Button';
 import HighlightedText from 'components/HighlightedText';
 import styles from './YesNoRenderer.module.scss';
 
-import type { YesNoQuestion } from 'types/Questions';
-import type { AnswerType } from 'pages/Quiz/useQuiz';
+import type { YesNoQuestion, AnswerType } from 'types/Questions';
 
 interface Props {
   question: YesNoQuestion;

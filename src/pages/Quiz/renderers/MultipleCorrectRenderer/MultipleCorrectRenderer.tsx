@@ -4,8 +4,7 @@ import Checkbox from 'components/Checkbox';
 import HighlightedText from 'components/HighlightedText';
 import styles from './MultipleCorrectRenderer.module.scss';
 
-import type { MultipleCorrectQuestion } from 'types/Questions';
-import type { AnswerType } from 'pages/Quiz/useQuiz';
+import type { MultipleCorrectQuestion, AnswerType } from 'types/Questions';
 
 interface Props {
   question: MultipleCorrectQuestion;

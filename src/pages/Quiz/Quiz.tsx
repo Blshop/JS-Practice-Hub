@@ -6,7 +6,7 @@ import ProgressBar from 'components/ProgressBar';
 import { useLocation } from 'react-router-dom';
 
 import styles from './Quiz.module.scss';
-import { useQuiz } from './useQuiz';
+import { useQuiz } from './hooks/useQuiz';
 import QuestionRenderer from './renderers/QuestionRenderer';
 
 const QuizPage: React.FC = () => {
