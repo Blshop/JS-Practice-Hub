@@ -3,27 +3,27 @@
 .loader {
   border-radius: 50%;
   border-style: solid;
-  border-color: var.$color-primary;
+  border-color: var.$color-neutral-900;
   border-top-color: transparent;
   animation: spin 1s linear infinite;
+}
 
-  &.small {
-    width: 1.5rem;
-    height: 1.5rem;
-    border-width: 0.2rem;
-  }
+.small {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-width: 0.2rem;
+}
 
-  &.medium {
-    width: 3rem;
-    height: 3rem;
-    border-width: 0.35rem;
-  }
+.medium {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.35rem;
+}
 
-  &.large {
-    width: 5rem;
-    height: 5rem;
-    border-width: 0.5rem;
-  }
+.large {
+  width: 5rem;
+  height: 5rem;
+  border-width: 0.5rem;
 }
 
 @keyframes spin {
