@@ -26,6 +26,7 @@ const QuizPage: React.FC = () => {
     handleAnswer,
     handleCheck,
     handleNext,
+    resetQuiz,
     isFinished,
     correctCount,
   } = useQuiz(lessonId);
@@ -64,7 +65,7 @@ const QuizPage: React.FC = () => {
             Accuracy: {Math.round((correctCount / totalQuestions) * 100)}%
           </Text>
 
-          <Button variant="primary" size="large" onClick={() => window.location.reload()}>
+          <Button variant="primary" size="large" onClick={resetQuiz}>
             Try Again
           </Button>
         </div>

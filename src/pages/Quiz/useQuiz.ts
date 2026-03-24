@@ -136,6 +136,16 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
     });
   };
 
+  const resetQuiz = () => {
+    setCurrentIndex(0);
+    setUserAnswers({});
+    setCheckState({
+      isChecked: false,
+      isCorrect: null,
+      showExplanation: false,
+    });
+  };
+
   return {
     questions,
     currentQuestion,
@@ -152,6 +162,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
     handleAnswer,
     handleCheck,
     handleNext,
+    resetQuiz,
 
     isFinished,
     correctCount,
