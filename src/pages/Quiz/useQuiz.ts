@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useQuestions } from 'hooks/useQuestions';
+import { useMemo } from 'react';
 import type {
   Question,
   SingleCorrectQuestion,
@@ -38,37 +39,39 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
 
   const isFinished = currentIndex >= totalQuestions;
 
-  const correctCount = questions.reduce((acc, q) => {
-    const userAns = userAnswers[q.id];
-    let correct = false;
+  const correctCount = useMemo(() => {
+    return questions.reduce((acc, q) => {
+      const userAns = userAnswers[q.id];
+      let correct = false;
 
-    switch (q.type) {
-      case 'single-correct':
-        correct = userAns === (q as SingleCorrectQuestion).correctId;
-        break;
+      switch (q.type) {
+        case 'single-correct':
+          correct = userAns === (q as SingleCorrectQuestion).correctId;
+          break;
 
-      case 'multiple-correct': {
-        const mcq = q as MultipleCorrectQuestion;
-        correct =
-          Array.isArray(userAns) &&
-          userAns.length === mcq.correctIds.length &&
-          userAns.every((id) => mcq.correctIds.includes(id));
-        break;
+        case 'multiple-correct': {
+          const mcq = q as MultipleCorrectQuestion;
+          correct =
+            Array.isArray(userAns) &&
+            userAns.length === mcq.correctIds.length &&
+            userAns.every((id) => mcq.correctIds.includes(id));
+          break;
+        }
+
+        case 'yes-no':
+          correct = userAns === (q as YesNoQuestion).answer;
+          break;
+
+        case 'predict-output':
+          correct =
+            typeof userAns === 'string' &&
+            userAns.trim() === (q as PredictOutputQuestion).answer.trim();
+          break;
       }
 
-      case 'yes-no':
-        correct = userAns === (q as YesNoQuestion).answer;
-        break;
-
-      case 'predict-output':
-        correct =
-          typeof userAns === 'string' &&
-          userAns.trim() === (q as PredictOutputQuestion).answer.trim();
-        break;
-    }
-
-    return acc + (correct ? 1 : 0);
-  }, 0);
+      return acc + (correct ? 1 : 0);
+    }, 0);
+  }, [questions, userAnswers]);
 
   const handleAnswer = (answer: AnswerType) => {
     if (!currentQuestion) return;
