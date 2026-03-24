@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useCallback, useRef } from 'react';
 import learningPathData from 'data/js-learning-path-data.json';
 import userLessonsProgress from 'data/mock-user-lessons-progress.json';
 import {
@@ -19,31 +19,40 @@ const Main: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [userProgress, setUserProgress] = useState<UserProgress | null>(null);
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
+  const isFirstLoadRef = useRef(true);
 
-  // Имитация загрузки данных с сервера
-  const loadData = () => {
+  const loadData = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
-    // TODO: заменить на реальный запрос к серверу
-    setTimeout(() => {
+    try {
+      // TODO: Заменить на реальный API запрос
+      // 1. Удалить строку ниже (имитация задержки):
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      // 2. Удалить блок имитации ошибки (строки ниже до setUserProgress):
       // Первая загрузка всегда с ошибкой, последующие - успешные
-      if (isFirstLoad) {
-        setError('Failed to load learning path data. Please try again.');
-        setIsLoading(false);
-        setIsFirstLoad(false);
-      } else {
-        setUserProgress(userLessonsProgress as UserProgress);
-        setIsLoading(false);
+      if (isFirstLoadRef.current) {
+        isFirstLoadRef.current = false;
+        throw new Error('Failed to load learning path data. Please try again.');
       }
-    }, 2000);
-  };
+      // 3. Удалить isFirstLoadRef из компонента (объявление и useRef импорт если больше не используется)
+
+      // 4. Заменить строку ниже на реальный запрос:
+      // const response = await fetch('/api/user/progress');
+      // const data = await response.json();
+      // setUserProgress(data);
+      setUserProgress(userLessonsProgress as UserProgress);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
     loadData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [loadData]);
 
   const learningModules = useMemo(() => {
     if (!userProgress) return [];
