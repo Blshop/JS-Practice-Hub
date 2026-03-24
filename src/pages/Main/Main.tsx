@@ -8,8 +8,8 @@ import {
   type Lesson,
   STATUS,
 } from 'types/LearningPath';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
 import LearningPath from './components/LearningPath';
 import styles from './Main.module.scss';
 import Badge from 'components/Badge';
