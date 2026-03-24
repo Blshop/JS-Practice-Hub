@@ -2,10 +2,10 @@ import React from 'react';
 import type { Question } from 'types/Questions';
 import type { AnswerType } from 'pages/Quiz/useQuiz';
 
-import SingleCorrectRenderer from '../SingleCorrectRenderer/SingleCorrectrenderer';
-import MultipleCorrectRenderer from '../MultipleCorrectRenderer/MultipleCorrectRenderer';
-import YesNoRenderer from '../YesNoRenderer/YesNoRenderer';
-import PredictOutputRenderer from '../PredictOutputRenderer/PredictOutputRenderer';
+import SingleCorrectRenderer from '../SingleCorrectRenderer';
+import MultipleCorrectRenderer from '../MultipleCorrectRenderer';
+import YesNoRenderer from '../YesNoRenderer';
+import PredictOutputRenderer from '../PredictOutputRenderer';
 
 interface Props {
   question: Question;

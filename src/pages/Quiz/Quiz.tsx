@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 
 import styles from './Quiz.module.scss';
 import { useQuiz } from './useQuiz';
-import QuestionRenderer from './renderers/QuestionRenderer/QuestionRenderer';
+import QuestionRenderer from './renderers/QuestionRenderer';
 
 const QuizPage: React.FC = () => {
   const { state } = useLocation();
