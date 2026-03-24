@@ -40,6 +40,9 @@
       ],
       "hooks": [
         "hooks/*"
+      ],
+      "utils": [
+        "utils/*"
       ]
     }
   }

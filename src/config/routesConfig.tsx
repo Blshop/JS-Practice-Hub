@@ -8,6 +8,8 @@ import RegisterForm from 'pages/Auth/components/RegisterForm';
 import Demo from 'pages/Demo';
 import QuizPage from 'pages/Quiz';
 import Main from 'pages/Main';
+import PrivateRoute from 'components/PrivateRoute';
+import NotFound from 'pages/NotFound';
 
 export const routesConfig: RouteObject[] = [
   {
@@ -17,11 +19,19 @@ export const routesConfig: RouteObject[] = [
     children: [
       {
         path: routes.main.mask,
-        element: <Main />,
+        element: (
+          <PrivateRoute>
+            <Main />
+          </PrivateRoute>
+        ),
       },
       {
         path: routes.profile.mask,
-        element: <>Профиль пользователя</>,
+        element: (
+          <PrivateRoute>
+            <>Профиль пользователя</>
+          </PrivateRoute>
+        ),
       },
       {
         path: routes.about.mask,
@@ -29,7 +39,11 @@ export const routesConfig: RouteObject[] = [
       },
       {
         path: routes.auth.mask,
-        element: <Auth />,
+        element: (
+          <PrivateRoute inverted>
+            <Auth />
+          </PrivateRoute>
+        ),
         children: [
           {
             index: true,
@@ -53,10 +67,10 @@ export const routesConfig: RouteObject[] = [
         path: routes.quiz.mask,
         element: <QuizPage />,
       },
+      {
+        path: '*',
+        element: <NotFound />,
+      },
     ],
-  },
-  {
-    path: '*',
-    element: <Navigate to={routes.main.mask} replace />,
   },
 ];
