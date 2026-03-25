@@ -44,10 +44,12 @@ const QuizPage: React.FC = () => {
           Quiz Completed!
         </Text>
 
-        <div className={styles.results}>
-          <Text tag="h2" bold>
-            Your Score
-          </Text>
+        <div className={styles.resultsCard}>
+          <div className={styles.header}>
+            <Text tag="h2" bold>
+              Your Score
+            </Text>
+          </div>
 
           <Text className={styles.score}>
             {correctCount} / {totalQuestions}
