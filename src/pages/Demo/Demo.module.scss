@@ -1,4 +1,4 @@
-@import 'styles/mixins';
+@use 'styles/mixins' as mixin;
 
 .demo {
   &__content {
@@ -12,11 +12,11 @@
   }
 
   &__flexRow {
-    @include flex($align: center, $gap: 1rem, $wrap: wrap);
+    @include mixin.flex($align: center, $gap: 1rem, $wrap: wrap);
   }
 
   &__flexRowSmallGap {
-    @include flex($align: center, $gap: 0.5rem, $wrap: wrap);
+    @include mixin.flex($align: center, $gap: 0.5rem, $wrap: wrap);
   }
 
   &__gridInputs {
