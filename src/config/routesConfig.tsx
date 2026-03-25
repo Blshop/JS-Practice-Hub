@@ -38,6 +38,7 @@ export const routesConfig: RouteObject[] = [
       },
       {
         path: routes.auth.mask,
+        handle: { hideHeaderFooter: true },
         element: (
           <PrivateRoute inverted>
             <Auth />
@@ -64,6 +65,7 @@ export const routesConfig: RouteObject[] = [
       },
       {
         path: '*',
+        handle: { hideHeaderFooter: true },
         element: <NotFound />,
       },
     ],
