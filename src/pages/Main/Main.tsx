@@ -8,10 +8,7 @@ import {
   type Lesson,
   STATUS,
 } from 'types/LearningPath';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
 import LearningPath from './components/LearningPath';
-import styles from './Main.module.scss';
 import Badge from 'components/Badge';
 
 const Main: React.FC = () => {
@@ -86,16 +83,12 @@ const Main: React.FC = () => {
   );
 
   return (
-    <div className={styles.main}>
-      <Header />
-      <section className={styles.main__content}>
-        <Badge variant="info" size="large">
-          ⚡ {totalXp} XP
-        </Badge>
-        <LearningPath modules={learningModules} />
-      </section>
-      <Footer />
-    </div>
+    <section>
+      <Badge variant="info" size="large">
+        ⚡ {totalXp} XP
+      </Badge>
+      <LearningPath modules={learningModules} />
+    </section>
   );
 };
 
