@@ -1,0 +1,28 @@
+@use 'styles/variables.scss' as var;
+@use 'styles/_mixins.scss' as mixin;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include mixin.flex($justify: center, $align: center);
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.error {
+  @include mixin.flex($direction: column, $justify: center, $align: center, $gap: 2rem);
+  text-align: center;
+}
+
+.errorIcon {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.errorMessage {
+  margin: 0;
+  font-size: 1.25rem;
+}

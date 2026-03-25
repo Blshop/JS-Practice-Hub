@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './Button.module.scss';
+import Loader from 'components/Loader';
 
 export type ButtonVariant =
   | 'primary'
@@ -47,7 +48,7 @@ const Button = ({
       {...props}
     >
       {children}
-      {loading && <span className={styles.loader} />}
+      {loading && <Loader className={styles.loader} />}
     </button>
   );
 };

@@ -8,6 +8,7 @@ import Radio from 'components/Radio';
 import Select from 'components/Select';
 import ProgressBar from 'components/ProgressBar';
 import styles from './Demo.module.scss';
+import Loader from 'components/Loader';
 
 const Demo: React.FC = () => {
   return (
@@ -245,6 +246,17 @@ const Demo: React.FC = () => {
           <ProgressBar current={80} total={100} label="Danger" variant="danger" />
           <ProgressBar current={90} total={100} label="Warning" variant="warning" />
           <ProgressBar current={100} total={100} label="Info" variant="info" />
+        </div>
+      </div>
+
+      <div className={styles.demo__section}>
+        <Text tag="h2" bold>
+          Loader Component Demo
+        </Text>
+        <div className={styles.demo__flexRow}>
+          <Loader size="small" />
+          <Loader size="medium" />
+          <Loader size="large" />
         </div>
       </div>
     </div>
