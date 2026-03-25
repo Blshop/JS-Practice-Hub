@@ -64,6 +64,7 @@ export const routesConfig: RouteObject[] = [
       },
       {
         path: '*',
+        handle: { hideHeaderFooter: true },
         element: <NotFound />,
       },
     ],

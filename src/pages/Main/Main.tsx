@@ -8,11 +8,8 @@ import {
   type Lesson,
   STATUS,
 } from 'types/LearningPath';
-import Header from './components/Header';
-import Footer from './components/Footer';
 import LearningPath from './components/LearningPath';
 import LoadingOverlay from 'components/LoadingOverlay';
-import styles from './Main.module.scss';
 import Badge from 'components/Badge';
 
 const Main: React.FC = () => {
@@ -124,10 +121,9 @@ const Main: React.FC = () => {
   }, [userProgress]);
 
   return (
-    <div className={styles.main}>
-      <Header />
+    <>
       <LoadingOverlay isLoading={isLoading} error={error} onRetry={loadData} />
-      <section className={styles.main__content}>
+      <section>
         {userProgress && (
           <>
             <Badge variant="info" size="large">
@@ -137,8 +133,7 @@ const Main: React.FC = () => {
           </>
         )}
       </section>
-      <Footer />
-    </div>
+    </>
   );
 };
 

@@ -7,6 +7,7 @@ import { routes } from 'config/routes';
 import { authStore } from 'store/AuthStore';
 import styles from './Header.module.scss';
 import Button from 'components/Button';
+import Badge from 'components/Badge';
 
 const NAV_ITEMS = [
   { label: 'Home', path: routes.main.mask },
@@ -80,7 +81,7 @@ export const Header: React.FC = observer(() => {
               key={item.label}
               variant="secondary"
               onClick={() => handleNavigation(item.path)}
-              className={classNames(styles.header__link, styles.header__button)}
+              className={classNames(styles.header__link, styles.button)}
               aria-current={isActive ? 'page' : undefined}
             >
               <Text uppercase bold>
@@ -89,16 +90,21 @@ export const Header: React.FC = observer(() => {
             </Button>
           );
         })}
+
         {authStore.isAuthenticated && (
-          <Button
-            variant="danger"
-            onClick={handleLogout}
-            className={classNames(styles.header__link, styles.header__button)}
-          >
-            <Text bold>Logout</Text>
-          </Button>
+          <>
+            <Button
+              variant="danger"
+              onClick={handleLogout}
+              className={classNames(styles.header__link, styles.button)}
+            >
+              <Text bold>Logout</Text>
+            </Button>
+            <Badge variant="info">🙂 {authStore.user?.username}</Badge>
+          </>
         )}
       </nav>
+
       <Button
         className={classNames(styles.burgerMenu__toggle)}
         onClick={toggleMenu}
