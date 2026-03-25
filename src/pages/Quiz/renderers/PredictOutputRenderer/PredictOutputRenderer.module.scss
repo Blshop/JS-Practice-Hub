@@ -1,44 +1,48 @@
+@use 'styles/variables.scss' as var;
+@use 'styles/_mixins.scss' as mixin;
+@use "sass:color";
+
 .predict {
-    @include flex(column, flex-start, stretch, 0.85rem);
+    @include mixin.flex(column, flex-start, stretch, 0.85rem);
 }
 
-
 .explanation {
-    padding: 16px 18px;
-    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    border-radius: var.$border-radius-default;
     font-weight: 600;
     line-height: 1.4;
     font-size: 1rem;
     border: 1px solid transparent;
+
     transition:
-        background-color 0.22s ease,
-        border-color 0.22s ease,
-        box-shadow 0.22s ease;
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .correct {
-    background-color: rgba(46, 204, 113, 0.18);
-    border-color: #2ecc71;
-    color: #0f3d1f;
-    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.35);
+    background-color: color.scale(var.$color-success, $lightness: 60%);
+    border-color: var.$color-success;
+    color: color.scale(var.$color-success, $lightness: -55%);
+    box-shadow: 0 0 0 2px color.change(var.$color-success, $alpha: 0.3);
 }
 
 .incorrect {
-    background-color: rgba(231, 76, 60, 0.18);
-    border-color: #e74c3c;
-    color: #4a0f0f;
-    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.35);
+    background-color: color.scale(var.$color-danger, $lightness: 60%);
+    border-color: var.$color-danger;
+    color: color.scale(var.$color-danger, $lightness: -55%);
+    box-shadow: 0 0 0 2px color.change(var.$color-danger, $alpha: 0.3);
 }
 
 .correctAnswer {
-    margin-top: 6px;
+    margin-top: 0.4rem;
     font-size: 0.95rem;
 }
 
 .correctAnswer code {
-    background: #f2f2f2;
-    padding: 2px 6px;
-    border-radius: 4px;
+    background: var.$color-neutral-200;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
     font-family: "JetBrains Mono", monospace;
     font-size: 0.9rem;
 }

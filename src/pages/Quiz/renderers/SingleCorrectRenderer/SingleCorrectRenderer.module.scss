@@ -1,13 +1,17 @@
+@use 'styles/variables.scss' as var;
+@use 'styles/_mixins.scss' as mixin;
+@use "sass:color";
+
 .options {
-    @include flex(column, flex-start, stretch, 0.75rem);
+    @include mixin.flex(column, flex-start, stretch, 0.75rem);
 }
 
 
 .option {
-    padding: 12px 16px;
-    border-radius: 8px;
-    background-color: #ffffff;
-    border: 1px solid #dcdcdc;
+    padding: 0.75rem 1rem;
+    border-radius: var.$border-radius-default;
+    background-color: var.$color-neutral-100;
+    border: 1px solid var.$color-neutral-200;
     transition:
         background-color 0.2s ease,
         border-color 0.2s ease,
@@ -15,27 +19,27 @@
         transform 0.15s ease;
 
     &:hover:not(.correct):not(.incorrect) {
-        background-color: #f7f7f7;
-        border-color: #c5c5c5;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        background-color: var.$color-neutral-200;
+        border-color: var.$color-neutral-300;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         transform: translateY(-1px);
     }
 }
 
 .correct {
-    background-color: rgba(46, 204, 113, 0.15);
-    border-color: #2ecc71;
-    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.3);
+    background-color: color.scale(var.$color-success, $lightness: 60%);
+    border-color: var.$color-success;
+    box-shadow: 0 0 0 2px color.change(var.$color-success, $alpha: 0.3);
 }
 
 .incorrect {
-    background-color: rgba(231, 76, 60, 0.15);
-    border-color: #e74c3c;
-    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.3);
+    background-color: color.scale(var.$color-danger, $lightness: 60%);
+    border-color: var.$color-danger;
+    box-shadow: 0 0 0 2px color.change(var.$color-danger, $alpha: 0.3);
 }
 
 .selected {
-    background-color: #f0f0f0;
-    border-color: #4a4a4a;
-    box-shadow: 0 0 0 2px rgba(74, 74, 74, 0.2);
+    background-color: color.scale(var.$color-primary, $lightness: 60%);
+    border-color: var.$color-primary;
+    box-shadow: 0 0 0 2px color.change(var.$color-primary, $alpha: 0.3);
 }
