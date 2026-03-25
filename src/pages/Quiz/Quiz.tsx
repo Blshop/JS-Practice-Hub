@@ -64,7 +64,7 @@ const QuizPage: React.FC = () => {
           />
 
           <Text className={styles.percentage}>
-            Accuracy: {Math.round((correctCount / totalQuestions) * 100)}%
+            Accuracy: {totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0}%
           </Text>
 
           <Button variant="primary" size="large" onClick={resetQuiz}>
