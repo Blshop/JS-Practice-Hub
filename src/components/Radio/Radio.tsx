@@ -6,7 +6,7 @@ export type RadioSize = 'small' | 'medium' | 'large';
 
 export type RadioProps = React.ComponentPropsWithRef<'input'> & {
   elementSize?: RadioSize;
-  label?: string;
+  label?: string | React.ReactNode;
   error?: boolean;
   success?: boolean;
 };

@@ -1,0 +1,7 @@
+@use 'styles/variables.scss' as var;
+@use 'styles/_mixins.scss' as mixin;
+
+.yesNo {
+    @include mixin.flex(row, center, stretch, 1rem);
+    margin-top: 1.25rem;
+}

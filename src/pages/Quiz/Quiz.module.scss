@@ -1,0 +1,132 @@
+@use 'styles/variables.scss' as var;
+@use 'styles/_mixins.scss' as mixin;
+@use "sass:color";
+
+.quiz {
+    max-width: 720px;
+    margin: 2.5rem auto;
+    padding: 1.25rem;
+
+    @include mixin.flex(column, flex-start, stretch, 2.5rem);
+}
+
+
+.title {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var.$color-neutral-900;
+}
+
+.questionContainer {
+    background: var.$color-neutral-100;
+    border-radius: 0.8rem;
+    padding: 2rem;
+    border: 1px solid var.$color-neutral-200;
+    box-shadow: 0 0.4rem 1.25rem rgba(0, 0, 0, 0.06);
+
+    @include mixin.flex(column, flex-start, stretch, 1.75rem);
+}
+
+.questionHeader {
+    @include mixin.flex(column, flex-start, stretch, 1rem);
+
+    background: var.$color-neutral-100;
+    padding: 1.25rem 1.5rem;
+    border-radius: var.$border-radius-default;
+    border: 1px solid var.$color-neutral-200;
+
+    box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.04);
+
+    border-left: 0.5rem solid var.$color-primary;
+}
+
+.questionText {
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var.$color-neutral-900;
+    line-height: 1.4;
+}
+
+.codeBlock {
+    background-color: var.$color-neutral-200;
+    padding: 0.875rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var.$color-neutral-300;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.optionsContainer {
+    margin-top: 0.25rem;
+}
+
+.actions {
+    @include mixin.flex(column, flex-start, stretch, 1.25rem);
+    margin-top: 0.5rem;
+}
+
+.explanation {
+    padding: 1rem 1.125rem;
+    border-radius: 0.625rem;
+    font-weight: 600;
+    line-height: 1.5;
+    border: 1px solid transparent;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.correct {
+    background-color: color.scale(var.$color-success, $lightness: 60%);
+    border-color: var.$color-success;
+    color: color.scale(var.$color-success, $lightness: -55%);
+    box-shadow: 0 0 0 2px color.change(var.$color-success, $alpha: 0.3);
+}
+
+.incorrect {
+    background-color: color.scale(var.$color-danger, $lightness: 60%);
+    border-color: var.$color-danger;
+    color: color.scale(var.$color-danger, $lightness: -55%);
+    box-shadow: 0 0 0 2px color.change(var.$color-danger, $alpha: 0.3);
+}
+
+.resultsCard {
+    background: var.$color-neutral-100;
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 1px solid var.$color-neutral-200;
+    box-shadow: 0 0.4rem 1.25rem rgba(0, 0, 0, 0.06);
+
+    @include mixin.flex(column, center, stretch, 1.75rem);
+
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+.score {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    color: var.$color-primary;
+}
+
+.percentage {
+    font-size: 1.2rem;
+    text-align: center;
+    color: var.$color-neutral-900;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
