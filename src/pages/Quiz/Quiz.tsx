@@ -12,6 +12,7 @@ import QuestionRenderer from './renderers/QuestionRenderer';
 const QuizPage: React.FC = () => {
   const { state } = useLocation();
   const lessonId = state?.lessonId ?? null;
+  const lessonTitle = state?.lessonTitle ?? null;
 
   const {
     currentQuestion,
@@ -78,7 +79,8 @@ const QuizPage: React.FC = () => {
   return (
     <div className={styles.quiz}>
       <Text tag="h1" bold className={styles.title}>
-        JavaScript Quiz
+        dfgfg
+        {lessonTitle}
       </Text>
 
       <ProgressBar

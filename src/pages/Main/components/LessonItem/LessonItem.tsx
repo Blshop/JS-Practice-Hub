@@ -22,7 +22,7 @@ const LessonItem: React.FC<LessonItemProps> = ({ lesson }) => {
   const navigate = useNavigate();
 
   const handleLessonClick = (lesson: Lesson) => {
-    navigate(routes.quiz.mask, { state: { lessonId: lesson.id } });
+    navigate(routes.quiz.mask, { state: { lessonId: lesson.id, lessonTitle: lesson.title } });
   };
 
   return (
