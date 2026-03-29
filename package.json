@@ -21,6 +21,7 @@
   "dependencies": {
     "@fontsource/roboto-mono": "^5.2.8",
     "@hookform/resolvers": "^5.2.2",
+    "axios": "^1.13.6",
     "classnames": "^2.5.1",
     "mobx": "^6.15.0",
     "mobx-react-lite": "^4.1.1",

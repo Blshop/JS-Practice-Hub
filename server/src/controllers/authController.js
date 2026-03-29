@@ -130,13 +130,19 @@ export const refresh = async (req, res) => {
 
     await RefreshToken.deleteOne({ _id: storedToken._id });
 
-    const newAccessToken = generateAccessToken(decoded.userId);
-    const newRefreshTokenValue = generateRefreshToken(decoded.userId);
+    const user = await User.findById(decoded.userId).select('-passwordHash');
+
+    if (!user) {
+      return res.status(401).json({ message: 'User not found' });
+    }
+
+    const newAccessToken = generateAccessToken(user._id);
+    const newRefreshTokenValue = generateRefreshToken(user._id);
     const expiresAt = getRefreshTokenExpiry();
 
     await RefreshToken.create({
       token: newRefreshTokenValue,
-      userId: decoded.userId,
+      userId: user._id,
       expiresAt,
     });
 
@@ -147,7 +153,14 @@ export const refresh = async (req, res) => {
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
-    res.json({ accessToken: newAccessToken });
+    res.json({
+      accessToken: newAccessToken,
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+      },
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });
