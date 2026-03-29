@@ -7,6 +7,8 @@ import LoginForm from 'pages/Auth/components/LoginForm';
 import RegisterForm from 'pages/Auth/components/RegisterForm';
 import Demo from 'pages/Demo';
 import Main from 'pages/Main';
+import PrivateRoute from 'components/PrivateRoute';
+import NotFound from 'pages/NotFound';
 
 export const routesConfig: RouteObject[] = [
   {
@@ -16,11 +18,19 @@ export const routesConfig: RouteObject[] = [
     children: [
       {
         path: routes.main.mask,
-        element: <Main />,
+        element: (
+          <PrivateRoute>
+            <Main />
+          </PrivateRoute>
+        ),
       },
       {
         path: routes.profile.mask,
-        element: <>Профиль пользователя</>,
+        element: (
+          <PrivateRoute>
+            <>Профиль пользователя</>
+          </PrivateRoute>
+        ),
       },
       {
         path: routes.about.mask,
@@ -28,7 +38,11 @@ export const routesConfig: RouteObject[] = [
       },
       {
         path: routes.auth.mask,
-        element: <Auth />,
+        element: (
+          <PrivateRoute inverted>
+            <Auth />
+          </PrivateRoute>
+        ),
         children: [
           {
             index: true,
@@ -48,10 +62,11 @@ export const routesConfig: RouteObject[] = [
         path: routes.demo.mask,
         element: <Demo />,
       },
+      {
+        path: '*',
+        handle: { hideHeaderFooter: true },
+        element: <NotFound />,
+      },
     ],
-  },
-  {
-    path: '*',
-    element: <Navigate to={routes.main.mask} replace />,
   },
 ];

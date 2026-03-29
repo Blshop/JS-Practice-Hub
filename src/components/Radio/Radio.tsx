@@ -8,12 +8,14 @@ export type RadioProps = React.ComponentPropsWithRef<'input'> & {
   elementSize?: RadioSize;
   label?: string;
   error?: boolean;
+  success?: boolean;
 };
 
 const Radio = ({
   className,
   label,
   error,
+  success,
   elementSize = 'medium',
   id,
   disabled,
@@ -36,6 +38,7 @@ const Radio = ({
             styles.input,
             styles[elementSize],
             { [styles.error]: !!error },
+            { [styles.success]: !!success },
             className,
           )}
           {...props}
@@ -45,6 +48,7 @@ const Radio = ({
             htmlFor={inputId}
             className={classNames(styles.label, styles[elementSize], {
               [styles.error]: !!error,
+              [styles.success]: !!success,
               [styles.disabled]: !!disabled,
             })}
           >

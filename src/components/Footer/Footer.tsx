@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
     <footer className={styles.footer}>
       <div className={styles.footer__info}>
         <Text tag="span" bold>
-          CodePain 2026
+          RS School CodePain 2026
         </Text>
         {DEVELOPERS.map((dev) => (
           <a
@@ -32,3 +32,7 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+
+Footer.displayName = 'Footer';
+
+export default Footer;
