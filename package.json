@@ -4,7 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "vite --open",
     "dev": "vite",
+    "dev:server": "cd server && npm run dev",
+    "dev:all": "concurrently \"npm run dev\" \"npm run dev:server\"",
     "build": "tsc -b && vite build",
     "deploy": "gh-pages -d dist",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
@@ -21,6 +24,7 @@
   "dependencies": {
     "@fontsource/roboto-mono": "^5.2.8",
     "@hookform/resolvers": "^5.2.2",
+    "axios": "^1.13.6",
     "classnames": "^2.5.1",
     "mobx": "^6.15.0",
     "mobx-react-lite": "^4.1.1",
@@ -49,6 +53,7 @@
     "@vitejs/plugin-react": "^5.1.1",
     "babel-jest": "^30.3.0",
     "babel-plugin-react-compiler": "^1.0.0",
+    "concurrently": "^9.2.1",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",
