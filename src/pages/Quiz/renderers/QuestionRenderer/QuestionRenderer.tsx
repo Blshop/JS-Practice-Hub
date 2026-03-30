@@ -56,7 +56,7 @@ const QuestionRenderer: React.FC<Props> = ({ question, userAnswer, isChecked, on
       );
 
     default:
-      return <div>Unsupported question type</div>;
+      return <Text tag='div' error>Unsupported question type</Text>;
   }
 };
 
