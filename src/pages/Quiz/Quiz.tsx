@@ -79,7 +79,6 @@ const QuizPage: React.FC = () => {
   return (
     <div className={styles.quiz}>
       <Text tag="h1" bold className={styles.title}>
-        dfgfg
         {lessonTitle}
       </Text>
 

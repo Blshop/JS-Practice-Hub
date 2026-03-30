@@ -65,7 +65,11 @@ export const routesConfig: RouteObject[] = [
       },
       {
         path: routes.quiz.mask,
-        element: <QuizPage />,
+        element: (
+          <PrivateRoute>
+            <QuizPage />
+          </PrivateRoute>
+        ),
       },
       {
         path: '*',
