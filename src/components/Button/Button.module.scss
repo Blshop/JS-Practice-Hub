@@ -100,19 +100,10 @@
       transform: none;
     }
   }
-}
 
-.loader {
-  width: 1em;
-  height: 1em;
-  border: 0.15em solid currentColor;
-  border-top-color: transparent;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
+  & .loader {
+    width: 1em;
+    height: 1em;
+    border-width: 0.15em;
   }
 }

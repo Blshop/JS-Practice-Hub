@@ -6,6 +6,7 @@ import Auth from 'pages/Auth';
 import LoginForm from 'pages/Auth/components/LoginForm';
 import RegisterForm from 'pages/Auth/components/RegisterForm';
 import Demo from 'pages/Demo';
+import QuizPage from 'pages/Quiz';
 import Main from 'pages/Main';
 import PrivateRoute from 'components/PrivateRoute';
 import NotFound from 'pages/NotFound';
@@ -63,7 +64,16 @@ export const routesConfig: RouteObject[] = [
         element: <Demo />,
       },
       {
+        path: routes.quiz.mask,
+        element: (
+          <PrivateRoute>
+            <QuizPage />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: '*',
+        handle: { hideHeaderFooter: true },
         element: <NotFound />,
       },
     ],

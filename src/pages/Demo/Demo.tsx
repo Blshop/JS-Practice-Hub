@@ -7,25 +7,24 @@ import Checkbox from 'components/Checkbox';
 import Radio from 'components/Radio';
 import Select from 'components/Select';
 import ProgressBar from 'components/ProgressBar';
+import styles from './Demo.module.scss';
+import Loader from 'components/Loader';
 
 const Demo: React.FC = () => {
   return (
-    <div>
-      <Text tag="h1" bold>
-        Demo
-      </Text>
-      <div style={{ padding: '4rem 0 1rem 0', display: 'grid' }}>
+    <div className={styles.demo}>
+      <div className={styles.demo__section}>
         <Text tag="h2" bold>
           Text Component Demo
         </Text>
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className={styles.demo__flexRow}>
           <Text tag="h1">h1 Heading</Text> <Text tag="h2">h2 Heading</Text>
           <Text tag="h4">h4 Heading</Text> <Text tag="h5">h5 Heading</Text>
           <Text tag="h6">h6 Heading</Text> <Text tag="p">Paragraph text</Text>
           <Text tag="div">Div text</Text> <Text tag="span">Span text</Text>
           <Text tag="label">Label text</Text>
         </div>
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className={styles.demo__flexRow}>
           <Text tag="h1" muted>
             Muted h1 Heading
           </Text>
@@ -42,7 +41,7 @@ const Demo: React.FC = () => {
             Success span text
           </Text>
         </div>
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className={styles.demo__flexRow}>
           <Text tag="h1" bold>
             Bold h1 Heading
           </Text>
@@ -53,7 +52,7 @@ const Demo: React.FC = () => {
             Bold span text
           </Text>
         </div>
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className={styles.demo__flexRow}>
           <Text tag="h1" uppercase>
             Uppercase h1 Heading
           </Text>
@@ -65,15 +64,15 @@ const Demo: React.FC = () => {
           </Text>
         </div>
       </div>
-      <div style={{ padding: '4rem 0 1rem 0', display: 'grid', gap: '2rem' }}>
+      <div className={styles.demo__section}>
         <Text tag="h2" bold>
           Button Component Demo
         </Text>
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className={styles.demo__flexRowSmallGap}>
           <Button size="small">Small</Button> <Button size="medium">Medium</Button>
           <Button size="large">Large</Button>
         </div>
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className={styles.demo__flexRowSmallGap}>
           <Button size="small" loading>
             Loading
           </Button>
@@ -84,14 +83,14 @@ const Demo: React.FC = () => {
             Loading
           </Button>
         </div>
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className={styles.demo__flexRowSmallGap}>
           <Button variant="primary">Primary</Button> <Button variant="secondary">Secondary</Button>
           <Button variant="danger">Danger</Button> <Button variant="success">Success</Button>
           <Button variant="warning">Warning</Button> <Button variant="info">Info</Button>
           <Button variant="light">Light</Button> <Button variant="dark">Dark</Button>
           <Button variant="link">Link</Button>
         </div>
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className={styles.demo__flexRowSmallGap}>
           <Button variant="primary" disabled>
             Disabled
           </Button>
@@ -121,16 +120,16 @@ const Demo: React.FC = () => {
           </Button>
         </div>
       </div>
-      <div style={{ padding: '4rem 0 1rem 0', display: 'grid', gap: '2rem' }}>
+      <div className={styles.demo__section}>
         <Text tag="h2" bold>
           Badge Component Demo
         </Text>
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className={styles.demo__flexRowSmallGap}>
           <Badge size="small">Small</Badge>
           <Badge size="medium">Medium</Badge>
           <Badge size="large">Large</Badge>
         </div>
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className={styles.demo__flexRowSmallGap}>
           <Badge variant="primary">Primary</Badge>
           <Badge variant="secondary">Secondary</Badge>
           <Badge variant="danger">Danger</Badge>
@@ -141,18 +140,11 @@ const Demo: React.FC = () => {
           <Badge variant="dark">Dark</Badge>
         </div>
       </div>
-      <div style={{ padding: '4rem 0 1rem 0', display: 'grid', gap: '2rem' }}>
+      <div className={styles.demo__section}>
         <Text tag="h2" bold>
           Input Component Demo
         </Text>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, minmax(0, 320px))',
-            alignItems: 'center',
-            gap: '1rem',
-          }}
-        >
+        <div className={styles.demo__gridInputs}>
           <Input label="Small input" elementSize="small" placeholder="Placeholder..." />
           <Input label="Medium input" elementSize="medium" placeholder="Placeholder..." />
           <Input label="Large input" elementSize="large" placeholder="Placeholder..." />
@@ -161,18 +153,11 @@ const Demo: React.FC = () => {
           <Input label="Disabled input" placeholder="Placeholder..." disabled />
         </div>
       </div>
-      <div style={{ padding: '4rem 0 1rem 0', display: 'grid', gap: '2rem' }}>
+      <div className={styles.demo__section}>
         <Text tag="h2" bold>
           Select Component Demo
         </Text>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, minmax(0, 320px))',
-            alignItems: 'center',
-            gap: '1rem',
-          }}
-        >
+        <div className={styles.demo__gridInputs}>
           <Select
             label="Small select"
             elementSize="small"
@@ -213,32 +198,32 @@ const Demo: React.FC = () => {
           />
         </div>
       </div>
-      <div style={{ padding: '4rem 0 1rem 0', display: 'grid', gap: '2rem' }}>
+      <div className={styles.demo__section}>
         <Text tag="h2" bold>
           Checkbox Component Demo
         </Text>
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className={styles.demo__flexRow}>
           <Checkbox label="Small checkbox" elementSize="small" />
           <Checkbox label="Medium checkbox" elementSize="medium" defaultChecked />
           <Checkbox label="Large checkbox" elementSize="large" />
         </div>
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className={styles.demo__flexRow}>
           <Checkbox label="Disabled checkbox" disabled />
           <Checkbox label="Disabled checked" defaultChecked disabled />
           <Checkbox label="Error checkbox" error />
           <Checkbox label="Success checkbox" success />
         </div>
       </div>
-      <div style={{ padding: '4rem 0 1rem 0', display: 'grid', gap: '2rem' }}>
+      <div className={styles.demo__section}>
         <Text tag="h2" bold>
           Radio Component Demo
         </Text>
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className={styles.demo__flexRow}>
           <Radio label="Small radio" elementSize="small" name="size" />
           <Radio label="Medium radio" elementSize="medium" name="size" defaultChecked />
           <Radio label="Large radio" elementSize="large" name="size" />
         </div>
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div className={styles.demo__flexRow}>
           <Radio label="Disabled radio" disabled name="group2" />
           <Radio label="Disabled checked" disabled defaultChecked name="group3" />
           <Radio label="Error radio" error name="group1" />
@@ -246,11 +231,11 @@ const Demo: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ padding: '4rem 0 1rem 0', display: 'grid', gap: '2rem' }}>
+      <div className={styles.demo__section}>
         <Text tag="h2" bold>
           Progress Bar Component Demo
         </Text>
-        <div style={{ display: 'grid', gap: '1rem', maxWidth: '75%' }}>
+        <div className={styles.demo__progressContainer}>
           <ProgressBar current={10} total={100} label="Primary" variant="primary" />
           <ProgressBar current={20} total={100} label="Progress without %" showPercentage={false} />
           <ProgressBar current={30} total={100} label="Bottom info" positionInfo="bottom" />
@@ -261,6 +246,17 @@ const Demo: React.FC = () => {
           <ProgressBar current={80} total={100} label="Danger" variant="danger" />
           <ProgressBar current={90} total={100} label="Warning" variant="warning" />
           <ProgressBar current={100} total={100} label="Info" variant="info" />
+        </div>
+      </div>
+
+      <div className={styles.demo__section}>
+        <Text tag="h2" bold>
+          Loader Component Demo
+        </Text>
+        <div className={styles.demo__flexRow}>
+          <Loader size="small" />
+          <Loader size="medium" />
+          <Loader size="large" />
         </div>
       </div>
     </div>

@@ -1,0 +1,30 @@
+@use 'styles/mixins' as mixin;
+
+.demo {
+  &__section {
+    padding: 4rem 0 1rem 0;
+    display: grid;
+    gap: 2rem;
+  }
+
+  &__flexRow {
+    @include mixin.flex($align: center, $gap: 1rem, $wrap: wrap);
+  }
+
+  &__flexRowSmallGap {
+    @include mixin.flex($align: center, $gap: 0.5rem, $wrap: wrap);
+  }
+
+  &__gridInputs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 320px));
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__progressContainer {
+    display: grid;
+    gap: 1rem;
+    max-width: 75%;
+  }
+}
