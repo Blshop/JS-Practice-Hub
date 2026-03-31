@@ -1,19 +1,46 @@
 {
   "files": [],
-  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "assets": ["assets/*"],
-      "components": ["components/*"],
-      "config": ["config/*"],
-      "data": ["data/*"],
-      "pages": ["pages/*"],
-      "services": ["services/*"],
-      "store": ["store/*"],
-      "styles": ["styles/*"],
-      "types": ["types/*"],
-      "utils": ["utils/*"]
+      "assets": [
+        "assets/*"
+      ],
+      "components": [
+        "components/*"
+      ],
+      "pages": [
+        "pages/*"
+      ],
+      "services": [
+        "services/*"
+      ],
+      "store": [
+        "store/*"
+      ],
+      "config": [
+        "config/*"
+      ],
+      "styles": [
+        "styles/*"
+      ],
+      "types": [
+        "types/*"
+      ],
+      "data": [
+        "data/*"
+      ],
+      "utils": [
+        "utils/*"
+      ]
     }
   }
 }
