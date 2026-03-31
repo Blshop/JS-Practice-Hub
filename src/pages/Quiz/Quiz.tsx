@@ -4,10 +4,11 @@ import Button from 'components/Button';
 import HighlightedText from 'components/HighlightedText';
 import ProgressBar from 'components/ProgressBar';
 import { useLocation } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 import styles from './Quiz.module.scss';
 import { useQuiz } from './hooks/useQuiz';
 import QuestionRenderer from './renderers/QuestionRenderer';
+import { routes } from 'config/routes';
 
 const QuizPage: React.FC = () => {
   const { state } = useLocation();
@@ -37,6 +38,23 @@ const QuizPage: React.FC = () => {
     currentAnswer === undefined ||
     (Array.isArray(currentAnswer) && currentAnswer.length === 0) ||
     (typeof currentAnswer === 'string' && currentAnswer.trim() === '');
+  const navigate = useNavigate();
+
+  if (totalQuestions === 0) {
+    return (
+      <div className={styles.quiz}>
+        <Text tag="h1" bold className={styles.title}>
+          No Questions Available
+        </Text>
+
+        <Text className={styles.percentage}>This quiz does not contain any questions.</Text>
+
+        <Button variant="primary" size="large" onClick={() => navigate(routes.main.mask)}>
+          Go to Start
+        </Button>
+      </div>
+    );
+  }
 
   if (isFinished) {
     return (
@@ -116,6 +134,17 @@ const QuizPage: React.FC = () => {
             />
           </div>
 
+          {showExplanation && (
+            <div
+              className={`${styles.explanation} ${isCorrect ? styles.correct : styles.incorrect}`}
+            >
+              <Text bold>{isCorrect ? 'Correct!' : 'Incorrect'}</Text>
+              <Text>
+                <HighlightedText text={currentQuestion.explanation} />
+              </Text>
+            </div>
+          )}
+
           <div className={styles.actions}>
             {!isChecked && (
               <Button variant="info" size="large" onClick={handleCheck} disabled={isAnswerEmpty}>
@@ -123,21 +152,16 @@ const QuizPage: React.FC = () => {
               </Button>
             )}
 
-            {showExplanation && (
-              <div
-                className={`${styles.explanation} ${isCorrect ? styles.correct : styles.incorrect}`}
-              >
-                <Text bold>{isCorrect ? 'Correct!' : 'Incorrect'}</Text>
-                <Text>
-                  <HighlightedText text={currentQuestion.explanation} />
-                </Text>
-              </div>
-            )}
-
             {isChecked && (
-              <Button variant="primary" size="large" onClick={handleNext}>
-                {currentIndex < totalQuestions - 1 ? 'Next Question' : 'Finish Quiz'}
-              </Button>
+              <>
+                <Button variant="primary" size="large" onClick={handleNext}>
+                  {currentIndex < totalQuestions - 1 ? 'Next Question' : 'Finish Quiz'}
+                </Button>
+
+                <Button variant="secondary" size="large" onClick={() => navigate(routes.main.mask)}>
+                  Return to Start
+                </Button>
+              </>
             )}
           </div>
         </div>
