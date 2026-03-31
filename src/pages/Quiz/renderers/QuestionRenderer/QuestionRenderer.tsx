@@ -5,6 +5,7 @@ import SingleCorrectRenderer from '../SingleCorrectRenderer';
 import MultipleCorrectRenderer from '../MultipleCorrectRenderer';
 import YesNoRenderer from '../YesNoRenderer';
 import PredictOutputRenderer from '../PredictOutputRenderer';
+import Text from 'components/Text';
 
 interface Props {
   question: Question;
@@ -56,7 +57,11 @@ const QuestionRenderer: React.FC<Props> = ({ question, userAnswer, isChecked, on
       );
 
     default:
-      return <Text tag='div' error>Unsupported question type</Text>;
+      return (
+        <Text tag="div" error>
+          Unsupported question type
+        </Text>
+      );
   }
 };
 
