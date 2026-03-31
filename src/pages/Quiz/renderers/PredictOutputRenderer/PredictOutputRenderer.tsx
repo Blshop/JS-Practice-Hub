@@ -14,10 +14,14 @@ interface Props {
 }
 
 const PredictOutputRenderer: React.FC<Props> = ({ question, userAnswer, isChecked, onAnswer }) => {
+  const normalize = (str: string) => str.replace(/`/g, '').trim();
+
   const userValue = typeof userAnswer === 'string' ? userAnswer : '';
-  const trimmedUser = userValue.trim();
-  const trimmedAnswer = question.answer.trim();
-  const isUserCorrect = trimmedUser === trimmedAnswer;
+  const normalizedUser = normalize(userValue);
+  const normalizedAnswer = normalize(question.answer);
+
+  const isUserCorrect = normalizedUser === normalizedAnswer;
+  console.log(isUserCorrect);
 
   return (
     <div className={styles.predict}>
@@ -32,7 +36,7 @@ const PredictOutputRenderer: React.FC<Props> = ({ question, userAnswer, isChecke
         elementSize="medium"
       />
 
-      {isChecked && (
+      {isChecked && !isUserCorrect && (
         <div
           className={classNames(
             styles.explanation,

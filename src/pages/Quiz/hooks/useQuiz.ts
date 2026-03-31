@@ -11,6 +11,8 @@ import type {
   PredictOutputQuestion,
 } from 'types/Questions';
 
+const normalize = (str: string) => str.replace(/`/g, '').trim();
+
 export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) => void) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<Record<string, AnswerType>>({});
@@ -60,7 +62,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
         case 'predict-output':
           correct =
             typeof userAns === 'string' &&
-            userAns.trim() === (q as PredictOutputQuestion).answer.trim();
+            normalize(userAns) === normalize((q as PredictOutputQuestion).answer);
           break;
       }
 
@@ -100,7 +102,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
       case 'predict-output':
         correct =
           typeof userAns === 'string' &&
-          userAns.trim() === (currentQuestion as PredictOutputQuestion).answer.trim();
+          normalize(userAns) === normalize((currentQuestion as PredictOutputQuestion).answer);
         break;
     }
 
