@@ -9,18 +9,18 @@
     }
   ],
   "compilerOptions": {
+    "baseUrl": "src",
     "paths": {
-      "assets": ["./src/assets/*"],
-      "components": ["./src/components/*"],
-      "pages": ["./src/pages/*"],
-      "services": ["./src/services/*"],
-      "store": ["./src/store/*"],
-      "config": ["./src/config/*"],
-      "styles": ["./src/styles/*"],
-      "types": ["./src/types/*"],
-      "data": ["./src/data/*"],
-      "utils": ["./src/utils/*"],
-      "*": ["./src/*"]
+      "assets": ["assets/*"],
+      "components": ["components/*"],
+      "pages": ["pages/*"],
+      "services": ["services/*"],
+      "store": ["store/*"],
+      "config": ["config/*"],
+      "styles": ["styles/*"],
+      "types": ["types/*"],
+      "data": ["data/*"],
+      "utils": ["utils/*"]
     }
   }
 }
