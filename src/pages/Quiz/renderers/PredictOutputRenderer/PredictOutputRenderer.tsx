@@ -21,7 +21,6 @@ const PredictOutputRenderer: React.FC<Props> = ({ question, userAnswer, isChecke
   const normalizedAnswer = normalize(question.answer);
 
   const isUserCorrect = normalizedUser === normalizedAnswer;
-  console.log(isUserCorrect);
 
   return (
     <div className={styles.predict}>

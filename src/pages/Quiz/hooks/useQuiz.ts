@@ -10,6 +10,8 @@ import type {
   YesNoQuestion,
   PredictOutputQuestion,
 } from 'types/Questions';
+import { quizProgressStore } from 'store/QuizProgressStore';
+import { sendQuizProgress } from 'services/progressService';
 
 const normalize = (str: string) => str.replace(/`/g, '').trim();
 
@@ -105,6 +107,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
           normalize(userAns) === normalize((currentQuestion as PredictOutputQuestion).answer);
         break;
     }
+    quizProgressStore.setQuestionResult(currentQuestion.id, correct ? 'correct' : 'incorrect');
 
     setCheckState({
       isChecked: true,
@@ -113,7 +116,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
     });
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     setCheckState({
       isChecked: false,
       isCorrect: null,
@@ -126,6 +129,22 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
     }
 
     setCurrentIndex(totalQuestions);
+
+    const mistakes = Object.values(quizProgressStore.progress).filter(
+      (v) => v === 'incorrect',
+    ).length;
+
+    const passed = mistakes <= 2;
+
+    quizProgressStore.setLessonResult(lessonId!, passed);
+
+    await sendQuizProgress({
+      lessonId: lessonId!,
+      progress: quizProgressStore.progress,
+      result: passed ? 'passed' : 'failed',
+      correct: correctCount,
+      total: totalQuestions,
+    });
 
     onComplete?.({
       correct: correctCount,
