@@ -1,0 +1,51 @@
+const en = {
+  nav: {
+    home: 'Home',
+    profile: 'Profile',
+    about: 'About',
+    demo: 'Demo',
+    login: 'Login',
+    logout: 'Logout',
+  },
+  auth: {
+    login: 'Login',
+    register: 'Register',
+    noAccount: "Don't have an account?",
+    hasAccount: 'Already have an account?',
+    registerLink: 'Register',
+    loginLink: 'Login',
+    now: 'now!',
+    emailPlaceholder: 'Email',
+    passwordPlaceholder: 'Password',
+    usernamePlaceholder: 'Username',
+  },
+  notFound: {
+    message: "Oops! The page you're looking for doesn't exist",
+    home: 'Home',
+  },
+  quiz: {
+    noQuestions: 'No Questions Available',
+    noQuestionsDesc: 'This quiz does not contain any questions.',
+    goToStart: 'Go to Start',
+    completed: 'Quiz Completed!',
+    yourScore: 'Your Score',
+    correctAnswers: 'Correct Answers',
+    accuracy: 'Accuracy: {{value}}%',
+    tryAgain: 'Try Again',
+    question: 'Question {{current}} of {{total}}',
+    loading: 'Loading questions...',
+    checkAnswer: 'Check Answer',
+    nextQuestion: 'Next Question',
+    finishQuiz: 'Finish Quiz',
+    returnToStart: 'Return to Start',
+    correct: 'Correct!',
+    incorrect: 'Incorrect',
+  },
+  learningPath: {
+    title: 'Learning JavaScript',
+    empty: 'No modules available yet. Check back soon!',
+    progress: 'Progress',
+  },
+};
+
+export default en;

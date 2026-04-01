@@ -5,6 +5,7 @@ import HighlightedText from 'components/HighlightedText';
 import ProgressBar from 'components/ProgressBar';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styles from './Quiz.module.scss';
 import { useQuiz } from './hooks/useQuiz';
 import QuestionRenderer from './renderers/QuestionRenderer';
@@ -14,6 +15,7 @@ const QuizPage: React.FC = () => {
   const { state } = useLocation();
   const lessonId = state?.lessonId ?? null;
   const lessonTitle = state?.lessonTitle ?? null;
+  const { t } = useTranslation();
 
   const {
     currentQuestion,
@@ -44,13 +46,13 @@ const QuizPage: React.FC = () => {
     return (
       <div className={styles.quiz}>
         <Text tag="h1" bold className={styles.title}>
-          No Questions Available
+          {t('quiz.noQuestions')}
         </Text>
 
-        <Text className={styles.percentage}>This quiz does not contain any questions.</Text>
+        <Text className={styles.percentage}>{t('quiz.noQuestionsDesc')}</Text>
 
         <Button variant="primary" size="large" onClick={() => navigate(routes.main.mask)}>
-          Go to Start
+          {t('quiz.goToStart')}
         </Button>
       </div>
     );
@@ -60,13 +62,13 @@ const QuizPage: React.FC = () => {
     return (
       <div className={styles.quiz}>
         <Text tag="h1" bold className={styles.title}>
-          Quiz Completed!
+          {t('quiz.completed')}
         </Text>
 
         <div className={styles.resultsCard}>
           <div className={styles.header}>
             <Text tag="h2" bold>
-              Your Score
+              {t('quiz.yourScore')}
             </Text>
           </div>
 
@@ -78,16 +80,18 @@ const QuizPage: React.FC = () => {
             current={correctCount}
             total={totalQuestions}
             variant="success"
-            label="Correct Answers"
+            label={t('quiz.correctAnswers')}
             positionInfo="top"
           />
 
           <Text className={styles.percentage}>
-            Accuracy: {totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0}%
+            {t('quiz.accuracy', {
+              value: totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0,
+            })}
           </Text>
 
           <Button variant="primary" size="large" onClick={resetQuiz}>
-            Try Again
+            {t('quiz.tryAgain')}
           </Button>
         </div>
       </div>
@@ -103,12 +107,12 @@ const QuizPage: React.FC = () => {
       <ProgressBar
         current={currentIndex + 1}
         total={totalQuestions}
-        label={`Question ${currentIndex + 1} of ${totalQuestions}`}
+        label={t('quiz.question', { current: currentIndex + 1, total: totalQuestions })}
         variant="info"
         positionInfo="top"
       />
 
-      {loading && <Text>Loading questions...</Text>}
+      {loading && <Text>{t('quiz.loading')}</Text>}
       {error && <Text error>{error}</Text>}
 
       {currentQuestion && (
@@ -138,7 +142,7 @@ const QuizPage: React.FC = () => {
             <div
               className={`${styles.explanation} ${isCorrect ? styles.correct : styles.incorrect}`}
             >
-              <Text bold>{isCorrect ? 'Correct!' : 'Incorrect'}</Text>
+              <Text bold>{isCorrect ? t('quiz.correct') : t('quiz.incorrect')}</Text>
               <Text>
                 <HighlightedText text={currentQuestion.explanation} />
               </Text>
@@ -148,18 +152,20 @@ const QuizPage: React.FC = () => {
           <div className={styles.actions}>
             {!isChecked && (
               <Button variant="info" size="large" onClick={handleCheck} disabled={isAnswerEmpty}>
-                Check Answer
+                {t('quiz.checkAnswer')}
               </Button>
             )}
 
             {isChecked && (
               <>
                 <Button variant="primary" size="large" onClick={handleNext}>
-                  {currentIndex < totalQuestions - 1 ? 'Next Question' : 'Finish Quiz'}
+                  {currentIndex < totalQuestions - 1
+                    ? t('quiz.nextQuestion')
+                    : t('quiz.finishQuiz')}
                 </Button>
 
                 <Button variant="secondary" size="large" onClick={() => navigate(routes.main.mask)}>
-                  Return to Start
+                  {t('quiz.returnToStart')}
                 </Button>
               </>
             )}

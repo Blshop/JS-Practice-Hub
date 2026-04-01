@@ -1,0 +1,51 @@
+const ru = {
+  nav: {
+    home: 'Главная',
+    profile: 'Профиль',
+    about: 'О нас',
+    demo: 'Демо',
+    login: 'Войти',
+    logout: 'Выйти',
+  },
+  auth: {
+    login: 'Войти',
+    register: 'Регистрация',
+    noAccount: 'Нет аккаунта?',
+    hasAccount: 'Уже есть аккаунт?',
+    registerLink: 'Зарегистрироваться',
+    loginLink: 'Войти',
+    now: '',
+    emailPlaceholder: 'Email',
+    passwordPlaceholder: 'Пароль',
+    usernamePlaceholder: 'Имя пользователя',
+  },
+  notFound: {
+    message: 'Страница не найдена',
+    home: 'На главную',
+  },
+  quiz: {
+    noQuestions: 'Вопросов нет',
+    noQuestionsDesc: 'В этом квизе нет вопросов.',
+    goToStart: 'На главную',
+    completed: 'Квиз завершён!',
+    yourScore: 'Ваш результат',
+    correctAnswers: 'Правильных ответов',
+    accuracy: 'Точность: {{value}}%',
+    tryAgain: 'Попробовать снова',
+    question: 'Вопрос {{current}} из {{total}}',
+    loading: 'Загрузка вопросов...',
+    checkAnswer: 'Проверить ответ',
+    nextQuestion: 'Следующий вопрос',
+    finishQuiz: 'Завершить квиз',
+    returnToStart: 'Вернуться на главную',
+    correct: 'Правильно!',
+    incorrect: 'Неправильно',
+  },
+  learningPath: {
+    title: 'Изучение JavaScript',
+    empty: 'Модули пока недоступны. Загляните позже!',
+    progress: 'Прогресс',
+  },
+};
+
+export default ru;

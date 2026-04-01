@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { authStore } from 'store/AuthStore';
 import { loginSchema } from '../../schemas/loginSchema';
 import type { LoginFormData } from '../../schemas/loginSchema';
@@ -12,6 +13,7 @@ import styles from 'pages/Auth/Auth.module.scss';
 
 const LoginForm: React.FC = observer(() => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -31,20 +33,20 @@ const LoginForm: React.FC = observer(() => {
     <form onSubmit={handleSubmit(onSubmit)} className={styles.auth__form}>
       <Input
         type="email"
-        placeholder="Email"
+        placeholder={t('auth.emailPlaceholder')}
         autoComplete="email"
         error={errors.email?.message}
         {...register('email')}
       />
       <Input
         type="password"
-        placeholder="Password"
+        placeholder={t('auth.passwordPlaceholder')}
         autoComplete="current-password"
         error={errors.password?.message}
         {...register('password')}
       />
       <Button type="submit" variant="primary" size="medium" loading={authStore.isLoading}>
-        Login
+        {t('auth.login')}
       </Button>
     </form>
   );
