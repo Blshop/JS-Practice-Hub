@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, useCallback, useRef } from 'react';
+import React, { useMemo, useState, useEffect, useCallback } from 'react';
 import learningPathData from 'data/js-learning-path-data.json';
 import userLessonsProgress from 'data/mock-user-lessons-progress.json';
 import {
@@ -16,7 +16,6 @@ const Main: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [userProgress, setUserProgress] = useState<UserProgress | null>(null);
-  const isFirstLoadRef = useRef(true);
 
   const loadData = useCallback(async () => {
     setIsLoading(true);
@@ -25,17 +24,9 @@ const Main: React.FC = () => {
     try {
       // TODO: Заменить на реальный API запрос
       // 1. Удалить строку ниже (имитация задержки):
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      // 2. Удалить блок имитации ошибки (строки ниже до setUserProgress):
-      // Первая загрузка всегда с ошибкой, последующие - успешные
-      if (isFirstLoadRef.current) {
-        isFirstLoadRef.current = false;
-        throw new Error('Failed to load learning path data. Please try again.');
-      }
-      // 3. Удалить isFirstLoadRef из компонента (объявление и useRef импорт если больше не используется)
-
-      // 4. Заменить строку ниже на реальный запрос:
+      // 2. Заменить строку ниже на реальный запрос:
       // const response = await fetch('/api/user/progress');
       // const data = await response.json();
       // setUserProgress(data);

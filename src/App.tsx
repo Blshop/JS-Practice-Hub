@@ -7,7 +7,6 @@ import 'styles/styles.css';
 import styles from './App.module.scss';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
-import { authStore } from 'store/AuthStore';
 
 interface RouteHandle {
   hideHeaderFooter: boolean;
@@ -21,21 +20,19 @@ const App = observer(() => {
     (match) => (match.handle as RouteHandle | undefined)?.hideHeaderFooter,
   );
 
-  const showHeaderFooter = authStore.isAuthenticated && !hideHeaderFooter;
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
 
   return (
     <div className={styles.app}>
-      {showHeaderFooter && <Header />}
+      {!hideHeaderFooter && <Header />}
 
       <main className={styles.app__main}>
         <Outlet />
       </main>
 
-      {showHeaderFooter && <Footer />}
+      {!hideHeaderFooter && <Footer />}
 
       <ToastContainer
         position="top-right"
