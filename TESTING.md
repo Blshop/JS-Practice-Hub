@@ -12,6 +12,10 @@
 npm test # однократный запуск
 npm run test:watch # запуск в watch-режиме
 npm run test:coverage # запуск с отчетом о покрытии
+npm run test:server # однократный запуск тестов сервера из корня проекта
+cd server && npm test # однократный запуск тестов сервера из папки server
+cd server && npm run test:watch # запуск в watch-режиме из папки server
+cd server && npm run test:coverage # запуск с отчетом о покрытии из папки server
 ```
 
 ### Участники
@@ -35,6 +39,7 @@ PR с тестами: https://github.com/Blshop/JS-Practice-Hub/pull/68
 | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | `src/pages/Auth/schemas/__tests__/validation.test.ts` | Проверка email, пароля (длина, заглавная буква, цифра), обязательность username (пустых полей) |
 | `src/store/__tests__/AuthStore.test.ts`               | Тесты для MobX стора: восстановление сессии, логин, регистрация, выход, геттер isAuthenticated, обработка ошибок |
+| `server/src/__tests__/auth.test.js`                   | Интеграционные тесты для `/register`, `/login`, `/refresh`, `/logout`, `/profile` с использованием mongodb-memory-server и supertest |
 
 PR с тестами: https://github.com/Blshop/JS-Practice-Hub/pull/58
 

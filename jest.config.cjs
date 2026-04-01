@@ -2,6 +2,7 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
+  testPathIgnorePatterns: ['/node_modules/', '/server/'],
   moduleNameMapper: {
     // Моки
     '^services/api(\.ts)?$': '<rootDir>/src/__mocks__/mockApi.ts',
