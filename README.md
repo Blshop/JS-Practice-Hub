@@ -5,19 +5,33 @@
 В приложении реализованы уровни сложности, что позволяет постепенно углублять знания — от базовых тем до продвинутых концепций. Также предусмотрено хранение статистики для отслеживания прогресса пользователя и анализа результатов. Проект направлен на развитие глубокого понимания асинхронности, работы event loop, замыканий, прототипов и других ключевых механизмов JavaScript.
 
 ## Ссылка на deploy
-- https://blshop.github.io/JS-Practice-Hub/
+
+- https://js-practice-hub-frontend.onrender.com/
+- https://blshop.github.io/JS-Practice-Hub/ (запасная, только клиент)
 
 ## 👨‍💻 Состав команды
 
-- **Nikita Erechtchenko** — https://github.com/Blshop 
-- **Roman Shamaluk**— https://github.com/GorodeN  
-- **Dmitry Astapenko** — https://github.com/DmitryAstapenko   
+- **Nikita Erechtchenko** — https://github.com/Blshop
+- **Roman Shamaluk**— https://github.com/GorodeN
+- **Dmitry Astapenko** — https://github.com/DmitryAstapenko
 
 ## 🎓 Ментор
+
 - **Alina Husarava** — https://github.com/spadarynjaALINA
 
 ## 🏫 Организация
-- **The Rolling Scopes (@rollingscopes)** — https://github.com/rollingscopes  
+
+- **The Rolling Scopes (@rollingscopes)** — https://github.com/rollingscopes
+
+## 📹 Видео-доказательство функциональности (Страница 404, Loading state, Обработка ошибок API)
+
+Демонстрация корректной работы приложения:
+
+- Страница 404 при переходе на несуществующий URL
+- Loading state при загрузке данных
+- Обработка ошибок API
+
+**Ссылка на видео:** https://youtu.be/P-2lO-0YiLI
 
 
 ## 🚀 Локальный запуск
@@ -71,7 +85,7 @@
 
 7. Открыть браузер по адресу `http://localhost:5173`
 
-> 💡 Для одновременного запуска можно использовать npm run dev:all (установите concurrently).
+> 💡 Для одновременного запуска можно использовать `npm run dev:all` (установите concurrently `npm install -D concurrently`).
 
 
 ### Переменные окружения сервера (файл `server/.env`)
@@ -85,6 +99,8 @@
 | `CLIENT_URL` | URL клиента (для CORS) | `http://localhost:5173` |
 
 Для клиента: файл `.env` в корне с `VITE_API_URL=http://localhost:5000/api`.
+
+> 💡 `JWT_ACCESS_SECRET` и `JWT_REFRESH_SECRET` можно сгенерировать с помощью `openssl rand -base64 32` в терминале (создаст строку типа `4HcRfUjXn2r5u8x/A?D*G-KaPdSgVkYp3s6v9y$B&E)H@McQ`).
 
 
 ### Swagger (Документация API)
