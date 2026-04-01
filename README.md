@@ -6,7 +6,8 @@
 
 ## Ссылка на deploy
 
-- https://blshop.github.io/JS-Practice-Hub/
+- https://js-practice-hub-frontend.onrender.com/
+- https://blshop.github.io/JS-Practice-Hub/ (запасная, только клиент)
 
 ## 👨‍💻 Состав команды
 
@@ -84,7 +85,7 @@
 
 7. Открыть браузер по адресу `http://localhost:5173`
 
-> 💡 Для одновременного запуска можно использовать npm run dev:all (установите concurrently).
+> 💡 Для одновременного запуска можно использовать `npm run dev:all` (установите concurrently `npm install -D concurrently`).
 
 
 ### Переменные окружения сервера (файл `server/.env`)
@@ -98,6 +99,8 @@
 | `CLIENT_URL` | URL клиента (для CORS) | `http://localhost:5173` |
 
 Для клиента: файл `.env` в корне с `VITE_API_URL=http://localhost:5000/api`.
+
+> 💡 `JWT_ACCESS_SECRET` и `JWT_REFRESH_SECRET` можно сгенерировать с помощью `openssl rand -base64 32` в терминале (создаст строку типа `4HcRfUjXn2r5u8x/A?D*G-KaPdSgVkYp3s6v9y$B&E)H@McQ`).
 
 
 ### Swagger (Документация API)
