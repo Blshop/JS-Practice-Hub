@@ -85,7 +85,7 @@
 
 7. Открыть браузер по адресу `http://localhost:5173`
 
-> 💡 Для одновременного запуска можно использовать npm run dev:all (установите concurrently).
+> 💡 Для одновременного запуска можно использовать `npm run dev:all` (установите concurrently `npm install -D concurrently`).
 
 
 ### Переменные окружения сервера (файл `server/.env`)
