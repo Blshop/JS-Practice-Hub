@@ -57,6 +57,10 @@ export const routesConfig: RouteObject[] = [
             path: 'register',
             element: <RegisterForm />,
           },
+          {
+            path: '*',
+            element: <Navigate to={routes.auth.login} replace />,
+          },
         ],
       },
       {
