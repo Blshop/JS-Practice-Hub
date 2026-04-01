@@ -74,25 +74,25 @@ export const Header: React.FC = observer(() => {
         role="navigation"
         aria-label="Main navigation"
       >
-        {NAV_ITEMS.map((item) => {
-          const isActive = location.pathname === item.path;
-          return (
-            <Button
-              key={item.label}
-              variant="secondary"
-              onClick={() => handleNavigation(item.path)}
-              className={classNames(styles.header__link, styles.button)}
-              aria-current={isActive ? 'page' : undefined}
-            >
-              <Text uppercase bold>
-                {item.label}
-              </Text>
-            </Button>
-          );
-        })}
-
         {authStore.isAuthenticated && (
           <>
+            {NAV_ITEMS.map((item) => {
+              const isActive = location.pathname === item.path;
+              return (
+                <Button
+                  key={item.label}
+                  variant="secondary"
+                  onClick={() => handleNavigation(item.path)}
+                  className={classNames(styles.header__link, styles.button)}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  <Text uppercase bold>
+                    {item.label}
+                  </Text>
+                </Button>
+              );
+            })}
+
             <Button
               variant="danger"
               onClick={handleLogout}
@@ -100,8 +100,18 @@ export const Header: React.FC = observer(() => {
             >
               <Text bold>Logout</Text>
             </Button>
+
             <Badge variant="info">🙂 {authStore.user?.username}</Badge>
           </>
+        )}
+
+        {!authStore.isAuthenticated && (
+          <Button
+            onClick={() => handleNavigation(routes.auth.mask)}
+            className={classNames(styles.header__link, styles.button)}
+          >
+            <Text bold>Login</Text>
+          </Button>
         )}
       </nav>
 
