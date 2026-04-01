@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useQuestions } from './useQuestions';
-import { useMemo } from 'react';
 import type {
   AnswerType,
   QuizSummary,
@@ -18,6 +17,7 @@ const normalize = (str: string) => str.replace(/`/g, '').trim();
 export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) => void) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<Record<string, AnswerType>>({});
+  const [completedCount, setCompletedCount] = useState(0);
 
   const [checkState, setCheckState] = useState({
     isChecked: false,
@@ -107,7 +107,10 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
           normalize(userAns) === normalize((currentQuestion as PredictOutputQuestion).answer);
         break;
     }
+
     quizProgressStore.setQuestionResult(currentQuestion.id, correct ? 'correct' : 'incorrect');
+
+    setCompletedCount((prev) => prev + 1);
 
     setCheckState({
       isChecked: true,
@@ -127,9 +130,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
       setCurrentIndex((prev) => prev + 1);
       return;
     }
-
     setCurrentIndex(totalQuestions);
-
     const mistakes = Object.values(quizProgressStore.progress).filter(
       (v) => v === 'incorrect',
     ).length;
@@ -154,6 +155,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
 
   const resetQuiz = () => {
     setCurrentIndex(0);
+    setCompletedCount(0);
     setUserAnswers({});
     setCheckState({
       isChecked: false,
@@ -167,6 +169,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
     currentQuestion,
     currentIndex,
     totalQuestions,
+    completedCount,
     loading,
     error,
 
