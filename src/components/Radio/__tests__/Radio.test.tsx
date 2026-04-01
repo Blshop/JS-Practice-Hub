@@ -38,5 +38,17 @@ describe('Radio Component', () => {
       await userEvent.click(radio);
       expect(radio).toBeChecked();
     });
+
+    it('применяет checked при передаче defaultChecked', () => {
+      render(<Radio defaultChecked />);
+      const radio = screen.getByRole('radio');
+      expect(radio).toBeChecked();
+    });
+
+    it('применяет checked при передаче checked', () => {
+      render(<Radio checked onChange={() => {}} />);
+      const radio = screen.getByRole('radio');
+      expect(radio).toBeChecked();
+    });
   });
 });
