@@ -23,7 +23,8 @@ export const Header: React.FC = observer(() => {
   const profileRef = useRef<HTMLDivElement>(null);
 
   const isRu = i18n.language === 'ru';
-  const showBurger = authStore.isAuthenticated;
+  const isAuthenticated = authStore.isAuthenticated;
+  const showBurger = true;
 
   const NAV_ITEMS = [
     { label: t('nav.home'), path: routes.main.mask },
@@ -91,139 +92,243 @@ export const Header: React.FC = observer(() => {
       <Text className={styles.header__heading} tag="h1" bold>
         JS-Practice-Hub
       </Text>
-
       {showBurger && (
         <nav
           className={classNames(styles.header__nav, { [styles.header__nav_open]: isOpen })}
           role="navigation"
           aria-label="Main navigation"
         >
-          <div className={classNames(styles.burgerHeader, styles.mobileOnly)}>
-            <Text bold>🙂 {authStore.user?.username}</Text>
-            <Button
-              variant="secondary"
-              onClick={closeMenu}
-              aria-label="Close menu"
-              className={styles.burgerClose}
-            >
-              <Text tag="span" bold>
-                ✖
-              </Text>
-            </Button>
-          </div>
+          {isAuthenticated && (
+            <div className={classNames(styles.burgerHeader, styles.mobileOnly)}>
+              <Text bold>🙂 {authStore.user?.username}</Text>
+              <Button
+                variant="secondary"
+                onClick={closeMenu}
+                aria-label="Close menu"
+                className={styles.burgerClose}
+              >
+                <Text tag="span" bold>
+                  ✖
+                </Text>
+              </Button>
+            </div>
+          )}
 
-          {NAV_ITEMS.map((item) => (
-            <Button
-              key={item.label}
-              variant="secondary"
-              onClick={() => handleNavigation(item.path)}
-              className={styles.button}
-              aria-current={location.pathname === item.path ? 'page' : undefined}
-            >
-              <Text uppercase bold>
-                {item.label}
-              </Text>
-            </Button>
-          ))}
+          {!isAuthenticated && (
+            <div className={classNames(styles.burgerHeader, styles.mobileOnly)}>
+              <span />
+              <Button
+                variant="secondary"
+                onClick={closeMenu}
+                aria-label="Close menu"
+                className={styles.burgerClose}
+              >
+                <Text tag="span" bold>
+                  ✖
+                </Text>
+              </Button>
+            </div>
+          )}
 
-          <Button
-            variant="secondary"
-            onClick={() => handleNavigation(routes.profile.mask)}
-            className={classNames(styles.button, styles.mobileOnly)}
-          >
-            <Text uppercase bold>
-              {t('nav.profile')}
-            </Text>
-          </Button>
-          <Button
-            variant="danger"
-            onClick={handleLogout}
-            className={classNames(styles.button, styles.mobileOnly)}
-          >
-            <Text bold>{t('nav.logout')}</Text>
-          </Button>
+          {isAuthenticated &&
+            NAV_ITEMS.map((item) => (
+              <Button
+                key={item.label}
+                variant="secondary"
+                onClick={() => handleNavigation(item.path)}
+                className={styles.button}
+                aria-current={location.pathname === item.path ? 'page' : undefined}
+              >
+                <Text uppercase bold>
+                  {item.label}
+                </Text>
+              </Button>
+            ))}
 
-          <div className={classNames(styles.burgerToggles, styles.showBelow720)}>
-            <button className={styles.toggleBtn} onClick={toggleLanguage}>
-              <span
-                className={classNames(styles.toggleOption, { [styles.toggleOption_active]: isRu })}
+          {isAuthenticated && (
+            <>
+              <Button
+                variant="secondary"
+                onClick={() => handleNavigation(routes.profile.mask)}
+                className={classNames(styles.button, styles.mobileOnly)}
               >
-                RU
-              </span>
-              <span className={styles.toggleDivider}>/</span>
-              <span
-                className={classNames(styles.toggleOption, { [styles.toggleOption_active]: !isRu })}
+                <Text uppercase bold>
+                  {t('nav.profile')}
+                </Text>
+              </Button>
+              <Button
+                variant="danger"
+                onClick={handleLogout}
+                className={classNames(styles.button, styles.mobileOnly)}
               >
-                EN
-              </span>
-            </button>
-            <button className={styles.toggleBtn} onClick={toggleTheme}>
-              <span
-                className={classNames(styles.toggleOption, {
-                  [styles.toggleOption_active]: theme === 'light',
-                })}
+                <Text bold>{t('nav.logout')}</Text>
+              </Button>
+            </>
+          )}
+
+          {!isAuthenticated && (
+            <div className={classNames(styles.burgerGuestItems, styles.mobileOnly)}>
+              <button
+                className={styles.iconBtn}
+                onClick={() => handleNavigation(routes.about.mask)}
+                title={t('nav.about')}
               >
-                ☀
-              </span>
-              <span className={styles.toggleDivider}>/</span>
-              <span
-                className={classNames(styles.toggleOption, {
-                  [styles.toggleOption_active]: theme === 'dark',
-                })}
+                <span>i</span>
+              </button>
+              <button className={styles.iconBtn} onClick={toggleLanguage}>
+                <span>{isRu ? 'RU' : 'EN'}</span>
+              </button>
+              <button className={styles.iconBtn} onClick={toggleTheme}>
+                <span>{theme === 'light' ? '☀' : '☾'}</span>
+              </button>
+              <button
+                className={styles.iconBtn}
+                onClick={() => handleNavigation(routes.auth.mask)}
+                title={t('nav.login')}
               >
-                ☾
-              </span>
-            </button>
-          </div>
+                <span>👤</span>
+              </button>
+            </div>
+          )}
+
+          {isAuthenticated && (
+            <div className={classNames(styles.burgerToggles, styles.showBelow720)}>
+              <button className={styles.toggleBtn} onClick={toggleLanguage}>
+                <span
+                  className={classNames(styles.toggleOption, {
+                    [styles.toggleOption_active]: isRu,
+                  })}
+                >
+                  RU
+                </span>
+                <span className={styles.toggleDivider}>/</span>
+                <span
+                  className={classNames(styles.toggleOption, {
+                    [styles.toggleOption_active]: !isRu,
+                  })}
+                >
+                  EN
+                </span>
+              </button>
+              <button className={styles.toggleBtn} onClick={toggleTheme}>
+                <span
+                  className={classNames(styles.toggleOption, {
+                    [styles.toggleOption_active]: theme === 'light',
+                  })}
+                >
+                  ☀
+                </span>
+                <span className={styles.toggleDivider}>/</span>
+                <span
+                  className={classNames(styles.toggleOption, {
+                    [styles.toggleOption_active]: theme === 'dark',
+                  })}
+                >
+                  ☾
+                </span>
+              </button>
+            </div>
+          )}
         </nav>
       )}
-
       <div className={styles.header__controls}>
-        <div className={classNames(styles.controlGroup, styles.hideBelow720)}>
+        <div
+          className={classNames(
+            styles.controlGroup,
+            isAuthenticated ? styles.hideBelow720 : styles.guestDesktopOnly,
+          )}
+        >
           <button
-            className={styles.toggleBtn}
+            className={isAuthenticated ? styles.toggleBtn : styles.iconBtn}
             onClick={toggleLanguage}
             aria-label={isRu ? 'Switch to English' : 'Переключить на русский'}
           >
-            <span
-              className={classNames(styles.toggleOption, { [styles.toggleOption_active]: isRu })}
-            >
-              RU
-            </span>
-            <span className={styles.toggleDivider}>/</span>
-            <span
-              className={classNames(styles.toggleOption, { [styles.toggleOption_active]: !isRu })}
-            >
-              EN
-            </span>
+            {isAuthenticated ? (
+              <>
+                <span
+                  className={classNames(styles.toggleOption, {
+                    [styles.toggleOption_active]: isRu,
+                  })}
+                >
+                  RU
+                </span>
+                <span className={styles.toggleDivider}>/</span>
+                <span
+                  className={classNames(styles.toggleOption, {
+                    [styles.toggleOption_active]: !isRu,
+                  })}
+                >
+                  EN
+                </span>
+              </>
+            ) : (
+              <span className={styles.toggleOption_active}>{isRu ? 'RU' : 'EN'}</span>
+            )}
           </button>
         </div>
 
-        <div className={classNames(styles.controlGroup, styles.hideBelow720)}>
+        <div
+          className={classNames(
+            styles.controlGroup,
+            isAuthenticated ? styles.hideBelow720 : styles.guestDesktopOnly,
+          )}
+        >
           <button
-            className={styles.toggleBtn}
+            className={isAuthenticated ? styles.toggleBtn : styles.iconBtn}
             onClick={toggleTheme}
             aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
           >
-            <span
-              className={classNames(styles.toggleOption, {
-                [styles.toggleOption_active]: theme === 'light',
-              })}
-            >
-              ☀
-            </span>
-            <span className={styles.toggleDivider}>/</span>
-            <span
-              className={classNames(styles.toggleOption, {
-                [styles.toggleOption_active]: theme === 'dark',
-              })}
-            >
-              ☾
-            </span>
+            {isAuthenticated ? (
+              <>
+                <span
+                  className={classNames(styles.toggleOption, {
+                    [styles.toggleOption_active]: theme === 'light',
+                  })}
+                >
+                  ☀
+                </span>
+                <span className={styles.toggleDivider}>/</span>
+                <span
+                  className={classNames(styles.toggleOption, {
+                    [styles.toggleOption_active]: theme === 'dark',
+                  })}
+                >
+                  ☾
+                </span>
+              </>
+            ) : (
+              <span className={styles.toggleOption_active}>{theme === 'light' ? '☀' : '☾'}</span>
+            )}
           </button>
         </div>
 
-        {authStore.isAuthenticated && (
+        {!isAuthenticated && (
+          <div className={classNames(styles.controlGroup, styles.guestDesktopOnly)}>
+            <button
+              className={styles.iconBtn}
+              onClick={() => handleNavigation(routes.about.mask)}
+              aria-label={t('nav.about')}
+              title={t('nav.about')}
+            >
+              <span className={styles.toggleOption_active}>i</span>
+            </button>
+          </div>
+        )}
+
+        {!isAuthenticated && (
+          <div className={classNames(styles.controlGroup, styles.guestDesktopOnly)}>
+            <button
+              className={styles.iconBtn}
+              onClick={() => handleNavigation(routes.auth.mask)}
+              aria-label={t('nav.login')}
+              title={t('nav.login')}
+            >
+              <span className={styles.toggleOption_active}>👤</span>
+            </button>
+          </div>
+        )}
+
+        {isAuthenticated && (
           <div
             className={classNames(styles.controlGroup, styles.profileGroup, styles.desktopOnly)}
             ref={profileRef}
@@ -266,16 +371,7 @@ export const Header: React.FC = observer(() => {
             )}
           </div>
         )}
-
-        {!authStore.isAuthenticated && (
-          <div className={styles.controlGroup}>
-            <Button onClick={() => handleNavigation(routes.auth.mask)} className={styles.button}>
-              <Text bold>{t('nav.login')}</Text>
-            </Button>
-          </div>
-        )}
       </div>
-
       {showBurger && (
         <button
           className={classNames(styles.burgerMenu__toggle, {
@@ -287,7 +383,7 @@ export const Header: React.FC = observer(() => {
         >
           ☰
         </button>
-      )}
+      )}{' '}
     </header>
   );
 });

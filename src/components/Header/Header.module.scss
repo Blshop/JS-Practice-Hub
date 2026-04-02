@@ -60,6 +60,18 @@
   }
 }
 
+.guestDesktopOnly {
+  @media (max-width: var.$breakpoint-xl) {
+    display: none !important;
+  }
+}
+
+.burgerGuestItems {
+  @include mixin.flex($direction: column, $gap: 1rem, $justify: center, $align: center);
+  padding-top: 1rem;
+  width: 100%;
+}
+
 .hideBelow720 {
   @media (max-width: 720px) {
     display: none !important;
@@ -86,6 +98,7 @@
   height: 47px;
   padding: 0;
   flex-shrink: 0;
+  background-color: var.$color-neutral-100 !important;
 }
 
 .burgerToggles {
@@ -131,6 +144,39 @@
   font-size: 1rem;
   font-weight: var.$font-weight-bold;
   white-space: nowrap;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    filter 0.2s;
+
+  &:hover {
+    filter: var.$hover-filter-default;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 0 var.$color-neutral-900;
+  }
+
+  &:active {
+    box-shadow: 0 0 0 0 var.$color-neutral-900;
+    transform: translateY(4px);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.iconBtn {
+  @include mixin.flex($direction: row, $align: center, $justify: center);
+  background: none;
+  border: var.$border-default;
+  border-radius: var.$border-radius-default;
+  box-shadow: var.$box-shadow-default;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: var.$font-family-base;
+  font-size: 1rem;
+  font-weight: var.$font-weight-bold;
+  color: var.$color-neutral-900;
   transition:
     transform 0.2s,
     box-shadow 0.2s,
@@ -249,7 +295,7 @@
   flex-shrink: 0;
   z-index: var.$z-index-burger;
   border: var.$border-default;
-  background-color: var.$color-secondary;
+  background-color: var.$color-neutral-100;
   box-shadow: var.$box-shadow-default;
   cursor: pointer;
   font-family: var.$font-family-base;

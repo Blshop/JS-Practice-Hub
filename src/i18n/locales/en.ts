@@ -18,6 +18,23 @@ const en = {
     emailPlaceholder: 'Email',
     passwordPlaceholder: 'Password',
     usernamePlaceholder: 'Username',
+    validation: {
+      emailInvalid: 'Invalid email address',
+      passwordMin: 'Password must be at least 6 characters',
+      passwordUppercase: 'Password must contain at least one uppercase Latin letter',
+      passwordDigit: 'Password must contain at least one digit',
+      usernameRequired: 'Username is required',
+    },
+    errors: {
+      loginFailed: 'Login failed',
+      registerFailed: 'Registration failed',
+      logoutFailed: 'Failed to logout',
+      networkError: 'Network error. Cannot reach the server.',
+      connectionError: 'Failed to connect to server. Please check your connection.',
+      loggedOut: 'You have been logged out.',
+      welcome: 'Welcome, {{name}}!',
+      accountCreated: 'Account created! Welcome, {{name}}!',
+    },
   },
   notFound: {
     message: "Oops! The page you're looking for doesn't exist",
@@ -45,6 +62,9 @@ const en = {
     title: 'Learning JavaScript',
     empty: 'No modules available yet. Check back soon!',
     progress: 'Progress',
+  },
+  common: {
+    tryAgain: 'Try Again',
   },
 };
 

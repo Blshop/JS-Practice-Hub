@@ -8,7 +8,7 @@ import styles from './Auth.module.scss';
 const Auth: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isLogin = location.pathname === routes.auth.login;
 
   const handleToggle = () => {
@@ -26,7 +26,9 @@ const Auth: React.FC = () => {
           </Text>
 
           <div className={styles.auth__formContainer}>
-            <Outlet />
+            <div key={`${i18n.language}-${location.pathname}`}>
+              <Outlet />
+            </div>
           </div>
 
           <Text className={styles.auth__switch}>

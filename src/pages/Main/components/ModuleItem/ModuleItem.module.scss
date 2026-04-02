@@ -15,5 +15,9 @@
 }
 
 .lessonsPath {
-  @include mixin.flex($direction: column, $gap: 2rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 120px));
+  gap: 2rem;
+  justify-items: center;
+  justify-content: center;
 }

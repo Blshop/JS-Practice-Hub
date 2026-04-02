@@ -15,9 +15,26 @@ const ru = {
     registerLink: 'Зарегистрироваться',
     loginLink: 'Войти',
     now: '',
-    emailPlaceholder: 'Email',
+    emailPlaceholder: 'Эл. почта',
     passwordPlaceholder: 'Пароль',
     usernamePlaceholder: 'Имя пользователя',
+    validation: {
+      emailInvalid: 'Некорректный email',
+      passwordMin: 'Пароль должен содержать минимум 6 символов',
+      passwordUppercase: 'Пароль должен содержать хотя бы одну заглавную латинскую букву',
+      passwordDigit: 'Пароль должен содержать хотя бы одну цифру',
+      usernameRequired: 'Имя пользователя обязательно',
+    },
+    errors: {
+      loginFailed: 'Ошибка входа',
+      registerFailed: 'Ошибка регистрации',
+      logoutFailed: 'Ошибка выхода',
+      networkError: 'Ошибка сети. Сервер недоступен.',
+      connectionError: 'Не удалось подключиться к серверу. Проверьте соединение.',
+      loggedOut: 'Вы вышли из системы.',
+      welcome: 'Добро пожаловать, {{name}}!',
+      accountCreated: 'Аккаунт создан! Добро пожаловать, {{name}}!',
+    },
   },
   notFound: {
     message: 'Страница не найдена',
@@ -45,6 +62,9 @@ const ru = {
     title: 'Изучение JavaScript',
     empty: 'Модули пока недоступны. Загляните позже!',
     progress: 'Прогресс',
+  },
+  common: {
+    tryAgain: 'Попробовать снова',
   },
 };
 

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 import Loader, { type LoaderSize } from 'components/Loader';
 import Button from 'components/Button';
 import Text from 'components/Text';
@@ -20,6 +21,7 @@ const LoadingOverlay: React.FC<LoadingOverlayProps> = ({
   loaderSize = 'large',
   className,
 }) => {
+  const { t } = useTranslation();
   useEffect(() => {
     if (isLoading) {
       document.body.style.overflow = 'hidden';
@@ -49,7 +51,7 @@ const LoadingOverlay: React.FC<LoadingOverlayProps> = ({
             </Text>
             {onRetry && (
               <Button variant="warning" size="large" onClick={onRetry}>
-                Try Again
+                {t('common.tryAgain')}
               </Button>
             )}
           </div>
