@@ -30,6 +30,9 @@ export default defineConfig({
     }),
   ],
   resolve: {
-    alias: parseTsConfigPaths(tsconfig.compilerOptions.paths),
+    alias: {
+      ...parseTsConfigPaths(tsconfig.compilerOptions.paths),
+      i18n: path.join(SRC_PATH, 'i18n'),
+    },
   },
 });

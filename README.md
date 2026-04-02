@@ -33,10 +33,10 @@
 
 **Ссылка на видео:** https://youtu.be/P-2lO-0YiLI
 
-
 ## 🚀 Локальный запуск
 
 ### Требования
+
 - Node.js (версия 18+)
 - npm (версия 9+)
 - MongoDB (локальная или облачная)
@@ -46,17 +46,20 @@
 ### Установка и запуск
 
 1. Клонировать репозиторий:
+
    ```bash
    git clone https://github.com/Blshop/JS-Practice-Hub.git
    cd JS-Practice-Hub
    ```
 
 2. Установить зависимости клиента:
+
    ```bash
    npm install
    ```
 
 3. Перейти в папку сервера и установить его зависимости:
+
    ```bash
    cd server
    npm install
@@ -64,21 +67,25 @@
    ```
 
 4. Создать файл окружения для сервера:
+
 - Скопировать `server/.env.example` в `server/.env`
 - Заполнить реальными данными (см. раздел "Переменные окружения")
 
 5. Запустить сервер (в отдельном терминале, из корня):
+
    ```bash
    cd server
    npm run dev
    ```
+
    или
+
    ```bash
    npm run dev:server
    ```
-   
 
 6. Запустить клиент (в другом терминале, из корня):
+
    ```bash
    npm run dev
    ```
@@ -87,22 +94,21 @@
 
 > 💡 Для одновременного запуска можно использовать `npm run dev:all` (установите concurrently `npm install -D concurrently`).
 
-
 ### Переменные окружения сервера (файл `server/.env`)
 
-| Переменная | Описание | Пример |
-|------------|----------|--------|
-| `PORT` | Порт сервера | `5000` |
-| `MONGO_URI` | Строка подключения MongoDB | `mongodb+srv://...` |
-| `JWT_ACCESS_SECRET` | Секрет для access токенов | `...` |
-| `JWT_REFRESH_SECRET` | Секрет для refresh токенов | `...` |
-| `CLIENT_URL` | URL клиента (для CORS) | `http://localhost:5173` |
+| Переменная           | Описание                   | Пример                  |
+| -------------------- | -------------------------- | ----------------------- |
+| `PORT`               | Порт сервера               | `5000`                  |
+| `MONGO_URI`          | Строка подключения MongoDB | `mongodb+srv://...`     |
+| `JWT_ACCESS_SECRET`  | Секрет для access токенов  | `...`                   |
+| `JWT_REFRESH_SECRET` | Секрет для refresh токенов | `...`                   |
+| `CLIENT_URL`         | URL клиента (для CORS)     | `http://localhost:5173` |
 
 Для клиента: файл `.env` в корне с `VITE_API_URL=http://localhost:5000/api`.
 
 > 💡 `JWT_ACCESS_SECRET` и `JWT_REFRESH_SECRET` можно сгенерировать с помощью `openssl rand -base64 32` в терминале (создаст строку типа `4HcRfUjXn2r5u8x/A?D*G-KaPdSgVkYp3s6v9y$B&E)H@McQ`).
 
-
 ### Swagger (Документация API)
+
 - Запустить сервер
 - Перейти по адресу http://localhost:5000/api-docs/
