@@ -7,6 +7,7 @@ import {
   verifyRefreshToken,
   getRefreshTokenExpiry,
 } from '../services/tokenService.js';
+import { getCookieOptions } from '../utils/cookie.js';
 
 /**
  * @swagger
@@ -72,12 +73,7 @@ export const register = async (req, res) => {
       expiresAt,
     });
 
-    res.cookie('refreshToken', refreshTokenValue, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'none',
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-    });
+    res.cookie('refreshToken', refreshTokenValue, getCookieOptions());
 
     res.status(201).json({
       accessToken,
@@ -155,12 +151,7 @@ export const login = async (req, res) => {
       expiresAt,
     });
 
-    res.cookie('refreshToken', refreshTokenValue, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'none',
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-    });
+    res.cookie('refreshToken', refreshTokenValue, getCookieOptions());
 
     res.json({
       accessToken,
@@ -243,12 +234,7 @@ export const refresh = async (req, res) => {
       expiresAt,
     });
 
-    res.cookie('refreshToken', newRefreshTokenValue, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'none',
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-    });
+    res.cookie('refreshToken', newRefreshTokenValue, getCookieOptions());
 
     res.json({
       accessToken: newAccessToken,
@@ -290,11 +276,7 @@ export const logout = async (req, res) => {
     if (refreshToken) {
       await RefreshToken.deleteOne({ token: refreshToken });
     }
-    res.clearCookie('refreshToken', {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'none',
-    });
+    res.clearCookie('refreshToken', getCookieOptions());
     res.json({ message: 'Logged out successfully' });
   } catch (error) {
     console.error(error);
