@@ -31,6 +31,7 @@ const QuizPage: React.FC = () => {
     resetQuiz,
     isFinished,
     correctCount,
+    completedCount,
   } = useQuiz(lessonId);
 
   const currentAnswer = currentQuestion ? userAnswers[currentQuestion.id] : undefined;
@@ -75,10 +76,10 @@ const QuizPage: React.FC = () => {
           </Text>
 
           <ProgressBar
-            current={correctCount}
+            current={completedCount}
             total={totalQuestions}
-            variant="success"
-            label="Correct Answers"
+            label={`Question ${currentIndex + 1} of ${totalQuestions}`}
+            variant="info"
             positionInfo="top"
           />
 
@@ -101,7 +102,7 @@ const QuizPage: React.FC = () => {
       </Text>
 
       <ProgressBar
-        current={currentIndex + 1}
+        current={completedCount}
         total={totalQuestions}
         label={`Question ${currentIndex + 1} of ${totalQuestions}`}
         variant="info"

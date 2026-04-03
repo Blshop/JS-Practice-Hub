@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useQuestions } from './useQuestions';
-import { useMemo } from 'react';
 import type {
   AnswerType,
   QuizSummary,
@@ -10,12 +9,15 @@ import type {
   YesNoQuestion,
   PredictOutputQuestion,
 } from 'types/Questions';
+import { quizProgressStore } from 'store/QuizProgressStore';
+import { sendQuizProgress } from 'services/progressService';
 
 const normalize = (str: string) => str.replace(/`/g, '').trim();
 
 export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) => void) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<Record<string, AnswerType>>({});
+  const [completedCount, setCompletedCount] = useState(0);
 
   const [checkState, setCheckState] = useState({
     isChecked: false,
@@ -106,6 +108,10 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
         break;
     }
 
+    quizProgressStore.setQuestionResult(currentQuestion.id, correct ? 'correct' : 'incorrect');
+
+    setCompletedCount((prev) => prev + 1);
+
     setCheckState({
       isChecked: true,
       isCorrect: correct,
@@ -113,7 +119,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
     });
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     setCheckState({
       isChecked: false,
       isCorrect: null,
@@ -124,8 +130,22 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
       setCurrentIndex((prev) => prev + 1);
       return;
     }
-
     setCurrentIndex(totalQuestions);
+    const mistakes = Object.values(quizProgressStore.progress).filter(
+      (v) => v === 'incorrect',
+    ).length;
+
+    const passed = mistakes <= 2;
+
+    quizProgressStore.setLessonResult(lessonId!, passed);
+
+    await sendQuizProgress({
+      lessonId: lessonId!,
+      progress: quizProgressStore.progress,
+      result: passed ? 'passed' : 'failed',
+      correct: correctCount,
+      total: totalQuestions,
+    });
 
     onComplete?.({
       correct: correctCount,
@@ -135,6 +155,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
 
   const resetQuiz = () => {
     setCurrentIndex(0);
+    setCompletedCount(0);
     setUserAnswers({});
     setCheckState({
       isChecked: false,
@@ -148,6 +169,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
     currentQuestion,
     currentIndex,
     totalQuestions,
+    completedCount,
     loading,
     error,
 
