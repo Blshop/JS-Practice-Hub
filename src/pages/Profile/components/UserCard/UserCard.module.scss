@@ -1,0 +1,67 @@
+@use 'styles/variables' as var;
+@use 'styles/mixins' as mixin;
+
+.userCard {
+  @include mixin.flex($direction: row, $align: center, $gap: 2rem);
+  padding: 2rem;
+  background-color: var.$color-neutral-100;
+  border: var.$border-default;
+  border-radius: var.$border-radius-default;
+  box-shadow: var.$box-shadow-default;
+}
+
+.avatar {
+  @include mixin.flex($justify: center, $align: center);
+  width: 100px;
+  height: 100px;
+  background-color: var.$color-primary;
+  border: var.$border-default;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.avatarText {
+  font-size: 3rem;
+  font-weight: var.$font-weight-bold;
+  color: var.$color-neutral-900;
+}
+
+.userInfo {
+  @include mixin.flex($direction: column, $gap: 0.5rem);
+  flex: 1;
+}
+
+.username {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.email {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.stats {
+  @include mixin.flex($direction: row, $gap: 1rem, $wrap: wrap);
+  margin-top: 0.5rem;
+}
+
+@media (max-width: var.$breakpoint-sm) {
+  .userCard {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .avatarText {
+    font-size: 2.5rem;
+  }
+
+  .username {
+    font-size: 1.5rem;
+  }
+}

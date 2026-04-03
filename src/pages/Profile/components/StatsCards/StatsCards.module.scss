@@ -1,0 +1,44 @@
+@use 'styles/variables' as var;
+@use 'styles/mixins' as mixin;
+
+.statsCards {
+  @include mixin.flex($direction: row, $gap: 1.5rem, $wrap: wrap);
+}
+
+.card {
+  @include mixin.flex($direction: column, $align: center, $gap: 0.5rem);
+  flex: 1;
+  min-width: 150px;
+  padding: 1.5rem;
+  background-color: var.$color-neutral-000;
+  border: var.$border-default;
+  border-radius: var.$border-radius-default;
+  box-shadow: var.$box-shadow-default;
+  text-align: center;
+}
+
+.cardValue {
+  font-size: 2.5rem;
+  font-weight: var.$font-weight-bold;
+  line-height: 1;
+}
+
+.cardLabel {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+@media (max-width: var.$breakpoint-sm) {
+  .statsCards {
+    flex-direction: column;
+  }
+
+  .card {
+    min-width: 100%;
+  }
+
+  .cardValue {
+    font-size: 2rem;
+  }
+}
