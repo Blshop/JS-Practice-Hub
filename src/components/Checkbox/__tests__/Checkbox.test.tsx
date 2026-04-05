@@ -38,5 +38,20 @@ describe('Checkbox Component', () => {
       await userEvent.click(checkbox);
       expect(checkbox).toBeChecked();
     });
+
+    it('вызывает onChange при изменении', async () => {
+      const handleChange = jest.fn();
+      render(<Checkbox onChange={handleChange} />);
+      const checkbox = screen.getByRole('checkbox');
+
+      await userEvent.click(checkbox);
+      expect(handleChange).toHaveBeenCalled();
+    });
+
+    it('применяет checked при передаче defaultChecked', () => {
+      render(<Checkbox defaultChecked />);
+      const checkbox = screen.getByRole('checkbox');
+      expect(checkbox).toBeChecked();
+    });
   });
 });
