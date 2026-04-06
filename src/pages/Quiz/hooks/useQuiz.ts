@@ -18,6 +18,8 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<Record<string, AnswerType>>({});
   const [completedCount, setCompletedCount] = useState(0);
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   const [checkState, setCheckState] = useState({
     isChecked: false,
@@ -36,7 +38,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
   const currentQuestion = questions[currentIndex];
   const totalQuestions = questions.length;
 
-  const isFinished = currentIndex >= totalQuestions;
+  const isFinished = currentIndex >= totalQuestions && !isSaving && !saveError;
 
   const correctCount = useMemo(() => {
     return questions.reduce((acc, q) => {
@@ -130,7 +132,9 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
       setCurrentIndex((prev) => prev + 1);
       return;
     }
+
     setCurrentIndex(totalQuestions);
+
     const mistakes = Object.values(quizProgressStore.progress).filter(
       (v) => v === 'incorrect',
     ).length;
@@ -139,18 +143,33 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
 
     quizProgressStore.setLessonResult(lessonId!, passed);
 
-    await sendQuizProgress({
-      lessonId: lessonId!,
-      progress: quizProgressStore.progress,
-      result: passed ? 'passed' : 'failed',
-      correct: correctCount,
-      total: totalQuestions,
-    });
+    try {
+      setIsSaving(true);
+      setSaveError(null);
+
+      await sendQuizProgress({
+        lessonId: lessonId!,
+        progress: quizProgressStore.progress,
+        result: passed ? 'passed' : 'failed',
+        correct: correctCount,
+        total: totalQuestions,
+      });
+    } catch (err) {
+      console.error(err);
+      setSaveError('Не удалось сохранить прогресс. Проверьте интернет и попробуйте снова.');
+    } finally {
+      setIsSaving(false);
+    }
 
     onComplete?.({
       correct: correctCount,
       total: totalQuestions,
     });
+  };
+
+  const retrySave = async () => {
+    setSaveError(null);
+    await handleNext();
   };
 
   const resetQuiz = () => {
@@ -185,5 +204,9 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
 
     isFinished,
     correctCount,
+
+    isSaving,
+    saveError,
+    retrySave,
   };
 };

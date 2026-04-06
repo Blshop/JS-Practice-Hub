@@ -9,6 +9,7 @@ import styles from './Quiz.module.scss';
 import { useQuiz } from './hooks/useQuiz';
 import QuestionRenderer from './renderers/QuestionRenderer';
 import { routes } from 'config/routes';
+import LoadingOverlay from 'components/LoadingOverlay';
 
 const QuizPage: React.FC = () => {
   const { state } = useLocation();
@@ -32,6 +33,9 @@ const QuizPage: React.FC = () => {
     isFinished,
     correctCount,
     completedCount,
+    isSaving,
+    saveError,
+    retrySave,
   } = useQuiz(lessonId);
 
   const currentAnswer = currentQuestion ? userAnswers[currentQuestion.id] : undefined;
@@ -97,6 +101,8 @@ const QuizPage: React.FC = () => {
 
   return (
     <div className={styles.quiz}>
+      <LoadingOverlay isLoading={isSaving} error={saveError} onRetry={retrySave} />
+
       <Text tag="h1" bold className={styles.title}>
         {lessonTitle}
       </Text>
