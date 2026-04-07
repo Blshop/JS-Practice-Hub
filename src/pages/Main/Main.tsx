@@ -3,6 +3,7 @@ import learningPathData from 'data/js-learning-path-data.json';
 import mockUserServerProgress from 'data/mock-user-server-progress.json';
 import type { UserProgress } from 'types/UserProgress';
 import { type Module, type Status, type Lesson, STATUS } from 'types/LearningPath';
+import { assertUserProgress } from 'utils/validateUserProgress';
 import LearningPath from './components/LearningPath';
 import LoadingOverlay from 'components/LoadingOverlay';
 import Badge from 'components/Badge';
@@ -24,7 +25,10 @@ const Main: React.FC = () => {
       // 2. Заменить строку ниже на реальный запрос:
       // const response = await fetch('/api/user/progress');
       // const data = await response.json();
-      setUserProgress(mockUserServerProgress as UserProgress);
+      const data = mockUserServerProgress;
+
+      assertUserProgress(data);
+      setUserProgress(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {

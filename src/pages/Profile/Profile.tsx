@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { authStore } from 'store/AuthStore';
 import mockUserServerProgress from 'data/mock-user-server-progress.json';
 import type { UserProgress } from 'types/UserProgress';
+import { assertUserProgress } from 'utils/validateUserProgress';
 import LoadingOverlay from 'components/LoadingOverlay';
 import UserCard from './components/UserCard';
 import StatsCards from './components/StatsCards';
@@ -23,10 +24,16 @@ const Profile: React.FC = observer(() => {
 
     try {
       // TODO: Заменить на реальный API запрос
+      // 1. Удалить строку ниже (имитация задержки):
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // 2. Заменить строку ниже на реальный запрос:
       // const response = await fetch('/api/user/progress');
       // const data = await response.json();
-      await new Promise((resolve) => setTimeout(resolve, 800));
-      setUserProgress(mockUserServerProgress as UserProgress);
+      const data = mockUserServerProgress;
+
+      assertUserProgress(data);
+      setUserProgress(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
