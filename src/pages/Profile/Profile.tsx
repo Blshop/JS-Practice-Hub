@@ -47,70 +47,68 @@ const Profile: React.FC = observer(() => {
 
   const stats = useProfileStats(userProgress);
 
-  if (!stats || !userProgress || !authStore.user) {
-    return <LoadingOverlay isLoading={isLoading} error={error} onRetry={loadData} />;
-  }
-
   return (
     <>
       <LoadingOverlay isLoading={isLoading} error={error} onRetry={loadData} />
-      <div className={styles.profile}>
-        <UserCard
-          username={authStore.user.username}
-          email={authStore.user.email}
-          earnedXP={stats.earnedXP}
-          totalXP={stats.totalXP}
-          completedLessons={stats.completedLessons}
-          totalLessons={stats.totalLessons}
-          completedModules={stats.modulesOverallStats.completedModules}
-          totalModules={stats.modulesOverallStats.totalModules}
-        />
-
-        <ModulesChart moduleStats={stats.moduleStats} />
-
-        <div className={styles.section}>
-          <StatsCards
-            totalAttempts={stats.totalAttempts}
-            totalSuccess={stats.totalSuccess}
-            totalFailed={stats.totalFailed}
-            successRate={stats.successRate}
-            labels={{
-              total: 'Total Attempts',
-              success: 'Successful',
-              failed: 'Failed',
-              rate: 'Success Rate',
-            }}
+      {stats && userProgress && authStore.user && (
+        <div className={styles.profile}>
+          <UserCard
+            username={authStore.user.username}
+            email={authStore.user.email}
+            earnedXP={stats.earnedXP}
+            totalXP={stats.totalXP}
+            completedLessons={stats.completedLessons}
+            totalLessons={stats.totalLessons}
+            completedModules={stats.modulesOverallStats.completedModules}
+            totalModules={stats.modulesOverallStats.totalModules}
           />
-          <AttemptsChart
-            totalSuccess={stats.totalSuccess}
-            totalFailed={stats.totalFailed}
-            title="Tests Distribution"
-          />
+
+          <ModulesChart moduleStats={stats.moduleStats} />
+
+          <div className={styles.section}>
+            <StatsCards
+              totalAttempts={stats.totalAttempts}
+              totalSuccess={stats.totalSuccess}
+              totalFailed={stats.totalFailed}
+              successRate={stats.successRate}
+              labels={{
+                total: 'Total Attempts',
+                success: 'Successful',
+                failed: 'Failed',
+                rate: 'Success Rate',
+              }}
+            />
+            <AttemptsChart
+              totalSuccess={stats.totalSuccess}
+              totalFailed={stats.totalFailed}
+              title="Tests Distribution"
+            />
+          </div>
+
+          <div className={styles.section}>
+            <AttemptsChart
+              totalSuccess={stats.questionsStats.totalCorrect}
+              totalFailed={stats.questionsStats.totalIncorrect}
+              title="Questions Distribution"
+              labels={{ success: 'Correct', failed: 'Incorrect' }}
+            />
+            <StatsCards
+              totalAttempts={stats.questionsStats.totalAnswered}
+              totalSuccess={stats.questionsStats.totalCorrect}
+              totalFailed={stats.questionsStats.totalIncorrect}
+              successRate={stats.questionsStats.successRate}
+              labels={{
+                total: 'Total Answered',
+                success: 'Correct',
+                failed: 'Incorrect',
+                rate: 'Success Rate',
+              }}
+            />
+          </div>
+
+          <LessonsTable lessonStats={stats.lessonStats} />
         </div>
-
-        <div className={styles.section}>
-          <AttemptsChart
-            totalSuccess={stats.questionsStats.totalCorrect}
-            totalFailed={stats.questionsStats.totalIncorrect}
-            title="Questions Distribution"
-            labels={{ success: 'Correct', failed: 'Incorrect' }}
-          />
-          <StatsCards
-            totalAttempts={stats.questionsStats.totalAnswered}
-            totalSuccess={stats.questionsStats.totalCorrect}
-            totalFailed={stats.questionsStats.totalIncorrect}
-            successRate={stats.questionsStats.successRate}
-            labels={{
-              total: 'Total Answered',
-              success: 'Correct',
-              failed: 'Incorrect',
-              rate: 'Success Rate',
-            }}
-          />
-        </div>
-
-        <LessonsTable lessonStats={stats.lessonStats} />
-      </div>
+      )}
     </>
   );
 });
