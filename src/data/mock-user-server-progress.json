@@ -1,0 +1,67 @@
+{
+  "lessons": {
+    "js-basics-1": {
+      "success_attempt": 30,
+      "failed_attempt": 1,
+      "questions": [
+        { "question_id": "var-let-001", "success_count": 5, "failed_count": 2 },
+        { "question_id": "var-let-002", "success_count": 3, "failed_count": 1 },
+        { "question_id": "var-let-003", "success_count": 2, "failed_count": 0 }
+      ]
+    },
+    "js-basics-2": {
+      "success_attempt": 20,
+      "failed_attempt": 2,
+      "questions": [
+        { "question_id": "dt-001", "success_count": 4, "failed_count": 3 },
+        { "question_id": "dt-002", "success_count": 3, "failed_count": 2 },
+        { "question_id": "dt-003", "success_count": 1, "failed_count": 1 }
+      ]
+    },
+    "js-basics-3": {
+      "success_attempt": 10,
+      "failed_attempt": 3,
+      "questions": [
+        { "question_id": "tc-001", "success_count": 2, "failed_count": 4 },
+        { "question_id": "tc-002", "success_count": 3, "failed_count": 2 },
+        { "question_id": "tc-003", "success_count": 1, "failed_count": 1 }
+      ]
+    },
+    "js-basics-4": {
+      "success_attempt": 10,
+      "failed_attempt": 3,
+      "questions": [
+        { "question_id": "tc-001", "success_count": 2, "failed_count": 4 },
+        { "question_id": "tc-002", "success_count": 3, "failed_count": 2 },
+        { "question_id": "tc-003", "success_count": 1, "failed_count": 1 }
+      ]
+    },
+    "js-basics-5": {
+      "success_attempt": 10,
+      "failed_attempt": 3,
+      "questions": [
+        { "question_id": "tc-001", "success_count": 2, "failed_count": 4 },
+        { "question_id": "tc-002", "success_count": 3, "failed_count": 2 },
+        { "question_id": "tc-003", "success_count": 1, "failed_count": 1 }
+      ]
+    },
+    "js-fn-1": {
+      "success_attempt": 40,
+      "failed_attempt": 0,
+      "questions": [
+        { "question_id": "fn-001", "success_count": 2, "failed_count": 0 },
+        { "question_id": "fn-002", "success_count": 2, "failed_count": 0 },
+        { "question_id": "fn-003", "success_count": 0, "failed_count": 0 }
+      ]
+    },
+    "js-fn-2": {
+      "success_attempt": 20,
+      "failed_attempt": 1,
+      "questions": [
+        { "question_id": "arrow-001", "success_count": 1, "failed_count": 1 },
+        { "question_id": "arrow-002", "success_count": 1, "failed_count": 0 },
+        { "question_id": "arrow-003", "success_count": 0, "failed_count": 0 }
+      ]
+    }
+  }
+}
