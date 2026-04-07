@@ -2,7 +2,7 @@
 
 ## PR
 
-Ссылка на PR:
+Ссылка на PR: [PR #112](https://github.com/Blshop/JS-Practice-Hub/pull/112)
 
 ## Таблица фич
 
