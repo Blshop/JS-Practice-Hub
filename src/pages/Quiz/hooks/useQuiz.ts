@@ -139,27 +139,26 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
 
     setCurrentIndex(totalQuestions);
 
-    const mistakes = Object.values(quizProgressStore.progress).filter(
-      (v) => v === 'incorrect',
-    ).length;
-
+    const mistakes = quizProgressStore.incorrectCount;
     const passed = mistakes <= 2;
+
     if (!lessonId) {
       return;
     }
 
     quizProgressStore.setLessonResult(lessonId, passed);
 
-    quizProgressStore.setLessonResult(lessonId!, passed);
-
     try {
       setIsSaving(true);
       setSaveError(null);
 
       await sendQuizProgress({
-        lessonId: lessonId!,
+        lessonId,
         progress: quizProgressStore.progress,
         result: passed ? 'passed' : 'failed',
+      });
+
+      onComplete?.({
         correct: correctCount,
         total: totalQuestions,
       });
@@ -169,11 +168,6 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
     } finally {
       setIsSaving(false);
     }
-
-    onComplete?.({
-      correct: correctCount,
-      total: totalQuestions,
-    });
   };
 
   const retrySave = async () => {
