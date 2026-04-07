@@ -1,4 +1,4 @@
-import type { LessonProgress, UserServerProgress } from 'types/UserProgress';
+import type { LessonProgress, UserProgress } from 'types/UserProgress';
 
 export function getTotalAttempts(lesson: LessonProgress): number {
   return lesson.successAttempt + lesson.failedAttempt;
@@ -36,13 +36,10 @@ export function isLessonCompleted(
   return lesson.successAttempt >= requiredSuccessAttempts;
 }
 
-export function getLessonProgress(
-  progress: UserServerProgress,
-  lessonId: string,
-): LessonProgress | null {
+export function getLessonProgress(progress: UserProgress, lessonId: string): LessonProgress | null {
   return progress.lessons[lessonId] ?? null;
 }
 
-export function hasLessonProgress(progress: UserServerProgress, lessonId: string): boolean {
+export function hasLessonProgress(progress: UserProgress, lessonId: string): boolean {
   return lessonId in progress.lessons;
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { observer } from 'mobx-react-lite';
 import { authStore } from 'store/AuthStore';
 import mockUserServerProgress from 'data/mock-user-server-progress.json';
-import type { UserServerProgress } from 'types/UserProgress';
+import type { UserProgress } from 'types/UserProgress';
 import LoadingOverlay from 'components/LoadingOverlay';
 import UserCard from './components/UserCard';
 import StatsCards from './components/StatsCards';
@@ -15,7 +15,7 @@ import styles from './Profile.module.scss';
 const Profile: React.FC = observer(() => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [userProgress, setUserProgress] = useState<UserServerProgress | null>(null);
+  const [userProgress, setUserProgress] = useState<UserProgress | null>(null);
 
   const loadData = useCallback(async () => {
     setIsLoading(true);
@@ -26,7 +26,7 @@ const Profile: React.FC = observer(() => {
       // const response = await fetch('/api/user/progress');
       // const data = await response.json();
       await new Promise((resolve) => setTimeout(resolve, 800));
-      setUserProgress(mockUserServerProgress as UserServerProgress);
+      setUserProgress(mockUserServerProgress as UserProgress);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {

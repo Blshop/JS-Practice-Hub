@@ -10,6 +10,6 @@ export interface LessonProgress {
   readonly questions: readonly QuestionStat[];
 }
 
-export interface UserServerProgress {
+export interface UserProgress {
   readonly lessons: Record<string, LessonProgress>;
 }

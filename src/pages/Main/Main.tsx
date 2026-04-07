@@ -1,14 +1,8 @@
 import React, { useMemo, useState, useEffect, useCallback } from 'react';
 import learningPathData from 'data/js-learning-path-data.json';
 import mockUserServerProgress from 'data/mock-user-server-progress.json';
-import type { UserServerProgress } from 'types/UserProgress';
-import {
-  type Module,
-  type UserProgress,
-  type Status,
-  type Lesson,
-  STATUS,
-} from 'types/LearningPath';
+import type { UserProgress } from 'types/UserProgress';
+import { type Module, type Status, type Lesson, STATUS } from 'types/LearningPath';
 import LearningPath from './components/LearningPath';
 import LoadingOverlay from 'components/LoadingOverlay';
 import Badge from 'components/Badge';
@@ -30,19 +24,7 @@ const Main: React.FC = () => {
       // 2. Заменить строку ниже на реальный запрос:
       // const response = await fetch('/api/user/progress');
       // const data = await response.json();
-      const serverProgress = mockUserServerProgress as UserServerProgress;
-
-      const transformedProgress: UserProgress = {
-        lessons: Object.entries(serverProgress.lessons).reduce(
-          (acc, [lessonId, lessonData]) => {
-            acc[lessonId] = lessonData.successAttempt;
-            return acc;
-          },
-          {} as Record<string, number>,
-        ),
-      };
-
-      setUserProgress(transformedProgress);
+      setUserProgress(mockUserServerProgress as UserProgress);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
@@ -63,7 +45,10 @@ const Main: React.FC = () => {
       const lessons: Lesson[] = [];
 
       for (const lesson of module.lessons) {
-        const completedTasks = Math.min(userProgress.lessons[lesson.id] ?? 0, lesson.totalTasks);
+        const lessonProgress = userProgress.lessons[lesson.id];
+        const completedTasks = lessonProgress
+          ? Math.min(lessonProgress.successAttempt, lesson.totalTasks)
+          : 0;
         let status: Status;
 
         if (completedTasks === lesson.totalTasks) {
@@ -115,7 +100,8 @@ const Main: React.FC = () => {
       (xp, module) =>
         xp +
         module.lessons.reduce((moduleXp, lesson) => {
-          const completedTasks = userProgress.lessons[lesson.id] || 0;
+          const lessonProgress = userProgress.lessons[lesson.id];
+          const completedTasks = lessonProgress ? lessonProgress.successAttempt : 0;
 
           return moduleXp + (completedTasks >= lesson.totalTasks ? lesson.xpReward : 0);
         }, 0),

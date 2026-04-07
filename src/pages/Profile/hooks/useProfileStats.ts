@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import learningPathData from 'data/js-learning-path-data.json';
-import type { UserServerProgress } from 'types/UserProgress';
+import type { UserProgress } from 'types/UserProgress';
 import {
   getTotalAttempts,
   getSuccessRate,
@@ -56,7 +56,7 @@ export interface ProfileStats {
   };
 }
 
-export const useProfileStats = (userProgress: UserServerProgress | null): ProfileStats | null => {
+export const useProfileStats = (userProgress: UserProgress | null): ProfileStats | null => {
   return useMemo(() => {
     if (!userProgress) return null;
 
