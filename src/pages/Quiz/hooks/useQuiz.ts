@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useQuestions } from './useQuestions';
 import type {
   AnswerType,
@@ -34,6 +34,10 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
     loading: boolean;
     error: string | null;
   };
+
+  useEffect(() => {
+    quizProgressStore.resetQuestions();
+  }, [lessonId]);
 
   const currentQuestion = questions[currentIndex];
   const totalQuestions = questions.length;
