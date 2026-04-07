@@ -8,6 +8,7 @@ import RegisterForm from 'pages/Auth/components/RegisterForm';
 import Demo from 'pages/Demo';
 import QuizPage from 'pages/Quiz';
 import Main from 'pages/Main';
+import Profile from 'pages/Profile';
 import PrivateRoute from 'components/PrivateRoute';
 import NotFound from 'pages/NotFound';
 
@@ -29,7 +30,7 @@ export const routesConfig: RouteObject[] = [
         path: routes.profile.mask,
         element: (
           <PrivateRoute>
-            <>Профиль пользователя</>
+            <Profile />
           </PrivateRoute>
         ),
       },
