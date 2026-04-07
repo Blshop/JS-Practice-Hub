@@ -1,66 +1,66 @@
 {
   "lessons": {
     "js-basics-1": {
-      "success_attempt": 30,
-      "failed_attempt": 1,
+      "successAttempt": 30,
+      "failedAttempt": 1,
       "questions": [
-        { "question_id": "var-let-001", "success_count": 5, "failed_count": 2 },
-        { "question_id": "var-let-002", "success_count": 3, "failed_count": 1 },
-        { "question_id": "var-let-003", "success_count": 2, "failed_count": 0 }
+        { "questionId": "var-let-001", "successCount": 5, "failedCount": 2 },
+        { "questionId": "var-let-002", "successCount": 3, "failedCount": 1 },
+        { "questionId": "var-let-003", "successCount": 2, "failedCount": 0 }
       ]
     },
     "js-basics-2": {
-      "success_attempt": 20,
-      "failed_attempt": 2,
+      "successAttempt": 20,
+      "failedAttempt": 2,
       "questions": [
-        { "question_id": "dt-001", "success_count": 4, "failed_count": 3 },
-        { "question_id": "dt-002", "success_count": 3, "failed_count": 2 },
-        { "question_id": "dt-003", "success_count": 1, "failed_count": 1 }
+        { "questionId": "dt-001", "successCount": 4, "failedCount": 3 },
+        { "questionId": "dt-002", "successCount": 3, "failedCount": 2 },
+        { "questionId": "dt-003", "successCount": 1, "failedCount": 1 }
       ]
     },
     "js-basics-3": {
-      "success_attempt": 10,
-      "failed_attempt": 3,
+      "successAttempt": 10,
+      "failedAttempt": 3,
       "questions": [
-        { "question_id": "tc-001", "success_count": 2, "failed_count": 4 },
-        { "question_id": "tc-002", "success_count": 3, "failed_count": 2 },
-        { "question_id": "tc-003", "success_count": 1, "failed_count": 1 }
+        { "questionId": "tc-001", "successCount": 2, "failedCount": 4 },
+        { "questionId": "tc-002", "successCount": 3, "failedCount": 2 },
+        { "questionId": "tc-003", "successCount": 1, "failedCount": 1 }
       ]
     },
     "js-basics-4": {
-      "success_attempt": 10,
-      "failed_attempt": 3,
+      "successAttempt": 10,
+      "failedAttempt": 3,
       "questions": [
-        { "question_id": "tc-001", "success_count": 2, "failed_count": 4 },
-        { "question_id": "tc-002", "success_count": 3, "failed_count": 2 },
-        { "question_id": "tc-003", "success_count": 1, "failed_count": 1 }
+        { "questionId": "tc-001", "successCount": 2, "failedCount": 4 },
+        { "questionId": "tc-002", "successCount": 3, "failedCount": 2 },
+        { "questionId": "tc-003", "successCount": 1, "failedCount": 1 }
       ]
     },
     "js-basics-5": {
-      "success_attempt": 10,
-      "failed_attempt": 3,
+      "successAttempt": 10,
+      "failedAttempt": 3,
       "questions": [
-        { "question_id": "tc-001", "success_count": 2, "failed_count": 4 },
-        { "question_id": "tc-002", "success_count": 3, "failed_count": 2 },
-        { "question_id": "tc-003", "success_count": 1, "failed_count": 1 }
+        { "questionId": "tc-001", "successCount": 2, "failedCount": 4 },
+        { "questionId": "tc-002", "successCount": 3, "failedCount": 2 },
+        { "questionId": "tc-003", "successCount": 1, "failedCount": 1 }
       ]
     },
     "js-fn-1": {
-      "success_attempt": 40,
-      "failed_attempt": 0,
+      "successAttempt": 40,
+      "failedAttempt": 0,
       "questions": [
-        { "question_id": "fn-001", "success_count": 2, "failed_count": 0 },
-        { "question_id": "fn-002", "success_count": 2, "failed_count": 0 },
-        { "question_id": "fn-003", "success_count": 0, "failed_count": 0 }
+        { "questionId": "fn-001", "successCount": 2, "failedCount": 0 },
+        { "questionId": "fn-002", "successCount": 2, "failedCount": 0 },
+        { "questionId": "fn-003", "successCount": 0, "failedCount": 0 }
       ]
     },
     "js-fn-2": {
-      "success_attempt": 20,
-      "failed_attempt": 1,
+      "successAttempt": 20,
+      "failedAttempt": 1,
       "questions": [
-        { "question_id": "arrow-001", "success_count": 1, "failed_count": 1 },
-        { "question_id": "arrow-002", "success_count": 1, "failed_count": 0 },
-        { "question_id": "arrow-003", "success_count": 0, "failed_count": 0 }
+        { "questionId": "arrow-001", "successCount": 1, "failedCount": 1 },
+        { "questionId": "arrow-002", "successCount": 1, "failedCount": 0 },
+        { "questionId": "arrow-003", "successCount": 0, "failedCount": 0 }
       ]
     }
   }

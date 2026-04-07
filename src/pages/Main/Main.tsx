@@ -1,6 +1,7 @@
 import React, { useMemo, useState, useEffect, useCallback } from 'react';
 import learningPathData from 'data/js-learning-path-data.json';
-import userLessonsProgress from 'data/mock-user-lessons-progress.json';
+import mockUserServerProgress from 'data/mock-user-server-progress.json';
+import type { UserServerProgress } from 'types/UserProgress';
 import {
   type Module,
   type UserProgress,
@@ -29,8 +30,19 @@ const Main: React.FC = () => {
       // 2. Заменить строку ниже на реальный запрос:
       // const response = await fetch('/api/user/progress');
       // const data = await response.json();
-      // setUserProgress(data);
-      setUserProgress(userLessonsProgress as UserProgress);
+      const serverProgress = mockUserServerProgress as UserServerProgress;
+
+      const transformedProgress: UserProgress = {
+        lessons: Object.entries(serverProgress.lessons).reduce(
+          (acc, [lessonId, lessonData]) => {
+            acc[lessonId] = lessonData.successAttempt;
+            return acc;
+          },
+          {} as Record<string, number>,
+        ),
+      };
+
+      setUserProgress(transformedProgress);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {

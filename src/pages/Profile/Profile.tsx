@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { observer } from 'mobx-react-lite';
 import { authStore } from 'store/AuthStore';
-import mockUserServerProgressDTO from 'data/mock-user-server-progress.json';
-import { mapUserProgressFromDTO, type UserServerProgressDTO } from './helpers/mapUserProgress';
+import mockUserServerProgress from 'data/mock-user-server-progress.json';
+import type { UserServerProgress } from 'types/UserProgress';
 import LoadingOverlay from 'components/LoadingOverlay';
 import UserCard from './components/UserCard';
 import StatsCards from './components/StatsCards';
@@ -10,7 +10,6 @@ import AttemptsChart from './components/AttemptsChart';
 import ModulesChart from './components/ModulesChart';
 import LessonsTable from './components/LessonsTable';
 import { useProfileStats } from './hooks/useProfileStats';
-import type { UserServerProgress } from 'types/UserProgress';
 import styles from './Profile.module.scss';
 
 const Profile: React.FC = observer(() => {
@@ -25,12 +24,9 @@ const Profile: React.FC = observer(() => {
     try {
       // TODO: Заменить на реальный API запрос
       // const response = await fetch('/api/user/progress');
-      // const dto = await response.json();
+      // const data = await response.json();
       await new Promise((resolve) => setTimeout(resolve, 800));
-      const mappedProgress = mapUserProgressFromDTO(
-        mockUserServerProgressDTO as UserServerProgressDTO,
-      );
-      setUserProgress(mappedProgress);
+      setUserProgress(mockUserServerProgress as UserServerProgress);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {

@@ -33,7 +33,6 @@ export interface Module extends ModuleData {
 }
 
 export interface UserProgress {
-  userId: string;
   lessons: Record<string, number>;
 }
 
