@@ -144,6 +144,11 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
     ).length;
 
     const passed = mistakes <= 2;
+    if (!lessonId) {
+      return;
+    }
+
+    quizProgressStore.setLessonResult(lessonId, passed);
 
     quizProgressStore.setLessonResult(lessonId!, passed);
 
