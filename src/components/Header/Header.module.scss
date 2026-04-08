@@ -1,5 +1,6 @@
 @use 'styles/variables.scss' as var;
 @use 'styles/mixins.scss' as mixin;
+@use 'sass:color';
 
 .header {
   @include mixin.flex($direction: row, $justify: space-between, $align: center, $gap: 1.5rem);
@@ -85,20 +86,11 @@
 }
 
 .burgerHeader {
-  @include mixin.flex($direction: row, $align: center, $justify: space-between);
+  @include mixin.flex($direction: row, $align: center, $justify: center);
   width: 100%;
   padding: 1rem 0;
   border-bottom: 2px solid var.$color-neutral-200;
   flex-shrink: 0;
-}
-
-.burgerClose {
-  border-radius: 50%;
-  width: 47px;
-  height: 47px;
-  padding: 0;
-  flex-shrink: 0;
-  background-color: var.$color-neutral-100 !important;
 }
 
 .burgerToggles {
@@ -112,7 +104,7 @@
   position: relative;
   @include mixin.flex($direction: row, $align: center);
 
-  & + & {
+  &+& {
     padding-left: 0.75rem;
 
     &::before {
@@ -263,7 +255,7 @@
     }
 
     &_danger {
-      color: darken(#ff8f8f, 20%);
+      color: color.adjust(#ff8f8f, $lightness: -20%);
 
       &:hover {
         background-color: var.$color-danger;

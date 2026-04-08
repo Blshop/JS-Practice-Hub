@@ -35,10 +35,10 @@ PR с тестами: https://github.com/Blshop/JS-Practice-Hub/pull/68
 
 Что тестирую: валидация форм (схем валидации) Авторизации/Регистрации, MobX store (AuthStore)
 
-| Файл                                                  | Описание                                                                                       |
-| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `src/pages/Auth/schemas/__tests__/validation.test.ts` | Проверка email, пароля (длина, заглавная буква, цифра), обязательность username (пустых полей) |
-| `src/store/__tests__/AuthStore.test.ts`               | Тесты для MobX стора: восстановление сессии, логин, регистрация, выход, геттер isAuthenticated, обработка ошибок |
+| Файл                                                  | Описание                                                                                                                             |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `src/pages/Auth/schemas/__tests__/validation.test.ts` | Проверка email, пароля (длина, заглавная буква, цифра), обязательность username (пустых полей)                                       |
+| `src/store/__tests__/AuthStore.test.ts`               | Тесты для MobX стора: восстановление сессии, логин, регистрация, выход, геттер isAuthenticated, обработка ошибок                     |
 | `server/src/__tests__/auth.test.js`                   | Интеграционные тесты для `/register`, `/login`, `/refresh`, `/logout`, `/profile` с использованием mongodb-memory-server и supertest |
 
 PR с тестами: https://github.com/Blshop/JS-Practice-Hub/pull/58, https://github.com/Blshop/JS-Practice-Hub/pull/109

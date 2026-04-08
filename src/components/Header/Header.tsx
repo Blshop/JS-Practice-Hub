@@ -101,32 +101,6 @@ export const Header: React.FC = observer(() => {
           {isAuthenticated && (
             <div className={classNames(styles.burgerHeader, styles.mobileOnly)}>
               <Text bold>🙂 {authStore.user?.username}</Text>
-              <Button
-                variant="secondary"
-                onClick={closeMenu}
-                aria-label="Close menu"
-                className={styles.burgerClose}
-              >
-                <Text tag="span" bold>
-                  ✖
-                </Text>
-              </Button>
-            </div>
-          )}
-
-          {!isAuthenticated && (
-            <div className={classNames(styles.burgerHeader, styles.mobileOnly)}>
-              <span />
-              <Button
-                variant="secondary"
-                onClick={closeMenu}
-                aria-label="Close menu"
-                className={styles.burgerClose}
-              >
-                <Text tag="span" bold>
-                  ✖
-                </Text>
-              </Button>
             </div>
           )}
 
@@ -374,16 +348,14 @@ export const Header: React.FC = observer(() => {
       </div>
       {showBurger && (
         <button
-          className={classNames(styles.burgerMenu__toggle, {
-            [styles.burgerMenu__toggle_hidden]: isOpen,
-          })}
+          className={styles.burgerMenu__toggle}
           onClick={() => setIsOpen((p) => !p)}
-          aria-label="Open menu"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isOpen}
         >
-          ☰
+          {isOpen ? '✖' : '☰'}
         </button>
-      )}{' '}
+      )}
     </header>
   );
 });
