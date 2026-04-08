@@ -19,7 +19,8 @@
     "typecheck": "tsc --noEmit",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "test:server": "cd server && npm test"
   },
   "dependencies": {
     "@fontsource/roboto-mono": "^5.2.8",

@@ -7,9 +7,7 @@ import authRoutes from './routes/authRoutes.js';
 import swaggerUi from 'swagger-ui-express';
 import { specs } from './config/swagger.js';
 
-const app = express();
-
-connectDB();
+export const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
@@ -28,6 +26,11 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  (async () => {
+    await connectDB();
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })();
+}
