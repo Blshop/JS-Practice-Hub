@@ -14,7 +14,11 @@ import { sendQuizProgress } from 'services/progressService';
 
 const normalize = (str: string) => str.replace(/`/g, '').trim();
 
-export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) => void) => {
+export const useQuiz = (
+  lessonId?: string,
+  onComplete?: (summary: QuizSummary) => void,
+  maxQuestions = 10,
+) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<Record<string, AnswerType>>({});
   const [completedCount, setCompletedCount] = useState(0);
@@ -29,7 +33,11 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
 
   const { isChecked, isCorrect, showExplanation } = checkState;
 
-  const { questions, loading, error } = useQuestions('JavaScript', lessonId ?? null) as {
+  const { questions, loading, error } = useQuestions(
+    'JavaScript',
+    lessonId ?? null,
+    maxQuestions,
+  ) as {
     questions: Question[];
     loading: boolean;
     error: string | null;

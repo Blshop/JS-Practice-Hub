@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { Question } from 'types/Questions';
+import { shuffleArray } from 'utils/shuffleArray';
 
 // TODO Correct for actual categories
 type Category = 'JavaScript' | 'typescript' | 'css';
@@ -10,7 +11,11 @@ type QuestionModule = {
 
 const questionModules = import.meta.glob<QuestionModule>('/src/data/**/**/*.json');
 
-export function useQuestions(category: Category | null, fileId: string | null) {
+export function useQuestions(
+  category: Category | null,
+  fileId: string | null,
+  maxQuestions?: number,
+) {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -40,7 +45,9 @@ export function useQuestions(category: Category | null, fileId: string | null) {
 
         if (isMounted) {
           if (Array.isArray(data)) {
-            setQuestions(data);
+            const shuffled = shuffleArray(data);
+            const limited = maxQuestions ? shuffled.slice(0, maxQuestions) : shuffled;
+            setQuestions(limited);
           } else {
             setError(`Invalid data format in ${targetPath}`);
           }
@@ -59,7 +66,7 @@ export function useQuestions(category: Category | null, fileId: string | null) {
     return () => {
       isMounted = false;
     };
-  }, [category, fileId]);
+  }, [category, fileId, maxQuestions]);
 
   return { questions, loading, error };
 }
