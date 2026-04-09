@@ -1,34 +1,29 @@
 import React, { useMemo, useState, useEffect, useCallback } from 'react';
+import { observer } from 'mobx-react-lite';
 import learningPathData from 'data/js-learning-path-data.json';
-import mockUserServerProgress from 'data/mock-user-server-progress.json';
+import { userProgressStore } from 'store/UserProgressStore';
 import type { UserProgress } from 'types/UserProgress';
 import { type Module, type Status, type Lesson, STATUS } from 'types/LearningPath';
-import { assertUserProgress } from 'utils/validateUserProgress';
 import LearningPath from './components/LearningPath';
 import LoadingOverlay from 'components/LoadingOverlay';
 import Badge from 'components/Badge';
 
-const Main: React.FC = () => {
+const Main: React.FC = observer(() => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [userProgress, setUserProgress] = useState<UserProgress | null>(null);
 
   const loadData = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
     try {
-      // TODO: Заменить на реальный API запрос
-      // 1. Удалить строку ниже (имитация задержки):
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      // 2. Заменить строку ниже на реальный запрос:
+      // TODO: Replace with real API request to sync with server
       // const response = await fetch('/api/user/progress');
       // const data = await response.json();
-      const data = mockUserServerProgress;
+      // Sync with userProgressStore if needed
 
-      assertUserProgress(data);
-      setUserProgress(data);
+      // Simulate loading delay
+      await new Promise((resolve) => setTimeout(resolve, 500));
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
@@ -40,9 +35,9 @@ const Main: React.FC = () => {
     loadData();
   }, [loadData]);
 
-  const learningModules = useMemo(() => {
-    if (!userProgress) return [];
+  const userProgress: UserProgress = userProgressStore.progress;
 
+  const learningModules = useMemo(() => {
     const modules: Module[] = [];
 
     for (const module of learningPathData.modules) {
@@ -98,8 +93,6 @@ const Main: React.FC = () => {
   }, [userProgress]);
 
   const totalXp = useMemo(() => {
-    if (!userProgress) return 0;
-
     return learningPathData.modules.reduce(
       (xp, module) =>
         xp +
@@ -117,17 +110,13 @@ const Main: React.FC = () => {
     <>
       <LoadingOverlay isLoading={isLoading} error={error} onRetry={loadData} />
       <section>
-        {userProgress && (
-          <>
-            <Badge variant="info" size="large">
-              ⚡ {totalXp} XP
-            </Badge>
-            <LearningPath modules={learningModules} />
-          </>
-        )}
+        <Badge variant="info" size="large">
+          ⚡ {totalXp} XP
+        </Badge>
+        <LearningPath modules={learningModules} />
       </section>
     </>
   );
-};
+});
 
 export default Main;

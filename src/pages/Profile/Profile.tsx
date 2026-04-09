@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { observer } from 'mobx-react-lite';
 import { authStore } from 'store/AuthStore';
-import mockUserServerProgress from 'data/mock-user-server-progress.json';
+import { userProgressStore } from 'store/UserProgressStore';
 import type { UserProgress } from 'types/UserProgress';
-import { assertUserProgress } from 'utils/validateUserProgress';
 import LoadingOverlay from 'components/LoadingOverlay';
 import UserCard from './components/UserCard';
 import StatsCards from './components/StatsCards';
@@ -16,24 +15,19 @@ import styles from './Profile.module.scss';
 const Profile: React.FC = observer(() => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [userProgress, setUserProgress] = useState<UserProgress | null>(null);
 
   const loadData = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
     try {
-      // TODO: Заменить на реальный API запрос
-      // 1. Удалить строку ниже (имитация задержки):
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      // 2. Заменить строку ниже на реальный запрос:
+      // TODO: Replace with real API request to sync with server
       // const response = await fetch('/api/user/progress');
       // const data = await response.json();
-      const data = mockUserServerProgress;
+      // Sync with userProgressStore if needed
 
-      assertUserProgress(data);
-      setUserProgress(data);
+      // Simulate loading delay
+      await new Promise((resolve) => setTimeout(resolve, 500));
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
@@ -45,12 +39,13 @@ const Profile: React.FC = observer(() => {
     loadData();
   }, [loadData]);
 
+  const userProgress: UserProgress = userProgressStore.progress;
   const stats = useProfileStats(userProgress);
 
   return (
     <>
       <LoadingOverlay isLoading={isLoading} error={error} onRetry={loadData} />
-      {stats && userProgress && authStore.user && (
+      {stats && authStore.user && (
         <div className={styles.profile}>
           <UserCard
             username={authStore.user.username}

@@ -56,10 +56,8 @@ export interface ProfileStats {
   };
 }
 
-export const useProfileStats = (userProgress: UserProgress | null): ProfileStats | null => {
+export const useProfileStats = (userProgress: UserProgress): ProfileStats | null => {
   return useMemo(() => {
-    if (!userProgress) return null;
-
     const serverProgress = userProgress.lessons;
     let totalSuccess = 0;
     let totalFailed = 0;
