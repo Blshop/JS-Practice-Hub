@@ -10,14 +10,15 @@ import type {
   PredictOutputQuestion,
 } from 'types/Questions';
 import { quizProgressStore } from 'store/QuizProgressStore';
-import { sendQuizProgress } from 'services/progressService';
+import { userProgressStore } from 'store/UserProgressStore';
+// import { sendQuizProgress } from 'services/progressService';
 
 const normalize = (str: string) => str.replace(/`/g, '').trim();
 
 export const useQuiz = (
   lessonId?: string,
   onComplete?: (summary: QuizSummary) => void,
-  maxQuestions = 10,
+  maxQuestions = 3,
 ) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<Record<string, AnswerType>>({});
@@ -160,10 +161,16 @@ export const useQuiz = (
       setIsSaving(true);
       setSaveError(null);
 
-      await sendQuizProgress({
-        lessonId,
-        progress: quizProgressStore.progress,
-        result: passed ? 'passed' : 'failed',
+      // await sendQuizProgress({
+      //   lessonId,
+      //   progress: quizProgressStore.progress,
+      //   result: passed ? 'passed' : 'failed',
+      // });
+
+      userProgressStore.recordLessonAttempt(lessonId, passed);
+
+      Object.entries(quizProgressStore.progress).forEach(([questionId, result]) => {
+        userProgressStore.recordQuestionAnswer(lessonId, questionId, result === 'correct');
       });
 
       onComplete?.({
@@ -172,7 +179,7 @@ export const useQuiz = (
       });
     } catch (err) {
       console.error(err);
-      setSaveError('Не удалось сохранить прогресс. Проверьте интернет и попробуйте снова.');
+      setSaveError('Failed to save progress. Please try again.');
     } finally {
       setIsSaving(false);
     }
