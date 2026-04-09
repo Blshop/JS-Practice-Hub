@@ -4,6 +4,7 @@ import { notifySuccess, notifyError, notifyInfo } from 'utils/notify';
 import * as authService from 'services/authService';
 import axios from 'axios';
 import { setAccessToken } from 'services/api';
+import { userProgressStore } from './UserProgressStore';
 
 class AuthStore {
   user: User | null = null;
@@ -38,6 +39,8 @@ class AuthStore {
         setAccessToken(this.accessToken);
         this.isLoading = false;
       });
+
+      userProgressStore.switchUser();
 
       return true;
     } catch (err) {
@@ -93,6 +96,8 @@ class AuthStore {
         this.isLoading = false;
       });
 
+      userProgressStore.switchUser();
+
       notifySuccess(`Welcome, ${response.user.username}!`);
 
       return true;
@@ -131,6 +136,8 @@ class AuthStore {
         this.isLoading = false;
       });
 
+      userProgressStore.switchUser();
+
       notifySuccess(`Account created! Welcome, ${username}!`);
 
       return true;
@@ -167,6 +174,8 @@ class AuthStore {
         this.error = null;
         this.clearStorage();
       });
+
+      userProgressStore.switchUser();
 
       notifyInfo('You have been logged out.');
     }

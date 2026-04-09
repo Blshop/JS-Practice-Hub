@@ -1,5 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 import type { UserProgress } from 'types/UserProgress';
+import { authStore } from './AuthStore';
 
 class UserProgressStore {
   progress: UserProgress = { lessons: {} };
@@ -11,9 +12,14 @@ class UserProgressStore {
     this.loadFromStorage();
   }
 
+  private getStorageKey(): string {
+    const userId = authStore.user?.id;
+    return userId ? `userProgress_${userId}` : 'userProgress';
+  }
+
   private loadFromStorage(): void {
     try {
-      const stored = localStorage.getItem('userProgress');
+      const stored = localStorage.getItem(this.getStorageKey());
       if (stored) {
         this.progress = JSON.parse(stored);
       }
@@ -24,7 +30,7 @@ class UserProgressStore {
 
   private saveToStorage(): void {
     try {
-      localStorage.setItem('userProgress', JSON.stringify(this.progress));
+      localStorage.setItem(this.getStorageKey(), JSON.stringify(this.progress));
     } catch (err) {
       console.error('Failed to save progress to storage:', err);
     }
@@ -81,6 +87,11 @@ class UserProgressStore {
   resetAllProgress(): void {
     this.progress = { lessons: {} };
     this.saveToStorage();
+  }
+
+  switchUser(): void {
+    this.progress = { lessons: {} };
+    this.loadFromStorage();
   }
 
   getProgressStats() {
