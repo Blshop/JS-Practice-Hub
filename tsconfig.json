@@ -20,7 +20,8 @@
       "styles": ["styles/*"],
       "types": ["types/*"],
       "data": ["data/*"],
-      "utils": ["utils/*"]
+      "utils": ["utils/*"],
+      "i18n": ["i18n/*"]
     }
   }
 }

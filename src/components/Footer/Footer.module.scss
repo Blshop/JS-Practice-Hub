@@ -6,6 +6,12 @@
   padding: 1rem 10vw;
   margin-top: 2rem;
   border-top: 2px solid var.$color-neutral-200;
+
+  @media (max-width: 480px) {
+    font-size: 10px;
+    gap: 0.5rem;
+    padding: 0.75rem 5vw;
+  }
 }
 
 .footer__info {

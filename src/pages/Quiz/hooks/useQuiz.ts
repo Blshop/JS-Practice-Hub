@@ -164,7 +164,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
       });
     } catch (err) {
       console.error(err);
-      setSaveError('Не удалось сохранить прогресс. Проверьте интернет и попробуйте снова.');
+      setSaveError('save_error');
     } finally {
       setIsSaving(false);
     }

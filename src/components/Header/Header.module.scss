@@ -1,52 +1,37 @@
 @use 'styles/variables.scss' as var;
 @use 'styles/mixins.scss' as mixin;
+@use 'sass:color';
 
 .header {
-  @include mixin.flex($direction: row, $justify: space-between, $align: center, $gap: 1rem);
+  @include mixin.flex($direction: row, $justify: space-between, $align: center, $gap: 1.5rem);
   position: sticky;
   top: 0;
   padding: 1rem 10vw;
   border-bottom: 2px solid var.$color-neutral-200;
   background-color: var.$color-neutral-100;
-  z-index: 1000;
-
-  & .burgerMenu__toggle {
-    @include mixin.flex($justify: center, $align: center);
-    display: none;
-    border-radius: 50%;
-    width: 47px;
-    height: 47px;
-    z-index: var.$z-index-burger;
-
-    @media (max-width: var.$breakpoint-xl) {
-      display: flex;
-    }
-  }
-
-  & .button {
-    padding: 0.5rem 1rem;
-  }
+  z-index: var.$z-index-header;
 
   &__heading {
-    position: relative;
-    z-index: var.$z-index-header;
     font-size: 1.5rem;
+    flex-shrink: 0;
   }
 
   &__nav {
-    @include mixin.flex($direction: row, $justify: flex-start, $align: center, $gap: 1rem);
+    @include mixin.flex($direction: row, $align: center, $gap: 0.5rem);
+    flex: 1;
 
     @media (max-width: var.$breakpoint-xl) {
-      @include mixin.flex($direction: column, $justify: center, $align: center, $gap: 2rem);
+      @include mixin.flex($direction: column, $justify: flex-start, $align: center, $gap: 2rem);
+      position: fixed;
       top: 0;
       right: -100%;
-      position: fixed;
-      padding: 6rem 2rem;
+      padding: 0 2rem 4rem;
       width: 100%;
       height: 100%;
       background-color: var.$color-neutral-100;
       transition: right 0.3s ease-in-out;
       z-index: var.$z-index-header;
+      overflow-y: auto;
     }
   }
 
@@ -54,7 +39,288 @@
     right: 0;
   }
 
-  &__link {
-    text-decoration: none;
+  &__controls {
+    @include mixin.flex($direction: row, $align: center, $gap: 0.75rem);
+    flex-shrink: 0;
+  }
+}
+
+.button {
+  padding: 0.5rem 1rem;
+}
+
+.mobileOnly {
+  @media (min-width: var.$breakpoint-xl) {
+    display: none !important;
+  }
+}
+
+.desktopOnly {
+  @media (max-width: var.$breakpoint-xl) {
+    display: none !important;
+  }
+}
+
+.guestDesktopOnly {
+  @media (max-width: var.$breakpoint-xl) {
+    display: none !important;
+  }
+}
+
+.burgerGuestItems {
+  @include mixin.flex($direction: column, $gap: 1rem, $justify: center, $align: center);
+  padding-top: 1rem;
+  width: 100%;
+}
+
+.hideBelow720 {
+  @media (max-width: 720px) {
+    display: none !important;
+  }
+}
+
+.showBelow720 {
+  @media (min-width: 721px) {
+    display: none !important;
+  }
+}
+
+.burgerHeader {
+  @include mixin.flex($direction: row, $align: center, $justify: center);
+  width: 100%;
+  padding: 1rem 0;
+  border-bottom: 2px solid var.$color-neutral-200;
+  flex-shrink: 0;
+}
+
+.burgerToggles {
+  @include mixin.flex($direction: row, $gap: 1rem, $justify: center, $align: center);
+  padding-top: 0.5rem;
+  border-top: 2px solid var.$color-neutral-200;
+  width: 100%;
+}
+
+.controlGroup {
+  position: relative;
+  @include mixin.flex($direction: row, $align: center);
+
+  & + & {
+    padding-left: 0.75rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 15%;
+      height: 70%;
+      width: 2px;
+      background-color: var.$color-neutral-200;
+      border-radius: 1px;
+    }
+  }
+}
+
+.profileGroup {
+  overflow: visible;
+}
+
+.toggleBtn {
+  @include mixin.flex($direction: row, $align: center, $gap: 0.25rem);
+  background: none;
+  border: var.$border-default;
+  border-radius: var.$border-radius-default;
+  box-shadow: var.$box-shadow-default;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: var.$font-family-base;
+  font-size: 1rem;
+  font-weight: var.$font-weight-bold;
+  white-space: nowrap;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    filter 0.2s;
+
+  &:hover {
+    filter: var.$hover-filter-default;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 0 var.$color-neutral-900;
+  }
+
+  &:active {
+    box-shadow: 0 0 0 0 var.$color-neutral-900;
+    transform: translateY(4px);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.iconBtn {
+  @include mixin.flex($direction: row, $align: center, $justify: center);
+  background: none;
+  border: var.$border-default;
+  border-radius: var.$border-radius-default;
+  box-shadow: var.$box-shadow-default;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: var.$font-family-base;
+  font-size: 1rem;
+  font-weight: var.$font-weight-bold;
+  color: var.$color-neutral-900;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    filter 0.2s;
+
+  &:hover {
+    filter: var.$hover-filter-default;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 0 var.$color-neutral-900;
+  }
+
+  &:active {
+    box-shadow: 0 0 0 0 var.$color-neutral-900;
+    transform: translateY(4px);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.profileBtn {
+  gap: 0.4rem;
+}
+
+.toggleOption {
+  color: var.$color-neutral-300;
+  transition: color 0.2s;
+
+  &_active {
+    color: var.$color-neutral-900;
+  }
+}
+
+.toggleDivider {
+  color: var.$color-neutral-300;
+}
+
+.usernameText {
+  color: var.$color-neutral-900;
+  font-weight: var.$font-weight-bold;
+}
+
+.profileArrow {
+  font-size: 0.75rem;
+  color: var.$color-neutral-500;
+  transition: transform 0.2s;
+  display: inline-block;
+
+  &_open {
+    transform: rotate(180deg);
+  }
+}
+
+.profileDropdown {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  right: 0;
+  min-width: 10rem;
+  background-color: var.$color-neutral-100;
+  border: var.$border-default;
+  border-radius: var.$border-radius-default;
+  box-shadow: var.$box-shadow-default;
+  overflow: hidden;
+  z-index: calc(var.$z-index-header + 1);
+  animation: dropdown-in 0.15s ease-out;
+
+  &__item {
+    display: block;
+    width: 100%;
+    padding: 0.65rem 1rem;
+    background: none;
+    border: none;
+    text-align: left;
+    font-family: var.$font-family-base;
+    font-size: 1rem;
+    font-weight: var.$font-weight-bold;
+    color: var.$color-neutral-900;
+    cursor: pointer;
+    transition: background-color 0.15s;
+
+    &:hover {
+      background-color: var.$color-secondary;
+    }
+
+    &_danger {
+      color: color.adjust(#ff8f8f, $lightness: -20%);
+
+      &:hover {
+        background-color: var.$color-danger;
+        color: var.$color-neutral-900;
+      }
+    }
+  }
+}
+
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.burgerMenu__toggle {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 47px;
+  height: 47px;
+  flex-shrink: 0;
+  z-index: var.$z-index-burger;
+  border: var.$border-default;
+  background-color: var.$color-neutral-100;
+  box-shadow: var.$box-shadow-default;
+  cursor: pointer;
+  font-family: var.$font-family-base;
+  font-size: 1rem;
+  font-weight: var.$font-weight-bold;
+  color: var.$color-neutral-900;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    filter 0.2s;
+
+  &:hover {
+    filter: var.$hover-filter-default;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 0 var.$color-neutral-900;
+  }
+
+  &:active {
+    box-shadow: 0 0 0 0 var.$color-neutral-900;
+    transform: translateY(4px);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  @media (max-width: var.$breakpoint-xl) {
+    display: flex;
+  }
+}
+
+.burgerMenu__toggle_hidden {
+  @media (max-width: var.$breakpoint-xl) {
+    display: none;
   }
 }

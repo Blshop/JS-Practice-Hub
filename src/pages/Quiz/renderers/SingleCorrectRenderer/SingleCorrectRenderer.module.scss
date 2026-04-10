@@ -1,45 +1,44 @@
 @use 'styles/variables.scss' as var;
 @use 'styles/_mixins.scss' as mixin;
-@use "sass:color";
+@use 'sass:color';
 
 .options {
-    @include mixin.flex(column, flex-start, stretch, 0.75rem);
+  @include mixin.flex(column, flex-start, stretch, 0.75rem);
 }
 
-
 .option {
-    padding: 0.75rem 1rem;
-    border-radius: var.$border-radius-default;
-    background-color: var.$color-neutral-100;
-    border: 1px solid var.$color-neutral-200;
-    transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.15s ease;
+  padding: 0.75rem 1rem;
+  border-radius: var.$border-radius-default;
+  background-color: var.$color-neutral-100;
+  border: 1px solid var.$color-neutral-200;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
 
-    &:hover:not(.correct):not(.incorrect) {
-        background-color: var.$color-neutral-200;
-        border-color: var.$color-neutral-300;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        transform: translateY(-1px);
-    }
+  &:hover:not(.correct):not(.incorrect) {
+    background-color: var.$color-neutral-200;
+    border-color: var.$color-neutral-300;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+  }
 }
 
 .correct {
-    background-color: color.scale(var.$color-success, $lightness: 60%);
-    border-color: var.$color-success;
-    box-shadow: 0 0 0 2px color.change(var.$color-success, $alpha: 0.3);
+  background-color: color.scale(var.$color-success, $lightness: 60%);
+  border-color: var.$color-success;
+  box-shadow: 0 0 0 2px color.change(var.$color-success, $alpha: 0.3);
 }
 
 .incorrect {
-    background-color: color.scale(var.$color-danger, $lightness: 60%);
-    border-color: var.$color-danger;
-    box-shadow: 0 0 0 2px color.change(var.$color-danger, $alpha: 0.3);
+  background-color: color.scale(var.$color-danger, $lightness: 60%);
+  border-color: var.$color-danger;
+  box-shadow: 0 0 0 2px color.change(var.$color-danger, $alpha: 0.3);
 }
 
 .selected {
-    background-color: color.scale(var.$color-primary, $lightness: 60%);
-    border-color: var.$color-primary;
-    box-shadow: 0 0 0 2px color.change(var.$color-primary, $alpha: 0.3);
+  background-color: color.scale(var.$color-primary, $lightness: 60%);
+  border-color: var.$color-primary;
+  box-shadow: 0 0 0 2px color.change(var.$color-primary, $alpha: 0.3);
 }
