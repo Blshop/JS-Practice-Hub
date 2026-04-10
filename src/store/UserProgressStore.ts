@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, reaction, runInAction } from 'mobx';
 import type { UserProgress } from 'types/UserProgress';
 import { authStore } from './AuthStore';
 import axios from 'axios';
@@ -12,25 +12,33 @@ class UserProgressStore {
 
   constructor() {
     makeAutoObservable(this, {}, { autoBind: true });
-    this.initializeProgress();
+    reaction(
+      () => authStore.user?.id,
+      (userId) => {
+        if (userId) this.initializeProgress();
+      },
+      { fireImmediately: true },
+    );
   }
 
   private getStorageKey(): string {
     const userId = authStore.user?.id;
-    return userId ? `userProgress_${userId}` : 'userProgress';
+    return `userProgress_${userId}`;
   }
 
   private async initializeProgress(): Promise<void> {
-    const hasStoredData = await this.loadFromStorage();
+    this.loadError = null;
+    this.isLoading = true;
+
+    const hasStoredData = this.loadFromStorage();
     if (!hasStoredData) {
       await this.loadFromServer();
+    } else {
+      this.isLoading = false;
     }
   }
 
-  private async loadFromStorage(): Promise<boolean> {
-    this.isLoading = true;
-    this.loadError = null;
-
+  private loadFromStorage(): boolean {
     try {
       const stored = localStorage.getItem(this.getStorageKey());
       if (!stored) {
@@ -45,10 +53,7 @@ class UserProgressStore {
     } catch (err) {
       const message = 'Failed to load progress from storage';
       console.error(message, err);
-      this.loadError = message;
       return false;
-    } finally {
-      this.isLoading = false;
     }
   }
 
@@ -58,7 +63,6 @@ class UserProgressStore {
     } catch (err) {
       const message = 'Failed to save progress to storage';
       console.error(message, err);
-      this.loadError = message;
     }
   }
 
@@ -109,12 +113,6 @@ class UserProgressStore {
     this.saveToStorage();
   }
 
-  switchUser(): void {
-    this.progress = { lessons: {} };
-    this.loadError = null;
-    this.initializeProgress();
-  }
-
   async loadFromServer(): Promise<boolean> {
     this.isLoading = true;
     this.loadError = null;
@@ -125,12 +123,15 @@ class UserProgressStore {
       // const serverData = response.data;
 
       // Simulate loading delay and use mock data
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       const serverData = mockUserServerProgress;
 
       assertUserProgress(serverData);
 
-      this.progress = serverData;
+      runInAction(() => {
+        this.progress = serverData;
+      });
+
       this.saveToStorage();
 
       return true;
@@ -138,17 +139,21 @@ class UserProgressStore {
       const message = 'Failed to load progress from server';
       console.error(message, err);
 
-      if (axios.isAxiosError(err)) {
-        this.loadError = err.response?.data?.message || message;
-      } else if (err instanceof Error) {
-        this.loadError = err.message;
-      } else {
-        this.loadError = message;
-      }
+      runInAction(() => {
+        if (axios.isAxiosError(err)) {
+          this.loadError = err.response?.data?.message || message;
+        } else if (err instanceof Error) {
+          this.loadError = err.message;
+        } else {
+          this.loadError = message;
+        }
+      });
 
       return false;
     } finally {
-      this.isLoading = false;
+      runInAction(() => {
+        this.isLoading = false;
+      });
     }
   }
 
