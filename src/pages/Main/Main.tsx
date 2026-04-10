@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, useCallback } from 'react';
+import React, { useMemo } from 'react';
 import { observer } from 'mobx-react-lite';
 import learningPathData from 'data/js-learning-path-data.json';
 import { userProgressStore } from 'store/UserProgressStore';
@@ -9,32 +9,6 @@ import LoadingOverlay from 'components/LoadingOverlay';
 import Badge from 'components/Badge';
 
 const Main: React.FC = observer(() => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  const loadData = useCallback(async () => {
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      // TODO: Replace with real API request to sync with server
-      // const response = await fetch('/api/user/progress');
-      // const data = await response.json();
-      // Sync with userProgressStore if needed
-
-      // Simulate loading delay
-      await new Promise((resolve) => setTimeout(resolve, 500));
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    loadData();
-  }, [loadData]);
-
   const userProgress: UserProgress = userProgressStore.progress;
 
   const learningModules = useMemo(() => {
@@ -108,7 +82,11 @@ const Main: React.FC = observer(() => {
 
   return (
     <>
-      <LoadingOverlay isLoading={isLoading} error={error} onRetry={loadData} />
+      <LoadingOverlay
+        isLoading={userProgressStore.isLoading}
+        error={userProgressStore.loadError}
+        onRetry={() => userProgressStore.loadFromServer()}
+      />
       <section>
         <Badge variant="info" size="large">
           ⚡ {totalXp} XP
