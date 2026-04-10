@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { authStore } from 'store/AuthStore';
 import { userProgressStore } from 'store/UserProgressStore';
@@ -13,38 +13,16 @@ import { useProfileStats } from './hooks/useProfileStats';
 import styles from './Profile.module.scss';
 
 const Profile: React.FC = observer(() => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  const loadData = useCallback(async () => {
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      // TODO: Replace with real API request to sync with server
-      // const response = await fetch('/api/user/progress');
-      // const data = await response.json();
-      // Sync with userProgressStore if needed
-
-      // Simulate loading delay
-      await new Promise((resolve) => setTimeout(resolve, 500));
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    loadData();
-  }, [loadData]);
-
   const userProgress: UserProgress = userProgressStore.progress;
   const stats = useProfileStats(userProgress);
 
   return (
     <>
-      <LoadingOverlay isLoading={isLoading} error={error} onRetry={loadData} />
+      <LoadingOverlay
+        isLoading={userProgressStore.isLoading}
+        error={userProgressStore.loadError}
+        onRetry={() => userProgressStore.loadFromServer()}
+      />
       {stats && authStore.user && (
         <div className={styles.profile}>
           <UserCard
