@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useQuestions } from './useQuestions';
-import { useMemo } from 'react';
 import type {
   AnswerType,
   QuizSummary,
@@ -10,12 +9,17 @@ import type {
   YesNoQuestion,
   PredictOutputQuestion,
 } from 'types/Questions';
+import { quizProgressStore } from 'store/QuizProgressStore';
+import { sendQuizProgress } from 'services/progressService';
 
 const normalize = (str: string) => str.replace(/`/g, '').trim();
 
 export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) => void) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<Record<string, AnswerType>>({});
+  const [completedCount, setCompletedCount] = useState(0);
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   const [checkState, setCheckState] = useState({
     isChecked: false,
@@ -31,10 +35,14 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
     error: string | null;
   };
 
+  useEffect(() => {
+    quizProgressStore.resetQuestions();
+  }, [lessonId]);
+
   const currentQuestion = questions[currentIndex];
   const totalQuestions = questions.length;
 
-  const isFinished = currentIndex >= totalQuestions;
+  const isFinished = currentIndex >= totalQuestions && !isSaving && !saveError;
 
   const correctCount = useMemo(() => {
     return questions.reduce((acc, q) => {
@@ -106,6 +114,10 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
         break;
     }
 
+    quizProgressStore.setQuestionResult(currentQuestion.id, correct ? 'correct' : 'incorrect');
+
+    setCompletedCount((prev) => prev + 1);
+
     setCheckState({
       isChecked: true,
       isCorrect: correct,
@@ -113,7 +125,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
     });
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     setCheckState({
       isChecked: false,
       isCorrect: null,
@@ -127,14 +139,45 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
 
     setCurrentIndex(totalQuestions);
 
-    onComplete?.({
-      correct: correctCount,
-      total: totalQuestions,
-    });
+    const mistakes = quizProgressStore.incorrectCount;
+    const passed = mistakes <= 2;
+
+    if (!lessonId) {
+      return;
+    }
+
+    quizProgressStore.setLessonResult(lessonId, passed);
+
+    try {
+      setIsSaving(true);
+      setSaveError(null);
+
+      await sendQuizProgress({
+        lessonId,
+        progress: quizProgressStore.progress,
+        result: passed ? 'passed' : 'failed',
+      });
+
+      onComplete?.({
+        correct: correctCount,
+        total: totalQuestions,
+      });
+    } catch (err) {
+      console.error(err);
+      setSaveError('save_error');
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  const retrySave = async () => {
+    setSaveError(null);
+    await handleNext();
   };
 
   const resetQuiz = () => {
     setCurrentIndex(0);
+    setCompletedCount(0);
     setUserAnswers({});
     setCheckState({
       isChecked: false,
@@ -148,6 +191,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
     currentQuestion,
     currentIndex,
     totalQuestions,
+    completedCount,
     loading,
     error,
 
@@ -163,5 +207,9 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
 
     isFinished,
     correctCount,
+
+    isSaving,
+    saveError,
+    retrySave,
   };
 };

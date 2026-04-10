@@ -157,7 +157,7 @@ export const Header: React.FC = observer(() => {
               </button>
               <button
                 className={styles.iconBtn}
-                onClick={() => handleNavigation(routes.auth.mask)}
+                onClick={() => handleNavigation(routes.auth.login)}
                 title={t('nav.login')}
               >
                 <span>👤</span>
@@ -293,7 +293,7 @@ export const Header: React.FC = observer(() => {
           <div className={classNames(styles.controlGroup, styles.guestDesktopOnly)}>
             <button
               className={styles.iconBtn}
-              onClick={() => handleNavigation(routes.auth.mask)}
+              onClick={() => handleNavigation(routes.auth.login)}
               aria-label={t('nav.login')}
               title={t('nav.login')}
             >

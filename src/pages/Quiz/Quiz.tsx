@@ -10,12 +10,15 @@ import styles from './Quiz.module.scss';
 import { useQuiz } from './hooks/useQuiz';
 import QuestionRenderer from './renderers/QuestionRenderer';
 import { routes } from 'config/routes';
+import LoadingOverlay from 'components/LoadingOverlay';
+import { localize } from 'utils/localize';
+import type { LocalizedString } from 'types/Questions';
 
 const QuizPage: React.FC = () => {
   const { state } = useLocation();
   const lessonId = state?.lessonId ?? null;
   const lessonTitle = state?.lessonTitle ?? null;
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const {
     currentQuestion,
@@ -33,8 +36,13 @@ const QuizPage: React.FC = () => {
     resetQuiz,
     isFinished,
     correctCount,
+    completedCount,
+    isSaving,
+    saveError,
+    retrySave,
   } = useQuiz(lessonId);
 
+  const translatedSaveError = saveError === 'save_error' ? t('quiz.saveError') : saveError;
   const currentAnswer = currentQuestion ? userAnswers[currentQuestion.id] : undefined;
   const isAnswerEmpty =
     currentAnswer === undefined ||
@@ -77,10 +85,10 @@ const QuizPage: React.FC = () => {
           </Text>
 
           <ProgressBar
-            current={correctCount}
+            current={completedCount}
             total={totalQuestions}
-            variant="success"
-            label={t('quiz.correctAnswers')}
+            label={`Question ${currentIndex + 1} of ${totalQuestions}`}
+            variant="info"
             positionInfo="top"
           />
 
@@ -100,12 +108,14 @@ const QuizPage: React.FC = () => {
 
   return (
     <div className={styles.quiz}>
+      <LoadingOverlay isLoading={isSaving} error={translatedSaveError} onRetry={retrySave} />
+
       <Text tag="h1" bold className={styles.title}>
         {lessonTitle}
       </Text>
 
       <ProgressBar
-        current={currentIndex + 1}
+        current={completedCount}
         total={totalQuestions}
         label={t('quiz.question', { current: currentIndex + 1, total: totalQuestions })}
         variant="info"
@@ -119,7 +129,9 @@ const QuizPage: React.FC = () => {
         <div className={styles.questionContainer}>
           <div className={styles.questionHeader}>
             <Text tag="h2" bold className={styles.questionText}>
-              <HighlightedText text={currentQuestion.question} />
+              <HighlightedText
+                text={localize(currentQuestion.question as LocalizedString, i18n.language)}
+              />
             </Text>
 
             {currentQuestion.code && (
@@ -144,7 +156,9 @@ const QuizPage: React.FC = () => {
             >
               <Text bold>{isCorrect ? t('quiz.correct') : t('quiz.incorrect')}</Text>
               <Text>
-                <HighlightedText text={currentQuestion.explanation} />
+                <HighlightedText
+                  text={localize(currentQuestion.explanation as LocalizedString, i18n.language)}
+                />
               </Text>
             </div>
           )}

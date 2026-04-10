@@ -57,6 +57,7 @@ const ru = {
     returnToStart: 'Вернуться на главную',
     correct: 'Правильно!',
     incorrect: 'Неправильно',
+    saveError: 'Не удалось сохранить прогресс. Проверьте интернет и попробуйте снова.',
   },
   learningPath: {
     title: 'Изучение JavaScript',

@@ -57,6 +57,7 @@ const en = {
     returnToStart: 'Return to Start',
     correct: 'Correct!',
     incorrect: 'Incorrect',
+    saveError: 'Failed to save progress. Check your connection and try again.',
   },
   learningPath: {
     title: 'Learning JavaScript',
