@@ -1,8 +1,8 @@
 import { makeAutoObservable, reaction, runInAction } from 'mobx';
 import type { UserProgress } from 'types/UserProgress';
 import { authStore } from './AuthStore';
+import { api } from 'services/api';
 import axios from 'axios';
-import mockUserServerProgress from 'data/mock-user-server-progress.json';
 import { assertUserProgress } from 'utils/validateUserProgress';
 
 class UserProgressStore {
@@ -118,13 +118,8 @@ class UserProgressStore {
     this.loadError = null;
 
     try {
-      // TODO: Replace with real API request when server is ready
-      // const response = await axios.get('/api/user/progress');
-      // const serverData = response.data;
-
-      // Simulate loading delay and use mock data
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      const serverData = mockUserServerProgress;
+      const response = await api.get('/progress');
+      const serverData = response.data;
 
       assertUserProgress(serverData);
 
@@ -172,6 +167,32 @@ class UserProgressStore {
     });
 
     return stats;
+  }
+
+  async saveLessonProgressToServer(lessonId: string): Promise<void> {
+    const lessonProgress = this.progress.lessons[lessonId];
+
+    if (!lessonProgress) {
+      throw new Error(`No progress found for lesson: ${lessonId}`);
+    }
+
+    try {
+      await api.post('/progress/lesson', {
+        lessonId,
+        progress: lessonProgress,
+      });
+    } catch (err) {
+      const message = 'Failed to save lesson progress to server';
+      console.error(message, err);
+
+      if (axios.isAxiosError(err)) {
+        throw new Error(err.response?.data?.message || message);
+      } else if (err instanceof Error) {
+        throw err;
+      } else {
+        throw new Error(message);
+      }
+    }
   }
 }
 
