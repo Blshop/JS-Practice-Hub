@@ -89,10 +89,10 @@ const LessonsTable: React.FC<LessonsTableProps> = ({ lessonStats }) => {
               <div className={styles.lessonStats}>
                 <div className={styles.attempts}>
                   <Badge variant="success" size="small">
-                    Failed {lesson.successAttempts}
+                    Successful {lesson.successAttempts}
                   </Badge>
                   <Badge variant="danger" size="small">
-                    Successful {lesson.failedAttempts}
+                    Failed {lesson.failedAttempts}
                   </Badge>
                 </div>
 
