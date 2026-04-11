@@ -10,7 +10,7 @@
     position: relative;
     flex: 1;
     @include mixin.flex($direction: column);
-    background-color: var.$color-neutral-000;
+    background-color: var(--bg-body);
     padding: 2vh 10vw;
   }
 }

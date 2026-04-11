@@ -11,14 +11,11 @@ import { useQuiz } from './hooks/useQuiz';
 import QuestionRenderer from './renderers/QuestionRenderer';
 import { routes } from 'config/routes';
 import LoadingOverlay from 'components/LoadingOverlay';
-import { localize } from 'utils/localize';
-import type { LocalizedString } from 'types/Questions';
-
 const QuizPage: React.FC = () => {
   const { state } = useLocation();
   const lessonId = state?.lessonId ?? null;
   const lessonTitle = state?.lessonTitle ?? null;
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const {
     currentQuestion,
@@ -129,9 +126,7 @@ const QuizPage: React.FC = () => {
         <div className={styles.questionContainer}>
           <div className={styles.questionHeader}>
             <Text tag="h2" bold className={styles.questionText}>
-              <HighlightedText
-                text={localize(currentQuestion.question as LocalizedString, i18n.language)}
-              />
+              <HighlightedText text={currentQuestion.question as string} />
             </Text>
 
             {currentQuestion.code && (
@@ -156,9 +151,7 @@ const QuizPage: React.FC = () => {
             >
               <Text bold>{isCorrect ? t('quiz.correct') : t('quiz.incorrect')}</Text>
               <Text>
-                <HighlightedText
-                  text={localize(currentQuestion.explanation as LocalizedString, i18n.language)}
-                />
+                <HighlightedText text={currentQuestion.explanation as string} />
               </Text>
             </div>
           )}

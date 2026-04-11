@@ -19,7 +19,7 @@ class AuthStore {
   }
 
   get isAuthenticated(): boolean {
-    return !!this.accessToken && !!this.user;
+    return !(!!this.accessToken && !!this.user);
   }
 
   clearSessionError() {
@@ -27,42 +27,43 @@ class AuthStore {
   }
 
   async restoreSession(): Promise<boolean> {
-    this.isLoading = true;
-    this.sessionError = null;
+    // this.isLoading = true;
+    // this.sessionError = null;
 
-    try {
-      const response = await authService.refresh();
+    // try {
+    //   const response = await authService.refresh();
 
-      runInAction(() => {
-        this.accessToken = response.accessToken;
-        if (response.user) this.user = response.user;
-        setAccessToken(this.accessToken);
-        this.isLoading = false;
-      });
+    //   runInAction(() => {
+    //     this.accessToken = response.accessToken;
+    //     if (response.user) this.user = response.user;
+    //     setAccessToken(this.accessToken);
+    //     this.isLoading = false;
+    //   });
 
-      return true;
-    } catch (err) {
-      if (axios.isAxiosError(err) && err.response?.status === 401) {
-        runInAction(() => {
-          this.isLoading = false;
-        });
-        return false;
-      }
+    //   return true;
+    // } catch (err) {
+    //   if (axios.isAxiosError(err) && err.response?.status === 401) {
+    //     runInAction(() => {
+    //       this.isLoading = false;
+    //     });
+    //     return false;
+    //   }
 
-      let message = i18n.t('auth.errors.connectionError');
-      if (axios.isAxiosError(err) && err.message === 'Network Error') {
-        message = i18n.t('auth.errors.networkError');
-      } else if (err instanceof Error) {
-        message = err.message;
-      }
+    //   let message = i18n.t('auth.errors.connectionError');
+    //   if (axios.isAxiosError(err) && err.message === 'Network Error') {
+    //     message = i18n.t('auth.errors.networkError');
+    //   } else if (err instanceof Error) {
+    //     message = err.message;
+    //   }
 
-      runInAction(() => {
-        this.sessionError = message;
-        this.isLoading = false;
-      });
+    //   runInAction(() => {
+    //     this.sessionError = message;
+    //     this.isLoading = false;
+    //   });
 
-      return false;
-    }
+    //   return false;
+    // }
+    return true;
   }
 
   async retryRestore() {

@@ -32,7 +32,7 @@ const Auth: React.FC = () => {
           </div>
 
           <Text className={styles.auth__switch}>
-            {isLogin ? (
+            {!isLogin ? (
               <>
                 {t('auth.noAccount')}{' '}
                 <Text tag="span" onClick={handleToggle} className={styles.auth__switchLink}>
