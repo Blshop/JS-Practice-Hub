@@ -161,17 +161,13 @@ export const useQuiz = (
       setIsSaving(true);
       setSaveError(null);
 
-      // await sendQuizProgress({
-      //   lessonId,
-      //   progress: quizProgressStore.progress,
-      //   result: passed ? 'passed' : 'failed',
-      // });
-
       userProgressStore.recordLessonAttempt(lessonId, passed);
 
       Object.entries(quizProgressStore.progress).forEach(([questionId, result]) => {
         userProgressStore.recordQuestionAnswer(lessonId, questionId, result === 'correct');
       });
+
+      await userProgressStore.saveLessonProgressToServer(lessonId);
 
       onComplete?.({
         correct: correctCount,
