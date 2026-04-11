@@ -11,6 +11,9 @@ import QuestionRenderer from './renderers/QuestionRenderer';
 import { routes } from 'config/routes';
 import LoadingOverlay from 'components/LoadingOverlay';
 
+const MAX_QUESTIONS = 10; // Максимальное количество вопросов в тесте
+const MAX_MISTAKES = 1; // Максимально допустимое количество ошибок (mistakes < MAX_MISTAKES + 1)
+
 const QuizPage: React.FC = () => {
   const { state } = useLocation();
   const lessonId = state?.lessonId ?? null;
@@ -36,7 +39,7 @@ const QuizPage: React.FC = () => {
     isSaving,
     saveError,
     retrySave,
-  } = useQuiz(lessonId);
+  } = useQuiz(lessonId, undefined, MAX_QUESTIONS, MAX_MISTAKES);
 
   const currentAnswer = currentQuestion ? userAnswers[currentQuestion.id] : undefined;
   const isAnswerEmpty =

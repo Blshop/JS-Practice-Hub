@@ -18,6 +18,7 @@ export const useQuiz = (
   lessonId?: string,
   onComplete?: (summary: QuizSummary) => void,
   maxQuestions = 10,
+  maxMistakes = 1,
 ) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<Record<string, AnswerType>>({});
@@ -148,7 +149,7 @@ export const useQuiz = (
     setCurrentIndex(totalQuestions);
 
     const mistakes = quizProgressStore.incorrectCount;
-    const passed = mistakes <= 2;
+    const passed = mistakes <= maxMistakes;
 
     if (!lessonId) {
       return;
