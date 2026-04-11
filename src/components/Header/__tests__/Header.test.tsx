@@ -40,7 +40,18 @@ describe('Header Component', () => {
       expect(screen.getByText('JS-Practice-Hub')).toBeInTheDocument();
     });
 
-    it('рендерит навигационные ссылки', () => {
+    it('рендерит навигационные ссылки для авторизованного пользователя', () => {
+      Object.defineProperty(authStore, 'isAuthenticated', {
+        writable: true,
+        configurable: true,
+        value: true,
+      });
+      Object.defineProperty(authStore, 'user', {
+        writable: true,
+        configurable: true,
+        value: { id: 1, username: 'testuser', email: 'test@example.com' },
+      });
+
       render(<Header />);
       expect(screen.getByText('Home')).toBeInTheDocument();
       expect(screen.getByText('Profile')).toBeInTheDocument();
