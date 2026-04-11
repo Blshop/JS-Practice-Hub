@@ -11,6 +11,8 @@ describe('ModulesChart', () => {
       totalLessons: 5,
       successAttempts: 10,
       failedAttempts: 2,
+      completedTests: 9,
+      totalTests: 15,
     },
     {
       id: 'advanced',
@@ -19,6 +21,8 @@ describe('ModulesChart', () => {
       totalLessons: 5,
       successAttempts: 3,
       failedAttempts: 1,
+      completedTests: 3,
+      totalTests: 15,
     },
     {
       id: 'async',
@@ -27,6 +31,8 @@ describe('ModulesChart', () => {
       totalLessons: 5,
       successAttempts: 0,
       failedAttempts: 0,
+      completedTests: 0,
+      totalTests: 15,
     },
   ];
 
@@ -35,12 +41,12 @@ describe('ModulesChart', () => {
     expect(screen.getByText('Progress by Module')).toBeInTheDocument();
   });
 
-  it('должен отобразить график когда есть прогресс', () => {
+  it('должен всегда отобразить график', () => {
     const { container } = render(<ModulesChart moduleStats={mockModuleStats} />);
     expect(container.querySelector('.recharts-responsive-container')).toBeInTheDocument();
   });
 
-  it('должен отобразить пустое состояние когда нет прогресса', () => {
+  it('должен отобразить график даже когда нет прогресса', () => {
     const emptyStats: ModuleStat[] = [
       {
         id: 'basics',
@@ -49,10 +55,12 @@ describe('ModulesChart', () => {
         totalLessons: 5,
         successAttempts: 0,
         failedAttempts: 0,
+        completedTests: 0,
+        totalTests: 15,
       },
     ];
-    render(<ModulesChart moduleStats={emptyStats} />);
-    expect(screen.getByText('No progress yet')).toBeInTheDocument();
+    const { container } = render(<ModulesChart moduleStats={emptyStats} />);
+    expect(container.querySelector('.recharts-responsive-container')).toBeInTheDocument();
   });
 
   it('должен отобразить названия модулей в данных графика', () => {
@@ -61,18 +69,18 @@ describe('ModulesChart', () => {
     expect(chart).toBeInTheDocument();
   });
 
-  it('должен отобразить легенду с Completed и Remaining', () => {
+  it('должен отобразить легенду с Completed Tests и Remaining Tests', () => {
     const { container } = render(<ModulesChart moduleStats={mockModuleStats} />);
     const chart = container.querySelector('.recharts-responsive-container');
     expect(chart).toBeInTheDocument();
   });
 
   it('должен корректно работать с пустым массивом', () => {
-    render(<ModulesChart moduleStats={[]} />);
-    expect(screen.getByText('No progress yet')).toBeInTheDocument();
+    const { container } = render(<ModulesChart moduleStats={[]} />);
+    expect(container.querySelector('.recharts-responsive-container')).toBeInTheDocument();
   });
 
-  it('должен отобразить график когда хотя бы один модуль имеет прогресс', () => {
+  it('должен отобразить график для всех модулей независимо от прогресса', () => {
     const partialStats: ModuleStat[] = [
       {
         id: 'basics',
@@ -81,6 +89,8 @@ describe('ModulesChart', () => {
         totalLessons: 5,
         successAttempts: 3,
         failedAttempts: 0,
+        completedTests: 3,
+        totalTests: 15,
       },
       {
         id: 'advanced',
@@ -89,6 +99,8 @@ describe('ModulesChart', () => {
         totalLessons: 5,
         successAttempts: 0,
         failedAttempts: 0,
+        completedTests: 0,
+        totalTests: 15,
       },
     ];
     const { container } = render(<ModulesChart moduleStats={partialStats} />);

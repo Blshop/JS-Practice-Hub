@@ -18,28 +18,13 @@ interface ModulesChartProps {
 }
 
 const ModulesChart: React.FC<ModulesChartProps> = ({ moduleStats }) => {
-  const hasData = moduleStats.some((module) => module.completedLessons > 0);
-
-  if (!hasData) {
-    return (
-      <div className={styles.chartContainer}>
-        <Text tag="h3" className={styles.chartTitle}>
-          Progress by Modules
-        </Text>
-        <div className={styles.emptyState}>
-          <Text muted>No progress yet</Text>
-        </div>
-      </div>
-    );
-  }
-
   const chartData = moduleStats.map((module) => ({
     name: module.title,
-    completed: module.completedLessons,
-    remaining: module.totalLessons - module.completedLessons,
+    completed: module.completedTests,
+    remaining: module.totalTests - module.completedTests,
   }));
 
-  const maxLessonsInModule = Math.max(...moduleStats.map((m) => m.totalLessons), 0);
+  const maxTestsInModule = Math.max(...moduleStats.map((m) => m.totalTests), 0);
 
   return (
     <div className={styles.chartContainer}>
@@ -50,7 +35,7 @@ const ModulesChart: React.FC<ModulesChartProps> = ({ moduleStats }) => {
         <BarChart data={chartData}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e3e3e3" />
           <XAxis dataKey="name" tick={{ fontSize: 12 }} angle={-45} textAnchor="end" height={150} />
-          <YAxis allowDecimals={false} domain={[0, maxLessonsInModule]} />
+          <YAxis allowDecimals={false} domain={[0, maxTestsInModule]} />
           <Tooltip
             contentStyle={{
               backgroundColor: '#fff',
@@ -65,7 +50,7 @@ const ModulesChart: React.FC<ModulesChartProps> = ({ moduleStats }) => {
             fill="#bcead0"
             stroke="#333333"
             strokeWidth={2}
-            name="Completed"
+            name="Completed Tests"
           />
           <Bar
             dataKey="remaining"
@@ -73,7 +58,7 @@ const ModulesChart: React.FC<ModulesChartProps> = ({ moduleStats }) => {
             fill="#afafaf"
             stroke="#333333"
             strokeWidth={2}
-            name="Remaining"
+            name="Remaining Tests"
           />
         </BarChart>
       </ResponsiveContainer>

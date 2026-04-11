@@ -7,6 +7,8 @@ import {
   getTotalQuestionAnswers,
   isLessonCompleted,
   calculateTotalXP,
+  calculateModuleTotalTests,
+  calculateModuleCompletedTests,
 } from '../utils/progressCalculations';
 
 export interface LessonStat {
@@ -31,6 +33,8 @@ export interface ModuleStat {
   totalLessons: number;
   successAttempts: number;
   failedAttempts: number;
+  completedTests: number;
+  totalTests: number;
 }
 
 export interface ProfileStats {
@@ -69,6 +73,7 @@ export const useProfileStats = (userProgress: UserProgress): ProfileStats | null
     const moduleStatsMap = new Map<string, ModuleStat>();
 
     for (const module of learningPathData.modules) {
+      const totalTests = calculateModuleTotalTests(module);
       moduleStatsMap.set(module.id, {
         id: module.id,
         title: module.title,
@@ -76,6 +81,8 @@ export const useProfileStats = (userProgress: UserProgress): ProfileStats | null
         totalLessons: module.lessons.length,
         successAttempts: 0,
         failedAttempts: 0,
+        completedTests: 0,
+        totalTests,
       });
     }
 
@@ -126,6 +133,14 @@ export const useProfileStats = (userProgress: UserProgress): ProfileStats | null
             questionsSuccessRate: Math.round(questionStats.successRate),
           });
         }
+      }
+    }
+
+    // Пересчитываем completedTests для каждого модуля
+    for (const module of learningPathData.modules) {
+      const moduleStat = moduleStatsMap.get(module.id);
+      if (moduleStat) {
+        moduleStat.completedTests = calculateModuleCompletedTests(userProgress, module);
       }
     }
 

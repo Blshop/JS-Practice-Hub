@@ -87,3 +87,19 @@ export function calculateTotalEarnedXP(userProgress: UserProgress, modules: Modu
     0,
   );
 }
+
+// Расчет общего количества тестов в модуле
+export function calculateModuleTotalTests(module: ModuleData): number {
+  return module.lessons.reduce((sum, lesson) => sum + lesson.totalTasks, 0);
+}
+
+// Расчет завершенных тестов в модуле
+export function calculateModuleCompletedTests(
+  userProgress: UserProgress,
+  module: ModuleData,
+): number {
+  return module.lessons.reduce((sum, lesson) => {
+    const lessonProgress = userProgress.lessons[lesson.id];
+    return sum + calculateLessonCompletedTasks(lessonProgress, lesson.totalTasks);
+  }, 0);
+}
