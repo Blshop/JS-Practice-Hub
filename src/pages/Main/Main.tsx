@@ -3,7 +3,13 @@ import { observer } from 'mobx-react-lite';
 import learningPathData from 'data/js-learning-path-data.json';
 import { userProgressStore } from 'store/UserProgressStore';
 import type { UserProgress } from 'types/UserProgress';
-import { type Module, type Status, type Lesson, STATUS } from 'types/LearningPath';
+import { type Module, type Lesson } from 'types/LearningPath';
+import {
+  calculateLessonCompletedTasks,
+  calculateLessonStatus,
+  calculateModuleStatus,
+  calculateTotalEarnedXP,
+} from 'pages/Profile/utils/progressCalculations';
 import LearningPath from './components/LearningPath';
 import LoadingOverlay from 'components/LoadingOverlay';
 import Badge from 'components/Badge';
@@ -19,18 +25,8 @@ const Main: React.FC = observer(() => {
 
       for (const lesson of module.lessons) {
         const lessonProgress = userProgress.lessons[lesson.id];
-        const completedTasks = lessonProgress
-          ? Math.min(lessonProgress.successAttempt, lesson.totalTasks)
-          : 0;
-        let status: Status;
-
-        if (completedTasks === lesson.totalTasks) {
-          status = STATUS.COMPLETED;
-        } else if (completedTasks > 0) {
-          status = STATUS.PROGRESS;
-        } else {
-          status = STATUS.WAIT;
-        }
+        const completedTasks = calculateLessonCompletedTasks(lessonProgress, lesson.totalTasks);
+        const status = calculateLessonStatus(completedTasks, lesson.totalTasks);
 
         lessons.push({
           ...lesson,
@@ -44,15 +40,7 @@ const Main: React.FC = observer(() => {
         (sum, lesson) => sum + Math.min(lesson.completedTasks, lesson.totalTasks),
         0,
       );
-      let moduleStatus: Status;
-
-      if (moduleCompletedTasks === moduleTotalTasks) {
-        moduleStatus = STATUS.COMPLETED;
-      } else if (moduleCompletedTasks > 0) {
-        moduleStatus = STATUS.PROGRESS;
-      } else {
-        moduleStatus = STATUS.WAIT;
-      }
+      const moduleStatus = calculateModuleStatus(moduleCompletedTasks, moduleTotalTasks);
 
       modules.push({
         ...module,
@@ -67,17 +55,7 @@ const Main: React.FC = observer(() => {
   }, [userProgress]);
 
   const totalXp = useMemo(() => {
-    return learningPathData.modules.reduce(
-      (xp, module) =>
-        xp +
-        module.lessons.reduce((moduleXp, lesson) => {
-          const lessonProgress = userProgress.lessons[lesson.id];
-          const completedTasks = lessonProgress ? lessonProgress.successAttempt : 0;
-
-          return moduleXp + (completedTasks >= lesson.totalTasks ? lesson.xpReward : 0);
-        }, 0),
-      0,
-    );
+    return calculateTotalEarnedXP(userProgress, learningPathData.modules);
   }, [userProgress]);
 
   return (

@@ -6,6 +6,7 @@ import {
   getSuccessRate,
   getTotalQuestionAnswers,
   isLessonCompleted,
+  calculateTotalXP,
 } from '../utils/progressCalculations';
 
 export interface LessonStat {
@@ -153,11 +154,7 @@ export const useProfileStats = (userProgress: UserProgress): ProfileStats | null
       return lessonInfo && lesson.successAttempts >= lessonInfo.totalTasks;
     }).length;
 
-    const totalXP = learningPathData.modules.reduce(
-      (sum, module) =>
-        sum + module.lessons.reduce((lessonSum, lesson) => lessonSum + lesson.xpReward, 0),
-      0,
-    );
+    const totalXP = calculateTotalXP(learningPathData.modules);
 
     return {
       totalSuccess,

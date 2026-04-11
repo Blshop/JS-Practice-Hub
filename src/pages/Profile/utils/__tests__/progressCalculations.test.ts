@@ -1,0 +1,285 @@
+import {
+  getTotalAttempts,
+  getSuccessRate,
+  getTotalQuestionAnswers,
+  isLessonCompleted,
+  calculateLessonCompletedTasks,
+  calculateLessonStatus,
+  calculateModuleStatus,
+  calculateTotalXP,
+  calculateTotalEarnedXP,
+} from '../progressCalculations';
+import { STATUS } from 'types/LearningPath';
+import type { LessonProgress, UserProgress } from 'types/UserProgress';
+import type { ModuleData } from 'types/LearningPath';
+
+describe('progressCalculations', () => {
+  describe('getTotalAttempts', () => {
+    it('возвращает сумму успешных и неудачных попыток', () => {
+      const lesson: LessonProgress = {
+        successAttempt: 5,
+        failedAttempt: 3,
+        questions: [],
+      };
+      expect(getTotalAttempts(lesson)).toBe(8);
+    });
+
+    it('возвращает 0 если нет попыток', () => {
+      const lesson: LessonProgress = {
+        successAttempt: 0,
+        failedAttempt: 0,
+        questions: [],
+      };
+      expect(getTotalAttempts(lesson)).toBe(0);
+    });
+  });
+
+  describe('getSuccessRate', () => {
+    it('вычисляет процент успешных попыток', () => {
+      const lesson: LessonProgress = {
+        successAttempt: 7,
+        failedAttempt: 3,
+        questions: [],
+      };
+      expect(getSuccessRate(lesson)).toBe(70);
+    });
+
+    it('возвращает 0 если нет попыток', () => {
+      const lesson: LessonProgress = {
+        successAttempt: 0,
+        failedAttempt: 0,
+        questions: [],
+      };
+      expect(getSuccessRate(lesson)).toBe(0);
+    });
+
+    it('возвращает 100 если все попытки успешные', () => {
+      const lesson: LessonProgress = {
+        successAttempt: 10,
+        failedAttempt: 0,
+        questions: [],
+      };
+      expect(getSuccessRate(lesson)).toBe(100);
+    });
+  });
+
+  describe('getTotalQuestionAnswers', () => {
+    it('подсчитывает правильные и неправильные ответы', () => {
+      const lesson: LessonProgress = {
+        successAttempt: 0,
+        failedAttempt: 0,
+        questions: [
+          { questionId: 'q1', successCount: 5, failedCount: 2 },
+          { questionId: 'q2', successCount: 3, failedCount: 1 },
+        ],
+      };
+      const result = getTotalQuestionAnswers(lesson);
+      expect(result.correct).toBe(8);
+      expect(result.incorrect).toBe(3);
+      expect(result.total).toBe(11);
+      expect(result.successRate).toBeCloseTo(72.73, 1);
+    });
+
+    it('возвращает нули если нет вопросов', () => {
+      const lesson: LessonProgress = {
+        successAttempt: 0,
+        failedAttempt: 0,
+        questions: [],
+      };
+      const result = getTotalQuestionAnswers(lesson);
+      expect(result.correct).toBe(0);
+      expect(result.incorrect).toBe(0);
+      expect(result.total).toBe(0);
+      expect(result.successRate).toBe(0);
+    });
+
+    it('вычисляет 100% успешности', () => {
+      const lesson: LessonProgress = {
+        successAttempt: 0,
+        failedAttempt: 0,
+        questions: [{ questionId: 'q1', successCount: 10, failedCount: 0 }],
+      };
+      const result = getTotalQuestionAnswers(lesson);
+      expect(result.successRate).toBe(100);
+    });
+  });
+
+  describe('isLessonCompleted', () => {
+    it('возвращает true если урок завершен', () => {
+      const lesson: LessonProgress = {
+        successAttempt: 3,
+        failedAttempt: 0,
+        questions: [],
+      };
+      expect(isLessonCompleted(lesson, 3)).toBe(true);
+    });
+
+    it('возвращает true если успешных попыток больше требуемых', () => {
+      const lesson: LessonProgress = {
+        successAttempt: 5,
+        failedAttempt: 0,
+        questions: [],
+      };
+      expect(isLessonCompleted(lesson, 3)).toBe(true);
+    });
+
+    it('возвращает false если урок не завершен', () => {
+      const lesson: LessonProgress = {
+        successAttempt: 2,
+        failedAttempt: 1,
+        questions: [],
+      };
+      expect(isLessonCompleted(lesson, 3)).toBe(false);
+    });
+  });
+
+  describe('calculateLessonCompletedTasks', () => {
+    it('возвращает количество завершенных задач', () => {
+      const lesson: LessonProgress = {
+        successAttempt: 2,
+        failedAttempt: 1,
+        questions: [],
+      };
+      expect(calculateLessonCompletedTasks(lesson, 3)).toBe(2);
+    });
+
+    it('ограничивает максимальным количеством задач', () => {
+      const lesson: LessonProgress = {
+        successAttempt: 5,
+        failedAttempt: 0,
+        questions: [],
+      };
+      expect(calculateLessonCompletedTasks(lesson, 3)).toBe(3);
+    });
+
+    it('возвращает 0 если прогресс не определен', () => {
+      expect(calculateLessonCompletedTasks(undefined, 3)).toBe(0);
+    });
+  });
+
+  describe('calculateLessonStatus', () => {
+    it('возвращает COMPLETED если все задачи выполнены', () => {
+      expect(calculateLessonStatus(3, 3)).toBe(STATUS.COMPLETED);
+    });
+
+    it('возвращает PROGRESS если есть прогресс', () => {
+      expect(calculateLessonStatus(1, 3)).toBe(STATUS.PROGRESS);
+      expect(calculateLessonStatus(2, 3)).toBe(STATUS.PROGRESS);
+    });
+
+    it('возвращает WAIT если нет прогресса', () => {
+      expect(calculateLessonStatus(0, 3)).toBe(STATUS.WAIT);
+    });
+  });
+
+  describe('calculateModuleStatus', () => {
+    it('возвращает COMPLETED если все задачи выполнены', () => {
+      expect(calculateModuleStatus(10, 10)).toBe(STATUS.COMPLETED);
+    });
+
+    it('возвращает PROGRESS если есть прогресс', () => {
+      expect(calculateModuleStatus(5, 10)).toBe(STATUS.PROGRESS);
+    });
+
+    it('возвращает WAIT если нет прогресса', () => {
+      expect(calculateModuleStatus(0, 10)).toBe(STATUS.WAIT);
+    });
+  });
+
+  describe('calculateTotalXP', () => {
+    it('вычисляет общий XP всех модулей', () => {
+      const modules: ModuleData[] = [
+        {
+          id: 'module1',
+          title: 'Module 1',
+          description: 'Test',
+          lessons: [
+            { id: 'l1', title: 'Lesson 1', xpReward: 10, totalTasks: 3 },
+            { id: 'l2', title: 'Lesson 2', xpReward: 15, totalTasks: 3 },
+          ],
+        },
+        {
+          id: 'module2',
+          title: 'Module 2',
+          description: 'Test',
+          lessons: [{ id: 'l3', title: 'Lesson 3', xpReward: 20, totalTasks: 3 }],
+        },
+      ];
+      expect(calculateTotalXP(modules)).toBe(45);
+    });
+
+    it('возвращает 0 для пустого массива модулей', () => {
+      expect(calculateTotalXP([])).toBe(0);
+    });
+
+    it('возвращает 0 для модулей без уроков', () => {
+      const modules: ModuleData[] = [
+        {
+          id: 'module1',
+          title: 'Module 1',
+          description: 'Test',
+          lessons: [],
+        },
+      ];
+      expect(calculateTotalXP(modules)).toBe(0);
+    });
+  });
+
+  describe('calculateTotalEarnedXP', () => {
+    const modules: ModuleData[] = [
+      {
+        id: 'module1',
+        title: 'Module 1',
+        description: 'Test',
+        lessons: [
+          { id: 'l1', title: 'Lesson 1', xpReward: 10, totalTasks: 3 },
+          { id: 'l2', title: 'Lesson 2', xpReward: 15, totalTasks: 3 },
+        ],
+      },
+      {
+        id: 'module2',
+        title: 'Module 2',
+        description: 'Test',
+        lessons: [{ id: 'l3', title: 'Lesson 3', xpReward: 20, totalTasks: 3 }],
+      },
+    ];
+
+    it('вычисляет заработанный XP для завершенных уроков', () => {
+      const userProgress: UserProgress = {
+        lessons: {
+          l1: { successAttempt: 3, failedAttempt: 0, questions: [] },
+          l2: { successAttempt: 3, failedAttempt: 1, questions: [] },
+        },
+      };
+      expect(calculateTotalEarnedXP(userProgress, modules)).toBe(25);
+    });
+
+    it('не учитывает незавершенные уроки', () => {
+      const userProgress: UserProgress = {
+        lessons: {
+          l1: { successAttempt: 2, failedAttempt: 1, questions: [] },
+          l2: { successAttempt: 3, failedAttempt: 0, questions: [] },
+        },
+      };
+      expect(calculateTotalEarnedXP(userProgress, modules)).toBe(15);
+    });
+
+    it('возвращает 0 если нет прогресса', () => {
+      const userProgress: UserProgress = {
+        lessons: {},
+      };
+      expect(calculateTotalEarnedXP(userProgress, modules)).toBe(0);
+    });
+
+    it('учитывает только завершенные уроки (successAttempt >= totalTasks)', () => {
+      const userProgress: UserProgress = {
+        lessons: {
+          l1: { successAttempt: 5, failedAttempt: 2, questions: [] },
+          l2: { successAttempt: 1, failedAttempt: 0, questions: [] },
+          l3: { successAttempt: 3, failedAttempt: 5, questions: [] },
+        },
+      };
+      expect(calculateTotalEarnedXP(userProgress, modules)).toBe(30);
+    });
+  });
+});

@@ -1,4 +1,6 @@
 import type { LessonProgress, UserProgress } from 'types/UserProgress';
+import type { ModuleData, Status } from 'types/LearningPath';
+import { STATUS } from 'types/LearningPath';
 
 export function getTotalAttempts(lesson: LessonProgress): number {
   return lesson.successAttempt + lesson.failedAttempt;
@@ -36,10 +38,52 @@ export function isLessonCompleted(
   return lesson.successAttempt >= requiredSuccessAttempts;
 }
 
-export function getLessonProgress(progress: UserProgress, lessonId: string): LessonProgress | null {
-  return progress.lessons[lessonId] ?? null;
+export function calculateLessonCompletedTasks(
+  lessonProgress: LessonProgress | undefined,
+  totalTasks: number,
+): number {
+  if (!lessonProgress) return 0;
+  return Math.min(lessonProgress.successAttempt, totalTasks);
 }
 
-export function hasLessonProgress(progress: UserProgress, lessonId: string): boolean {
-  return lessonId in progress.lessons;
+export function calculateLessonStatus(completedTasks: number, totalTasks: number): Status {
+  if (completedTasks === totalTasks) {
+    return STATUS.COMPLETED;
+  } else if (completedTasks > 0) {
+    return STATUS.PROGRESS;
+  } else {
+    return STATUS.WAIT;
+  }
+}
+
+export function calculateModuleStatus(completedTasks: number, totalTasks: number): Status {
+  if (completedTasks === totalTasks) {
+    return STATUS.COMPLETED;
+  } else if (completedTasks > 0) {
+    return STATUS.PROGRESS;
+  } else {
+    return STATUS.WAIT;
+  }
+}
+
+export function calculateTotalXP(modules: ModuleData[]): number {
+  return modules.reduce(
+    (sum, module) =>
+      sum + module.lessons.reduce((lessonSum, lesson) => lessonSum + lesson.xpReward, 0),
+    0,
+  );
+}
+
+export function calculateTotalEarnedXP(userProgress: UserProgress, modules: ModuleData[]): number {
+  return modules.reduce(
+    (xp, module) =>
+      xp +
+      module.lessons.reduce((lessonXp, lesson) => {
+        const lessonProgress = userProgress.lessons[lesson.id];
+        if (!lessonProgress) return lessonXp;
+        const completedTasks = calculateLessonCompletedTasks(lessonProgress, lesson.totalTasks);
+        return lessonXp + (completedTasks >= lesson.totalTasks ? lesson.xpReward : 0);
+      }, 0),
+    0,
+  );
 }
