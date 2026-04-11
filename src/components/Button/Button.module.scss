@@ -4,6 +4,8 @@
 .button {
   height: fit-content;
   width: fit-content;
+  min-width: 0;
+  max-width: 100%;
   @include mixin.flex($justify: center, $align: center, $gap: 0.5rem);
   padding: 0.75rem 1rem;
   border: var.$border-default;
@@ -46,26 +48,32 @@
 
   &.primary {
     background-color: var.$color-primary;
+    color: var(--button-text);
   }
 
   &.secondary {
     background-color: var.$color-secondary;
+    color: var(--button-text);
   }
 
   &.danger {
     background-color: var.$color-danger;
+    color: var(--button-text);
   }
 
   &.success {
     background-color: var.$color-success;
+    color: var(--button-text);
   }
 
   &.warning {
     background-color: var.$color-warning;
+    color: var(--button-text);
   }
 
   &.info {
     background-color: var.$color-info;
+    color: var(--button-text);
   }
 
   &.light {

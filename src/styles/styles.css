@@ -2,7 +2,8 @@
 @import '../../node_modules/@fontsource/roboto-mono/700.css';
 @import '../../node_modules/modern-normalize/modern-normalize.css';
 
-html, :root {
+html,
+:root {
   --color-neutral-900: #333333;
   --color-neutral-500: #666666;
   --color-neutral-300: #afafaf;
@@ -33,25 +34,27 @@ html, :root {
   --bg-surface: #f3f4f6;
   --text-primary: #333333;
 
+  --button-text: #333333;
+
   --code-bg: #f4f4f4;
   --code-bg-hover: #ececec;
   --code-color: #c7254e;
 }
 
 html[data-theme='dark'] {
-  --color-neutral-900: #ffffff;
-  --color-neutral-500: #cccccc;
-  --color-neutral-300: #888888;
+  --color-neutral-900: #e8e8e8;
+  --color-neutral-500: #a8a8a8;
+  --color-neutral-300: #666666;
   --color-neutral-200: #333333;
   --color-neutral-100: #2a2a2a;
   --color-neutral-000: #121212;
 
-  --color-primary: #3d6a9e;
-  --color-secondary: #4a3560;
-  --color-danger: #7a2525;
-  --color-success: #1e5a38;
-  --color-warning: #5a4a10;
-  --color-info: #1a5860;
+  --color-primary: #5b9bd5;
+  --color-secondary: #9b72c8;
+  --color-danger: #e05555;
+  --color-success: #3daa6e;
+  --color-warning: #d4a017;
+  --color-info: #2bb8c2;
 
   --color-success-light: #1a3d2a;
   --color-success-dark: #a0e8c0;
@@ -59,16 +62,18 @@ html[data-theme='dark'] {
   --color-danger-dark: #f0a0a0;
   --color-primary-light: #1a2d4a;
 
-  --color-success-shadow: rgba(30, 90, 56, 0.4);
-  --color-danger-shadow: rgba(122, 37, 37, 0.4);
-  --color-primary-shadow: rgba(61, 106, 158, 0.4);
+  --color-success-shadow: rgba(92, 184, 138, 0.3);
+  --color-danger-shadow: rgba(224, 112, 112, 0.3);
+  --color-primary-shadow: rgba(106, 159, 216, 0.3);
 
-  --border-color: #ffffff;
-  --shadow-color: #555555;
+  --border-color: #e8e8e8;
+  --shadow-color: #e8e8e8;
 
-  --bg-body: #121212;
-  --bg-surface: #1e1e1e;
-  --text-primary: #ffffff;
+  --bg-body: #161616;
+  --bg-surface: #202020;
+  --text-primary: #e8e8e8;
+
+  --button-text: #e8e8e8;
 
   --code-bg: #2d2d2d;
   --code-bg-hover: #383838;
@@ -80,5 +85,19 @@ body {
   font-weight: 400;
   color: var(--text-primary);
   background-color: var(--bg-body);
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
 }

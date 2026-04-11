@@ -2,12 +2,12 @@
 @use 'styles/_mixins.scss' as mixin;
 
 .options {
-  @include mixin.flex(column, flex-start, stretch, 0.75rem);
+  @include mixin.flex(column, flex-start, stretch, 0.5rem);
 }
 
 .option {
   @include mixin.flex(row, flex-start, center);
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 0.875rem;
   border-radius: var.$border-radius-default;
   background-color: var.$color-neutral-100;
   border: 1px solid var.$color-neutral-200;
