@@ -11,14 +11,13 @@ import type {
 } from 'types/Questions';
 import { quizProgressStore } from 'store/QuizProgressStore';
 import { userProgressStore } from 'store/UserProgressStore';
-// import { sendQuizProgress } from 'services/progressService';
 
 const normalize = (str: string) => str.replace(/`/g, '').trim();
 
 export const useQuiz = (
   lessonId?: string,
   onComplete?: (summary: QuizSummary) => void,
-  maxQuestions = 3,
+  maxQuestions = 10,
 ) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<Record<string, AnswerType>>({});
