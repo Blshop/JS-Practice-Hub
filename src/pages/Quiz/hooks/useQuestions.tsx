@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import type { Question } from 'types/Questions';
 import { shuffleArray } from 'utils/shuffleArray';
 
-// TODO Correct for actual categories
-type Category = 'JavaScript' | 'typescript' | 'css';
+type Category = 'JavaScript';
 
 type QuestionModule = {
   default: Question[];
