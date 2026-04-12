@@ -11,6 +11,7 @@ import type {
 } from 'types/Questions';
 import { quizProgressStore } from 'store/QuizProgressStore';
 import { sendQuizProgress } from 'services/progressService';
+import { soundService } from 'services/soundService';
 
 const normalize = (str: string) => str.replace(/`/g, '').trim();
 
@@ -116,6 +117,8 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
 
     quizProgressStore.setQuestionResult(currentQuestion.id, correct ? 'correct' : 'incorrect');
 
+    soundService.play(correct ? 'correct' : 'incorrect');
+
     setCompletedCount((prev) => prev + 1);
 
     setCheckState({
@@ -157,6 +160,8 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
         progress: quizProgressStore.progress,
         result: passed ? 'passed' : 'failed',
       });
+
+      soundService.play('complete');
 
       onComplete?.({
         correct: correctCount,

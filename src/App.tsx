@@ -1,6 +1,7 @@
 import { Outlet, useLocation, useMatches } from 'react-router';
 import { useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
+import { soundService } from 'services/soundService';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'styles/styles.css';
@@ -23,6 +24,12 @@ const App = observer(() => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
+
+  useEffect(() => {
+    const handleClick = () => soundService.play('click');
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, []);
 
   return (
     <div className={styles.app}>
