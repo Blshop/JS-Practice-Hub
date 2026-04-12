@@ -19,7 +19,7 @@ class AuthStore {
   }
 
   get isAuthenticated(): boolean {
-    return !!this.accessToken && !!this.user;
+    return !(!!this.accessToken && !!this.user);
   }
 
   clearSessionError() {

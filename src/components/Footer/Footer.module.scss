@@ -4,7 +4,7 @@
 .footer {
   @include mixin.flex($direction: column, $justify: flex-start, $align: center, $gap: 1rem);
   padding: 1rem 10vw;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   border-top: 2px solid var.$color-neutral-200;
 
   @media (max-width: 480px) {

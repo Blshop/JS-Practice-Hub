@@ -2,8 +2,102 @@
 @import '../../node_modules/@fontsource/roboto-mono/700.css';
 @import '../../node_modules/modern-normalize/modern-normalize.css';
 
+html,
+:root {
+  --color-neutral-900: #333333;
+  --color-neutral-500: #666666;
+  --color-neutral-300: #afafaf;
+  --color-neutral-200: #e3e3e3;
+  --color-neutral-100: #f3f4f6;
+  --color-neutral-000: #ffffff;
+
+  --color-primary: #8fb5f0;
+  --color-secondary: #d8c6eb;
+  --color-danger: #ff8f8f;
+  --color-success: #bcead0;
+  --color-warning: #fdf2cc;
+  --color-info: #bfeff1;
+
+  --color-success-light: #e8f7f0;
+  --color-success-dark: #2a6b4a;
+  --color-danger-light: #ffe8e8;
+  --color-danger-dark: #8b1a1a;
+  --color-primary-light: #ddeafc;
+  --color-success-shadow: rgba(188, 234, 208, 0.3);
+  --color-danger-shadow: rgba(255, 143, 143, 0.3);
+  --color-primary-shadow: rgba(143, 181, 240, 0.3);
+
+  --border-color: #333333;
+  --shadow-color: #333333;
+
+  --bg-body: #ffffff;
+  --bg-surface: #f3f4f6;
+  --text-primary: #333333;
+
+  --button-text: #333333;
+
+  --code-bg: #f4f4f4;
+  --code-bg-hover: #ececec;
+  --code-color: #c7254e;
+}
+
+html[data-theme='dark'] {
+  --color-neutral-900: #e8e8e8;
+  --color-neutral-500: #a8a8a8;
+  --color-neutral-300: #666666;
+  --color-neutral-200: #333333;
+  --color-neutral-100: #2a2a2a;
+  --color-neutral-000: #121212;
+
+  --color-primary: #5b9bd5;
+  --color-secondary: #9b72c8;
+  --color-danger: #e05555;
+  --color-success: #3daa6e;
+  --color-warning: #d4a017;
+  --color-info: #2bb8c2;
+
+  --color-success-light: #1a3d2a;
+  --color-success-dark: #a0e8c0;
+  --color-danger-light: #3d1a1a;
+  --color-danger-dark: #f0a0a0;
+  --color-primary-light: #1a2d4a;
+
+  --color-success-shadow: rgba(92, 184, 138, 0.3);
+  --color-danger-shadow: rgba(224, 112, 112, 0.3);
+  --color-primary-shadow: rgba(106, 159, 216, 0.3);
+
+  --border-color: #e8e8e8;
+  --shadow-color: #e8e8e8;
+
+  --bg-body: #161616;
+  --bg-surface: #202020;
+  --text-primary: #e8e8e8;
+
+  --button-text: #e8e8e8;
+
+  --code-bg: #2d2d2d;
+  --code-bg-hover: #383838;
+  --code-color: #ff7eb3;
+}
+
 body {
   font-family: 'Roboto Mono', monospace;
   font-weight: 400;
-  color: #333333;
+  color: var(--text-primary);
+  background-color: var(--bg-body);
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
 }

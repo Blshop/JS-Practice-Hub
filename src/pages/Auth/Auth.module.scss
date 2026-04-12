@@ -10,7 +10,7 @@
     @include mixin.flex($wrap: wrap, $align: center, $justify: center);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     border-radius: 8px;
-    background-color: #fff;
+    background-color: var(--bg-surface);
     overflow: hidden;
     max-width: 600px;
     width: 100%;

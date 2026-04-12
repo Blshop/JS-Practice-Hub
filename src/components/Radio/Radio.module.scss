@@ -13,12 +13,12 @@
   appearance: none;
   width: 28px;
   height: 28px;
-  border: var.$border-default;
+  border: 2px solid var(--color-neutral-900);
   border-radius: 50%;
-  background-color: var.$color-neutral-100;
+  background-color: var(--color-neutral-100);
   box-shadow:
-    0 2px 0 0 var.$color-neutral-900,
-    0 4px 0 0 var.$color-neutral-900;
+    0 2px 0 0 var(--color-neutral-900),
+    0 4px 0 0 var(--color-neutral-900);
   cursor: pointer;
   position: relative;
   transition:
@@ -31,12 +31,12 @@
   }
 
   &:active {
-    box-shadow: 0 0px 0 0 var.$color-neutral-900;
+    box-shadow: 0 0px 0 0 var(--color-neutral-900);
     transform: translateY(4px);
   }
 
   &:checked {
-    background-color: var.$color-primary;
+    background-color: var(--color-primary);
 
     &::after {
       content: '';
@@ -47,7 +47,7 @@
       width: 14px;
       height: 14px;
       border-radius: 50%;
-      background-color: var.$color-neutral-900;
+      background-color: var(--color-neutral-900);
     }
   }
 
@@ -102,6 +102,7 @@
     color: var.$color-danger;
   }
 }
+
 .input.success {
   background-color: var.$color-success;
 }
