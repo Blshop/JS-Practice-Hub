@@ -12,10 +12,12 @@ import QuestionRenderer from './renderers/QuestionRenderer';
 import { routes } from 'config/routes';
 import LoadingOverlay from 'components/LoadingOverlay';
 import { localize } from 'utils/localize';
+import type { LocalizedString } from 'types/Questions';
+
 const QuizPage: React.FC = () => {
   const { state } = useLocation();
   const lessonId = state?.lessonId ?? null;
-  const lessonTitle = state?.lessonTitle ?? null;
+  const lessonTitle: LocalizedString | null = state?.lessonTitle ?? null;
   const { t, i18n } = useTranslation();
 
   const {
@@ -109,7 +111,7 @@ const QuizPage: React.FC = () => {
       <LoadingOverlay isLoading={isSaving} error={translatedSaveError} onRetry={retrySave} />
 
       <Text tag="h1" bold className={styles.title}>
-        {lessonTitle}
+        {lessonTitle ? localize(lessonTitle, i18n.language) : ''}
       </Text>
 
       <ProgressBar
@@ -127,7 +129,7 @@ const QuizPage: React.FC = () => {
         <div className={styles.questionContainer}>
           <div className={styles.questionHeader}>
             <Text tag="h2" bold className={styles.questionText}>
-              <HighlightedText text={localize(currentQuestion.question, i18n.language)} />
+              <HighlightedText text={currentQuestion.question as unknown as string} />
             </Text>
 
             {currentQuestion.code && (
@@ -152,7 +154,7 @@ const QuizPage: React.FC = () => {
             >
               <Text bold>{isCorrect ? t('quiz.correct') : t('quiz.incorrect')}</Text>
               <Text>
-                <HighlightedText text={localize(currentQuestion.explanation, i18n.language)} />
+                <HighlightedText text={currentQuestion.explanation as unknown as string} />
               </Text>
             </div>
           )}

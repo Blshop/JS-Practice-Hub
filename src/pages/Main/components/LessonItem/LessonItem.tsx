@@ -26,7 +26,7 @@ const LessonItem: React.FC<LessonItemProps> = ({ lesson }) => {
   const title = localize(lesson.title, i18n.language);
 
   const handleLessonClick = (lesson: Lesson) => {
-    navigate(routes.quiz.mask, { state: { lessonId: lesson.id, lessonTitle: title } });
+    navigate(routes.quiz.mask, { state: { lessonId: lesson.id, lessonTitle: lesson.title } });
   };
 
   return (

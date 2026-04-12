@@ -18,15 +18,14 @@ type QuestionModule = { default: RawQuestion[] };
 const questionModules = import.meta.glob<QuestionModule>('/src/data/**/**/*.json');
 
 function localizeQuestion(q: RawQuestion, lang: string): Question {
-  const localized = {
+  return {
     ...q,
     question: localize(q.question, lang),
     explanation: localize(q.explanation, lang),
     ...(q.options && {
       options: q.options.map((opt) => ({ ...opt, text: localize(opt.text, lang) })),
     }),
-  };
-  return localized as unknown as Question;
+  } as unknown as Question;
 }
 
 export function useQuestions(category: Category | null, fileId: string | null) {
