@@ -1,23 +1,28 @@
 export type QuestionType = 'single-correct' | 'multiple-correct' | 'yes-no' | 'predict-output';
 
+export type LocalizedString = {
+  en: string;
+  ru?: string;
+};
+
 export interface BaseQuestion {
   id: string;
   type: QuestionType;
   theme: string;
-  question: string;
+  question: LocalizedString;
   code?: string;
-  explanation: string;
+  explanation: LocalizedString;
 }
 
 export interface SingleCorrectQuestion extends BaseQuestion {
   type: 'single-correct';
-  options: { id: string; text: string }[];
+  options: { id: string; text: LocalizedString }[];
   correctId: string;
 }
 
 export interface MultipleCorrectQuestion extends BaseQuestion {
   type: 'multiple-correct';
-  options: { id: string; text: string }[];
+  options: { id: string; text: LocalizedString }[];
   correctIds: string[];
 }
 

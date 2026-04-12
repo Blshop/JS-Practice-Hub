@@ -1,3 +1,5 @@
+import type { LocalizedString } from './Questions';
+
 export const STATUS = {
   WAIT: 'wait',
   PROGRESS: 'progress',
@@ -8,14 +10,14 @@ export type Status = (typeof STATUS)[keyof typeof STATUS];
 
 export interface ModuleData {
   id: string;
-  title: string;
-  description: string;
+  title: LocalizedString;
+  description: LocalizedString;
   lessons: LessonData[];
 }
 
 export interface LessonData {
   id: string;
-  title: string;
+  title: LocalizedString;
   xpReward: number;
   totalTasks: number;
 }

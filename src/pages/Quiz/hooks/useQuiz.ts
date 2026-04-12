@@ -175,7 +175,7 @@ export const useQuiz = (
       });
     } catch (err) {
       console.error(err);
-      setSaveError('Failed to save progress. Please try again.');
+      setSaveError('save_error');
     } finally {
       setIsSaving(false);
     }

@@ -1,12 +1,20 @@
 import { z } from 'zod';
 
-export const loginSchema = z.object({
-  email: z.email('Invalid email address'),
-  password: z
-    .string()
-    .min(6, 'Password must be at least 6 characters')
-    .regex(/[A-Z]/, 'Password must contain at least one uppercase Latin letter')
-    .regex(/[0-9]/, 'Password must contain at least one digit'),
-});
+export type LoginSchemaMessages = {
+  emailInvalid: string;
+  passwordMin: string;
+  passwordUppercase: string;
+  passwordDigit: string;
+};
 
-export type LoginFormData = z.infer<typeof loginSchema>;
+export const createLoginSchema = (m: LoginSchemaMessages) =>
+  z.object({
+    email: z.email(m.emailInvalid),
+    password: z
+      .string()
+      .min(6, m.passwordMin)
+      .regex(/[A-Z]/, m.passwordUppercase)
+      .regex(/[0-9]/, m.passwordDigit),
+  });
+
+export type LoginFormData = z.infer<ReturnType<typeof createLoginSchema>>;

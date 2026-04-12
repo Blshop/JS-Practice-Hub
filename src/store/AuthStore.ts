@@ -4,6 +4,7 @@ import { notifySuccess, notifyError, notifyInfo } from 'utils/notify';
 import * as authService from 'services/authService';
 import axios from 'axios';
 import { setAccessToken } from 'services/api';
+import i18n from 'i18n/i18n';
 
 class AuthStore {
   user: User | null = null;
@@ -18,7 +19,7 @@ class AuthStore {
   }
 
   get isAuthenticated(): boolean {
-    return !!this.accessToken && !!this.user;
+    return !(!!this.accessToken && !!this.user);
   }
 
   clearSessionError() {
@@ -48,9 +49,9 @@ class AuthStore {
         return false;
       }
 
-      let message = 'Failed to connect to server. Please check your connection.';
+      let message = i18n.t('auth.errors.connectionError');
       if (axios.isAxiosError(err) && err.message === 'Network Error') {
-        message = 'Network error. Cannot reach the server.';
+        message = i18n.t('auth.errors.networkError');
       } else if (err instanceof Error) {
         message = err.message;
       }
@@ -93,11 +94,11 @@ class AuthStore {
         this.isLoading = false;
       });
 
-      notifySuccess(`Welcome, ${response.user.username}!`);
+      notifySuccess(i18n.t('auth.errors.welcome', { name: response.user.username }));
 
       return true;
     } catch (error) {
-      let message = 'Login failed';
+      let message = i18n.t('auth.errors.loginFailed');
 
       if (axios.isAxiosError(error)) {
         message = error.response?.data?.message || message;
@@ -131,11 +132,11 @@ class AuthStore {
         this.isLoading = false;
       });
 
-      notifySuccess(`Account created! Welcome, ${username}!`);
+      notifySuccess(i18n.t('auth.errors.accountCreated', { name: username }));
 
       return true;
     } catch (error) {
-      let message = 'Registration failed';
+      let message = i18n.t('auth.errors.registerFailed');
 
       if (axios.isAxiosError(error)) {
         message = error.response?.data?.message || message;
@@ -158,7 +159,7 @@ class AuthStore {
     try {
       await authService.logout();
     } catch (error) {
-      notifyError(`Failed to logout: ${error}`);
+      notifyError(`${i18n.t('auth.errors.logoutFailed')}: ${error}`);
     } finally {
       runInAction(() => {
         this.user = null;
@@ -168,7 +169,7 @@ class AuthStore {
         this.clearStorage();
       });
 
-      notifyInfo('You have been logged out.');
+      notifyInfo(i18n.t('auth.errors.loggedOut'));
     }
   }
 }

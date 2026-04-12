@@ -4,9 +4,17 @@
 .learningPath {
   @include mixin.flex($direction: column, $gap: 2rem);
 
+  @media (max-width: var.$breakpoint-sm) {
+    gap: 1.25rem;
+  }
+
   &__title {
     text-align: center;
     margin: 2rem 0 0 0;
+
+    @media (max-width: var.$breakpoint-sm) {
+      margin: 1rem 0 0 0;
+    }
   }
 
   &__emptyMessage {
