@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import Text from 'components/Text';
 import Badge from 'components/Badge';
 import ProgressBar from 'components/ProgressBar';
@@ -12,16 +13,17 @@ interface LessonsTableProps {
 }
 
 const LessonsTable: React.FC<LessonsTableProps> = ({ lessonStats }) => {
+  const { t } = useTranslation();
   const [titleFilter, setTitleFilter] = useState('');
   const [moduleFilter, setModuleFilter] = useState('');
 
   const moduleOptions = useMemo(() => {
     const uniqueModules = Array.from(new Set(lessonStats.map((lesson) => lesson.moduleTitle)));
     return [
-      { value: '', label: 'All Modules' },
+      { value: '', label: t('profile.lessonsTable.allModules') },
       ...uniqueModules.map((module) => ({ value: module, label: module })),
     ];
-  }, [lessonStats]);
+  }, [lessonStats, t]);
 
   const filteredLessons = useMemo(() => {
     return lessonStats.filter((lesson) => {
@@ -35,10 +37,10 @@ const LessonsTable: React.FC<LessonsTableProps> = ({ lessonStats }) => {
     return (
       <div className={styles.tableContainer}>
         <Text tag="h3" className={styles.tableTitle}>
-          Lessons Statistics
+          {t('profile.lessonsTable.title')}
         </Text>
         <div className={styles.emptyState}>
-          <Text muted>No lessons attempted yet</Text>
+          <Text muted>{t('profile.lessonsTable.noLessonsYet')}</Text>
         </div>
       </div>
     );
@@ -47,13 +49,13 @@ const LessonsTable: React.FC<LessonsTableProps> = ({ lessonStats }) => {
   return (
     <div className={styles.tableContainer}>
       <Text tag="h3" className={styles.tableTitle}>
-        Lessons Statistics
+        {t('profile.lessonsTable.title')}
       </Text>
 
       <div className={styles.filters}>
         <Input
           type="search"
-          placeholder="Search by lesson..."
+          placeholder={t('profile.lessonsTable.searchPlaceholder')}
           value={titleFilter}
           onChange={(e) => setTitleFilter(e.target.value)}
           elementSize="medium"
@@ -63,7 +65,7 @@ const LessonsTable: React.FC<LessonsTableProps> = ({ lessonStats }) => {
           options={moduleOptions}
           value={moduleFilter}
           onChange={setModuleFilter}
-          placeholder="All Modules"
+          placeholder={t('profile.lessonsTable.allModules')}
           elementSize="medium"
           className={styles.filterSelect}
         />
@@ -71,7 +73,7 @@ const LessonsTable: React.FC<LessonsTableProps> = ({ lessonStats }) => {
 
       {filteredLessons.length === 0 ? (
         <div className={styles.emptyState}>
-          <Text muted>No lessons match the selected filters</Text>
+          <Text muted>{t('profile.lessonsTable.noMatchingLessons')}</Text>
         </div>
       ) : (
         <div className={styles.table}>
@@ -89,10 +91,10 @@ const LessonsTable: React.FC<LessonsTableProps> = ({ lessonStats }) => {
               <div className={styles.lessonStats}>
                 <div className={styles.attempts}>
                   <Badge variant="success" size="small">
-                    Successful {lesson.successAttempts}
+                    {t('profile.stats.successful')} {lesson.successAttempts}
                   </Badge>
                   <Badge variant="danger" size="small">
-                    Failed {lesson.failedAttempts}
+                    {t('profile.stats.failed')} {lesson.failedAttempts}
                   </Badge>
                 </div>
 
@@ -100,7 +102,7 @@ const LessonsTable: React.FC<LessonsTableProps> = ({ lessonStats }) => {
                   current={lesson.successAttempts}
                   total={lesson.totalAttempts}
                   variant="info"
-                  label="Test Success Rate"
+                  label={t('profile.lessonsTable.testSuccessRate')}
                   showPercentage={true}
                   positionInfo="bottom"
                   className={styles.progressBar}
@@ -108,10 +110,10 @@ const LessonsTable: React.FC<LessonsTableProps> = ({ lessonStats }) => {
 
                 <div className={styles.attempts}>
                   <Badge variant="success" size="small">
-                    Correct {lesson.questionsCorrect}
+                    {t('profile.stats.correct')} {lesson.questionsCorrect}
                   </Badge>
                   <Badge variant="danger" size="small">
-                    Incorrect {lesson.questionsIncorrect}
+                    {t('profile.stats.incorrect')} {lesson.questionsIncorrect}
                   </Badge>
                 </div>
 
@@ -119,7 +121,7 @@ const LessonsTable: React.FC<LessonsTableProps> = ({ lessonStats }) => {
                   current={lesson.questionsCorrect}
                   total={lesson.totalQuestions}
                   variant="info"
-                  label="Questions Success Rate"
+                  label={t('profile.lessonsTable.questionsSuccessRate')}
                   showPercentage={true}
                   positionInfo="bottom"
                   className={styles.progressBar}

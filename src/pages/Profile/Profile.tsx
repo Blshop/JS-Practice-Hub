@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 import { authStore } from 'store/AuthStore';
 import { userProgressStore } from 'store/UserProgressStore';
 import type { UserProgress } from 'types/UserProgress';
@@ -13,6 +14,7 @@ import { useProfileStats } from './hooks/useProfileStats';
 import styles from './Profile.module.scss';
 
 const Profile: React.FC = observer(() => {
+  const { t } = useTranslation();
   const userProgress: UserProgress = userProgressStore.progress;
   const stats = useProfileStats(userProgress);
 
@@ -45,16 +47,16 @@ const Profile: React.FC = observer(() => {
               totalFailed={stats.totalFailed}
               successRate={stats.successRate}
               labels={{
-                total: 'Total Attempts',
-                success: 'Successful',
-                failed: 'Failed',
-                rate: 'Success Rate',
+                total: t('profile.stats.totalAttempts'),
+                success: t('profile.stats.successful'),
+                failed: t('profile.stats.failed'),
+                rate: t('profile.stats.successRate'),
               }}
             />
             <AttemptsChart
               totalSuccess={stats.totalSuccess}
               totalFailed={stats.totalFailed}
-              title="Tests Distribution"
+              title={t('profile.charts.testsDistribution')}
             />
           </div>
 
@@ -62,8 +64,8 @@ const Profile: React.FC = observer(() => {
             <AttemptsChart
               totalSuccess={stats.questionsStats.totalCorrect}
               totalFailed={stats.questionsStats.totalIncorrect}
-              title="Questions Distribution"
-              labels={{ success: 'Correct', failed: 'Incorrect' }}
+              title={t('profile.charts.questionsDistribution')}
+              labels={{ success: t('profile.stats.correct'), failed: t('profile.stats.incorrect') }}
             />
             <StatsCards
               totalAttempts={stats.questionsStats.totalAnswered}
@@ -71,10 +73,10 @@ const Profile: React.FC = observer(() => {
               totalFailed={stats.questionsStats.totalIncorrect}
               successRate={stats.questionsStats.successRate}
               labels={{
-                total: 'Total Answered',
-                success: 'Correct',
-                failed: 'Incorrect',
-                rate: 'Success Rate',
+                total: t('profile.stats.totalAnswered'),
+                success: t('profile.stats.correct'),
+                failed: t('profile.stats.incorrect'),
+                rate: t('profile.stats.successRate'),
               }}
             />
           </div>

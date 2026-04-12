@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
-import learningPathData from 'data/js-learning-path-data.json';
+import { useTranslation } from 'react-i18next';
+import learningPathData from '../../../data/js-learning-path-data.json';
 import type { UserProgress } from 'types/UserProgress';
+import { localize } from 'utils/localize';
 import {
   getTotalAttempts,
   getSuccessRate,
@@ -62,6 +64,9 @@ export interface ProfileStats {
 }
 
 export const useProfileStats = (userProgress: UserProgress): ProfileStats | null => {
+  const { i18n } = useTranslation();
+  const lang = i18n.language;
+
   return useMemo(() => {
     const serverProgress = userProgress.lessons;
     let totalSuccess = 0;
@@ -76,7 +81,7 @@ export const useProfileStats = (userProgress: UserProgress): ProfileStats | null
       const totalTests = calculateModuleTotalTests(module);
       moduleStatsMap.set(module.id, {
         id: module.id,
-        title: module.title,
+        title: localize(module.title, lang),
         completedLessons: 0,
         totalLessons: module.lessons.length,
         successAttempts: 0,
@@ -120,8 +125,8 @@ export const useProfileStats = (userProgress: UserProgress): ProfileStats | null
 
           lessonStats.push({
             id: lesson.id,
-            title: lesson.title,
-            moduleTitle: module.title,
+            title: localize(lesson.title, lang),
+            moduleTitle: localize(module.title, lang),
             xpReward: lesson.xpReward,
             successAttempts,
             failedAttempts,
@@ -194,5 +199,5 @@ export const useProfileStats = (userProgress: UserProgress): ProfileStats | null
         inProgressModules,
       },
     };
-  }, [userProgress]);
+  }, [userProgress, lang]);
 };

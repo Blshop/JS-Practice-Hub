@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Text from 'components/Text';
 import styles from './StatsCards.module.scss';
 
@@ -22,11 +23,13 @@ const StatsCards: React.FC<StatsCardsProps> = ({
   successRate,
   labels,
 }) => {
+  const { t } = useTranslation();
+
   const defaultLabels = {
-    total: 'Total Attempts',
-    success: 'Successful',
-    failed: 'Failed',
-    rate: 'Success Rate',
+    total: t('profile.stats.totalAttempts'),
+    success: t('profile.stats.successful'),
+    failed: t('profile.stats.failed'),
+    rate: t('profile.stats.successRate'),
   };
 
   const finalLabels = { ...defaultLabels, ...labels };

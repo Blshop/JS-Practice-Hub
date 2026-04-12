@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   PieChart,
   Pie,
@@ -28,15 +29,18 @@ const COLORS = {
 const AttemptsChart: React.FC<AttemptsChartProps> = ({
   totalSuccess,
   totalFailed,
-  title = 'Attempts Distribution',
+  title,
   labels,
 }) => {
+  const { t } = useTranslation();
+
   const defaultLabels = {
-    success: 'Successful',
-    failed: 'Failed',
+    success: t('profile.stats.successful'),
+    failed: t('profile.stats.failed'),
   };
 
   const finalLabels = { ...defaultLabels, ...labels };
+  const finalTitle = title || t('profile.charts.testsDistribution');
 
   const data = [
     { name: finalLabels.success, value: totalSuccess, fill: COLORS.success },
@@ -83,10 +87,10 @@ const AttemptsChart: React.FC<AttemptsChartProps> = ({
     return (
       <div className={styles.chartContainer}>
         <Text tag="h3" className={styles.chartTitle}>
-          {title}
+          {finalTitle}
         </Text>
         <div className={styles.emptyState}>
-          <Text muted>No data yet</Text>
+          <Text muted>{t('profile.charts.noDataYet')}</Text>
         </div>
       </div>
     );
@@ -95,7 +99,7 @@ const AttemptsChart: React.FC<AttemptsChartProps> = ({
   return (
     <div className={styles.chartContainer}>
       <Text tag="h3" className={styles.chartTitle}>
-        {title}
+        {finalTitle}
       </Text>
       <ResponsiveContainer width="100%" height={300}>
         <PieChart>

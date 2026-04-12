@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Text from 'components/Text';
 import Badge from 'components/Badge';
 import styles from './UserCard.module.scss';
@@ -24,6 +25,8 @@ const UserCard: React.FC<UserCardProps> = ({
   completedModules,
   totalModules,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.userCard}>
       <div className={styles.avatar}>
@@ -43,10 +46,10 @@ const UserCard: React.FC<UserCardProps> = ({
             ⚡ {earnedXP} / {totalXP} XP
           </Badge>
           <Badge variant="secondary" size="large">
-            📚 {completedLessons} / {totalLessons} lessons
+            📚 {completedLessons} / {totalLessons} {t('profile.userCard.lessons')}
           </Badge>
           <Badge variant="primary" size="large">
-            📦 {completedModules} / {totalModules} modules
+            📦 {completedModules} / {totalModules} {t('profile.userCard.modules')}
           </Badge>
         </div>
       </div>

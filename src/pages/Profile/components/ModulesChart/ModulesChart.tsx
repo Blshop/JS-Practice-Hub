@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   BarChart,
   Bar,
@@ -18,6 +19,8 @@ interface ModulesChartProps {
 }
 
 const ModulesChart: React.FC<ModulesChartProps> = ({ moduleStats }) => {
+  const { t } = useTranslation();
+
   const chartData = moduleStats.map((module) => ({
     name: module.title,
     completed: module.completedTests,
@@ -29,7 +32,7 @@ const ModulesChart: React.FC<ModulesChartProps> = ({ moduleStats }) => {
   return (
     <div className={styles.chartContainer}>
       <Text tag="h3" className={styles.chartTitle}>
-        Progress by Module
+        {t('profile.charts.progressByModule')}
       </Text>
       <ResponsiveContainer width="100%" height={400}>
         <BarChart data={chartData}>
@@ -50,7 +53,7 @@ const ModulesChart: React.FC<ModulesChartProps> = ({ moduleStats }) => {
             fill="#bcead0"
             stroke="#333333"
             strokeWidth={2}
-            name="Completed Tests"
+            name={t('profile.charts.completedTests')}
           />
           <Bar
             dataKey="remaining"
@@ -58,7 +61,7 @@ const ModulesChart: React.FC<ModulesChartProps> = ({ moduleStats }) => {
             fill="#afafaf"
             stroke="#333333"
             strokeWidth={2}
-            name="Remaining Tests"
+            name={t('profile.charts.remainingTests')}
           />
         </BarChart>
       </ResponsiveContainer>
