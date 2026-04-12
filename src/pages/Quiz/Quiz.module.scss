@@ -60,7 +60,10 @@
 }
 
 .questionHeader {
-  @include mixin.flex(column, flex-start, stretch, 0.625rem);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.875rem;
 
   background: var.$color-neutral-100;
   padding: 0.875rem 1.125rem;
@@ -77,9 +80,18 @@
   }
 
   @media (max-width: var.$breakpoint-xs) {
+    flex-direction: column;
+    align-items: center;
     padding: 0.625rem 0.75rem;
     border-left-width: 0.3rem;
+    gap: 0.5rem;
   }
+}
+
+.questionBody {
+  @include mixin.flex(column, flex-start, stretch, 0.625rem);
+  flex: 1;
+  min-width: 0;
 }
 
 .questionText {
@@ -129,7 +141,7 @@
     flex-direction: column;
     gap: 0.5rem;
 
-    & > * {
+    &>* {
       width: 100% !important;
     }
   }
