@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Text from 'components/Text';
 import Button from 'components/Button';
 import HighlightedText from 'components/HighlightedText';
@@ -13,6 +13,8 @@ import { routes } from 'config/routes';
 import LoadingOverlay from 'components/LoadingOverlay';
 import { localize } from 'utils/localize';
 import type { LocalizedString } from 'types/Questions';
+import RobotCat from 'components/RobotCat';
+import type { RobotCatMood } from 'components/RobotCat';
 
 const QuizPage: React.FC = () => {
   const { state } = useLocation();
@@ -44,6 +46,56 @@ const QuizPage: React.FC = () => {
 
   const translatedSaveError = saveError === 'save_error' ? t('quiz.saveError') : saveError;
   const currentAnswer = currentQuestion ? userAnswers[currentQuestion.id] : undefined;
+
+  const [displayedQuestion, setDisplayedQuestion] = useState('');
+  const [catMood, setCatMood] = useState<RobotCatMood>('idle');
+  const typewriterRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const moodResetRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const questionText = currentQuestion ? (currentQuestion.question as unknown as string) : '';
+
+  const startTypewriter = useCallback((text: string) => {
+    if (typewriterRef.current) clearTimeout(typewriterRef.current);
+    if (moodResetRef.current) clearTimeout(moodResetRef.current);
+
+    let i = 0;
+    const CHAR_DELAY = 45;
+
+    const tick = () => {
+      i += 1;
+      setDisplayedQuestion(text.slice(0, i));
+      if (i < text.length) {
+        typewriterRef.current = setTimeout(tick, CHAR_DELAY);
+      } else {
+        setCatMood('idle');
+      }
+    };
+
+    typewriterRef.current = setTimeout(() => {
+      setDisplayedQuestion('');
+      setCatMood('talking');
+      typewriterRef.current = setTimeout(tick, CHAR_DELAY);
+    }, 0);
+  }, []);
+
+  useEffect(() => {
+    if (!questionText) return;
+    startTypewriter(questionText);
+    return () => {
+      if (typewriterRef.current) clearTimeout(typewriterRef.current);
+    };
+  }, [questionText, startTypewriter]);
+
+  useEffect(() => {
+    if (!isChecked) return;
+    const next: RobotCatMood = isCorrect ? 'happy' : 'sad';
+    moodResetRef.current = setTimeout(() => {
+      setCatMood(next);
+      moodResetRef.current = setTimeout(() => setCatMood('idle'), 2500);
+    }, 0);
+    return () => {
+      if (moodResetRef.current) clearTimeout(moodResetRef.current);
+    };
+  }, [isChecked, isCorrect]);
   const isAnswerEmpty =
     currentAnswer === undefined ||
     (Array.isArray(currentAnswer) && currentAnswer.length === 0) ||
@@ -128,15 +180,18 @@ const QuizPage: React.FC = () => {
       {currentQuestion && (
         <div className={styles.questionContainer}>
           <div className={styles.questionHeader}>
-            <Text tag="h2" bold className={styles.questionText}>
-              <HighlightedText text={currentQuestion.question as unknown as string} />
-            </Text>
+            <RobotCat mood={catMood} />
+            <div className={styles.questionBody}>
+              <Text tag="h2" bold className={styles.questionText}>
+                <HighlightedText text={displayedQuestion} />
+              </Text>
 
-            {currentQuestion.code && (
-              <pre className={styles.codeBlock}>
-                <HighlightedText text={currentQuestion.code} />
-              </pre>
-            )}
+              {currentQuestion.code && (
+                <pre className={styles.codeBlock}>
+                  <HighlightedText text={currentQuestion.code} />
+                </pre>
+              )}
+            </div>
           </div>
 
           <div className={styles.optionsContainer}>

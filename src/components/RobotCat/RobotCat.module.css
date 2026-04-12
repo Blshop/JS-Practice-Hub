@@ -1,0 +1,362 @@
+/* ── Container ── */
+.robotCat {
+  flex-shrink: 0;
+  width: 72px;          /* fixed — never stretches */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4px;
+  user-select: none;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ── Head ── */
+.head {
+  position: relative;
+  width: 64px;
+  height: 60px;
+  background: linear-gradient(160deg, #b0c4de 0%, #8aaac8 100%);
+  border-radius: 40% 40% 45% 45%;
+  border: 2px solid #6a8faf;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18), inset 0 1px 3px rgba(255,255,255,0.35);
+}
+
+/* ── Ears ── */
+.ear {
+  position: absolute;
+  top: -13px;
+  width: 17px;
+  height: 19px;
+  background: linear-gradient(160deg, #b0c4de 0%, #8aaac8 100%);
+  border: 2px solid #6a8faf;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+.earLeft  { left: 6px;  transform: rotate(-10deg); }
+.earRight { right: 6px; transform: rotate(10deg); }
+
+.earInner {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7px;
+  height: 9px;
+  background: #e8a0b0;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* ── Face plate ── */
+.facePlate {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 52px;
+  height: 40px;
+  background: #d6e8f5;
+  border-radius: 30% 30% 40% 40%;
+  border: 1.5px solid #9ab8d0;
+}
+
+/* ── Eyes ── */
+.eyes {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.eye {
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 2px #4a7fa0;
+  border-radius: 50%;
+  overflow: visible;
+  background: transparent;
+}
+
+.eyeSvg {
+  display: block;
+}
+
+/* ── Nose ── */
+.nose {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 4px;
+  background: #4a7fa0;
+  border-radius: 50%;
+}
+
+/* ── Mouth ── */
+.mouth {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 20px;
+  overflow: visible;
+}
+
+.mouthSvg {
+  display: block;
+  overflow: visible;
+}
+
+.mouthPath {
+  fill: none;
+  stroke: #2e5f80;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.mouthFill {
+  fill: rgba(20, 50, 80, 0.45);
+  stroke: none;
+}
+
+.mouthInner {
+  stroke: none;
+}
+
+/* lower lip bounces open/closed while talking */
+.lowerLipTalking {
+  animation: lowerLipBounce 0.28s ease-in-out infinite alternate;
+  transform-origin: center top;
+}
+
+/* ── Antenna ── */
+.antenna {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 14px;
+  background: #6a8faf;
+  border-radius: 2px;
+}
+
+.antennaTip {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: #4fc3f7;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 2px rgba(79,195,247,0.7);
+  animation: antennaGlow 2s ease-in-out infinite alternate;
+}
+
+/* ── Cheeks ── */
+.cheek {
+  position: absolute;
+  top: 20px;
+  width: 10px;
+  height: 6px;
+  background: rgba(255,150,170,0.45);
+  border-radius: 50%;
+}
+.cheekLeft  { left: 3px; }
+.cheekRight { right: 3px; }
+
+/* ── Whiskers ── */
+.whiskers {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;   /* wider than head so they stick out */
+  height: 10px;
+  pointer-events: none;
+}
+
+.whiskerLine {
+  position: absolute;
+  height: 1.5px;
+  background: #6a8faf;
+  border-radius: 1px;
+  opacity: 0.7;
+}
+.whiskerLine:nth-child(1) { width: 18px; top: 0;  left: 0;  transform: rotate(-8deg); }
+.whiskerLine:nth-child(2) { width: 18px; top: 6px; left: 0;  transform: rotate(8deg); }
+.whiskerLine:nth-child(3) { width: 18px; top: 0;  right: 0; transform: rotate(8deg); }
+.whiskerLine:nth-child(4) { width: 18px; top: 6px; right: 0; transform: rotate(-8deg); }
+
+/* ── Happy sparkles ── */
+.sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 10px;
+  color: #ffe066;
+  text-shadow: 0 0 4px #ffb300;
+  animation: sparklePop 0.6s ease-out forwards;
+}
+.s1 { top: -8px;  left: -6px;  animation-delay: 0s; }
+.s2 { top: -12px; right: -4px; animation-delay: 0.1s; }
+.s3 { top: 4px;   right: -10px; animation-delay: 0.2s; }
+
+/* ── Sad tears ── */
+.tears {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.tear {
+  position: absolute;
+  top: 28px;
+  width: 4px;
+  height: 8px;
+  background: linear-gradient(to bottom, #7ec8e3, #4fc3f7);
+  border-radius: 0 0 50% 50%;
+  animation: tearDrop 1s ease-in infinite;
+}
+.tearLeft  { left: 12px; animation-delay: 0s; }
+.tearRight { right: 12px; animation-delay: 0.4s; }
+
+/* ════════════════════════════════════
+   MOOD STATES
+   ════════════════════════════════════ */
+
+/* ── Talking ── */
+.talking .head {
+  animation: headBob 0.45s ease-in-out infinite alternate;
+}
+.talking .antennaTip {
+  animation: antennaPulse 0.5s ease-in-out infinite alternate;
+}.talking .cheek {
+  background: rgba(255,150,170,0.6);
+}
+
+/* ── Happy ── */
+.happy .head {
+  animation: happyBounce 0.45s ease-in-out 4;
+}
+.happy .antennaTip {
+  background: #66bb6a;
+  box-shadow: 0 0 10px 4px rgba(102,187,106,0.85);
+  animation: antennaPulse 0.35s ease-in-out 8, antennaGlow 2s ease-in-out infinite alternate;
+}
+.happy .cheek {
+  background: rgba(255,100,130,0.65);
+  animation: cheekPulse 0.4s ease-in-out 4;
+}
+.happy .ear {
+  animation: earWiggle 0.4s ease-in-out 4;
+}
+
+/* ── Sad ── */
+.sad .head {
+  animation: sadDroop 0.7s ease-in-out forwards;
+}
+.sad .antennaTip {
+  background: #ef5350;
+  box-shadow: 0 0 8px 3px rgba(239,83,80,0.7);
+}
+.sad .cheek {
+  background: rgba(150,150,200,0.4);
+}
+.sad .earLeft  { animation: earSad 0.5s ease-in-out forwards; }
+.sad .earRight { animation: earSad 0.5s ease-in-out forwards; }
+
+/* ════════════════════════════════════
+   KEYFRAMES
+   ════════════════════════════════════ */
+
+@keyframes headBob {
+  from { transform: rotate(-4deg) translateY(0); }
+  to   { transform: rotate(4deg)  translateY(-3px); }
+}
+
+@keyframes happyBounce {
+  0%   { transform: translateY(0)   scale(1); }
+  25%  { transform: translateY(-8px) scale(1.1); }
+  55%  { transform: translateY(0)   scale(0.95); }
+  75%  { transform: translateY(-4px) scale(1.04); }
+  100% { transform: translateY(0)   scale(1); }
+}
+
+@keyframes sadDroop {
+  0%   { transform: rotate(0deg)  translateY(0); }
+  50%  { transform: rotate(-10deg) translateY(4px); }
+  100% { transform: rotate(-6deg)  translateY(3px); }
+}
+
+@keyframes antennaPulse {
+  from { transform: translateX(-50%) scale(1);   opacity: 1; }
+  to   { transform: translateX(-50%) scale(1.6); opacity: 0.5; }
+}
+
+@keyframes lowerLipBounce {
+  from { transform: translateY(0); }
+  to   { transform: translateY(4px); }
+}
+
+@keyframes cheekPulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.4); }
+}
+
+@keyframes earWiggle {
+  0%   { transform: rotate(-10deg); }
+  40%  { transform: rotate(-20deg) translateY(-3px); }
+  70%  { transform: rotate(-5deg); }
+  100% { transform: rotate(-10deg); }
+}
+
+@keyframes earSad {
+  to { transform: rotate(-20deg) translateY(3px); }
+}
+
+@keyframes sparklePop {
+  0%   { opacity: 0; transform: scale(0) rotate(0deg); }
+  50%  { opacity: 1; transform: scale(1.4) rotate(20deg); }
+  100% { opacity: 0; transform: scale(0.8) rotate(40deg) translateY(-8px); }
+}
+
+@keyframes tearDrop {
+  0%   { opacity: 0; transform: translateY(0) scaleY(0.5); }
+  30%  { opacity: 1; transform: translateY(0) scaleY(1); }
+  100% { opacity: 0; transform: translateY(12px) scaleY(1.2); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+@keyframes antennaGlow {
+  from {
+    box-shadow: 0 0 4px 1px rgba(79,195,247,0.5);
+    background: #4fc3f7;
+  }
+  to {
+    box-shadow: 0 0 14px 6px rgba(79,195,247,0.95), 0 0 24px 10px rgba(79,195,247,0.3);
+    background: #b3e5fc;
+  }
+}
+
+@media (max-width: 600px) {
+  .robotCat {
+    width: 48px;          /* reserve less space */
+    transform: scale(0.72);
+    transform-origin: top center;
+  }
+}
