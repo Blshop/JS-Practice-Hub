@@ -13,7 +13,34 @@ import {
 } from '../progressCalculations';
 import { STATUS } from 'types/LearningPath';
 import type { LessonProgress, UserProgress } from 'types/UserProgress';
-import type { ModuleData } from 'types/LearningPath';
+import type { ModuleData, LessonData } from 'types/LearningPath';
+import type { LocalizedString } from 'types/Questions';
+
+const createLocalizedString = (text: string): LocalizedString => ({ en: text, ru: text });
+
+const createModule = (
+  id: string,
+  title: string,
+  description: string,
+  lessons: Array<{ id: string; title: string; xpReward: number; totalTasks: number }>,
+): ModuleData => ({
+  id,
+  title: createLocalizedString(title),
+  description: createLocalizedString(description),
+  lessons: lessons.map((l) => createLesson(l.id, l.title, l.xpReward, l.totalTasks)),
+});
+
+const createLesson = (
+  id: string,
+  title: string,
+  xpReward: number,
+  totalTasks: number,
+): LessonData => ({
+  id,
+  title: createLocalizedString(title),
+  xpReward,
+  totalTasks,
+});
 
 describe('progressCalculations', () => {
   describe('getTotalAttempts', () => {
@@ -191,21 +218,13 @@ describe('progressCalculations', () => {
   describe('calculateTotalXP', () => {
     it('вычисляет общий XP всех модулей', () => {
       const modules: ModuleData[] = [
-        {
-          id: 'module1',
-          title: 'Module 1',
-          description: 'Test',
-          lessons: [
-            { id: 'l1', title: 'Lesson 1', xpReward: 10, totalTasks: 3 },
-            { id: 'l2', title: 'Lesson 2', xpReward: 15, totalTasks: 3 },
-          ],
-        },
-        {
-          id: 'module2',
-          title: 'Module 2',
-          description: 'Test',
-          lessons: [{ id: 'l3', title: 'Lesson 3', xpReward: 20, totalTasks: 3 }],
-        },
+        createModule('module1', 'Module 1', 'Test', [
+          { id: 'l1', title: 'Lesson 1', xpReward: 10, totalTasks: 3 },
+          { id: 'l2', title: 'Lesson 2', xpReward: 15, totalTasks: 3 },
+        ]),
+        createModule('module2', 'Module 2', 'Test', [
+          { id: 'l3', title: 'Lesson 3', xpReward: 20, totalTasks: 3 },
+        ]),
       ];
       expect(calculateTotalXP(modules)).toBe(45);
     });
@@ -215,35 +234,20 @@ describe('progressCalculations', () => {
     });
 
     it('возвращает 0 для модулей без уроков', () => {
-      const modules: ModuleData[] = [
-        {
-          id: 'module1',
-          title: 'Module 1',
-          description: 'Test',
-          lessons: [],
-        },
-      ];
+      const modules: ModuleData[] = [createModule('module1', 'Module 1', 'Test', [])];
       expect(calculateTotalXP(modules)).toBe(0);
     });
   });
 
   describe('calculateTotalEarnedXP', () => {
     const modules: ModuleData[] = [
-      {
-        id: 'module1',
-        title: 'Module 1',
-        description: 'Test',
-        lessons: [
-          { id: 'l1', title: 'Lesson 1', xpReward: 10, totalTasks: 3 },
-          { id: 'l2', title: 'Lesson 2', xpReward: 15, totalTasks: 3 },
-        ],
-      },
-      {
-        id: 'module2',
-        title: 'Module 2',
-        description: 'Test',
-        lessons: [{ id: 'l3', title: 'Lesson 3', xpReward: 20, totalTasks: 3 }],
-      },
+      createModule('module1', 'Module 1', 'Test', [
+        { id: 'l1', title: 'Lesson 1', xpReward: 10, totalTasks: 3 },
+        { id: 'l2', title: 'Lesson 2', xpReward: 15, totalTasks: 3 },
+      ]),
+      createModule('module2', 'Module 2', 'Test', [
+        { id: 'l3', title: 'Lesson 3', xpReward: 20, totalTasks: 3 },
+      ]),
     ];
 
     it('вычисляет заработанный XP для завершенных уроков', () => {
@@ -287,41 +291,26 @@ describe('progressCalculations', () => {
 
   describe('calculateModuleTotalTests', () => {
     it('вычисляет общее количество тестов в модуле', () => {
-      const module: ModuleData = {
-        id: 'module1',
-        title: 'Module 1',
-        description: 'Test',
-        lessons: [
-          { id: 'l1', title: 'Lesson 1', xpReward: 10, totalTasks: 3 },
-          { id: 'l2', title: 'Lesson 2', xpReward: 15, totalTasks: 5 },
-          { id: 'l3', title: 'Lesson 3', xpReward: 20, totalTasks: 4 },
-        ],
-      };
+      const module: ModuleData = createModule('module1', 'Module 1', 'Test', [
+        { id: 'l1', title: 'Lesson 1', xpReward: 10, totalTasks: 3 },
+        { id: 'l2', title: 'Lesson 2', xpReward: 15, totalTasks: 5 },
+        { id: 'l3', title: 'Lesson 3', xpReward: 20, totalTasks: 4 },
+      ]);
       expect(calculateModuleTotalTests(module)).toBe(12);
     });
 
     it('возвращает 0 для модуля без уроков', () => {
-      const module: ModuleData = {
-        id: 'module1',
-        title: 'Module 1',
-        description: 'Test',
-        lessons: [],
-      };
+      const module: ModuleData = createModule('module1', 'Module 1', 'Test', []);
       expect(calculateModuleTotalTests(module)).toBe(0);
     });
   });
 
   describe('calculateModuleCompletedTests', () => {
-    const module: ModuleData = {
-      id: 'module1',
-      title: 'Module 1',
-      description: 'Test',
-      lessons: [
-        { id: 'l1', title: 'Lesson 1', xpReward: 10, totalTasks: 3 },
-        { id: 'l2', title: 'Lesson 2', xpReward: 15, totalTasks: 3 },
-        { id: 'l3', title: 'Lesson 3', xpReward: 20, totalTasks: 3 },
-      ],
-    };
+    const module: ModuleData = createModule('module1', 'Module 1', 'Test', [
+      { id: 'l1', title: 'Lesson 1', xpReward: 10, totalTasks: 3 },
+      { id: 'l2', title: 'Lesson 2', xpReward: 15, totalTasks: 3 },
+      { id: 'l3', title: 'Lesson 3', xpReward: 20, totalTasks: 3 },
+    ]);
 
     it('вычисляет количество завершенных тестов в модуле', () => {
       const userProgress: UserProgress = {

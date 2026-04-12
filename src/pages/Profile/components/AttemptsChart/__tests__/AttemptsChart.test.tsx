@@ -4,7 +4,7 @@ import AttemptsChart from '../AttemptsChart';
 describe('AttemptsChart', () => {
   it('должен отобразить заголовок по умолчанию', () => {
     render(<AttemptsChart totalSuccess={10} totalFailed={5} />);
-    expect(screen.getByText('Attempts Distribution')).toBeInTheDocument();
+    expect(screen.getByText('Tests Distribution')).toBeInTheDocument();
   });
 
   it('должен отобразить кастомный заголовок', () => {

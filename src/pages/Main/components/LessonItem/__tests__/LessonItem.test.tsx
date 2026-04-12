@@ -12,7 +12,7 @@ jest.mock('react-router-dom', () => ({
 
 const mockLesson: Lesson = {
   id: 'js-basics-1',
-  title: 'Variables: let, const, var',
+  title: { en: 'Variables: let, const, var', ru: 'Переменные: let, const, var' },
   completedTasks: 2,
   totalTasks: 3,
   xpReward: 10,
@@ -70,7 +70,10 @@ describe('LessonItem Component', () => {
 
       expect(mockNavigate).toHaveBeenCalledTimes(1);
       expect(mockNavigate).toHaveBeenCalledWith('/quiz', {
-        state: { lessonId: 'js-basics-1', lessonTitle: 'Variables: let, const, var' },
+        state: {
+          lessonId: 'js-basics-1',
+          lessonTitle: { en: 'Variables: let, const, var', ru: 'Переменные: let, const, var' },
+        },
       });
     });
   });
