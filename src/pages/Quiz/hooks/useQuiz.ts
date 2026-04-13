@@ -10,6 +10,7 @@ import type {
   PredictOutputQuestion,
 } from 'types/Questions';
 import { quizProgressStore } from 'store/QuizProgressStore';
+import { soundService } from 'services/soundService';
 import { userProgressStore } from 'store/UserProgressStore';
 
 const normalize = (str: string) => str.replace(/`/g, '').trim();
@@ -125,6 +126,8 @@ export const useQuiz = (
 
     quizProgressStore.setQuestionResult(currentQuestion.id, correct ? 'correct' : 'incorrect');
 
+    soundService.play(correct ? 'correct' : 'incorrect');
+
     setCompletedCount((prev) => prev + 1);
 
     setCheckState({
@@ -167,6 +170,7 @@ export const useQuiz = (
         userProgressStore.recordQuestionAnswer(lessonId, questionId, result === 'correct');
       });
 
+      soundService.play('complete');
       await userProgressStore.saveLessonProgressToServer(lessonId);
 
       onComplete?.({

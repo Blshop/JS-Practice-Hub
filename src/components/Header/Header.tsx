@@ -9,6 +9,7 @@ import { authStore } from 'store/AuthStore';
 import { themeStore } from 'store/ThemeStore';
 import styles from './Header.module.scss';
 import Button from 'components/Button';
+import { soundService } from 'services/soundService';
 
 export const Header: React.FC = observer(() => {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ export const Header: React.FC = observer(() => {
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [isMuted, setIsMuted] = useState(() => soundService.isMuted());
   const profileRef = useRef<HTMLDivElement>(null);
 
   const isRu = i18n.language === 'ru';
@@ -44,6 +46,11 @@ export const Header: React.FC = observer(() => {
   };
 
   const toggleLanguage = () => i18n.changeLanguage(isRu ? 'en' : 'ru');
+
+  const toggleSound = () => {
+    const nowMuted = soundService.toggleMute();
+    setIsMuted(nowMuted);
+  };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -142,6 +149,13 @@ export const Header: React.FC = observer(() => {
               </button>
               <button
                 className={styles.iconBtn}
+                onClick={toggleSound}
+                aria-label={isMuted ? 'Включить звук' : 'Выключить звук'}
+              >
+                <span>{isMuted ? '🔇' : '🔊'}</span>
+              </button>
+              <button
+                className={styles.iconBtn}
                 onClick={() => handleNavigation(routes.auth.login)}
                 title={t('nav.login')}
               >
@@ -185,6 +199,13 @@ export const Header: React.FC = observer(() => {
                 >
                   ☾
                 </span>
+              </button>
+              <button
+                className={styles.toggleBtn}
+                onClick={toggleSound}
+                aria-label={isMuted ? 'Включить звук' : 'Выключить звук'}
+              >
+                <span className={styles.toggleOption_active}>{isMuted ? '🔇' : '🔊'}</span>
               </button>
             </div>
           )}
@@ -277,6 +298,21 @@ export const Header: React.FC = observer(() => {
             </button>
           </div>
         )}
+
+        <div
+          className={classNames(
+            styles.controlGroup,
+            isAuthenticated ? styles.hideBelow720 : styles.guestDesktopOnly,
+          )}
+        >
+          <button
+            className={isAuthenticated ? styles.toggleBtn : styles.iconBtn}
+            onClick={toggleSound}
+            aria-label={isMuted ? 'Включить звук' : 'Выключить звук'}
+          >
+            <span className={styles.toggleOption_active}>{isMuted ? '🔇' : '🔊'}</span>
+          </button>
+        </div>
 
         {!isAuthenticated && (
           <div className={classNames(styles.controlGroup, styles.guestDesktopOnly)}>
