@@ -1,0 +1,941 @@
+[
+  {
+    "id": "truthy-001",
+    "type": "single-correct",
+    "theme": "truthy и falsy",
+    "question": {
+      "en": "How many falsy values exist in JavaScript?",
+      "ru": "Сколько ложных (falsy) значений существует в JavaScript?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "5",
+          "ru": "5"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "6",
+          "ru": "6"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "7",
+          "ru": "7"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "8",
+          "ru": "8"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "There are 7 falsy values: `false`, `0`, `-0`, `0n`, `''`, `null`, `undefined`, and `NaN`.",
+      "ru": "Существует 7 ложных значений: `false`, `0`, `-0`, `0n`, `''`, `null`, `undefined` и `NaN`."
+    }
+  },
+  {
+    "id": "truthy-002",
+    "type": "single-correct",
+    "theme": "falsy значения",
+    "question": {
+      "en": "Which value is falsy?",
+      "ru": "Какое значение является ложным (falsy)?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`'0'`",
+          "ru": "`'0'`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`[]`",
+          "ru": "`[]`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`{}`",
+          "ru": "`{}`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      }
+    ],
+    "correctId": "d",
+    "explanation": {
+      "en": "`0` is falsy; `'0'`, `[]`, and `{}` are truthy.",
+      "ru": "`0` является ложным; `'0'`, `[]` и `{}` — истинные."
+    }
+  },
+  {
+    "id": "truthy-003",
+    "type": "single-correct",
+    "theme": "truthy значения",
+    "question": {
+      "en": "Which value is truthy?",
+      "ru": "Какое значение является истинным (truthy)?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`''`",
+          "ru": "`''`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`'false'`",
+          "ru": "`'false'`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "Any non-empty string is truthy, including `'false'`.",
+      "ru": "Любая непустая строка является истинной, включая `'false'`."
+    }
+  },
+  {
+    "id": "truthy-004",
+    "type": "single-correct",
+    "theme": "пустая строка",
+    "question": {
+      "en": "What does `Boolean('')` return?",
+      "ru": "Что возвращает `Boolean('')`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`true`",
+          "ru": "`true`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`''`",
+          "ru": "`''`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Empty string is falsy, so `Boolean('')` returns `false`.",
+      "ru": "Пустая строка является ложной, поэтому `Boolean('')` возвращает `false`."
+    }
+  },
+  {
+    "id": "truthy-005",
+    "type": "single-correct",
+    "theme": "массивы и объекты",
+    "question": {
+      "en": "What does `Boolean([])` return?",
+      "ru": "Что возвращает `Boolean([])`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`true`",
+          "ru": "`true`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`[]`",
+          "ru": "`[]`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Empty arrays are truthy objects.",
+      "ru": "Пустые массивы являются истинными объектами."
+    }
+  },
+  {
+    "id": "truthy-006",
+    "type": "single-correct",
+    "theme": "NaN",
+    "question": {
+      "en": "What does `Boolean(NaN)` return?",
+      "ru": "Что возвращает `Boolean(NaN)`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`true`",
+          "ru": "`true`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`NaN`",
+          "ru": "`NaN`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`NaN` is one of the 7 falsy values.",
+      "ru": "`NaN` — одно из 7 ложных значений."
+    }
+  },
+  {
+    "id": "truthy-007",
+    "type": "single-correct",
+    "theme": "null и undefined",
+    "question": {
+      "en": "What does `Boolean(null)` return?",
+      "ru": "Что возвращает `Boolean(null)`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`true`",
+          "ru": "`true`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`null` is falsy.",
+      "ru": "`null` является ложным."
+    }
+  },
+  {
+    "id": "truthy-008",
+    "type": "single-correct",
+    "theme": "числа",
+    "question": {
+      "en": "What does `Boolean(-1)` return?",
+      "ru": "Что возвращает `Boolean(-1)`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`true`",
+          "ru": "`true`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`-1`",
+          "ru": "`-1`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Any non-zero number is truthy.",
+      "ru": "Любое ненулевое число является истинным."
+    }
+  },
+  {
+    "id": "truthy-009",
+    "type": "single-correct",
+    "theme": "строки",
+    "question": {
+      "en": "What does `Boolean(' ')` return?",
+      "ru": "Что возвращает `Boolean(' ')`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`true`",
+          "ru": "`true`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`' '`",
+          "ru": "`' '`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "A string with whitespace is non-empty, so it's truthy.",
+      "ru": "Строка с пробелом не пустая, поэтому она истинная."
+    }
+  },
+  {
+    "id": "truthy-010",
+    "type": "yes-no",
+    "theme": "пустая строка",
+    "question": {
+      "en": "Is an empty string (`''`) falsy?",
+      "ru": "Является ли пустая строка (`''`) ложной?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Empty string is one of the 7 falsy values.",
+      "ru": "Пустая строка — одно из 7 ложных значений."
+    }
+  },
+  {
+    "id": "truthy-011",
+    "type": "yes-no",
+    "theme": "массивы",
+    "question": {
+      "en": "Is an empty array (`[]`) falsy?",
+      "ru": "Является ли пустой массив (`[]`) ложным?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "Empty arrays are objects and all objects are truthy.",
+      "ru": "Пустые массивы — это объекты, и все объекты истинные."
+    }
+  },
+  {
+    "id": "truthy-012",
+    "type": "yes-no",
+    "theme": "объекты",
+    "question": {
+      "en": "Is an empty object (`{}`) truthy?",
+      "ru": "Является ли пустой объект (`{}`) истинным?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "All objects, including empty ones, are truthy.",
+      "ru": "Все объекты, включая пустые, являются истинными."
+    }
+  },
+  {
+    "id": "truthy-013",
+    "type": "multiple-correct",
+    "theme": "falsy значения",
+    "question": {
+      "en": "Which values are falsy?",
+      "ru": "Какие значения являются ложными?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`'0'`",
+          "ru": "`'0'`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "`0`, `false`, and `null` are falsy; `'0'` is truthy.",
+      "ru": "`0`, `false` и `null` являются ложными; `'0'` — истинное."
+    }
+  },
+  {
+    "id": "truthy-014",
+    "type": "multiple-correct",
+    "theme": "truthy значения",
+    "question": {
+      "en": "Which values are truthy?",
+      "ru": "Какие значения являются истинными?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`'false'`",
+          "ru": "`'false'`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`[]`",
+          "ru": "`[]`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`{}`",
+          "ru": "`{}`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`''`",
+          "ru": "`''`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "Non-empty strings and all objects are truthy; empty string is falsy.",
+      "ru": "Непустые строки и все объекты истинные; пустая строка ложная."
+    }
+  },
+  {
+    "id": "truthy-015",
+    "type": "multiple-correct",
+    "theme": "все falsy значения",
+    "question": {
+      "en": "Which are ALL the falsy values?",
+      "ru": "Какие из них ВСЕ ложные значения?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`false`, `0`, `''`",
+          "ru": "`false`, `0`, `''`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`null`, `undefined`, `NaN`",
+          "ru": "`null`, `undefined`, `NaN`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`-0`, `0n`",
+          "ru": "`-0`, `0n`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`[]`, `{}`",
+          "ru": "`[]`, `{}`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "The 7 falsy values are: `false`, `0`, `-0`, `0n`, `''`, `null`, `undefined`, `NaN`.",
+      "ru": "7 ложных значений: `false`, `0`, `-0`, `0n`, `''`, `null`, `undefined`, `NaN`."
+    }
+  },
+  {
+    "id": "truthy-016",
+    "type": "predict-output",
+    "theme": "условия",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`if (0) {`\n`  console.log('yes');`\n`} else {`\n`  console.log('no');`\n`}`",
+    "answer": "`no`",
+    "explanation": {
+      "en": "`0` is falsy, so the else block executes.",
+      "ru": "`0` является ложным, поэтому выполняется блок else."
+    }
+  },
+  {
+    "id": "truthy-017",
+    "type": "predict-output",
+    "theme": "условия",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`if ('') {`\n`  console.log('yes');`\n`} else {`\n`  console.log('no');`\n`}`",
+    "answer": "`no`",
+    "explanation": {
+      "en": "Empty string is falsy.",
+      "ru": "Пустая строка является ложной."
+    }
+  },
+  {
+    "id": "truthy-018",
+    "type": "predict-output",
+    "theme": "условия",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`if ([]) {`\n`  console.log('yes');`\n`} else {`\n`  console.log('no');`\n`}`",
+    "answer": "`yes`",
+    "explanation": {
+      "en": "Empty arrays are truthy objects.",
+      "ru": "Пустые массивы являются истинными объектами."
+    }
+  },
+  {
+    "id": "truthy-019",
+    "type": "predict-output",
+    "theme": "Boolean функция",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log(Boolean(0));`",
+    "answer": "`false`",
+    "explanation": {
+      "en": "`0` is falsy.",
+      "ru": "`0` является ложным."
+    }
+  },
+  {
+    "id": "truthy-020",
+    "type": "predict-output",
+    "theme": "Boolean функция",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log(Boolean('hello'));`",
+    "answer": "`true`",
+    "explanation": {
+      "en": "Non-empty strings are truthy.",
+      "ru": "Непустые строки являются истинными."
+    }
+  },
+  {
+    "id": "truthy-021",
+    "type": "single-correct",
+    "theme": "логические операторы",
+    "question": {
+      "en": "What does `0 || 'default'` return?",
+      "ru": "Что возвращает `0 || 'default'`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`'default'`",
+          "ru": "`'default'`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`true`",
+          "ru": "`true`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`||` returns the first truthy value; `0` is falsy, so `'default'` is returned.",
+      "ru": "`||` возвращает первое истинное значение; `0` ложное, поэтому возвращается `'default'`."
+    }
+  },
+  {
+    "id": "truthy-022",
+    "type": "single-correct",
+    "theme": "логические операторы",
+    "question": {
+      "en": "What does `'hello' && 'world'` return?",
+      "ru": "Что возвращает `'hello' && 'world'`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`'hello'`",
+          "ru": "`'hello'`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`'world'`",
+          "ru": "`'world'`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`true`",
+          "ru": "`true`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`&&` returns the last truthy value if all are truthy.",
+      "ru": "`&&` возвращает последнее истинное значение, если все истинные."
+    }
+  },
+  {
+    "id": "truthy-023",
+    "type": "single-correct",
+    "theme": "логические операторы",
+    "question": {
+      "en": "What does `null && 'value'` return?",
+      "ru": "Что возвращает `null && 'value'`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`'value'`",
+          "ru": "`'value'`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`&&` returns the first falsy value; `null` is falsy.",
+      "ru": "`&&` возвращает первое ложное значение; `null` является ложным."
+    }
+  },
+  {
+    "id": "truthy-024",
+    "type": "multiple-correct",
+    "theme": "числа",
+    "question": {
+      "en": "Which numbers are falsy?",
+      "ru": "Какие числа являются ложными?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`-0`",
+          "ru": "`-0`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`0n`",
+          "ru": "`0n`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`1`",
+          "ru": "`1`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "`0`, `-0`, and `0n` (BigInt zero) are falsy; all other numbers are truthy.",
+      "ru": "`0`, `-0` и `0n` (BigInt ноль) являются ложными; все остальные числа истинные."
+    }
+  },
+  {
+    "id": "truthy-025",
+    "type": "multiple-correct",
+    "theme": "строки",
+    "question": {
+      "en": "Which strings are truthy?",
+      "ru": "Какие строки являются истинными?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`'0'`",
+          "ru": "`'0'`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`'false'`",
+          "ru": "`'false'`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`' '`",
+          "ru": "`' '`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`''`",
+          "ru": "`''`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "All non-empty strings are truthy, including `'0'` and `'false'`.",
+      "ru": "Все непустые строки истинные, включая `'0'` и `'false'`."
+    }
+  },
+  {
+    "id": "truthy-026",
+    "type": "predict-output",
+    "theme": "логические операторы",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log('' || 'default');`",
+    "answer": "`default`",
+    "explanation": {
+      "en": "`||` returns the first truthy value; `''` is falsy.",
+      "ru": "`||` возвращает первое истинное значение; `''` является ложным."
+    }
+  },
+  {
+    "id": "truthy-027",
+    "type": "predict-output",
+    "theme": "логические операторы",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log(5 && 0);`",
+    "answer": "`0`",
+    "explanation": {
+      "en": "`&&` returns the first falsy value or the last value.",
+      "ru": "`&&` возвращает первое ложное значение или последнее значение."
+    }
+  },
+  {
+    "id": "truthy-028",
+    "type": "predict-output",
+    "theme": "отрицание",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log(!!'hello');`",
+    "answer": "`true`",
+    "explanation": {
+      "en": "Double negation converts to boolean; `'hello'` is truthy.",
+      "ru": "Двойное отрицание преобразует в булево значение; `'hello'` истинное."
+    }
+  },
+  {
+    "id": "truthy-029",
+    "type": "yes-no",
+    "theme": "undefined",
+    "question": {
+      "en": "Is `undefined` falsy?",
+      "ru": "Является ли `undefined` ложным?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`undefined` is one of the 7 falsy values.",
+      "ru": "`undefined` — одно из 7 ложных значений."
+    }
+  },
+  {
+    "id": "truthy-030",
+    "type": "predict-output",
+    "theme": "отрицание",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log(!!0);`",
+    "answer": "`false`",
+    "explanation": {
+      "en": "Double negation converts to boolean; `0` is falsy.",
+      "ru": "Двойное отрицание преобразует в булево значение; `0` является ложным."
+    }
+  }
+]

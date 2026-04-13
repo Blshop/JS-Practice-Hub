@@ -1,0 +1,736 @@
+[
+  {
+    "id": "tdz-001",
+    "type": "single-correct",
+    "theme": "TDZ basics",
+    "question": {
+      "en": "What is the Temporal Dead Zone (TDZ)?",
+      "ru": "Что такое Временная мёртвая зона (TDZ)?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "A period when variables are deleted from memory",
+          "ru": "Период, когда переменные удаляются из памяти"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "A time when `let` and `const` variables exist but are uninitialized",
+          "ru": "Время, когда переменные `let` и `const` существуют, но не инициализированы"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "A debugging feature in JavaScript engines",
+          "ru": "Функция отладки в движках JavaScript"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "A memory optimization technique",
+          "ru": "Техника оптимизации памяти"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "The TDZ is the period between entering a scope and the actual declaration of `let` or `const` variables, during which they cannot be accessed.",
+      "ru": "TDZ — это период между входом в область видимости и фактическим объявлением переменных `let` или `const`, в течение которого к ним нельзя получить доступ."
+    }
+  },
+  {
+    "id": "tdz-002",
+    "type": "single-correct",
+    "theme": "TDZ variables",
+    "question": {
+      "en": "Which variables are affected by the Temporal Dead Zone?",
+      "ru": "Какие переменные подвержены Временной мёртвой зоне?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`var` only",
+          "ru": "Только `var`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`let` and `const`",
+          "ru": "`let` и `const`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "All variable types",
+          "ru": "Все типы переменных"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Function declarations",
+          "ru": "Объявления функций"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Only `let` and `const` variables experience the TDZ. `var` is initialized with `undefined` when hoisted.",
+      "ru": "Только переменные `let` и `const` испытывают TDZ. `var` инициализируется значением `undefined` при поднятии."
+    }
+  },
+  {
+    "id": "tdz-003",
+    "type": "predict-output",
+    "theme": "TDZ error",
+    "question": {
+      "en": "What will happen?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`console.log(x);`\n`let x = 5;`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "Accessing a `let` variable before its declaration throws a ReferenceError due to the TDZ.",
+      "ru": "Обращение к переменной `let` до её объявления вызывает ReferenceError из-за TDZ."
+    }
+  },
+  {
+    "id": "tdz-004",
+    "type": "predict-output",
+    "theme": "TDZ with const",
+    "question": {
+      "en": "What will happen?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`console.log(y);`\n`const y = 10;`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "`const` variables also experience the TDZ and cannot be accessed before declaration.",
+      "ru": "Переменные `const` также испытывают TDZ и не могут быть доступны до объявления."
+    }
+  },
+  {
+    "id": "tdz-005",
+    "type": "yes-no",
+    "theme": "TDZ hoisting",
+    "question": {
+      "en": "Are `let` and `const` variables hoisted?",
+      "ru": "Поднимаются ли переменные `let` и `const`?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`let` and `const` are hoisted but remain uninitialized, creating the TDZ.",
+      "ru": "`let` и `const` поднимаются, но остаются неинициализированными, создавая TDZ."
+    }
+  },
+  {
+    "id": "tdz-006",
+    "type": "single-correct",
+    "theme": "TDZ duration",
+    "question": {
+      "en": "When does the TDZ end for a variable?",
+      "ru": "Когда заканчивается TDZ для переменной?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "When the scope is entered",
+          "ru": "Когда входят в область видимости"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "When the variable declaration is executed",
+          "ru": "Когда выполняется объявление переменной"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "When the variable is first used",
+          "ru": "Когда переменная впервые используется"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "When the scope is exited",
+          "ru": "Когда выходят из области видимости"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "The TDZ ends when the variable declaration line is executed, making the variable accessible.",
+      "ru": "TDZ заканчивается, когда выполняется строка объявления переменной, делая переменную доступной."
+    }
+  },
+  {
+    "id": "tdz-007",
+    "type": "predict-output",
+    "theme": "TDZ in blocks",
+    "question": {
+      "en": "What will happen?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`{`\n`  console.log(a);`\n`  let a = 1;`\n`}`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "The TDZ applies within block scope as well.",
+      "ru": "TDZ применяется и в блочной области видимости."
+    }
+  },
+  {
+    "id": "tdz-008",
+    "type": "yes-no",
+    "theme": "TDZ typeof",
+    "question": {
+      "en": "Does `typeof` work on variables in the TDZ?",
+      "ru": "Работает ли `typeof` с переменными в TDZ?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "`typeof` on a TDZ variable throws a ReferenceError, unlike undeclared variables which return 'undefined'.",
+      "ru": "`typeof` для переменной в TDZ вызывает ReferenceError, в отличие от необъявленных переменных, которые возвращают 'undefined'."
+    }
+  },
+  {
+    "id": "tdz-009",
+    "type": "predict-output",
+    "theme": "TDZ typeof",
+    "question": {
+      "en": "What will happen?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`console.log(typeof x);`\n`let x = 5;`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "Using `typeof` on a variable in TDZ throws ReferenceError.",
+      "ru": "Использование `typeof` для переменной в TDZ вызывает ReferenceError."
+    }
+  },
+  {
+    "id": "tdz-010",
+    "type": "multiple-correct",
+    "theme": "TDZ characteristics",
+    "question": {
+      "en": "Which statements about TDZ are true?",
+      "ru": "Какие утверждения о TDZ верны?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Variables exist but are uninitialized",
+          "ru": "Переменные существуют, но не инициализированы"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Accessing them throws ReferenceError",
+          "ru": "Обращение к ним вызывает ReferenceError"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "It only affects `var` variables",
+          "ru": "Это влияет только на переменные `var`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`typeof` also throws ReferenceError",
+          "ru": "`typeof` также вызывает ReferenceError"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "d"],
+    "explanation": {
+      "en": "TDZ affects `let` and `const`, not `var`. Variables exist but are uninitialized, and any access throws ReferenceError.",
+      "ru": "TDZ влияет на `let` и `const`, а не на `var`. Переменные существуют, но не инициализированы, и любое обращение вызывает ReferenceError."
+    }
+  },
+  {
+    "id": "tdz-011",
+    "type": "predict-output",
+    "theme": "TDZ function parameters",
+    "question": {
+      "en": "What will happen?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`function test(a = b, b = 2) {`\n`  return a + b;`\n`}`\n`test();`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "Parameter `b` is in TDZ when used as default value for parameter `a`.",
+      "ru": "Параметр `b` находится в TDZ, когда используется как значение по умолчанию для параметра `a`."
+    }
+  },
+  {
+    "id": "tdz-012",
+    "type": "single-correct",
+    "theme": "TDZ vs var",
+    "question": {
+      "en": "What's the main difference between `var` and `let` hoisting?",
+      "ru": "В чём основное различие между поднятием `var` и `let`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`var` is not hoisted at all",
+          "ru": "`var` вообще не поднимается"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`var` is initialized with `undefined`, `let` creates TDZ",
+          "ru": "`var` инициализируется `undefined`, `let` создаёт TDZ"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`let` is not hoisted at all",
+          "ru": "`let` вообще не поднимается"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "There is no difference",
+          "ru": "Различий нет"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Both are hoisted, but `var` gets initialized with `undefined` while `let` remains uninitialized in TDZ.",
+      "ru": "Оба поднимаются, но `var` инициализируется `undefined`, а `let` остаётся неинициализированной в TDZ."
+    }
+  },
+  {
+    "id": "tdz-013",
+    "type": "predict-output",
+    "theme": "TDZ class",
+    "question": {
+      "en": "What will happen?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`console.log(MyClass);`\n`class MyClass {}`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "Class declarations also experience TDZ and cannot be accessed before declaration.",
+      "ru": "Объявления классов также испытывают TDZ и не могут быть доступны до объявления."
+    }
+  },
+  {
+    "id": "tdz-014",
+    "type": "yes-no",
+    "theme": "TDZ classes",
+    "question": {
+      "en": "Do class declarations have a Temporal Dead Zone?",
+      "ru": "Имеют ли объявления классов Временную мёртвую зону?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Class declarations behave like `let` and `const` and have a TDZ.",
+      "ru": "Объявления классов ведут себя как `let` и `const` и имеют TDZ."
+    }
+  },
+  {
+    "id": "tdz-015",
+    "type": "predict-output",
+    "theme": "TDZ nested scope",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 1;`\n`{`\n`  console.log(x);`\n`  let x = 2;`\n`}`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "The inner `let x` creates a TDZ that shadows the outer `x` from the beginning of the block.",
+      "ru": "Внутренняя `let x` создаёт TDZ, которая затеняет внешнюю `x` с начала блока."
+    }
+  },
+  {
+    "id": "tdz-016",
+    "type": "single-correct",
+    "theme": "TDZ error type",
+    "question": {
+      "en": "What error is thrown when accessing a variable in TDZ?",
+      "ru": "Какая ошибка выбрасывается при обращении к переменной в TDZ?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`TypeError`",
+          "ru": "`TypeError`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`ReferenceError`",
+          "ru": "`ReferenceError`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`SyntaxError`",
+          "ru": "`SyntaxError`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`RangeError`",
+          "ru": "`RangeError`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Accessing variables in TDZ throws a `ReferenceError`.",
+      "ru": "Обращение к переменным в TDZ вызывает `ReferenceError`."
+    }
+  },
+  {
+    "id": "tdz-017",
+    "type": "predict-output",
+    "theme": "TDZ loops",
+    "question": {
+      "en": "What will happen?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`for (let i = 0; i < 1; i++) {`\n`  console.log(j);`\n`  let j = i;`\n`}`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "Variable `j` is in TDZ when accessed before its declaration within the loop block.",
+      "ru": "Переменная `j` находится в TDZ при обращении до её объявления внутри блока цикла."
+    }
+  },
+  {
+    "id": "tdz-018",
+    "type": "multiple-correct",
+    "theme": "TDZ operations",
+    "question": {
+      "en": "Which operations throw ReferenceError in TDZ?",
+      "ru": "Какие операции вызывают ReferenceError в TDZ?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Reading the variable",
+          "ru": "Чтение переменной"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Using `typeof` operator",
+          "ru": "Использование оператора `typeof`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Assigning to the variable",
+          "ru": "Присваивание переменной"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Declaring the variable",
+          "ru": "Объявление переменной"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "Any access to a TDZ variable throws ReferenceError. Declaration ends the TDZ.",
+      "ru": "Любое обращение к переменной в TDZ вызывает ReferenceError. Объявление завершает TDZ."
+    }
+  },
+  {
+    "id": "tdz-019",
+    "type": "yes-no",
+    "theme": "TDZ function expressions",
+    "question": {
+      "en": "Do function expressions assigned to `let` have TDZ?",
+      "ru": "Имеют ли функциональные выражения, присвоенные `let`, TDZ?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Function expressions follow the TDZ rules of their variable declaration (`let` or `const`).",
+      "ru": "Функциональные выражения следуют правилам TDZ их объявления переменной (`let` или `const`)."
+    }
+  },
+  {
+    "id": "tdz-020",
+    "type": "predict-output",
+    "theme": "TDZ function expression",
+    "question": {
+      "en": "What will happen?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`console.log(func());`\n`let func = function() { return 'hello'; };`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "The `let func` is in TDZ, so accessing it before declaration throws ReferenceError.",
+      "ru": "`let func` находится в TDZ, поэтому обращение к ней до объявления вызывает ReferenceError."
+    }
+  },
+  {
+    "id": "tdz-021",
+    "type": "single-correct",
+    "theme": "TDZ switch",
+    "question": {
+      "en": "What happens with `let` in switch statements?",
+      "ru": "Что происходит с `let` в операторах switch?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Each case creates its own scope",
+          "ru": "Каждый case создаёт свою область видимости"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "The entire switch block is one scope",
+          "ru": "Весь блок switch — это одна область видимости"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "TDZ doesn't apply in switch",
+          "ru": "TDZ не применяется в switch"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`let` cannot be used in switch",
+          "ru": "`let` нельзя использовать в switch"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "The entire switch block is treated as one scope, so `let` declarations can cause TDZ issues across cases.",
+      "ru": "Весь блок switch рассматривается как одна область видимости, поэтому объявления `let` могут вызывать проблемы TDZ между case."
+    }
+  },
+  {
+    "id": "tdz-022",
+    "type": "predict-output",
+    "theme": "TDZ switch case",
+    "question": {
+      "en": "What will happen?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`switch (1) {`\n`  case 1:`\n`    console.log(x);`\n`  case 2:`\n`    let x = 5;`\n`}`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "Variable `x` is in TDZ when accessed in case 1, even though it's declared in case 2.",
+      "ru": "Переменная `x` находится в TDZ при обращении в case 1, даже если она объявлена в case 2."
+    }
+  },
+  {
+    "id": "tdz-023",
+    "type": "yes-no",
+    "theme": "TDZ arrow functions",
+    "question": {
+      "en": "Do arrow functions assigned to `const` have TDZ?",
+      "ru": "Имеют ли стрелочные функции, присвоенные `const`, TDZ?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Arrow functions follow the TDZ rules of their variable declaration type.",
+      "ru": "Стрелочные функции следуют правилам TDZ их типа объявления переменной."
+    }
+  },
+  {
+    "id": "tdz-024",
+    "type": "predict-output",
+    "theme": "TDZ arrow function",
+    "question": {
+      "en": "What will happen?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`console.log(arrow());`\n`const arrow = () => 'arrow function';`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "The `const arrow` is in TDZ before its declaration line.",
+      "ru": "`const arrow` находится в TDZ до строки её объявления."
+    }
+  },
+  {
+    "id": "tdz-025",
+    "type": "multiple-correct",
+    "theme": "TDZ best practices",
+    "question": {
+      "en": "How can you avoid TDZ issues?",
+      "ru": "Как можно избежать проблем с TDZ?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Declare variables at the top of their scope",
+          "ru": "Объявлять переменные в начале их области видимости"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Use `var` instead of `let`/`const`",
+          "ru": "Использовать `var` вместо `let`/`const`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Initialize variables when declaring them",
+          "ru": "Инициализировать переменные при их объявлении"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Use proper linting tools",
+          "ru": "Использовать подходящие инструменты линтинга"
+        }
+      }
+    ],
+    "correctIds": ["a", "c", "d"],
+    "explanation": {
+      "en": "Declaring at the top, initializing when declaring, and using linters help avoid TDZ. Using `var` defeats the purpose of block scoping.",
+      "ru": "Объявление в начале, инициализация при объявлении и использование линтеров помогают избежать TDZ. Использование `var` лишает смысла блочную область видимости."
+    }
+  },
+  {
+    "id": "tdz-026",
+    "type": "predict-output",
+    "theme": "TDZ destructuring",
+    "question": {
+      "en": "What will happen?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`console.log(a);`\n`let [a, b] = [1, 2];`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "Destructuring assignments also follow TDZ rules for `let` and `const`.",
+      "ru": "Деструктурирующие присваивания также следуют правилам TDZ для `let` и `const`."
+    }
+  },
+  {
+    "id": "tdz-027",
+    "type": "single-correct",
+    "theme": "TDZ scope boundary",
+    "question": {
+      "en": "When does TDZ start for a variable?",
+      "ru": "Когда начинается TDZ для переменной?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "When the variable is first accessed",
+          "ru": "Когда к переменной впервые обращаются"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "When entering the scope containing the variable",
+          "ru": "При входе в область видимости, содержащую переменную"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "When the variable is declared",
+          "ru": "Когда переменная объявляется"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "TDZ doesn't have a start point",
+          "ru": "TDZ не имеет точки начала"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "TDZ starts when entering the scope and ends when the variable declaration is executed.",
+      "ru": "TDZ начинается при входе в область видимости и заканчивается при выполнении объявления переменной."
+    }
+  },
+  {
+    "id": "tdz-028",
+    "type": "predict-output",
+    "theme": "TDZ complex",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`function test() {`\n`  console.log(typeof x);`\n`  let x = 1;`\n`  console.log(typeof x);`\n`}`\n`test();`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "The first `typeof x` throws ReferenceError because `x` is in TDZ.",
+      "ru": "Первый `typeof x` вызывает ReferenceError, потому что `x` находится в TDZ."
+    }
+  },
+  {
+    "id": "tdz-029",
+    "type": "yes-no",
+    "theme": "TDZ global scope",
+    "question": {
+      "en": "Does TDZ apply to global scope variables?",
+      "ru": "Применяется ли TDZ к переменным глобальной области видимости?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "TDZ applies to `let` and `const` variables in any scope, including global scope.",
+      "ru": "TDZ применяется к переменным `let` и `const` в любой области видимости, включая глобальную."
+    }
+  },
+  {
+    "id": "tdz-030",
+    "type": "predict-output",
+    "theme": "TDZ initialization",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = x + 1;`\n`console.log(x);`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "The variable `x` is in TDZ when used in its own initialization expression.",
+      "ru": "Переменная `x` находится в TDZ при использовании в собственном выражении инициализации."
+    }
+  }
+]

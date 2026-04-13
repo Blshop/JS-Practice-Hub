@@ -1,0 +1,824 @@
+[
+  {
+    "id": "closure-001",
+    "type": "single-correct",
+    "theme": "closure basics",
+    "question": {
+      "en": "What is a closure in JavaScript?",
+      "ru": "Что такое замыкание в JavaScript?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "A function that returns another function",
+          "ru": "Функция, которая возвращает другую функцию"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "A function that has access to variables from its outer scope",
+          "ru": "Функция, которая имеет доступ к переменным из внешней области видимости"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "A function that is immediately invoked",
+          "ru": "Функция, которая немедленно вызывается"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "A function without parameters",
+          "ru": "Функция без параметров"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "A closure is a function that has access to variables from its outer (enclosing) scope even after the outer function has returned.",
+      "ru": "Замыкание — это функция, которая имеет доступ к переменным из внешней области видимости даже после того, как внешняя функция завершила выполнение."
+    }
+  },
+  {
+    "id": "closure-002",
+    "type": "single-correct",
+    "theme": "lexical scoping",
+    "question": {
+      "en": "What enables closures to work?",
+      "ru": "Что позволяет замыканиям работать?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Dynamic scoping",
+          "ru": "Динамическая область видимости"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Lexical scoping",
+          "ru": "Лексическая область видимости"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Global scoping",
+          "ru": "Глобальная область видимости"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Block scoping",
+          "ru": "Блочная область видимость"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Lexical scoping means functions have access to variables in the scope where they were defined, not where they are called.",
+      "ru": "Лексическая область видимости означает, что функции имеют доступ к переменным в области, где они были определены, а не где они вызываются."
+    }
+  },
+  {
+    "id": "closure-003",
+    "type": "single-correct",
+    "theme": "closure creation",
+    "question": {
+      "en": "When is a closure created?",
+      "ru": "Когда создается замыкание?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "When a function is called",
+          "ru": "Когда функция вызывается"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "When a function is defined",
+          "ru": "Когда функция определяется"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "When a variable is declared",
+          "ru": "Когда переменная объявляется"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "When a function returns",
+          "ru": "Когда функция возвращается"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "A closure is created when a function is defined, capturing the lexical environment at that moment.",
+      "ru": "Замыкание создается при определении функции, захватывая лексическое окружение в этот момент."
+    }
+  },
+  {
+    "id": "closure-004",
+    "type": "predict-output",
+    "theme": "basic closure",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`function outer() {`\n`  let x = 10;`\n`  return function() {`\n`    console.log(x);`\n`  };`\n`}`\n`const inner = outer();`\n`inner();`",
+    "answer": "`10`",
+    "explanation": {
+      "en": "The inner function has access to the variable `x` from its outer scope through closure.",
+      "ru": "Внутренняя функция имеет доступ к переменной `x` из внешней области видимости через замыкание."
+    }
+  },
+  {
+    "id": "closure-005",
+    "type": "predict-output",
+    "theme": "closure with modification",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`function counter() {`\n`  let count = 0;`\n`  return function() {`\n`    count++;`\n`    return count;`\n`  };`\n`}`\n`const inc = counter();`\n`console.log(inc());`\n`console.log(inc());`",
+    "answer": "1\n2",
+    "explanation": {
+      "en": "The closure maintains the state of `count` between function calls.",
+      "ru": "Замыкание сохраняет состояние `count` между вызовами функции."
+    }
+  },
+  {
+    "id": "closure-006",
+    "type": "yes-no",
+    "theme": "closure persistence",
+    "question": {
+      "en": "Do closures persist after the outer function returns?",
+      "ru": "Сохраняются ли замыкания после возврата внешней функции?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Closures keep references to their outer scope variables even after the outer function has finished executing.",
+      "ru": "Замыкания сохраняют ссылки на переменные внешней области видимости даже после завершения выполнения внешней функции."
+    }
+  },
+  {
+    "id": "closure-007",
+    "type": "single-correct",
+    "theme": "closure in loops",
+    "question": {
+      "en": "What will this code print?",
+      "ru": "Что выведет этот код?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "0, 1, 2",
+          "ru": "0, 1, 2"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "3, 3, 3",
+          "ru": "3, 3, 3"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "undefined, undefined, undefined",
+          "ru": "undefined, undefined, undefined"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Error",
+          "ru": "Ошибка"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "With `var`, all functions share the same `i` variable, which equals 3 after the loop.",
+      "ru": "С `var` все функции разделяют одну переменную `i`, которая равна 3 после цикла."
+    }
+  },
+  {
+    "id": "closure-008",
+    "type": "multiple-correct",
+    "theme": "closure characteristics",
+    "question": {
+      "en": "Which statements about closures are true?",
+      "ru": "Какие утверждения о замыканиях верны?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "They can access outer function variables",
+          "ru": "Они могут получать доступ к переменным внешней функции"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "They can modify outer function variables",
+          "ru": "Они могут изменять переменные внешней функции"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "They are created only with arrow functions",
+          "ru": "Они создаются только со стрелочными функциями"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "They persist after outer function returns",
+          "ru": "Они сохраняются после возврата внешней функции"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "d"],
+    "explanation": {
+      "en": "Closures can access and modify outer variables and persist after the outer function returns. They work with all function types.",
+      "ru": "Замыкания могут получать доступ и изменять внешние переменные и сохраняются после возврата внешней функции. Они работают со всеми типами функций."
+    }
+  },
+  {
+    "id": "closure-009",
+    "type": "predict-output",
+    "theme": "multiple closures",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`function createCounter() {`\n`  let count = 0;`\n`  return function() { return ++count; };`\n`}`\n`const counter1 = createCounter();`\n`const counter2 = createCounter();`\n`console.log(counter1());`\n`console.log(counter2());`\n`console.log(counter1());`",
+    "answer": "1\n1\n2",
+    "explanation": {
+      "en": "Each call to `createCounter` creates a new closure with its own `count` variable.",
+      "ru": "Каждый вызов `createCounter` создает новое замыкание со своей собственной переменной `count`."
+    }
+  },
+  {
+    "id": "closure-010",
+    "type": "single-correct",
+    "theme": "closure memory",
+    "question": {
+      "en": "What happens to variables captured by closures?",
+      "ru": "Что происходит с переменными, захваченными замыканиями?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "They are copied to the closure",
+          "ru": "Они копируются в замыкание"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "They are referenced by the closure",
+          "ru": "На них ссылается замыкание"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "They are deleted after outer function returns",
+          "ru": "Они удаляются после возврата внешней функции"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "They become global variables",
+          "ru": "Они становятся глобальными переменными"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Closures maintain references to variables, not copies. Changes to the variable are reflected in all closures that reference it.",
+      "ru": "Замыкания сохраняют ссылки на переменные, а не копии. Изменения переменной отражаются во всех замыканиях, которые на неё ссылаются."
+    }
+  },
+  {
+    "id": "closure-011",
+    "type": "predict-output",
+    "theme": "closure with let",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (let i = 0; i < 3; i++) {`\n`  setTimeout(() => console.log(i), 0);`\n`}`",
+    "answer": "0\n1\n2",
+    "explanation": {
+      "en": "`let` creates a new binding for each iteration, so each closure captures a different value of `i`.",
+      "ru": "`let` создает новую привязку для каждой итерации, поэтому каждое замыкание захватывает разное значение `i`."
+    }
+  },
+  {
+    "id": "closure-012",
+    "type": "predict-output",
+    "theme": "closure with var",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (var i = 0; i < 3; i++) {`\n`  setTimeout(() => console.log(i), 0);`\n`}`",
+    "answer": "3\n3\n3",
+    "explanation": {
+      "en": "`var` is function-scoped, so all closures share the same `i` variable, which equals 3 after the loop.",
+      "ru": "`var` имеет функциональную область видимости, поэтому все замыкания разделяют одну переменную `i`, которая равна 3 после цикла."
+    }
+  },
+  {
+    "id": "closure-013",
+    "type": "yes-no",
+    "theme": "closure and arrow functions",
+    "question": {
+      "en": "Can arrow functions create closures?",
+      "ru": "Могут ли стрелочные функции создавать замыкания?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Arrow functions can create closures just like regular functions.",
+      "ru": "Стрелочные функции могут создавать замыкания так же, как и обычные функции."
+    }
+  },
+  {
+    "id": "closure-014",
+    "type": "single-correct",
+    "theme": "IIFE and closures",
+    "question": {
+      "en": "What pattern can fix the var loop closure problem?",
+      "ru": "Какой паттерн может исправить проблему замыкания с var в цикле?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Using `const` instead of `var`",
+          "ru": "Использование `const` вместо `var`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Using IIFE (Immediately Invoked Function Expression)",
+          "ru": "Использование IIFE (немедленно вызываемое функциональное выражение)"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Using global variables",
+          "ru": "Использование глобальных переменных"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Using `this` keyword",
+          "ru": "Использование ключевого слова `this`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "IIFE creates a new scope for each iteration, capturing the current value of the loop variable.",
+      "ru": "IIFE создает новую область видимости для каждой итерации, захватывая текущее значение переменной цикла."
+    }
+  },
+  {
+    "id": "closure-015",
+    "type": "predict-output",
+    "theme": "closure modification",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`function outer() {`\n`  let x = 1;`\n`  function inner() {`\n`    x = x + 1;`\n`    return x;`\n`  }`\n`  return inner;`\n`}`\n`const fn = outer();`\n`console.log(fn());`\n`console.log(fn());`",
+    "answer": "2\n3",
+    "explanation": {
+      "en": "The closure modifies the captured variable `x`, and the changes persist between calls.",
+      "ru": "Замыкание изменяет захваченную переменную `x`, и изменения сохраняются между вызовами."
+    }
+  },
+  {
+    "id": "closure-016",
+    "type": "multiple-correct",
+    "theme": "closure use cases",
+    "question": {
+      "en": "What are common use cases for closures?",
+      "ru": "Каковы распространенные случаи использования замыканий?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Data privacy and encapsulation",
+          "ru": "Приватность данных и инкапсуляция"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Creating function factories",
+          "ru": "Создание фабрик функций"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Event handlers with state",
+          "ru": "Обработчики событий с состоянием"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Module patterns",
+          "ru": "Модульные паттерны"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c", "d"],
+    "explanation": {
+      "en": "Closures are used for data privacy, function factories, stateful event handlers, and module patterns.",
+      "ru": "Замыкания используются для приватности данных, фабрик функций, обработчиков событий с состоянием и модульных паттернов."
+    }
+  },
+  {
+    "id": "closure-017",
+    "type": "predict-output",
+    "theme": "nested closures",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`function a() {`\n`  let x = 1;`\n`  function b() {`\n`    let y = 2;`\n`    function c() {`\n`      console.log(x + y);`\n`    }`\n`    return c;`\n`  }`\n`  return b;`\n`}`\n`a()()();`",
+    "answer": "`3`",
+    "explanation": {
+      "en": "Nested closures can access variables from all outer scopes.",
+      "ru": "Вложенные замыкания могут получать доступ к переменным из всех внешних областей видимости."
+    }
+  },
+  {
+    "id": "closure-018",
+    "type": "yes-no",
+    "theme": "closure and garbage collection",
+    "question": {
+      "en": "Can closures prevent garbage collection of variables?",
+      "ru": "Могут ли замыкания предотвратить сборку мусора переменных?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Closures keep references to variables, preventing them from being garbage collected until the closure itself is no longer referenced.",
+      "ru": "Замыкания сохраняют ссылки на переменные, предотвращая их сборку мусора до тех пор, пока само замыкание не перестанет быть доступным."
+    }
+  },
+  {
+    "id": "closure-019",
+    "type": "single-correct",
+    "theme": "closure and this",
+    "question": {
+      "en": "How do closures interact with the `this` keyword?",
+      "ru": "Как замыкания взаимодействуют с ключевым словом `this`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`this` is always captured by closures",
+          "ru": "`this` всегда захватывается замыканиями"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`this` is never captured by closures",
+          "ru": "`this` никогда не захватывается замыканиями"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`this` is determined by how the function is called",
+          "ru": "`this` определяется тем, как вызывается функция"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`this` becomes undefined in closures",
+          "ru": "`this` становится undefined в замыканиях"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "`this` is not captured by closures; it's determined by how the function is called, not where it's defined.",
+      "ru": "`this` не захватывается замыканиями; оно определяется тем, как функция вызывается, а не где она определена."
+    }
+  },
+  {
+    "id": "closure-020",
+    "type": "predict-output",
+    "theme": "closure with parameters",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`function multiplier(factor) {`\n`  return function(number) {`\n`    return number * factor;`\n`  };`\n`}`\n`const double = multiplier(2);`\n`const triple = multiplier(3);`\n`console.log(double(5));`\n`console.log(triple(4));`",
+    "answer": "10\n12",
+    "explanation": {
+      "en": "Each closure captures its own `factor` parameter value.",
+      "ru": "Каждое замыкание захватывает свое собственное значение параметра `factor`."
+    }
+  },
+  {
+    "id": "closure-021",
+    "type": "single-correct",
+    "theme": "module pattern",
+    "question": {
+      "en": "What does the module pattern use closures for?",
+      "ru": "Для чего модульный паттерн использует замыкания?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "To create public methods only",
+          "ru": "Только для создания публичных методов"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "To create private variables and methods",
+          "ru": "Для создания приватных переменных и методов"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "To improve performance",
+          "ru": "Для улучшения производительности"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "To handle errors",
+          "ru": "Для обработки ошибок"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "The module pattern uses closures to create private variables and methods that are not accessible from outside.",
+      "ru": "Модульный паттерн использует замыкания для создания приватных переменных и методов, недоступных извне."
+    }
+  },
+  {
+    "id": "closure-022",
+    "type": "predict-output",
+    "theme": "closure with setTimeout",
+    "question": {
+      "en": "What will be printed after 1 second?",
+      "ru": "Что будет выведено через 1 секунду?"
+    },
+    "code": "`function delayedLogger(message) {`\n`  setTimeout(function() {`\n`    console.log(message);`\n`  }, 1000);`\n`}`\n`delayedLogger('Hello');`",
+    "answer": "`Hello`",
+    "explanation": {
+      "en": "The closure captures the `message` parameter and retains access to it even after `delayedLogger` returns.",
+      "ru": "Замыкание захватывает параметр `message` и сохраняет доступ к нему даже после возврата `delayedLogger`."
+    }
+  },
+  {
+    "id": "closure-023",
+    "type": "yes-no",
+    "theme": "closure performance",
+    "question": {
+      "en": "Can excessive use of closures cause memory leaks?",
+      "ru": "Может ли чрезмерное использование замыканий вызвать утечки памяти?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Closures can cause memory leaks if they hold references to large objects or DOM elements that are no longer needed.",
+      "ru": "Замыкания могут вызывать утечки памяти, если они держат ссылки на большие объекты или DOM-элементы, которые больше не нужны."
+    }
+  },
+  {
+    "id": "closure-024",
+    "type": "multiple-correct",
+    "theme": "closure scope chain",
+    "question": {
+      "en": "What can a closure access?",
+      "ru": "К чему может получить доступ замыкание?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Its own local variables",
+          "ru": "Свои собственные локальные переменные"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Variables from outer functions",
+          "ru": "Переменные из внешних функций"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Global variables",
+          "ru": "Глобальные переменные"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Parameters of outer functions",
+          "ru": "Параметры внешних функций"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c", "d"],
+    "explanation": {
+      "en": "Closures have access to the entire scope chain: local variables, outer function variables and parameters, and global variables.",
+      "ru": "Замыкания имеют доступ ко всей цепочке областей видимости: локальным переменным, переменным и параметрам внешних функций, и глобальным переменным."
+    }
+  },
+  {
+    "id": "closure-025",
+    "type": "predict-output",
+    "theme": "closure with bind",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`function outer(x) {`\n`  return function(y) {`\n`    return x + y;`\n`  };`\n`}`\n`const addFive = outer(5);`\n`console.log(addFive(3));`",
+    "answer": "`8`",
+    "explanation": {
+      "en": "The closure captures the parameter `x` with value 5, then adds it to the argument 3.",
+      "ru": "Замыкание захватывает параметр `x` со значением 5, затем добавляет его к аргументу 3."
+    }
+  },
+  {
+    "id": "closure-026",
+    "type": "single-correct",
+    "theme": "closure vs global",
+    "question": {
+      "en": "What is an advantage of using closures over global variables?",
+      "ru": "Каково преимущество использования замыканий перед глобальными переменными?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Better performance",
+          "ru": "Лучшая производительность"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Data encapsulation and privacy",
+          "ru": "Инкапсуляция и приватность данных"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Easier debugging",
+          "ru": "Более простая отладка"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Automatic memory management",
+          "ru": "Автоматическое управление памятью"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Closures provide data encapsulation and privacy, preventing external code from directly accessing or modifying internal state.",
+      "ru": "Замыкания обеспечивают инкапсуляцию и приватность данных, предотвращая прямой доступ или изменение внутреннего состояния внешним кодом."
+    }
+  },
+  {
+    "id": "closure-027",
+    "type": "predict-output",
+    "theme": "closure with array methods",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const numbers = [1, 2, 3];`\n`const multiplier = 2;`\n`const doubled = numbers.map(function(num) {`\n`  return num * multiplier;`\n`});`\n`console.log(doubled);`",
+    "answer": "`[2, 4, 6]`",
+    "explanation": {
+      "en": "The callback function in `map` creates a closure that captures the `multiplier` variable.",
+      "ru": "Функция обратного вызова в `map` создает замыкание, которое захватывает переменную `multiplier`."
+    }
+  },
+  {
+    "id": "closure-028",
+    "type": "yes-no",
+    "theme": "closure and recursion",
+    "question": {
+      "en": "Can closures be used with recursive functions?",
+      "ru": "Могут ли замыкания использоваться с рекурсивными функциями?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Closures work perfectly with recursive functions, allowing them to access variables from their outer scope.",
+      "ru": "Замыкания отлично работают с рекурсивными функциями, позволяя им получать доступ к переменным из внешней области видимости."
+    }
+  },
+  {
+    "id": "closure-029",
+    "type": "predict-output",
+    "theme": "closure state sharing",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`function createSharedCounter() {`\n`  let count = 0;`\n`  return {`\n`    increment: () => ++count,`\n`    decrement: () => --count,`\n`    value: () => count`\n`  };`\n`}`\n`const counter = createSharedCounter();`\n`console.log(counter.increment());`\n`console.log(counter.increment());`\n`console.log(counter.decrement());`",
+    "answer": "1\n2\n1",
+    "explanation": {
+      "en": "All methods share the same `count` variable through closures, so they operate on the same state.",
+      "ru": "Все методы разделяют одну переменную `count` через замыкания, поэтому они работают с одним состоянием."
+    }
+  },
+  {
+    "id": "closure-030",
+    "type": "single-correct",
+    "theme": "closure best practices",
+    "question": {
+      "en": "What is a best practice when using closures?",
+      "ru": "Какая лучшая практика при использовании замыканий?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Always use global variables instead",
+          "ru": "Всегда использовать глобальные переменные вместо них"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Avoid capturing large objects unnecessarily",
+          "ru": "Избегать ненужного захвата больших объектов"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Use closures for all variables",
+          "ru": "Использовать замыкания для всех переменных"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Never use closures with event handlers",
+          "ru": "Никогда не использовать замыкания с обработчиками событий"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Avoid capturing large objects or DOM elements in closures unnecessarily, as this can lead to memory leaks.",
+      "ru": "Избегайте ненужного захвата больших объектов или DOM-элементов в замыканиях, так как это может привести к утечкам памяти."
+    }
+  }
+]

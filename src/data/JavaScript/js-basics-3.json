@@ -5,42 +5,42 @@
     "theme": "coercion basics",
     "question": {
       "en": "What does JavaScript use when comparing values with `==`?",
-      "ru": "What does JavaScript use when comparing values with `==`?"
+      "ru": "Что использует JavaScript при сравнении значений с помощью `==`?"
     },
     "options": [
       {
         "id": "a",
         "text": {
           "en": "Strict comparison",
-          "ru": "Strict comparison"
+          "ru": "Строгое сравнение"
         }
       },
       {
         "id": "b",
         "text": {
           "en": "Type coercion",
-          "ru": "Type coercion"
+          "ru": "Приведение типов"
         }
       },
       {
         "id": "c",
         "text": {
           "en": "Reference comparison",
-          "ru": "Reference comparison"
+          "ru": "Сравнение по ссылке"
         }
       },
       {
         "id": "d",
         "text": {
           "en": "Bitwise comparison",
-          "ru": "Bitwise comparison"
+          "ru": "Побитовое сравнение"
         }
       }
     ],
     "correctId": "b",
     "explanation": {
       "en": "`==` performs type coercion before comparing values.",
-      "ru": "`==` performs type coercion before comparing values."
+      "ru": "`==` выполняет приведение типов перед сравнением значений."
     }
   },
   {
@@ -49,42 +49,42 @@
     "theme": "strict equality",
     "question": {
       "en": "What does `===` do?",
-      "ru": "What does `===` do?"
+      "ru": "Что делает `===`?"
     },
     "options": [
       {
         "id": "a",
         "text": {
           "en": "Coerces types then compares",
-          "ru": "Coerces types then compares"
+          "ru": "Приводит типы, затем сравнивает"
         }
       },
       {
         "id": "b",
         "text": {
           "en": "Compares values only",
-          "ru": "Compares values only"
+          "ru": "Сравнивает только значения"
         }
       },
       {
         "id": "c",
         "text": {
           "en": "Compares values and types",
-          "ru": "Compares values and types"
+          "ru": "Сравнивает значения и типы"
         }
       },
       {
         "id": "d",
         "text": {
           "en": "Converts both values to strings",
-          "ru": "Converts both values to strings"
+          "ru": "Преобразует оба значения в строки"
         }
       }
     ],
     "correctId": "c",
     "explanation": {
       "en": "`===` compares both value and type without coercion.",
-      "ru": "`===` compares both value and type without coercion."
+      "ru": "`===` сравнивает и значение, и тип без приведения."
     }
   },
   {
@@ -93,7 +93,7 @@
     "theme": "truthy falsy",
     "question": {
       "en": "Which value is falsy?",
-      "ru": "Which value is falsy?"
+      "ru": "Какое значение является ложным (falsy)?"
     },
     "options": [
       {
@@ -128,7 +128,7 @@
     "correctId": "c",
     "explanation": {
       "en": "The falsy values include: `0`, `''`, `false`, `null`, `undefined`, and `NaN`.",
-      "ru": "The falsy values include: `0`, `''`, `false`, `null`, `undefined`, and `NaN`."
+      "ru": "Ложные значения включают: `0`, `''`, `false`, `null`, `undefined` и `NaN`."
     }
   },
   {
@@ -137,7 +137,7 @@
     "theme": "string coercion",
     "question": {
       "en": "What is the result of `'5' + 3`?",
-      "ru": "What is the result of `'5' + 3`?"
+      "ru": "Каков результат `'5' + 3`?"
     },
     "options": [
       {
@@ -172,7 +172,7 @@
     "correctId": "b",
     "explanation": {
       "en": "The `+` operator triggers string concatenation when one operand is a string.",
-      "ru": "The `+` operator triggers string concatenation when one operand is a string."
+      "ru": "Оператор `+` вызывает конкатенацию строк, когда один операнд является строкой."
     }
   },
   {
@@ -181,7 +181,7 @@
     "theme": "numeric coercion",
     "question": {
       "en": "What is the result of `'5' - 3`?",
-      "ru": "What is the result of `'5' - 3`?"
+      "ru": "Каков результат `'5' - 3`?"
     },
     "options": [
       {
@@ -216,7 +216,7 @@
     "correctId": "a",
     "explanation": {
       "en": "The `-` operator forces numeric coercion.",
-      "ru": "The `-` operator forces numeric coercion."
+      "ru": "Оператор `-` принудительно выполняет числовое приведение."
     }
   },
   {
@@ -475,11 +475,7 @@
         }
       }
     ],
-    "correctIds": [
-      "a",
-      "b",
-      "c"
-    ],
+    "correctIds": ["a", "b", "c"],
     "explanation": {
       "en": "`0`, `''`, and `NaN` are falsy; `'0'` is truthy.",
       "ru": "`0`, `''` и `NaN` являются ложными; `'0'` — истинное."
@@ -523,11 +519,7 @@
         }
       }
     ],
-    "correctIds": [
-      "a",
-      "b",
-      "c"
-    ],
+    "correctIds": ["a", "b", "c"],
     "explanation": {
       "en": "Invalid numeric conversions produce `NaN`; `null * 2` becomes `0 * 2`.",
       "ru": "Недопустимые числовые преобразования дают `NaN`; `null * 2` становится `0 * 2`."
@@ -571,11 +563,7 @@
         }
       }
     ],
-    "correctIds": [
-      "a",
-      "b",
-      "c"
-    ],
+    "correctIds": ["a", "b", "c"],
     "explanation": {
       "en": "The `+` operator concatenates when one operand is a string.",
       "ru": "Оператор `+` конкатенирует, когда один операнд является строкой."
@@ -826,11 +814,7 @@
         }
       }
     ],
-    "correctIds": [
-      "a",
-      "c",
-      "d"
-    ],
+    "correctIds": ["a", "c", "d"],
     "explanation": {
       "en": "These are classic coercion cases; `'1' == true` is false.",
       "ru": "Это классические случаи приведения; `'1' == true` — false."
@@ -874,11 +858,7 @@
         }
       }
     ],
-    "correctIds": [
-      "a",
-      "b",
-      "d"
-    ],
+    "correctIds": ["a", "b", "d"],
     "explanation": {
       "en": "`true` becomes `1`; `'1'` becomes `1`; `Boolean(1)` returns `true`.",
       "ru": "`true` становится `1`; `'1'` становится `1`; `Boolean(1)` возвращает `true`."
