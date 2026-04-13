@@ -92,6 +92,11 @@ const ru = {
     saveError: 'Не удалось сохранить прогресс. Проверьте интернет и попробуйте снова.',
     quizPassed: 'Квиз пройден успешно!',
     quizFailed: 'Квиз не пройден. Допущено более {{max}} ошибок',
+    yes: 'Да',
+    no: 'Нет',
+    yourAnswer: 'Ваш ответ',
+    incorrectAnswer: 'Неверный ответ',
+    expectedOutput: 'Правильный ответ:',
   },
   learningPath: {
     title: 'Изучение JavaScript',

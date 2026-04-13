@@ -2,6 +2,8 @@ import React from 'react';
 import classNames from 'classnames';
 import Radio from 'components/Radio';
 import HighlightedText from 'components/HighlightedText';
+import { useTranslation } from 'react-i18next';
+import { localize } from 'utils/localize';
 import styles from './SingleCorrectRenderer.module.scss';
 
 import type { SingleCorrectQuestion, AnswerType } from 'types/Questions';
@@ -14,6 +16,7 @@ interface Props {
 }
 
 const SingleCorrectRenderer: React.FC<Props> = ({ question, userAnswer, isChecked, onAnswer }) => {
+  const { i18n } = useTranslation();
   return (
     <div className={styles.options}>
       {question.options.map((opt) => {
@@ -30,7 +33,7 @@ const SingleCorrectRenderer: React.FC<Props> = ({ question, userAnswer, isChecke
             })}
           >
             <Radio
-              label={<HighlightedText text={opt.text} />}
+              label={<HighlightedText text={localize(opt.text, i18n.language)} />}
               name={question.id}
               elementSize="medium"
               checked={isSelected}

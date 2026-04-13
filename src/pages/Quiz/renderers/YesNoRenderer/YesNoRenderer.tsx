@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'components/Button';
 import HighlightedText from 'components/HighlightedText';
+import { useTranslation } from 'react-i18next';
 import styles from './YesNoRenderer.module.scss';
 
 import type { YesNoQuestion, AnswerType } from 'types/Questions';
@@ -13,6 +14,8 @@ interface Props {
 }
 
 const YesNoRenderer: React.FC<Props> = ({ question, userAnswer, isChecked, onAnswer }) => {
+  const { t } = useTranslation();
+
   const getVariant = (value: 'yes' | 'no') => {
     if (!isChecked) {
       return userAnswer === value ? 'info' : 'light';
@@ -25,11 +28,11 @@ const YesNoRenderer: React.FC<Props> = ({ question, userAnswer, isChecked, onAns
   return (
     <div className={styles.yesNo}>
       <Button variant={getVariant('yes')} onClick={() => onAnswer('yes')} disabled={isChecked}>
-        <HighlightedText text="Yes" />
+        <HighlightedText text={t('quiz.yes')} />
       </Button>
 
       <Button variant={getVariant('no')} onClick={() => onAnswer('no')} disabled={isChecked}>
-        <HighlightedText text="No" />
+        <HighlightedText text={t('quiz.no')} />
       </Button>
     </div>
   );
