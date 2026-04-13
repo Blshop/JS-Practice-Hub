@@ -16,6 +16,9 @@ import type { LocalizedString } from 'types/Questions';
 import RobotCat from 'components/RobotCat';
 import type { RobotCatMood } from 'components/RobotCat';
 
+const MAX_QUESTIONS = 10;
+const MAX_MISTAKES = 2;
+
 const QuizPage: React.FC = () => {
   const { state } = useLocation();
   const lessonId = state?.lessonId ?? null;
@@ -42,7 +45,7 @@ const QuizPage: React.FC = () => {
     isSaving,
     saveError,
     retrySave,
-  } = useQuiz(lessonId);
+  } = useQuiz(lessonId, undefined, MAX_QUESTIONS, MAX_MISTAKES);
 
   const translatedSaveError = saveError === 'save_error' ? t('quiz.saveError') : saveError;
   const currentAnswer = currentQuestion ? userAnswers[currentQuestion.id] : undefined;
@@ -111,7 +114,12 @@ const QuizPage: React.FC = () => {
 
         <Text className={styles.percentage}>{t('quiz.noQuestionsDesc')}</Text>
 
-        <Button variant="primary" size="large" onClick={() => navigate(routes.main.mask)}>
+        <Button
+          className={styles.buttonMain}
+          variant="primary"
+          size="large"
+          onClick={() => navigate(routes.main.mask)}
+        >
           {t('quiz.goToStart')}
         </Button>
       </div>
@@ -119,6 +127,9 @@ const QuizPage: React.FC = () => {
   }
 
   if (isFinished) {
+    const mistakesCount = totalQuestions - correctCount;
+    const isPassed = mistakesCount <= MAX_MISTAKES;
+
     return (
       <div className={styles.quiz}>
         <Text tag="h1" bold className={styles.title}>
@@ -136,23 +147,25 @@ const QuizPage: React.FC = () => {
             {correctCount} / {totalQuestions}
           </Text>
 
-          <ProgressBar
-            current={completedCount}
-            total={totalQuestions}
-            label={`Question ${currentIndex + 1} of ${totalQuestions}`}
-            variant="info"
-            positionInfo="top"
-          />
+          {isPassed ? (
+            <Text className={`${styles.resultStatus} ${styles.passed}`}>
+              {t('quiz.quizPassed')}
+            </Text>
+          ) : (
+            <Text className={`${styles.resultStatus} ${styles.failed}`}>
+              {t('quiz.quizFailed', { max: MAX_MISTAKES })}
+            </Text>
+          )}
 
-          <Text className={styles.percentage}>
-            {t('quiz.accuracy', {
-              value: totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0,
-            })}
-          </Text>
+          <div className={styles.resultsActions}>
+            <Button variant="primary" size="large" onClick={resetQuiz}>
+              {t('quiz.tryAgain')}
+            </Button>
 
-          <Button variant="primary" size="large" onClick={resetQuiz}>
-            {t('quiz.tryAgain')}
-          </Button>
+            <Button variant="secondary" size="large" onClick={() => navigate(routes.main.mask)}>
+              {t('quiz.goToStart')}
+            </Button>
+          </div>
         </div>
       </div>
     );

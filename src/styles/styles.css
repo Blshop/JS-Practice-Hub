@@ -42,6 +42,7 @@ html,
 }
 
 html[data-theme='dark'] {
+  color-scheme: dark;
   --color-neutral-900: #e8e8e8;
   --color-neutral-500: #a8a8a8;
   --color-neutral-300: #666666;

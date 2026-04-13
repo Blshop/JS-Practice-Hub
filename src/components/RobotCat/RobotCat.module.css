@@ -16,7 +16,9 @@
   background: linear-gradient(160deg, #b0c4de 0%, #8aaac8 100%);
   border-radius: 40% 40% 45% 45%;
   border: 2px solid #6a8faf;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.18), inset 0 1px 3px rgba(255,255,255,0.35);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.18),
+    inset 0 1px 3px rgba(255, 255, 255, 0.35);
 }
 
 .ear {
@@ -28,8 +30,14 @@
   border: 2px solid #6a8faf;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
-.earLeft  { left: 6px;  transform: rotate(-10deg); }
-.earRight { right: 6px; transform: rotate(10deg); }
+.earLeft {
+  left: 6px;
+  transform: rotate(-10deg);
+}
+.earRight {
+  right: 6px;
+  transform: rotate(10deg);
+}
 
 .earInner {
   position: absolute;
@@ -146,7 +154,7 @@
   height: 8px;
   background: #4fc3f7;
   border-radius: 50%;
-  box-shadow: 0 0 6px 2px rgba(79,195,247,0.7);
+  box-shadow: 0 0 6px 2px rgba(79, 195, 247, 0.7);
   animation: antennaGlow 2s ease-in-out infinite alternate;
 }
 
@@ -155,11 +163,15 @@
   top: 20px;
   width: 10px;
   height: 6px;
-  background: rgba(255,150,170,0.45);
+  background: rgba(255, 150, 170, 0.45);
   border-radius: 50%;
 }
-.cheekLeft  { left: 3px; }
-.cheekRight { right: 3px; }
+.cheekLeft {
+  left: 3px;
+}
+.cheekRight {
+  right: 3px;
+}
 
 .whiskers {
   position: absolute;
@@ -178,10 +190,30 @@
   border-radius: 1px;
   opacity: 0.7;
 }
-.whiskerLine:nth-child(1) { width: 18px; top: 0;   left: 0;  transform: rotate(-8deg); }
-.whiskerLine:nth-child(2) { width: 18px; top: 6px;  left: 0;  transform: rotate(8deg); }
-.whiskerLine:nth-child(3) { width: 18px; top: 0;   right: 0; transform: rotate(8deg); }
-.whiskerLine:nth-child(4) { width: 18px; top: 6px;  right: 0; transform: rotate(-8deg); }
+.whiskerLine:nth-child(1) {
+  width: 18px;
+  top: 0;
+  left: 0;
+  transform: rotate(-8deg);
+}
+.whiskerLine:nth-child(2) {
+  width: 18px;
+  top: 6px;
+  left: 0;
+  transform: rotate(8deg);
+}
+.whiskerLine:nth-child(3) {
+  width: 18px;
+  top: 0;
+  right: 0;
+  transform: rotate(8deg);
+}
+.whiskerLine:nth-child(4) {
+  width: 18px;
+  top: 6px;
+  right: 0;
+  transform: rotate(-8deg);
+}
 
 .sparkles {
   position: absolute;
@@ -196,9 +228,21 @@
   text-shadow: 0 0 4px #ffb300;
   animation: sparklePop 0.6s ease-out forwards;
 }
-.s1 { top: -8px;   left: -6px;   animation-delay: 0s; }
-.s2 { top: -12px;  right: -4px;  animation-delay: 0.1s; }
-.s3 { top: 4px;    right: -10px; animation-delay: 0.2s; }
+.s1 {
+  top: -8px;
+  left: -6px;
+  animation-delay: 0s;
+}
+.s2 {
+  top: -12px;
+  right: -4px;
+  animation-delay: 0.1s;
+}
+.s3 {
+  top: 4px;
+  right: -10px;
+  animation-delay: 0.2s;
+}
 
 .tears {
   position: absolute;
@@ -215,8 +259,14 @@
   border-radius: 0 0 50% 50%;
   animation: tearDrop 1s ease-in infinite;
 }
-.tearLeft  { left: 12px;  animation-delay: 0s; }
-.tearRight { right: 12px; animation-delay: 0.4s; }
+.tearLeft {
+  left: 12px;
+  animation-delay: 0s;
+}
+.tearRight {
+  right: 12px;
+  animation-delay: 0.4s;
+}
 
 .talking .head {
   animation: headBob 0.45s ease-in-out infinite alternate;
@@ -225,7 +275,7 @@
   animation: antennaPulse 0.5s ease-in-out infinite alternate;
 }
 .talking .cheek {
-  background: rgba(255,150,170,0.6);
+  background: rgba(255, 150, 170, 0.6);
 }
 
 .happy .head {
@@ -233,11 +283,13 @@
 }
 .happy .antennaTip {
   background: #66bb6a;
-  box-shadow: 0 0 10px 4px rgba(102,187,106,0.85);
-  animation: antennaPulse 0.35s ease-in-out 8, antennaGlow 2s ease-in-out infinite alternate;
+  box-shadow: 0 0 10px 4px rgba(102, 187, 106, 0.85);
+  animation:
+    antennaPulse 0.35s ease-in-out 8,
+    antennaGlow 2s ease-in-out infinite alternate;
 }
 .happy .cheek {
-  background: rgba(255,100,130,0.65);
+  background: rgba(255, 100, 130, 0.65);
   animation: cheekPulse 0.4s ease-in-out 4;
 }
 .happy .ear {
@@ -249,83 +301,157 @@
 }
 .sad .antennaTip {
   background: #ef5350;
-  box-shadow: 0 0 8px 3px rgba(239,83,80,0.7);
+  box-shadow: 0 0 8px 3px rgba(239, 83, 80, 0.7);
 }
 .sad .cheek {
-  background: rgba(150,150,200,0.4);
+  background: rgba(150, 150, 200, 0.4);
 }
-.sad .earLeft  { animation: earSad 0.5s ease-in-out forwards; }
-.sad .earRight { animation: earSad 0.5s ease-in-out forwards; }
+.sad .earLeft {
+  animation: earSad 0.5s ease-in-out forwards;
+}
+.sad .earRight {
+  animation: earSad 0.5s ease-in-out forwards;
+}
 
 @keyframes headBob {
-  from { transform: rotate(-4deg) translateY(0); }
-  to   { transform: rotate(4deg)  translateY(-3px); }
+  from {
+    transform: rotate(-4deg) translateY(0);
+  }
+  to {
+    transform: rotate(4deg) translateY(-3px);
+  }
 }
 
 @keyframes happyBounce {
-  0%   { transform: translateY(0)    scale(1); }
-  25%  { transform: translateY(-8px) scale(1.1); }
-  55%  { transform: translateY(0)    scale(0.95); }
-  75%  { transform: translateY(-4px) scale(1.04); }
-  100% { transform: translateY(0)    scale(1); }
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    transform: translateY(-8px) scale(1.1);
+  }
+  55% {
+    transform: translateY(0) scale(0.95);
+  }
+  75% {
+    transform: translateY(-4px) scale(1.04);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
 }
 
 @keyframes sadDroop {
-  0%   { transform: rotate(0deg)   translateY(0); }
-  50%  { transform: rotate(-10deg) translateY(4px); }
-  100% { transform: rotate(-6deg)  translateY(3px); }
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-10deg) translateY(4px);
+  }
+  100% {
+    transform: rotate(-6deg) translateY(3px);
+  }
 }
 
 @keyframes antennaPulse {
-  from { transform: translateX(-50%) scale(1);   opacity: 1; }
-  to   { transform: translateX(-50%) scale(1.6); opacity: 0.5; }
+  from {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-50%) scale(1.6);
+    opacity: 0.5;
+  }
 }
 
 @keyframes lowerLipBounce {
-  from { transform: translateY(0); }
-  to   { transform: translateY(4px); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(4px);
+  }
 }
 
 @keyframes cheekPulse {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.4); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
 }
 
 @keyframes earWiggle {
-  0%   { transform: rotate(-10deg); }
-  40%  { transform: rotate(-20deg) translateY(-3px); }
-  70%  { transform: rotate(-5deg); }
-  100% { transform: rotate(-10deg); }
+  0% {
+    transform: rotate(-10deg);
+  }
+  40% {
+    transform: rotate(-20deg) translateY(-3px);
+  }
+  70% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
 }
 
 @keyframes earSad {
-  to { transform: rotate(-20deg) translateY(3px); }
+  to {
+    transform: rotate(-20deg) translateY(3px);
+  }
 }
 
 @keyframes sparklePop {
-  0%   { opacity: 0; transform: scale(0) rotate(0deg); }
-  50%  { opacity: 1; transform: scale(1.4) rotate(20deg); }
-  100% { opacity: 0; transform: scale(0.8) rotate(40deg) translateY(-8px); }
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.4) rotate(20deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8) rotate(40deg) translateY(-8px);
+  }
 }
 
 @keyframes tearDrop {
-  0%   { opacity: 0; transform: translateY(0) scaleY(0.5); }
-  30%  { opacity: 1; transform: translateY(0) scaleY(1); }
-  100% { opacity: 0; transform: translateY(12px) scaleY(1.2); }
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleY(0.5);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(12px) scaleY(1.2);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%      { transform: translateY(-6px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 @keyframes antennaGlow {
   from {
-    box-shadow: 0 0 4px 1px rgba(79,195,247,0.5);
+    box-shadow: 0 0 4px 1px rgba(79, 195, 247, 0.5);
     background: #4fc3f7;
   }
   to {
-    box-shadow: 0 0 14px 6px rgba(79,195,247,0.95), 0 0 24px 10px rgba(79,195,247,0.3);
+    box-shadow:
+      0 0 14px 6px rgba(79, 195, 247, 0.95),
+      0 0 24px 10px rgba(79, 195, 247, 0.3);
     background: #b3e5fc;
   }
 }

@@ -12,15 +12,15 @@ jest.mock('react-router-dom', () => ({
 const mockModules: Module[] = [
   {
     id: 'basics',
-    title: 'JavaScript Basics',
-    description: 'Learn the fundamentals',
+    title: { en: 'JavaScript Basics', ru: 'Основы JavaScript' },
+    description: { en: 'Learn the fundamentals', ru: 'Изучите основы' },
     status: STATUS.PROGRESS,
     completedTasks: 5,
     totalTasks: 15,
     lessons: [
       {
         id: 'js-basics-1',
-        title: 'Variables: let, const, var',
+        title: { en: 'Variables: let, const, var', ru: 'Переменные: let, const, var' },
         completedTasks: 3,
         totalTasks: 3,
         xpReward: 10,
@@ -28,7 +28,7 @@ const mockModules: Module[] = [
       },
       {
         id: 'js-basics-2',
-        title: 'Data Types and typeof',
+        title: { en: 'Data Types and typeof', ru: 'Типы данных и typeof' },
         completedTasks: 2,
         totalTasks: 3,
         xpReward: 10,
@@ -74,8 +74,8 @@ describe('LearningPath Component', () => {
         ...mockModules,
         {
           id: 'control-flow',
-          title: 'Control Flow',
-          description: 'Conditions and loops',
+          title: { en: 'Control Flow', ru: 'Управление потоком' },
+          description: { en: 'Conditions and loops', ru: 'Условия и циклы' },
           status: STATUS.WAIT,
           completedTasks: 0,
           totalTasks: 15,
