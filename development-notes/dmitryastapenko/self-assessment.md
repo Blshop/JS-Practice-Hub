@@ -1,5 +1,7 @@
 # Self-Assessment: Dmitry Astapenko
 
+**PR для ревью:** [#120](https://github.com/Blshop/JS-Practice-Hub/pull/120)
+
 ## 🎯 Таблица реализованных фич
 
 | Категория            | Фича                                                                                    | Баллы | Ссылки на код/PR                                                                                                                                                                                                                |
