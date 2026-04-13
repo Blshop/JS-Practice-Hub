@@ -6,6 +6,7 @@ const DEVELOPERS = [
   { name: 'Blshop', github: 'https://github.com/Blshop' },
   { name: 'DmitryAstapenko', github: 'https://github.com/DmitryAstapenko' },
   { name: 'GorodeN', github: 'https://github.com/GorodeN' },
+  { name: 'spadarynjaALINA', github: 'https://github.com/spadarynjaALINA' },
 ] as const;
 
 export const Footer: React.FC = () => {

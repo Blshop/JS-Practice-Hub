@@ -242,7 +242,7 @@
 }
 
 .resultsActions {
-  @include mixin.flex($gap: 0.75rem);
+  @include mixin.flex($gap: 0.75rem, $justify: center);
   width: 100%;
 
   @media (max-width: var.$breakpoint-sm) {

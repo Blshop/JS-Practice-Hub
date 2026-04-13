@@ -106,6 +106,80 @@ const en = {
   common: {
     tryAgain: 'Try Again',
   },
+  demo: {
+    text: 'Text Component',
+    button: 'Button Component',
+    badge: 'Badge Component',
+    input: 'Input Component',
+    select: 'Select Component',
+    checkbox: 'Checkbox Component',
+    radio: 'Radio Component',
+    progressBar: 'Progress Bar Component',
+    loader: 'Loader Component',
+  },
+  about: {
+    hero: {
+      title: 'About JS Practice Hub',
+      subtitle:
+        'An interactive platform for mastering JavaScript and preparing for technical interviews. Train your skills, track progress, and level up — one question at a time.',
+    },
+    features: {
+      title: 'What you get',
+      quiz: {
+        title: 'Interactive Quizzes',
+        desc: 'Multiple choice, drag-and-drop ordering, and code output questions covering core JS concepts.',
+      },
+      levels: {
+        title: 'Difficulty Levels',
+        desc: 'Gradually deepen your knowledge — from basics to advanced topics like closures, prototypes, and async.',
+      },
+      progress: {
+        title: 'Progress Tracking',
+        desc: 'Detailed stats and charts so you always know where you stand and what to work on next.',
+      },
+      topics: {
+        title: 'Key JS Topics',
+        desc: 'Event loop, closures, prototypes, async/await, hoisting, and much more — all in one place.',
+      },
+    },
+    stack: {
+      title: 'Tech Stack',
+    },
+    team: {
+      title: 'Meet the Team',
+      mentor: 'Mentor',
+      developer: 'Developer',
+      teamLead: 'Team Lead',
+      nikita: {
+        name: 'Nikita Erechtchenko',
+        role: 'Team Lead · Frontend Developer',
+        desc: 'Set up the repo, CI/CD, and deployment. Built the full Quiz module — questions, answer checking, and results.',
+      },
+      roman: {
+        name: 'Roman Shamaluk',
+        role: 'Frontend · Fullstack Developer',
+        desc: 'Came up with the project idea. Implemented auth (frontend + backend), routing, Swagger docs, unit tests, and led code reviews.',
+      },
+      dmitry: {
+        name: 'Dmitry Astapenko',
+        role: 'Frontend Developer',
+        desc: 'Built the UI kit (Button, Input, Select, Badge and more), LearningPath, Loader, Header/Footer,Profile page and the component Demo page.',
+      },
+      alina: {
+        name: 'Alina Husarava',
+        role: 'Mentor',
+        desc: 'Added sounds, localization, animations, and the About page.',
+      },
+    },
+    org: {
+      title: 'Organized by',
+      desc: 'This project was built as part of the RS School curriculum — a free online JavaScript / Front-end course.',
+    },
+    cta: {
+      title: 'Ready to practice?',
+      button: 'Start Learning',
+    },
+  },
 };
 
 export default en;

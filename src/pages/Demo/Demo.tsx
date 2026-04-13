@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'components/Button';
 import Badge from 'components/Badge';
 import Text from 'components/Text';
@@ -11,11 +12,12 @@ import styles from './Demo.module.scss';
 import Loader from 'components/Loader';
 
 const Demo: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <div className={styles.demo}>
       <div className={styles.demo__section}>
         <Text tag="h2" bold>
-          Text Component Demo
+          {t('demo.text')}
         </Text>
         <div className={styles.demo__flexRow}>
           <Text tag="h1">h1 Heading</Text> <Text tag="h2">h2 Heading</Text>
@@ -66,7 +68,7 @@ const Demo: React.FC = () => {
       </div>
       <div className={styles.demo__section}>
         <Text tag="h2" bold>
-          Button Component Demo
+          {t('demo.button')}
         </Text>
         <div className={styles.demo__flexRowSmallGap}>
           <Button size="small">Small</Button> <Button size="medium">Medium</Button>
@@ -122,7 +124,7 @@ const Demo: React.FC = () => {
       </div>
       <div className={styles.demo__section}>
         <Text tag="h2" bold>
-          Badge Component Demo
+          {t('demo.badge')}
         </Text>
         <div className={styles.demo__flexRowSmallGap}>
           <Badge size="small">Small</Badge>
@@ -142,7 +144,7 @@ const Demo: React.FC = () => {
       </div>
       <div className={styles.demo__section}>
         <Text tag="h2" bold>
-          Input Component Demo
+          {t('demo.input')}
         </Text>
         <div className={styles.demo__gridInputs}>
           <Input label="Small input" elementSize="small" placeholder="Placeholder..." />
@@ -155,7 +157,7 @@ const Demo: React.FC = () => {
       </div>
       <div className={styles.demo__section}>
         <Text tag="h2" bold>
-          Select Component Demo
+          {t('demo.select')}
         </Text>
         <div className={styles.demo__gridInputs}>
           <Select
@@ -200,7 +202,7 @@ const Demo: React.FC = () => {
       </div>
       <div className={styles.demo__section}>
         <Text tag="h2" bold>
-          Checkbox Component Demo
+          {t('demo.checkbox')}
         </Text>
         <div className={styles.demo__flexRow}>
           <Checkbox label="Small checkbox" elementSize="small" />
@@ -216,7 +218,7 @@ const Demo: React.FC = () => {
       </div>
       <div className={styles.demo__section}>
         <Text tag="h2" bold>
-          Radio Component Demo
+          {t('demo.radio')}
         </Text>
         <div className={styles.demo__flexRow}>
           <Radio label="Small radio" elementSize="small" name="size" />
@@ -233,7 +235,7 @@ const Demo: React.FC = () => {
 
       <div className={styles.demo__section}>
         <Text tag="h2" bold>
-          Progress Bar Component Demo
+          {t('demo.progressBar')}
         </Text>
         <div className={styles.demo__progressContainer}>
           <ProgressBar current={10} total={100} label="Primary" variant="primary" />
@@ -251,7 +253,7 @@ const Demo: React.FC = () => {
 
       <div className={styles.demo__section}>
         <Text tag="h2" bold>
-          Loader Component Demo
+          {t('demo.loader')}
         </Text>
         <div className={styles.demo__flexRow}>
           <Loader size="small" />

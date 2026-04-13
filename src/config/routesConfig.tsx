@@ -11,6 +11,7 @@ import Main from 'pages/Main';
 import Profile from 'pages/Profile';
 import PrivateRoute from 'components/PrivateRoute';
 import NotFound from 'pages/NotFound';
+import About from 'pages/About';
 
 export const routesConfig: RouteObject[] = [
   {
@@ -36,7 +37,7 @@ export const routesConfig: RouteObject[] = [
       },
       {
         path: routes.about.mask,
-        element: <>О приложении</>,
+        element: <About />,
       },
       {
         path: routes.auth.mask,
