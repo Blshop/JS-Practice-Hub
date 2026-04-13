@@ -1,7 +1,7 @@
 import { makeAutoObservable, reaction, runInAction } from 'mobx';
 import type { UserProgress } from 'types/UserProgress';
 import { authStore } from './AuthStore';
-import { api } from 'services/api';
+import { getProgress, saveLessonProgress } from 'services/progressService';
 import axios from 'axios';
 import { assertUserProgress } from 'utils/validateUserProgress';
 
@@ -118,8 +118,7 @@ class UserProgressStore {
     this.loadError = null;
 
     try {
-      const response = await api.get('/progress');
-      const serverData = response.data;
+      const serverData = await getProgress();
 
       assertUserProgress(serverData);
 
@@ -177,10 +176,7 @@ class UserProgressStore {
     }
 
     try {
-      await api.post('/progress/lesson', {
-        lessonId,
-        progress: lessonProgress,
-      });
+      await saveLessonProgress(lessonId, lessonProgress);
     } catch (err) {
       const message = 'Failed to save lesson progress to server';
       console.error(message, err);
