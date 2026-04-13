@@ -1,0 +1,219 @@
+.cat {
+  flex-shrink: 0;
+  width: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4px;
+  user-select: none;
+  animation: float 3.2s ease-in-out infinite;
+}
+
+.head {
+  position: relative;
+  width: 64px;
+  height: 60px;
+  border-radius: 40% 40% 45% 45%;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.18),
+    inset 0 1px 3px rgba(255, 255, 255, 0.35);
+}
+
+.ear {
+  position: absolute;
+  top: -13px;
+  width: 17px;
+  height: 19px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+.earLeft {
+  left: 6px;
+  transform: rotate(-10deg);
+}
+.earRight {
+  right: 6px;
+  transform: rotate(10deg);
+}
+
+.earInner {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7px;
+  height: 9px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.facePlate {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 52px;
+  height: 40px;
+  border-radius: 30% 30% 40% 40%;
+}
+
+.eyes {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.eye {
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: visible;
+  background: transparent;
+  transform-origin: center center;
+}
+
+.nose {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 4px;
+  border-radius: 50%;
+}
+
+.mouth {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 20px;
+  overflow: visible;
+}
+
+.cheek {
+  position: absolute;
+  top: 20px;
+  width: 10px;
+  height: 6px;
+  background: rgba(255, 150, 170, 0.4);
+  border-radius: 50%;
+}
+.cheekLeft {
+  left: 3px;
+}
+.cheekRight {
+  right: 3px;
+}
+
+.whiskers {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 10px;
+  pointer-events: none;
+}
+
+.whiskerLine {
+  position: absolute;
+  height: 1.5px;
+  border-radius: 1px;
+  opacity: 0.7;
+}
+.whiskerLine:nth-child(1) {
+  width: 18px;
+  top: 0;
+  left: 0;
+  transform: rotate(-8deg);
+}
+.whiskerLine:nth-child(2) {
+  width: 18px;
+  top: 6px;
+  left: 0;
+  transform: rotate(8deg);
+}
+.whiskerLine:nth-child(3) {
+  width: 18px;
+  top: 0;
+  right: 0;
+  transform: rotate(8deg);
+}
+.whiskerLine:nth-child(4) {
+  width: 18px;
+  top: 6px;
+  right: 0;
+  transform: rotate(-8deg);
+}
+
+.antenna {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+.bow {
+  position: absolute;
+  top: -34px;
+  right: 4px;
+  z-index: 2;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.18));
+  animation: bowWiggle 4s ease-in-out infinite;
+  transform-origin: center bottom;
+  transform: rotate(180deg);
+}
+
+.antennaTip {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: antennaGlow 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes antennaGlow {
+  from {
+    opacity: 0.7;
+    transform: translateX(-50%) scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.5);
+  }
+}
+
+@keyframes bowWiggle {
+  0%,
+  100% {
+    transform: rotate(180deg);
+  }
+  25% {
+    transform: rotate(186deg);
+  }
+  75% {
+    transform: rotate(176deg);
+  }
+}
