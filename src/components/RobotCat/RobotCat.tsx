@@ -62,7 +62,7 @@ const Eye: React.FC<{ mood: RobotCatMood }> = ({ mood }) => (
 );
 
 const RobotCat: React.FC<RobotCatProps> = ({ mood = 'idle' }) => (
-  <div className={`${styles.robotCat} ${styles[mood] ?? ''}`}>
+  <div className={`${styles.robotCat} ${styles[mood] ?? ''}`} aria-hidden="true">
     <div className={styles.head}>
       {/* Antenna */}
       <div className={styles.antenna}>
