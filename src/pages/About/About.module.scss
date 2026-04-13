@@ -173,7 +173,11 @@
 
 .leadCard {
   border-color: $color-warning;
-  box-shadow: 0 4px 0 0 var(--shadow-color, #333);
+  box-shadow: 0 4px 0 0 $color-warning;
+
+  &:hover {
+    box-shadow: 0 8px 0 0 $color-warning;
+  }
 }
 
 .crownBadge {
