@@ -90,6 +90,8 @@ const en = {
     correct: 'Correct!',
     incorrect: 'Incorrect',
     saveError: 'Failed to save progress. Check your connection and try again.',
+    quizPassed: 'Quiz passed successfully!',
+    quizFailed: 'Quiz failed. More than {{max}} mistakes made',
   },
   learningPath: {
     title: 'Learning JavaScript',
