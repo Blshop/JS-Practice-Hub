@@ -4,6 +4,7 @@ import cors from 'cors';
 import { connectDB } from './config/db.js';
 import { PORT, CLIENT_URL } from './config/env.js';
 import authRoutes from './routes/authRoutes.js';
+import progressRoutes from './routes/progressRoutes.js';
 import swaggerUi from 'swagger-ui-express';
 import { specs } from './config/swagger.js';
 
@@ -19,9 +20,8 @@ app.use(
 );
 
 app.use('/api/auth', authRoutes);
-
+app.use('/api/progress', progressRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
-
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });

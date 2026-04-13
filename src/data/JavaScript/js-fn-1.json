@@ -1,0 +1,911 @@
+[
+  {
+    "id": "fn-decl-001",
+    "type": "single-correct",
+    "theme": "function declaration",
+    "question": {
+      "en": "Which is a function declaration?",
+      "ru": "Что является объявлением функции?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`const fn = function() {}`",
+          "ru": "`const fn = function() {}`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`function fn() {}`",
+          "ru": "`function fn() {}`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`let fn = () => {}`",
+          "ru": "`let fn = () => {}`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`var fn = new Function()`",
+          "ru": "`var fn = new Function()`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Function declarations start with the `function` keyword followed by the name.",
+      "ru": "Объявления функций начинаются с ключевого слова `function`, за которым следует имя."
+    }
+  },
+  {
+    "id": "fn-decl-002",
+    "type": "single-correct",
+    "theme": "function expression",
+    "question": {
+      "en": "Which is a function expression?",
+      "ru": "Что является выражением функции?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`function test() {}`",
+          "ru": "`function test() {}`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`const test = function() {}`",
+          "ru": "`const test = function() {}`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`class Test {}`",
+          "ru": "`class Test {}`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`test: function() {}`",
+          "ru": "`test: function() {}`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Function expressions assign a function to a variable.",
+      "ru": "Выражения функций присваивают функцию переменной."
+    }
+  },
+  {
+    "id": "fn-decl-003",
+    "type": "single-correct",
+    "theme": "hoisting",
+    "question": {
+      "en": "Which functions are hoisted?",
+      "ru": "Какие функции поднимаются (hoisted)?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Function declarations only",
+          "ru": "Только объявления функций"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Function expressions only",
+          "ru": "Только выражения функций"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Both declarations and expressions",
+          "ru": "И объявления, и выражения"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Neither",
+          "ru": "Ни те, ни другие"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Only function declarations are fully hoisted; expressions are not.",
+      "ru": "Только объявления функций полностью поднимаются; выражения — нет."
+    }
+  },
+  {
+    "id": "fn-decl-004",
+    "type": "single-correct",
+    "theme": "named expressions",
+    "question": {
+      "en": "What is a named function expression?",
+      "ru": "Что такое именованное выражение функции?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`const fn = function() {}`",
+          "ru": "`const fn = function() {}`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`const fn = function named() {}`",
+          "ru": "`const fn = function named() {}`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`function fn() {}`",
+          "ru": "`function fn() {}`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`fn = function() {}`",
+          "ru": "`fn = function() {}`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Named function expressions have a name after the `function` keyword.",
+      "ru": "Именованные выражения функций имеют имя после ключевого слова `function`."
+    }
+  },
+  {
+    "id": "fn-decl-005",
+    "type": "yes-no",
+    "theme": "hoisting",
+    "question": {
+      "en": "Can you call a function declaration before it's defined?",
+      "ru": "Можно ли вызвать объявление функции до её определения?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Function declarations are hoisted and can be called before definition.",
+      "ru": "Объявления функций поднимаются и могут быть вызваны до определения."
+    }
+  },
+  {
+    "id": "fn-decl-006",
+    "type": "yes-no",
+    "theme": "hoisting",
+    "question": {
+      "en": "Can you call a function expression before it's defined?",
+      "ru": "Можно ли вызвать выражение функции до её определения?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "Function expressions are not hoisted and cannot be called before definition.",
+      "ru": "Выражения функций не поднимаются и не могут быть вызваны до определения."
+    }
+  },
+  {
+    "id": "fn-decl-007",
+    "type": "predict-output",
+    "theme": "hoisting",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log(test());`\n`function test() { return 'hello'; }`",
+    "answer": "`hello`",
+    "explanation": {
+      "en": "Function declarations are hoisted, so they can be called before definition.",
+      "ru": "Объявления функций поднимаются, поэтому их можно вызывать до определения."
+    }
+  },
+  {
+    "id": "fn-decl-008",
+    "type": "predict-output",
+    "theme": "hoisting",
+    "question": {
+      "en": "What happens?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`console.log(test());`\n`const test = function() { return 'hello'; };`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "Function expressions are not hoisted; accessing before definition throws an error.",
+      "ru": "Выражения функций не поднимаются; обращение до определения вызывает ошибку."
+    }
+  },
+  {
+    "id": "fn-decl-009",
+    "type": "single-correct",
+    "theme": "anonymous functions",
+    "question": {
+      "en": "What is an anonymous function?",
+      "ru": "Что такое анонимная функция?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "A function without a name",
+          "ru": "Функция без имени"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "A function without parameters",
+          "ru": "Функция без параметров"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "A function without return",
+          "ru": "Функция без return"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "A function without body",
+          "ru": "Функция без тела"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Anonymous functions don't have a name identifier.",
+      "ru": "Анонимные функции не имеют идентификатора имени."
+    }
+  },
+  {
+    "id": "fn-decl-010",
+    "type": "multiple-correct",
+    "theme": "function types",
+    "question": {
+      "en": "Which are function expressions?",
+      "ru": "Какие из них являются выражениями функций?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`const fn = function() {}`",
+          "ru": "`const fn = function() {}`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`let fn = () => {}`",
+          "ru": "`let fn = () => {}`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`function fn() {}`",
+          "ru": "`function fn() {}`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`var fn = function named() {}`",
+          "ru": "`var fn = function named() {}`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "d"],
+    "explanation": {
+      "en": "Function expressions assign functions to variables; declarations don't.",
+      "ru": "Выражения функций присваивают функции переменным; объявления — нет."
+    }
+  },
+  {
+    "id": "fn-decl-011",
+    "type": "single-correct",
+    "theme": "IIFE",
+    "question": {
+      "en": "What does IIFE stand for?",
+      "ru": "Что означает IIFE?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Immediately Invoked Function Expression",
+          "ru": "Immediately Invoked Function Expression"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Internal Inline Function Expression",
+          "ru": "Internal Inline Function Expression"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Instantly Initialized Function Element",
+          "ru": "Instantly Initialized Function Element"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Implicit Invocation Function Event",
+          "ru": "Implicit Invocation Function Event"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "IIFE means Immediately Invoked Function Expression.",
+      "ru": "IIFE означает Immediately Invoked Function Expression (немедленно вызываемое выражение функции)."
+    }
+  },
+  {
+    "id": "fn-decl-012",
+    "type": "single-correct",
+    "theme": "IIFE",
+    "question": {
+      "en": "Which is a valid IIFE?",
+      "ru": "Что является корректным IIFE?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`(function() {})();`",
+          "ru": "`(function() {})();`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`function() {}();`",
+          "ru": "`function() {}();`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`function test() {}();`",
+          "ru": "`function test() {}();`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`const fn = function() {};`",
+          "ru": "`const fn = function() {};`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "IIFE requires parentheses to make it an expression, then invoke it.",
+      "ru": "IIFE требует скобок, чтобы сделать его выражением, а затем вызвать."
+    }
+  },
+  {
+    "id": "fn-decl-013",
+    "type": "predict-output",
+    "theme": "var hoisting",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log(typeof test);`\n`var test = function() {};`",
+    "answer": "`undefined`",
+    "explanation": {
+      "en": "`var` is hoisted but uninitialized, so `test` is `undefined`.",
+      "ru": "`var` поднимается, но не инициализируется, поэтому `test` равно `undefined`."
+    }
+  },
+  {
+    "id": "fn-decl-014",
+    "type": "predict-output",
+    "theme": "function hoisting",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log(typeof test);`\n`function test() {}`",
+    "answer": "`function`",
+    "explanation": {
+      "en": "Function declarations are fully hoisted with their implementation.",
+      "ru": "Объявления функций полностью поднимаются с их реализацией."
+    }
+  },
+  {
+    "id": "fn-decl-015",
+    "type": "yes-no",
+    "theme": "conditional declarations",
+    "question": {
+      "en": "Can function declarations be placed inside if blocks?",
+      "ru": "Можно ли размещать объявления функций внутри блоков if?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Function declarations can be placed in blocks, but behavior varies between engines.",
+      "ru": "Объявления функций можно размещать в блоках, но поведение различается между движками."
+    }
+  },
+  {
+    "id": "fn-decl-016",
+    "type": "single-correct",
+    "theme": "function name",
+    "question": {
+      "en": "What is the name property of `const fn = function() {}`?",
+      "ru": "Каково свойство name у `const fn = function() {}`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`'fn'`",
+          "ru": "`'fn'`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`''`",
+          "ru": "`''`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`'anonymous'`",
+          "ru": "`'anonymous'`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Anonymous function expressions inherit the variable name.",
+      "ru": "Анонимные выражения функций наследуют имя переменной."
+    }
+  },
+  {
+    "id": "fn-decl-017",
+    "type": "single-correct",
+    "theme": "function name",
+    "question": {
+      "en": "What is the name property of `const fn = function test() {}`?",
+      "ru": "Каково свойство name у `const fn = function test() {}`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`'fn'`",
+          "ru": "`'fn'`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`'test'`",
+          "ru": "`'test'`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`'fn test'`",
+          "ru": "`'fn test'`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Named function expressions use their internal name, not the variable name.",
+      "ru": "Именованные выражения функций используют своё внутреннее имя, а не имя переменной."
+    }
+  },
+  {
+    "id": "fn-decl-018",
+    "type": "multiple-correct",
+    "theme": "function characteristics",
+    "question": {
+      "en": "Which statements about function declarations are true?",
+      "ru": "Какие утверждения об объявлениях функций верны?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "They are hoisted",
+          "ru": "Они поднимаются"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "They can be called before definition",
+          "ru": "Их можно вызывать до определения"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "They create a variable",
+          "ru": "Они создают переменную"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "They must be assigned to a variable",
+          "ru": "Они должны быть присвоены переменной"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "Function declarations are hoisted, callable before definition, and create variables.",
+      "ru": "Объявления функций поднимаются, вызываются до определения и создают переменные."
+    }
+  },
+  {
+    "id": "fn-decl-019",
+    "type": "multiple-correct",
+    "theme": "function characteristics",
+    "question": {
+      "en": "Which statements about function expressions are true?",
+      "ru": "Какие утверждения о выражениях функций верны?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "They are not hoisted",
+          "ru": "Они не поднимаются"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "They can be anonymous",
+          "ru": "Они могут быть анонимными"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "They must be assigned to a variable",
+          "ru": "Они должны быть присвоены переменной"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "They can be called before definition",
+          "ru": "Их можно вызывать до определения"
+        }
+      }
+    ],
+    "correctIds": ["a", "b"],
+    "explanation": {
+      "en": "Function expressions are not hoisted and can be anonymous; assignment is optional.",
+      "ru": "Выражения функций не поднимаются и могут быть анонимными; присваивание необязательно."
+    }
+  },
+  {
+    "id": "fn-decl-020",
+    "type": "predict-output",
+    "theme": "redeclaration",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`function test() { return 1; }`\n`function test() { return 2; }`\n`console.log(test());`",
+    "answer": "`2`",
+    "explanation": {
+      "en": "Function declarations can be redeclared; the last one wins.",
+      "ru": "Объявления функций могут быть переобъявлены; побеждает последнее."
+    }
+  },
+  {
+    "id": "fn-decl-021",
+    "type": "predict-output",
+    "theme": "let hoisting",
+    "question": {
+      "en": "What happens?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`console.log(test());`\n`let test = function() { return 'hello'; };`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "`let` is in TDZ before declaration, causing a ReferenceError.",
+      "ru": "`let` находится в TDZ до объявления, вызывая ReferenceError."
+    }
+  },
+  {
+    "id": "fn-decl-022",
+    "type": "single-correct",
+    "theme": "function scope",
+    "question": {
+      "en": "Where is the name of a named function expression accessible?",
+      "ru": "Где доступно имя именованного выражения функции?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Only inside the function",
+          "ru": "Только внутри функции"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Only outside the function",
+          "ru": "Только вне функции"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Both inside and outside",
+          "ru": "И внутри, и снаружи"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Nowhere",
+          "ru": "Нигде"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Named function expression names are only accessible within the function body.",
+      "ru": "Имена именованных выражений функций доступны только внутри тела функции."
+    }
+  },
+  {
+    "id": "fn-decl-023",
+    "type": "yes-no",
+    "theme": "strict mode",
+    "question": {
+      "en": "Do function declarations behave differently in strict mode?",
+      "ru": "Ведут ли себя объявления функций по-разному в строгом режиме?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "In strict mode, function declarations in blocks are block-scoped.",
+      "ru": "В строгом режиме объявления функций в блоках имеют блочную область видимости."
+    }
+  },
+  {
+    "id": "fn-decl-024",
+    "type": "predict-output",
+    "theme": "IIFE",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`(function() { console.log('IIFE'); })();`",
+    "answer": "`IIFE`",
+    "explanation": {
+      "en": "IIFE executes immediately when defined.",
+      "ru": "IIFE выполняется немедленно при определении."
+    }
+  },
+  {
+    "id": "fn-decl-025",
+    "type": "single-correct",
+    "theme": "function constructor",
+    "question": {
+      "en": "What creates a function using the Function constructor?",
+      "ru": "Что создает функцию с помощью конструктора Function?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`new Function('return 1')`",
+          "ru": "`new Function('return 1')`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`function() { return 1; }`",
+          "ru": "`function() { return 1; }`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`Function.create('return 1')`",
+          "ru": "`Function.create('return 1')`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`Function.new('return 1')`",
+          "ru": "`Function.new('return 1')`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "The Function constructor creates functions from strings.",
+      "ru": "Конструктор Function создает функции из строк."
+    }
+  },
+  {
+    "id": "fn-decl-026",
+    "type": "multiple-correct",
+    "theme": "function creation",
+    "question": {
+      "en": "Which are valid ways to create functions?",
+      "ru": "Какие способы создания функций корректны?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Function declaration",
+          "ru": "Объявление функции"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Function expression",
+          "ru": "Выражение функции"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Arrow function",
+          "ru": "Стрелочная функция"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Function constructor",
+          "ru": "Конструктор Function"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c", "d"],
+    "explanation": {
+      "en": "All listed methods are valid ways to create functions in JavaScript.",
+      "ru": "Все перечисленные методы являются корректными способами создания функций в JavaScript."
+    }
+  },
+  {
+    "id": "fn-decl-027",
+    "type": "predict-output",
+    "theme": "function name scope",
+    "question": {
+      "en": "What happens?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`const fn = function test() { console.log(test.name); };`\n`fn();`\n`console.log(test);`",
+    "answer": "`test`\n`ReferenceError`",
+    "explanation": {
+      "en": "Named function expression name is only accessible inside the function.",
+      "ru": "Имя именованного выражения функции доступно только внутри функции."
+    }
+  },
+  {
+    "id": "fn-decl-028",
+    "type": "yes-no",
+    "theme": "function expressions",
+    "question": {
+      "en": "Can function expressions be used as arguments to other functions?",
+      "ru": "Могут ли выражения функций использоваться как аргументы других функций?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Function expressions can be passed as arguments, creating higher-order functions.",
+      "ru": "Выражения функций могут передаваться как аргументы, создавая функции высшего порядка."
+    }
+  },
+  {
+    "id": "fn-decl-029",
+    "type": "single-correct",
+    "theme": "function properties",
+    "question": {
+      "en": "What property shows the number of parameters a function expects?",
+      "ru": "Какое свойство показывает количество параметров, которое ожидает функция?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`length`",
+          "ru": "`length`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`params`",
+          "ru": "`params`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`arguments`",
+          "ru": "`arguments`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`arity`",
+          "ru": "`arity`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "The `length` property indicates the number of expected parameters.",
+      "ru": "Свойство `length` указывает количество ожидаемых параметров."
+    }
+  },
+  {
+    "id": "fn-decl-030",
+    "type": "predict-output",
+    "theme": "function length",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`function test(a, b, c) {}`\n`console.log(test.length);`",
+    "answer": "`3`",
+    "explanation": {
+      "en": "The `length` property returns the number of declared parameters.",
+      "ru": "Свойство `length` возвращает количество объявленных параметров."
+    }
+  }
+]

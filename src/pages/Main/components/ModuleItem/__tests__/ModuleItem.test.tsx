@@ -5,8 +5,8 @@ import { STATUS } from 'types/LearningPath';
 
 const mockModule: Module = {
   id: 'basics',
-  title: 'JavaScript Basics',
-  description: 'Core syntax and data types',
+  title: { en: 'JavaScript Basics', ru: 'Основы JavaScript' },
+  description: { en: 'Core syntax and data types', ru: 'Основной синтаксис и типы данных' },
   status: STATUS.PROGRESS,
   completedTasks: 5,
   totalTasks: 15,

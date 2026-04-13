@@ -36,6 +36,38 @@ const en = {
       accountCreated: 'Account created! Welcome, {{name}}!',
     },
   },
+  profile: {
+    userCard: {
+      lessons: 'lessons',
+      modules: 'modules',
+    },
+    stats: {
+      totalAttempts: 'Total Attempts',
+      successful: 'Successful',
+      failed: 'Failed',
+      successRate: 'Success Rate',
+      totalAnswered: 'Total Answered',
+      correct: 'Correct',
+      incorrect: 'Incorrect',
+    },
+    charts: {
+      testsDistribution: 'Tests Distribution',
+      questionsDistribution: 'Questions Distribution',
+      progressByModule: 'Progress by Module',
+      noDataYet: 'No data yet',
+      completedTests: 'Completed Tests',
+      remainingTests: 'Remaining Tests',
+    },
+    lessonsTable: {
+      title: 'Lessons Statistics',
+      searchPlaceholder: 'Search by lesson...',
+      allModules: 'All Modules',
+      noLessonsYet: 'No lessons attempted yet',
+      noMatchingLessons: 'No lessons match the selected filters',
+      testSuccessRate: 'Test Success Rate',
+      questionsSuccessRate: 'Questions Success Rate',
+    },
+  },
   notFound: {
     message: "Oops! The page you're looking for doesn't exist",
     home: 'Home',
@@ -58,6 +90,8 @@ const en = {
     correct: 'Correct!',
     incorrect: 'Incorrect',
     saveError: 'Failed to save progress. Check your connection and try again.',
+    quizPassed: 'Quiz passed successfully!',
+    quizFailed: 'Quiz failed. More than {{max}} mistakes made',
   },
   learningPath: {
     title: 'Learning JavaScript',

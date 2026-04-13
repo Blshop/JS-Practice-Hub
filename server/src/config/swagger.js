@@ -31,6 +31,36 @@ const options = {
             email: { type: 'string' },
           },
         },
+        QuestionStat: {
+          type: 'object',
+          properties: {
+            questionId: { type: 'string' },
+            successCount: { type: 'number' },
+            failedCount: { type: 'number' },
+          },
+        },
+        LessonProgress: {
+          type: 'object',
+          properties: {
+            successAttempt: { type: 'number' },
+            failedAttempt: { type: 'number' },
+            questions: {
+              type: 'array',
+              items: { $ref: '#/components/schemas/QuestionStat' },
+            },
+          },
+        },
+        Progress: {
+          type: 'object',
+          properties: {
+            userId: { type: 'string' },
+            lessons: {
+              type: 'object',
+              additionalProperties: { $ref: '#/components/schemas/LessonProgress' },
+            },
+            updatedAt: { type: 'string', format: 'date-time' },
+          },
+        },
         AuthResponse: {
           type: 'object',
           properties: {

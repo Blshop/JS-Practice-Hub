@@ -1,17 +1,22 @@
-import axios from 'axios';
+import { api } from 'services/api';
+import type { UserProgress, LessonProgress } from 'types/UserProgress';
 
-export const sendQuizProgress = async ({
-  lessonId,
-  progress,
-  result,
-}: {
-  lessonId: string;
-  progress: Record<string, 'correct' | 'incorrect'>;
-  result: 'passed' | 'failed';
-}) => {
-  return axios.post('/api/progress/save', {
+export interface SaveLessonProgressResponse {
+  message: string;
+}
+
+export const getProgress = async (): Promise<UserProgress> => {
+  const response = await api.get<UserProgress>('/progress');
+  return response.data;
+};
+
+export const saveLessonProgress = async (
+  lessonId: string,
+  progress: LessonProgress,
+): Promise<SaveLessonProgressResponse> => {
+  const response = await api.post<SaveLessonProgressResponse>('/progress/lesson', {
     lessonId,
     progress,
-    result,
   });
+  return response.data;
 };

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
+import { shuffleArray } from 'utils/shuffleArray';
 import { useTranslation } from 'react-i18next';
 import type { Question, LocalizedString } from 'types/Questions';
 import { localize } from 'utils/localize';
-// TODO Correct for actual categories
-type Category = 'JavaScript' | 'typescript' | 'css';
+type Category = 'JavaScript';
 
 type LocalizedOption = { id: string; text: LocalizedString };
 
@@ -28,7 +28,11 @@ function localizeQuestion(q: RawQuestion, lang: string): Question {
   } as unknown as Question;
 }
 
-export function useQuestions(category: Category | null, fileId: string | null) {
+export function useQuestions(
+  category: Category | null,
+  fileId: string | null,
+  maxQuestions?: number,
+) {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [rawQuestions, setRawQuestions] = useState<RawQuestion[]>([]);
   const [loading, setLoading] = useState(false);
@@ -59,7 +63,10 @@ export function useQuestions(category: Category | null, fileId: string | null) {
 
         if (isMounted) {
           if (Array.isArray(data)) {
-            setRawQuestions(data);
+            const shuffled = shuffleArray(data);
+            const limited = maxQuestions ? shuffled.slice(0, maxQuestions) : shuffled;
+
+            setRawQuestions(limited);
           } else {
             setError(`Invalid data format in ${targetPath}`);
           }
@@ -75,7 +82,7 @@ export function useQuestions(category: Category | null, fileId: string | null) {
     return () => {
       isMounted = false;
     };
-  }, [category, fileId]);
+  }, [category, fileId, maxQuestions]);
 
   useEffect(() => {
     setQuestions(rawQuestions.map((q) => localizeQuestion(q, lang)));
