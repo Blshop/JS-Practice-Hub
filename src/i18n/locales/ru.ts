@@ -36,6 +36,38 @@ const ru = {
       accountCreated: 'Аккаунт создан! Добро пожаловать, {{name}}!',
     },
   },
+  profile: {
+    userCard: {
+      lessons: 'уроки',
+      modules: 'модули',
+    },
+    stats: {
+      totalAttempts: 'Всего попыток',
+      successful: 'Успешных',
+      failed: 'Неудачных',
+      successRate: 'Процент успеха',
+      totalAnswered: 'Всего ответов',
+      correct: 'Правильных',
+      incorrect: 'Неправильных',
+    },
+    charts: {
+      testsDistribution: 'Распределение тестов',
+      questionsDistribution: 'Распределение вопросов',
+      progressByModule: 'Прогресс по модулям',
+      noDataYet: 'Данных пока нет',
+      completedTests: 'Завершённые тесты',
+      remainingTests: 'Оставшиеся тесты',
+    },
+    lessonsTable: {
+      title: 'Статистика уроков',
+      searchPlaceholder: 'Поиск по урокам...',
+      allModules: 'Все модули',
+      noLessonsYet: 'Уроки ещё не начаты',
+      noMatchingLessons: 'Нет уроков, соответствующих фильтрам',
+      testSuccessRate: 'Процент успеха тестов',
+      questionsSuccessRate: 'Процент успеха вопросов',
+    },
+  },
   notFound: {
     message: 'Страница не найдена',
     home: 'На главную',
@@ -58,6 +90,8 @@ const ru = {
     correct: 'Правильно!',
     incorrect: 'Неправильно',
     saveError: 'Не удалось сохранить прогресс. Проверьте интернет и попробуйте снова.',
+    quizPassed: 'Квиз пройден успешно!',
+    quizFailed: 'Квиз не пройден. Допущено более {{max}} ошибок',
   },
   learningPath: {
     title: 'Изучение JavaScript',

@@ -1,0 +1,35 @@
+@use 'styles/variables' as var;
+@use 'styles/mixins' as mixin;
+
+.chartContainer {
+  @include mixin.flex($direction: column, $gap: 1rem);
+  padding: 2rem;
+  background-color: var.$color-neutral-000;
+  border: var.$border-default;
+  border-radius: var.$border-radius-default;
+  box-shadow: var.$box-shadow-default;
+
+  * {
+    &:focus,
+    &:focus-visible {
+      outline: none !important;
+    }
+  }
+}
+
+.chartTitle {
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.emptyState {
+  @include mixin.flex($justify: center, $align: center);
+  height: 480px;
+}
+
+@media (max-width: var.$breakpoint-md) {
+  .chartContainer {
+    padding: 1rem;
+  }
+}

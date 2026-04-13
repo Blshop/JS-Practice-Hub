@@ -34,11 +34,6 @@ export interface Module extends ModuleData {
   totalTasks: number;
 }
 
-export interface UserProgress {
-  userId: string;
-  lessons: Record<string, number>;
-}
-
 export interface LearningPath {
   modules: Module[];
 }

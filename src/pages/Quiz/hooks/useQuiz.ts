@@ -10,11 +10,16 @@ import type {
   PredictOutputQuestion,
 } from 'types/Questions';
 import { quizProgressStore } from 'store/QuizProgressStore';
-import { sendQuizProgress } from 'services/progressService';
+import { userProgressStore } from 'store/UserProgressStore';
 
 const normalize = (str: string) => str.replace(/`/g, '').trim();
 
-export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) => void) => {
+export const useQuiz = (
+  lessonId?: string,
+  onComplete?: (summary: QuizSummary) => void,
+  maxQuestions = 10,
+  maxMistakes = 1,
+) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<Record<string, AnswerType>>({});
   const [completedCount, setCompletedCount] = useState(0);
@@ -29,7 +34,11 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
 
   const { isChecked, isCorrect, showExplanation } = checkState;
 
-  const { questions, loading, error } = useQuestions('JavaScript', lessonId ?? null) as {
+  const { questions, loading, error } = useQuestions(
+    'JavaScript',
+    lessonId ?? null,
+    maxQuestions,
+  ) as {
     questions: Question[];
     loading: boolean;
     error: string | null;
@@ -140,7 +149,7 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
     setCurrentIndex(totalQuestions);
 
     const mistakes = quizProgressStore.incorrectCount;
-    const passed = mistakes <= 2;
+    const passed = mistakes <= maxMistakes;
 
     if (!lessonId) {
       return;
@@ -152,11 +161,13 @@ export const useQuiz = (lessonId?: string, onComplete?: (summary: QuizSummary) =
       setIsSaving(true);
       setSaveError(null);
 
-      await sendQuizProgress({
-        lessonId,
-        progress: quizProgressStore.progress,
-        result: passed ? 'passed' : 'failed',
+      userProgressStore.recordLessonAttempt(lessonId, passed);
+
+      Object.entries(quizProgressStore.progress).forEach(([questionId, result]) => {
+        userProgressStore.recordQuestionAnswer(lessonId, questionId, result === 'correct');
       });
+
+      await userProgressStore.saveLessonProgressToServer(lessonId);
 
       onComplete?.({
         correct: correctCount,

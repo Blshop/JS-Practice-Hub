@@ -5,42 +5,130 @@
     "theme": "coercion basics",
     "question": {
       "en": "What does JavaScript use when comparing values with `==`?",
-      "ru": "Что использует JavaScript при сравнении значений с `==`?"
+      "ru": "What does JavaScript use when comparing values with `==`?"
     },
     "options": [
       {
         "id": "a",
         "text": {
           "en": "Strict comparison",
-          "ru": "Строгое сравнение"
+          "ru": "Strict comparison"
         }
       },
       {
         "id": "b",
         "text": {
           "en": "Type coercion",
-          "ru": "Приведение типов"
+          "ru": "Type coercion"
         }
       },
       {
         "id": "c",
         "text": {
           "en": "Reference comparison",
-          "ru": "Сравнение по ссылке"
+          "ru": "Reference comparison"
         }
       },
       {
         "id": "d",
         "text": {
           "en": "Bitwise comparison",
-          "ru": "Побитовое сравнение"
+          "ru": "Bitwise comparison"
         }
       }
     ],
     "correctId": "b",
     "explanation": {
       "en": "`==` performs type coercion before comparing values.",
-      "ru": "`==` выполняет приведение типов перед сравнением значений."
+      "ru": "`==` performs type coercion before comparing values."
+    }
+  },
+  {
+    "id": "tc-002",
+    "type": "single-correct",
+    "theme": "strict equality",
+    "question": {
+      "en": "What does `===` do?",
+      "ru": "What does `===` do?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Coerces types then compares",
+          "ru": "Coerces types then compares"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Compares values only",
+          "ru": "Compares values only"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Compares values and types",
+          "ru": "Compares values and types"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Converts both values to strings",
+          "ru": "Converts both values to strings"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "`===` compares both value and type without coercion.",
+      "ru": "`===` compares both value and type without coercion."
+    }
+  },
+  {
+    "id": "tc-003",
+    "type": "single-correct",
+    "theme": "truthy falsy",
+    "question": {
+      "en": "Which value is falsy?",
+      "ru": "Which value is falsy?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`'0'`",
+          "ru": "`'0'`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`[]`",
+          "ru": "`[]`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`{}`",
+          "ru": "`{}`"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "The falsy values include: `0`, `''`, `false`, `null`, `undefined`, and `NaN`.",
+      "ru": "The falsy values include: `0`, `''`, `false`, `null`, `undefined`, and `NaN`."
     }
   },
   {
@@ -49,7 +137,7 @@
     "theme": "string coercion",
     "question": {
       "en": "What is the result of `'5' + 3`?",
-      "ru": "Каков результат `'5' + 3`?"
+      "ru": "What is the result of `'5' + 3`?"
     },
     "options": [
       {
@@ -84,7 +172,95 @@
     "correctId": "b",
     "explanation": {
       "en": "The `+` operator triggers string concatenation when one operand is a string.",
-      "ru": "Оператор `+` вызывает конкатенацию строк, когда один из операндов — строка."
+      "ru": "The `+` operator triggers string concatenation when one operand is a string."
+    }
+  },
+  {
+    "id": "tc-005",
+    "type": "single-correct",
+    "theme": "numeric coercion",
+    "question": {
+      "en": "What is the result of `'5' - 3`?",
+      "ru": "What is the result of `'5' - 3`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`2`",
+          "ru": "`2`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`'2'`",
+          "ru": "`'2'`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`NaN`",
+          "ru": "`NaN`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`'53'`",
+          "ru": "`'53'`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "The `-` operator forces numeric coercion.",
+      "ru": "The `-` operator forces numeric coercion."
+    }
+  },
+  {
+    "id": "tc-006",
+    "type": "single-correct",
+    "theme": "boolean coercion",
+    "question": {
+      "en": "What does `Boolean('0')` return?",
+      "ru": "Что возвращает `Boolean('0')`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`true`",
+          "ru": "`true`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Any non-empty string is truthy.",
+      "ru": "Любая непустая строка является истинной (truthy)."
     }
   },
   {
@@ -128,7 +304,95 @@
     "correctId": "a",
     "explanation": {
       "en": "`null` is only loosely equal to `undefined`.",
-      "ru": "`null` нестрого равен только `undefined`."
+      "ru": "`null` является нестрого равным только `undefined`."
+    }
+  },
+  {
+    "id": "tc-008",
+    "type": "single-correct",
+    "theme": "equality",
+    "question": {
+      "en": "What is the result of `null === undefined`?",
+      "ru": "Каков результат `null === undefined`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`true`",
+          "ru": "`true`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`===` checks type, and the types differ.",
+      "ru": "`===` проверяет тип, и типы различаются."
+    }
+  },
+  {
+    "id": "tc-009",
+    "type": "single-correct",
+    "theme": "numeric coercion",
+    "question": {
+      "en": "What is the result of `true + 1`?",
+      "ru": "Каков результат `true + 1`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`1`",
+          "ru": "`1`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`2`",
+          "ru": "`2`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`true1`",
+          "ru": "`true1`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`NaN`",
+          "ru": "`NaN`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`true` coerces to `1` in numeric context.",
+      "ru": "`true` приводится к `1` в числовом контексте."
     }
   },
   {
@@ -137,12 +401,40 @@
     "theme": "truthy falsy",
     "question": {
       "en": "Is an empty string (`''`) falsy?",
-      "ru": "Является ли пустая строка (`''`) ложным значением?"
+      "ru": "Является ли пустая строка (`''`) ложной (falsy)?"
     },
     "answer": "yes",
     "explanation": {
       "en": "Empty strings are falsy.",
-      "ru": "Пустые строки являются ложными значениями."
+      "ru": "Пустые строки являются ложными (falsy)."
+    }
+  },
+  {
+    "id": "tc-011",
+    "type": "yes-no",
+    "theme": "truthy falsy",
+    "question": {
+      "en": "Is `'false'` falsy?",
+      "ru": "Является ли `'false'` ложным (falsy)?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "`'false'` is a non-empty string, so it is truthy.",
+      "ru": "`'false'` — это непустая строка, поэтому она истинная (truthy)."
+    }
+  },
+  {
+    "id": "tc-012",
+    "type": "yes-no",
+    "theme": "coercion basics",
+    "question": {
+      "en": "Does `==` perform type coercion?",
+      "ru": "Выполняет ли `==` приведение типов?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`==` converts values to a common type before comparing.",
+      "ru": "`==` преобразует значения к общему типу перед сравнением."
     }
   },
   {
@@ -151,7 +443,7 @@
     "theme": "truthy falsy",
     "question": {
       "en": "Which values are falsy?",
-      "ru": "Какие значения являются ложными?"
+      "ru": "Какие значения являются ложными (falsy)?"
     },
     "options": [
       {
@@ -183,10 +475,110 @@
         }
       }
     ],
-    "correctIds": ["a", "b", "c"],
+    "correctIds": [
+      "a",
+      "b",
+      "c"
+    ],
     "explanation": {
       "en": "`0`, `''`, and `NaN` are falsy; `'0'` is truthy.",
-      "ru": "`0`, `''` и `NaN` — ложные значения; `'0'` — истинное."
+      "ru": "`0`, `''` и `NaN` являются ложными; `'0'` — истинное."
+    }
+  },
+  {
+    "id": "tc-014",
+    "type": "multiple-correct",
+    "theme": "numeric coercion",
+    "question": {
+      "en": "Which expressions result in `NaN`?",
+      "ru": "Какие выражения приводят к `NaN`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`Number('abc')`",
+          "ru": "`Number('abc')`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`'a' * 3`",
+          "ru": "`'a' * 3`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`undefined + 1`",
+          "ru": "`undefined + 1`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`null * 2`",
+          "ru": "`null * 2`"
+        }
+      }
+    ],
+    "correctIds": [
+      "a",
+      "b",
+      "c"
+    ],
+    "explanation": {
+      "en": "Invalid numeric conversions produce `NaN`; `null * 2` becomes `0 * 2`.",
+      "ru": "Недопустимые числовые преобразования дают `NaN`; `null * 2` становится `0 * 2`."
+    }
+  },
+  {
+    "id": "tc-015",
+    "type": "multiple-correct",
+    "theme": "string coercion",
+    "question": {
+      "en": "Which expressions produce a string?",
+      "ru": "Какие выражения производят строку?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`5 + '5'`",
+          "ru": "`5 + '5'`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`'5' + 5`",
+          "ru": "`'5' + 5`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`true + '1'`",
+          "ru": "`true + '1'`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`'5' - 1`",
+          "ru": "`'5' - 1`"
+        }
+      }
+    ],
+    "correctIds": [
+      "a",
+      "b",
+      "c"
+    ],
+    "explanation": {
+      "en": "The `+` operator concatenates when one operand is a string.",
+      "ru": "Оператор `+` конкатенирует, когда один операнд является строкой."
     }
   },
   {
@@ -235,6 +627,264 @@
     }
   },
   {
+    "id": "tc-019",
+    "type": "predict-output",
+    "theme": "equality",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log('' == 0);`",
+    "answer": "`true`",
+    "explanation": {
+      "en": "`''` becomes `0` in numeric comparison.",
+      "ru": "`''` становится `0` в числовом сравнении."
+    }
+  },
+  {
+    "id": "tc-020",
+    "type": "predict-output",
+    "theme": "quirks",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log([] == 0);`",
+    "answer": "`true`",
+    "explanation": {
+      "en": "`[]` becomes `''`, then `0`.",
+      "ru": "`[]` становится `''`, затем `0`."
+    }
+  },
+  {
+    "id": "tc-021",
+    "type": "single-correct",
+    "theme": "coercion basics",
+    "question": {
+      "en": "What does `Number(true)` return?",
+      "ru": "Что возвращает `Number(true)`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`1`",
+          "ru": "`1`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`true`",
+          "ru": "`true`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`NaN`",
+          "ru": "`NaN`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`true` coerces to `1`.",
+      "ru": "`true` приводится к `1`."
+    }
+  },
+  {
+    "id": "tc-022",
+    "type": "single-correct",
+    "theme": "coercion basics",
+    "question": {
+      "en": "What does `Boolean(0)` return?",
+      "ru": "Что возвращает `Boolean(0)`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`true`",
+          "ru": "`true`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`0` is falsy.",
+      "ru": "`0` является ложным (falsy)."
+    }
+  },
+  {
+    "id": "tc-023",
+    "type": "single-correct",
+    "theme": "coercion basics",
+    "question": {
+      "en": "What does `String(false)` return?",
+      "ru": "Что возвращает `String(false)`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`'false'`",
+          "ru": "`'false'`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`'0'`",
+          "ru": "`'0'`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`String(false)` produces `'false'`.",
+      "ru": "`String(false)` производит `'false'`."
+    }
+  },
+  {
+    "id": "tc-024",
+    "type": "multiple-correct",
+    "theme": "equality",
+    "question": {
+      "en": "Which comparisons evaluate to `true`?",
+      "ru": "Какие сравнения оцениваются как `true`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`null == undefined`",
+          "ru": "`null == undefined`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`'1' == true`",
+          "ru": "`'1' == true`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`0 == false`",
+          "ru": "`0 == false`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`'' == false`",
+          "ru": "`'' == false`"
+        }
+      }
+    ],
+    "correctIds": [
+      "a",
+      "c",
+      "d"
+    ],
+    "explanation": {
+      "en": "These are classic coercion cases; `'1' == true` is false.",
+      "ru": "Это классические случаи приведения; `'1' == true` — false."
+    }
+  },
+  {
+    "id": "tc-025",
+    "type": "multiple-correct",
+    "theme": "numeric coercion",
+    "question": {
+      "en": "Which expressions evaluate to `1`?",
+      "ru": "Какие выражения оцениваются как `1`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`true * 1`",
+          "ru": "`true * 1`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`'1' * 1`",
+          "ru": "`'1' * 1`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`Boolean(1)`",
+          "ru": "`Boolean(1)`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`Number(true)`",
+          "ru": "`Number(true)`"
+        }
+      }
+    ],
+    "correctIds": [
+      "a",
+      "b",
+      "d"
+    ],
+    "explanation": {
+      "en": "`true` becomes `1`; `'1'` becomes `1`; `Boolean(1)` returns `true`.",
+      "ru": "`true` становится `1`; `'1'` становится `1`; `Boolean(1)` возвращает `true`."
+    }
+  },
+  {
     "id": "tc-026",
     "type": "predict-output",
     "theme": "quirks",
@@ -250,17 +900,62 @@
     }
   },
   {
+    "id": "tc-027",
+    "type": "predict-output",
+    "theme": "quirks",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log([] + {});`",
+    "answer": "`'[object Object]'`",
+    "explanation": {
+      "en": "`[]` becomes `''`; `{}` becomes `'[object Object]'`.",
+      "ru": "`[]` становится `''`; `{}` становится `'[object Object]'`."
+    }
+  },
+  {
+    "id": "tc-028",
+    "type": "predict-output",
+    "theme": "quirks",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log({} + []);`",
+    "answer": "`0`",
+    "explanation": {
+      "en": "In this context, `{}` is parsed as a block, leaving `+[]` which becomes `0`.",
+      "ru": "В этом контексте `{}` интерпретируется как блок, оставляя `+[]`, который становится `0`."
+    }
+  },
+  {
     "id": "tc-029",
     "type": "yes-no",
     "theme": "equality",
     "question": {
       "en": "Does `0 == ''` evaluate to true?",
-      "ru": "Равно ли `0 == ''` значению true?"
+      "ru": "Оценивается ли `0 == ''` как true?"
     },
     "answer": "yes",
     "explanation": {
       "en": "`''` becomes `0` in numeric comparison.",
-      "ru": "`''` становится `0` при числовом сравнении."
+      "ru": "`''` становится `0` в числовом сравнении."
+    }
+  },
+  {
+    "id": "tc-030",
+    "type": "predict-output",
+    "theme": "coercion basics",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log(typeof ('' + 5));`",
+    "answer": "`string`",
+    "explanation": {
+      "en": "String concatenation produces a `string`.",
+      "ru": "Конкатенация строк производит `string`."
     }
   }
 ]

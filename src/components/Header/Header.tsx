@@ -6,19 +6,15 @@ import classNames from 'classnames';
 import Text from 'components/Text';
 import { routes } from 'config/routes';
 import { authStore } from 'store/AuthStore';
+import { themeStore } from 'store/ThemeStore';
 import styles from './Header.module.scss';
 import Button from 'components/Button';
-
-type Theme = 'light' | 'dark';
-const THEME_KEY = 'app-theme';
-const getInitialTheme = (): Theme => (localStorage.getItem(THEME_KEY) as Theme) ?? 'light';
 
 export const Header: React.FC = observer(() => {
   const navigate = useNavigate();
   const location = useLocation();
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const [profileOpen, setProfileOpen] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
 
@@ -48,17 +44,6 @@ export const Header: React.FC = observer(() => {
   };
 
   const toggleLanguage = () => i18n.changeLanguage(isRu ? 'en' : 'ru');
-
-  const toggleTheme = () => {
-    const next: Theme = theme === 'light' ? 'dark' : 'light';
-    setTheme(next);
-    localStorage.setItem(THEME_KEY, next);
-    document.documentElement.setAttribute('data-theme', next);
-  };
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -152,8 +137,8 @@ export const Header: React.FC = observer(() => {
               <button className={styles.iconBtn} onClick={toggleLanguage}>
                 <span>{isRu ? 'RU' : 'EN'}</span>
               </button>
-              <button className={styles.iconBtn} onClick={toggleTheme}>
-                <span>{theme === 'light' ? '☀' : '☾'}</span>
+              <button className={styles.iconBtn} onClick={themeStore.toggleTheme}>
+                <span>{themeStore.theme === 'light' ? '☀' : '☾'}</span>
               </button>
               <button
                 className={styles.iconBtn}
@@ -184,10 +169,10 @@ export const Header: React.FC = observer(() => {
                   EN
                 </span>
               </button>
-              <button className={styles.toggleBtn} onClick={toggleTheme}>
+              <button className={styles.toggleBtn} onClick={themeStore.toggleTheme}>
                 <span
                   className={classNames(styles.toggleOption, {
-                    [styles.toggleOption_active]: theme === 'light',
+                    [styles.toggleOption_active]: themeStore.theme === 'light',
                   })}
                 >
                   ☀
@@ -195,7 +180,7 @@ export const Header: React.FC = observer(() => {
                 <span className={styles.toggleDivider}>/</span>
                 <span
                   className={classNames(styles.toggleOption, {
-                    [styles.toggleOption_active]: theme === 'dark',
+                    [styles.toggleOption_active]: themeStore.theme === 'dark',
                   })}
                 >
                   ☾
@@ -249,14 +234,16 @@ export const Header: React.FC = observer(() => {
         >
           <button
             className={isAuthenticated ? styles.toggleBtn : styles.iconBtn}
-            onClick={toggleTheme}
-            aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
+            onClick={themeStore.toggleTheme}
+            aria-label={
+              themeStore.theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'
+            }
           >
             {isAuthenticated ? (
               <>
                 <span
                   className={classNames(styles.toggleOption, {
-                    [styles.toggleOption_active]: theme === 'light',
+                    [styles.toggleOption_active]: themeStore.theme === 'light',
                   })}
                 >
                   ☀
@@ -264,14 +251,16 @@ export const Header: React.FC = observer(() => {
                 <span className={styles.toggleDivider}>/</span>
                 <span
                   className={classNames(styles.toggleOption, {
-                    [styles.toggleOption_active]: theme === 'dark',
+                    [styles.toggleOption_active]: themeStore.theme === 'dark',
                   })}
                 >
                   ☾
                 </span>
               </>
             ) : (
-              <span className={styles.toggleOption_active}>{theme === 'light' ? '☀' : '☾'}</span>
+              <span className={styles.toggleOption_active}>
+                {themeStore.theme === 'light' ? '☀' : '☾'}
+              </span>
             )}
           </button>
         </div>

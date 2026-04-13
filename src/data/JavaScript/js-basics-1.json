@@ -49,42 +49,42 @@
     "theme": "const behavior",
     "question": {
       "en": "What happens if you reassign a `const` variable?",
-      "ru": "Что произойдёт при переприсвоении переменной `const`?"
+      "ru": "Что произойдет, если переназначить переменную `const`?"
     },
     "options": [
       {
         "id": "a",
         "text": {
           "en": "It silently fails",
-          "ru": "Молча игнорируется"
+          "ru": "Это молча завершится неудачей"
         }
       },
       {
         "id": "b",
         "text": {
           "en": "It throws a `TypeError`",
-          "ru": "Выбрасывается `TypeError`"
+          "ru": "Это вызовет `TypeError`"
         }
       },
       {
         "id": "c",
         "text": {
           "en": "It works normally",
-          "ru": "Работает нормально"
+          "ru": "Это работает нормально"
         }
       },
       {
         "id": "d",
         "text": {
           "en": "It becomes `undefined`",
-          "ru": "Становится `undefined`"
+          "ru": "Это становится `undefined`"
         }
       }
     ],
     "correctId": "b",
     "explanation": {
       "en": "`const` bindings cannot be reassigned; attempting to do so throws a `TypeError`.",
-      "ru": "Привязки `const` нельзя переприсваивать; попытка сделать это выбрасывает `TypeError`."
+      "ru": "Привязки `const` не могут быть переназначены; попытка сделать это вызывает `TypeError`."
     }
   },
   {
@@ -128,7 +128,7 @@
     "correctId": "b",
     "explanation": {
       "en": "`let` and `const` are in the Temporal Dead Zone until their declaration is executed.",
-      "ru": "`let` и `const` находятся во временной мёртвой зоне до выполнения их объявления."
+      "ru": "`let` и `const` находятся в Temporal Dead Zone до выполнения их объявления."
     }
   },
   {
@@ -165,14 +165,102 @@
         "id": "d",
         "text": {
           "en": "It cannot be redeclared",
-          "ru": "Не может быть переобъявлено"
+          "ru": "Не может быть переобъявлена"
         }
       }
     ],
     "correctIds": ["a", "c"],
     "explanation": {
       "en": "`var` is function-scoped and hoisted with initialization to `undefined`; it can be redeclared.",
-      "ru": "`var` имеет функциональную область видимости и поднимается с инициализацией в `undefined`; может быть переобъявлено."
+      "ru": "`var` имеет функциональную область видимости и поднимается с инициализацией в `undefined`; может быть переобъявлена."
+    }
+  },
+  {
+    "id": "var-let-005",
+    "type": "multiple-correct",
+    "theme": "let characteristics",
+    "question": {
+      "en": "Which statements about `let` are correct?",
+      "ru": "Какие утверждения о `let` верны?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "It is block-scoped",
+          "ru": "Имеет блочную область видимости"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "It is hoisted but uninitialized",
+          "ru": "Поднимается, но не инициализируется"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "It can be redeclared in the same scope",
+          "ru": "Может быть переобъявлена в той же области видимости"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "It enters the `Temporal Dead Zone`",
+          "ru": "Входит в `Temporal Dead Zone`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "d"],
+    "explanation": {
+      "en": "`let` is block-scoped, hoisted without initialization, and stays in the `TDZ` until declared.",
+      "ru": "`let` имеет блочную область видимости, поднимается без инициализации и остается в `TDZ` до объявления."
+    }
+  },
+  {
+    "id": "var-let-006",
+    "type": "multiple-correct",
+    "theme": "const characteristics",
+    "question": {
+      "en": "Which statements about `const` are true?",
+      "ru": "Какие утверждения о `const` верны?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "It must be initialized at declaration",
+          "ru": "Должна быть инициализирована при объявлении"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "It is block-scoped",
+          "ru": "Имеет блочную область видимости"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Its binding cannot be reassigned",
+          "ru": "Её привязка не может быть переназначена"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Its object contents cannot be mutated",
+          "ru": "Содержимое объекта не может быть изменено"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "`const` requires initialization, is block-scoped, and its binding is immutable, but object contents can mutate.",
+      "ru": "`const` требует инициализации, имеет блочную область видимости, и её привязка неизменна, но содержимое объекта может изменяться."
     }
   },
   {
@@ -186,7 +274,7 @@
     "answer": "yes",
     "explanation": {
       "en": "`const` prevents reassignment of the binding, not mutation of the referenced object.",
-      "ru": "`const` предотвращает переприсвоение привязки, но не мутацию объекта."
+      "ru": "`const` предотвращает переназначение привязки, но не изменение ссылочного объекта."
     }
   },
   {
@@ -195,12 +283,26 @@
     "theme": "let redeclaration",
     "question": {
       "en": "Can a `let` variable be redeclared in the same scope?",
-      "ru": "Можно ли переобъявить переменную `let` в той же области видимости?"
+      "ru": "Может ли переменная `let` быть переобъявлена в той же области видимости?"
     },
     "answer": "no",
     "explanation": {
       "en": "`let` cannot be redeclared within the same block scope.",
-      "ru": "`let` не может быть переобъявлено в той же блочной области видимости."
+      "ru": "`let` не может быть переобъявлена в той же блочной области видимости."
+    }
+  },
+  {
+    "id": "var-let-009",
+    "type": "yes-no",
+    "theme": "var hoisting",
+    "question": {
+      "en": "Does `var` get initialized to `undefined` during hoisting?",
+      "ru": "Инициализируется ли `var` в `undefined` при поднятии?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`var` is hoisted and automatically initialized to `undefined`.",
+      "ru": "`var` поднимается и автоматически инициализируется в `undefined`."
     }
   },
   {
@@ -215,7 +317,7 @@
     "answer": "`undefined`",
     "explanation": {
       "en": "`var` is hoisted with value `undefined` until assignment.",
-      "ru": "`var` поднимается со значением `undefined` до присвоения."
+      "ru": "`var` поднимается со значением `undefined` до присваивания."
     }
   },
   {
@@ -224,13 +326,265 @@
     "theme": "let TDZ",
     "question": {
       "en": "What happens?",
-      "ru": "Что произойдёт?"
+      "ru": "Что произойдет?"
     },
     "code": "`console.log(b);`\n`let b = 10;`",
     "answer": "`ReferenceError`",
     "explanation": {
       "en": "Accessing `let` before declaration triggers the `TDZ` and throws a `ReferenceError`.",
-      "ru": "Обращение к `let` до объявления активирует TDZ и выбрасывает `ReferenceError`."
+      "ru": "Обращение к `let` до объявления вызывает `TDZ` и выбрасывает `ReferenceError`."
+    }
+  },
+  {
+    "id": "var-let-012",
+    "type": "predict-output",
+    "theme": "const reassignment",
+    "question": {
+      "en": "What will happen?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`const x = 1;`\n`x = 2;`",
+    "answer": "`TypeError`",
+    "explanation": {
+      "en": "Reassigning a `const` binding throws a `TypeError`.",
+      "ru": "Переназначение привязки `const` вызывает `TypeError`."
+    }
+  },
+  {
+    "id": "var-let-013",
+    "type": "predict-output",
+    "theme": "block scope",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`{ let x = 10; }`\n`console.log(typeof x);`",
+    "answer": "`undefined`",
+    "explanation": {
+      "en": "`x` is block-scoped and not accessible outside the block.",
+      "ru": "`x` имеет блочную область видимости и недоступна вне блока."
+    }
+  },
+  {
+    "id": "var-let-014",
+    "type": "predict-output",
+    "theme": "var leaking",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`{ var x = 10; }`\n`console.log(x);`",
+    "answer": "`10`",
+    "explanation": {
+      "en": "`var` ignores block scope and becomes function/global scoped.",
+      "ru": "`var` игнорирует блочную область видимости и становится функциональной/глобальной."
+    }
+  },
+  {
+    "id": "var-let-015",
+    "type": "predict-output",
+    "theme": "const object mutation",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const obj = { a: 1 };`\n`obj.a = 2;`\n`console.log(obj.a);`",
+    "answer": "`2`",
+    "explanation": {
+      "en": "Mutating object properties is allowed even with `const`.",
+      "ru": "Изменение свойств объекта разрешено даже с `const`."
+    }
+  },
+  {
+    "id": "var-let-016",
+
+    "type": "single-correct",
+    "theme": "scope",
+    "question": {
+      "en": "Which variable is NOT block-scoped?",
+      "ru": "Какая переменная НЕ имеет блочную область видимости?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`var`",
+          "ru": "`var`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`let`",
+          "ru": "`let`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`const`",
+          "ru": "`const`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "all are block-scoped",
+          "ru": "все имеют блочную область видимости"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`var` is function-scoped, not block-scoped.",
+      "ru": "`var` имеет функциональную область видимости, а не блочную."
+    }
+  },
+  {
+    "id": "var-let-017",
+    "type": "single-correct",
+    "theme": "const initialization",
+    "question": {
+      "en": "Which declaration is invalid?",
+      "ru": "Какое объявление недопустимо?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`const x = 5;`",
+          "ru": "`const x = 5;`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`let x;`",
+          "ru": "`let x;`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`var x;`",
+          "ru": "`var x;`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`const x;`",
+          "ru": "`const x;`"
+        }
+      }
+    ],
+    "correctId": "d",
+    "explanation": {
+      "en": "`const` must be initialized at declaration.",
+      "ru": "`const` должна быть инициализирована при объявлении."
+    }
+  },
+  {
+    "id": "var-let-018",
+    "type": "multiple-correct",
+    "theme": "TDZ",
+    "question": {
+      "en": "Which variables experience the `Temporal Dead Zone`?",
+      "ru": "Какие переменные испытывают `Temporal Dead Zone`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`var`",
+          "ru": "`var`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`let`",
+          "ru": "`let`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`const`",
+          "ru": "`const`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "none",
+          "ru": "никакие"
+        }
+      }
+    ],
+    "correctIds": ["b", "c"],
+    "explanation": {
+      "en": "`let` and `const` are hoisted but uninitialized, creating the `TDZ`.",
+      "ru": "`let` и `const` поднимаются, но не инициализируются, создавая `TDZ`."
+    }
+  },
+  {
+    "id": "var-let-019",
+    "type": "yes-no",
+    "theme": "var redeclaration",
+    "question": {
+      "en": "Can `var` be redeclared in the same scope?",
+      "ru": "Может ли `var` быть переобъявлена в той же области видимости?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`var` allows redeclaration within the same scope.",
+      "ru": "`var` позволяет переобъявление в той же области видимости."
+    }
+  },
+  {
+    "id": "var-let-020",
+    "type": "predict-output",
+    "theme": "shadowing",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 1;`\n`{`\n`  let x = 2;`\n`  console.log(x);`\n`}`\n`console.log(x);`",
+    "answer": "2\n1",
+    "explanation": {
+      "en": "Inner `let` shadows outer `let` inside the block.",
+      "ru": "Внутренний `let` затеняет внешний `let` внутри блока."
+    }
+  },
+  {
+    "id": "var-let-021",
+    "type": "predict-output",
+    "theme": "var shadowing",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`var x = 1;`\n`{`\n`  var x = 2;`\n`}`\n`console.log(x);`",
+    "answer": "`2`",
+    "explanation": {
+      "en": "`var` redeclares the same variable, ignoring block scope.",
+      "ru": "`var` переобъявляет ту же переменную, игнорируя блочную область видимости."
+    }
+  },
+  {
+    "id": "var-let-022",
+    "type": "predict-output",
+    "theme": "const array mutation",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = [1,2];`\n`arr.push(3);`\n`console.log(arr.length);`",
+    "answer": "`3`",
+    "explanation": {
+      "en": "Mutating array contents is allowed with `const`.",
+      "ru": "Изменение содержимого массива разрешено с `const`."
     }
   },
   {
@@ -239,7 +593,7 @@
     "theme": "let vs const",
     "question": {
       "en": "Which keyword allows reassignment?",
-      "ru": "Какое ключевое слово допускает переприсвоение?"
+      "ru": "Какое ключевое слово позволяет переназначение?"
     },
     "options": [
       {
@@ -274,7 +628,65 @@
     "correctId": "a",
     "explanation": {
       "en": "`let` allows reassignment; `const` does not.",
-      "ru": "`let` допускает переприсвоение; `const` — нет."
+      "ru": "`let` позволяет переназначение; `const` — нет."
+    }
+  },
+  {
+    "id": "var-let-024",
+    "type": "multiple-correct",
+    "theme": "hoisting",
+    "question": {
+      "en": "Which declarations are hoisted?",
+      "ru": "Какие объявления поднимаются?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`var`",
+          "ru": "`var`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`let`",
+          "ru": "`let`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`const`",
+          "ru": "`const`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "all of them",
+          "ru": "все они"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "All declarations are hoisted, but `let` and `const` remain uninitialized until execution.",
+      "ru": "Все объявления поднимаются, но `let` и `const` остаются неинициализированными до выполнения."
+    }
+  },
+  {
+    "id": "var-let-025",
+    "type": "yes-no",
+    "theme": "const binding",
+    "question": {
+      "en": "Does `const` prevent mutation of nested objects?",
+      "ru": "Предотвращает ли `const` изменение вложенных объектов?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "`const` only freezes the binding, not the object structure.",
+      "ru": "`const` замораживает только привязку, а не структуру объекта."
     }
   },
   {
@@ -289,7 +701,125 @@
     "answer": "0\n1\n2",
     "explanation": {
       "en": "`let` creates a new binding for each iteration.",
-      "ru": "`let` создаёт новую привязку для каждой итерации."
+      "ru": "`let` создает новую привязку для каждой итерации."
+    }
+  },
+  {
+    "id": "var-let-027",
+    "type": "predict-output",
+    "theme": "var in loops",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (var i = 0; i < 3; i++) {}`\n`console.log(i);`",
+    "answer": "`3`",
+    "explanation": {
+      "en": "`var` is function-scoped; after the loop, `i` equals 3.",
+      "ru": "`var` имеет функциональную область видимости; после цикла `i` равно 3."
+    }
+  },
+  {
+    "id": "var-let-028",
+    "type": "single-correct",
+    "theme": "scope",
+    "question": {
+      "en": "Which keyword creates a block-scoped variable?",
+      "ru": "Какое ключевое слово создает переменную с блочной областью видимости?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`var`",
+          "ru": "`var`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`let`",
+          "ru": "`let`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`const`",
+          "ru": "`const`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "b and c",
+          "ru": "b и c"
+        }
+      }
+    ],
+    "correctId": "d",
+    "explanation": {
+      "en": "Both `let` and `const` are block-scoped.",
+      "ru": "И `let`, и `const` имеют блочную область видимости."
+    }
+  },
+  {
+    "id": "var-let-029",
+    "type": "multiple-correct",
+    "theme": "reassignment",
+    "question": {
+      "en": "Which variables can be reassigned?",
+      "ru": "Какие переменные могут быть переназначены?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`var`",
+          "ru": "`var`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`let`",
+          "ru": "`let`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`const`",
+          "ru": "`const`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "none",
+          "ru": "никакие"
+        }
+      }
+    ],
+    "correctIds": ["a", "b"],
+    "explanation": {
+      "en": "`var` and `let` allow reassignment; `const` does not.",
+      "ru": "`var` и `let` позволяют переназначение; `const` — нет."
+    }
+  },
+  {
+    "id": "var-let-030",
+    "type": "predict-output",
+    "theme": "const reference",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const obj = { a: 1 };`\n`const ref = obj;`\n`ref.a = 5;`\n`console.log(obj.a);`",
+    "answer": "`5`",
+    "explanation": {
+      "en": "Both variables reference the same object; mutating through one affects the other.",
+      "ru": "Обе переменные ссылаются на один и тот же объект; изменение через одну влияет на другую."
     }
   }
 ]

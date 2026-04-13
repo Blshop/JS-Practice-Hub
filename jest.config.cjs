@@ -17,6 +17,7 @@ module.exports = {
     '^types/(.*)$': '<rootDir>/src/types/$1',
     '^data/(.*)$': '<rootDir>/src/data/$1',
     '^utils/(.*)$': '<rootDir>/src/utils/$1',
+    '^i18n/(.*)$': '<rootDir>/src/i18n/$1',
     // Для CSS-модулей
     '\\.module\\.(css|scss)$': 'identity-obj-proxy',
     // Для обычных CSS
