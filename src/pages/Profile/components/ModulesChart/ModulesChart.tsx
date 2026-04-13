@@ -1,4 +1,5 @@
 import React from 'react';
+import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 import {
   BarChart,
@@ -11,6 +12,7 @@ import {
   Legend,
 } from 'recharts';
 import Text from 'components/Text';
+import { themeStore } from 'store/ThemeStore';
 import type { ModuleStat } from '../../hooks/useProfileStats';
 import styles from './ModulesChart.module.scss';
 
@@ -18,7 +20,7 @@ interface ModulesChartProps {
   moduleStats: ModuleStat[];
 }
 
-const ModulesChart: React.FC<ModulesChartProps> = ({ moduleStats }) => {
+const ModulesChart: React.FC<ModulesChartProps> = observer(({ moduleStats }) => {
   const { t } = useTranslation();
 
   const chartData = moduleStats.map((module) => ({
@@ -28,6 +30,10 @@ const ModulesChart: React.FC<ModulesChartProps> = ({ moduleStats }) => {
   }));
 
   const maxTestsInModule = Math.max(...moduleStats.map((m) => m.totalTests), 0);
+
+  const completedColor = themeStore.theme === 'light' ? '#bcead0' : '#3daa6e';
+  const backgroundColor = themeStore.theme === 'light' ? '#fff' : '#333';
+  const color = themeStore.theme === 'light' ? '#333' : '#fff';
 
   return (
     <div className={styles.chartContainer}>
@@ -41,8 +47,9 @@ const ModulesChart: React.FC<ModulesChartProps> = ({ moduleStats }) => {
           <YAxis allowDecimals={false} domain={[0, maxTestsInModule]} />
           <Tooltip
             contentStyle={{
-              backgroundColor: '#fff',
-              border: '2px solid #333',
+              backgroundColor: backgroundColor,
+              color: color,
+              border: `2px solid ${color}`,
               borderRadius: '0.6em',
             }}
           />
@@ -50,8 +57,8 @@ const ModulesChart: React.FC<ModulesChartProps> = ({ moduleStats }) => {
           <Bar
             dataKey="completed"
             stackId="a"
-            fill="#bcead0"
-            stroke="#333333"
+            fill={completedColor}
+            stroke={color}
             strokeWidth={2}
             name={t('profile.charts.completedTests')}
           />
@@ -59,7 +66,7 @@ const ModulesChart: React.FC<ModulesChartProps> = ({ moduleStats }) => {
             dataKey="remaining"
             stackId="a"
             fill="#afafaf"
-            stroke="#333333"
+            stroke={color}
             strokeWidth={2}
             name={t('profile.charts.remainingTests')}
           />
@@ -67,7 +74,7 @@ const ModulesChart: React.FC<ModulesChartProps> = ({ moduleStats }) => {
       </ResponsiveContainer>
     </div>
   );
-};
+});
 
 ModulesChart.displayName = 'ModulesChart';
 
