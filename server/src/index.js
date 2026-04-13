@@ -21,9 +21,7 @@ app.use(
 
 app.use('/api/auth', authRoutes);
 app.use('/api/progress', progressRoutes);
-
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
-
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });

@@ -62,7 +62,12 @@ const QuizPage: React.FC = () => {
 
         <Text className={styles.percentage}>{t('quiz.noQuestionsDesc')}</Text>
 
-        <Button variant="primary" size="large" onClick={() => navigate(routes.main.mask)}>
+        <Button
+          className={styles.buttonMain}
+          variant="primary"
+          size="large"
+          onClick={() => navigate(routes.main.mask)}
+        >
           {t('quiz.goToStart')}
         </Button>
       </div>
