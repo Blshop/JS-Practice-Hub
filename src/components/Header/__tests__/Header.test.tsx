@@ -73,7 +73,8 @@ describe('Header Component', () => {
 
       render(<Header />);
       expect(screen.getByText('Logout')).toBeInTheDocument();
-      expect(screen.getByText(/testuser/i)).toBeInTheDocument();
+      const usernameElements = screen.getAllByText(/testuser/i);
+      expect(usernameElements.length).toBeGreaterThan(0);
     });
 
     it('не отображает кнопку Logout для неавторизованного пользователя', () => {
