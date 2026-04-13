@@ -337,24 +337,22 @@ describe('progressCalculations', () => {
     it('не учитывает попытки сверх totalTasks (пользователь продолжает практиковаться)', () => {
       const userProgress: UserProgress = {
         lessons: {
-          l1: { successAttempt: 10, failedAttempt: 5, questions: [] }, // 10 > 3, считаем только 3
-          l2: { successAttempt: 7, failedAttempt: 2, questions: [] }, // 7 > 3, считаем только 3
-          l3: { successAttempt: 15, failedAttempt: 8, questions: [] }, // 15 > 3, считаем только 3
+          l1: { successAttempt: 10, failedAttempt: 5, questions: [] },
+          l2: { successAttempt: 7, failedAttempt: 2, questions: [] },
+          l3: { successAttempt: 15, failedAttempt: 8, questions: [] },
         },
       };
-      // Должно быть 3 + 3 + 3 = 9, а не 10 + 7 + 15 = 32
       expect(calculateModuleCompletedTests(userProgress, module)).toBe(9);
     });
 
     it('корректно работает со смешанными данными (некоторые уроки с избытком попыток)', () => {
       const userProgress: UserProgress = {
         lessons: {
-          l1: { successAttempt: 2, failedAttempt: 1, questions: [] }, // 2 < 3
-          l2: { successAttempt: 8, failedAttempt: 3, questions: [] }, // 8 > 3, считаем 3
-          l3: { successAttempt: 3, failedAttempt: 0, questions: [] }, // 3 = 3
+          l1: { successAttempt: 2, failedAttempt: 1, questions: [] },
+          l2: { successAttempt: 8, failedAttempt: 3, questions: [] },
+          l3: { successAttempt: 3, failedAttempt: 0, questions: [] },
         },
       };
-      // Должно быть 2 + 3 + 3 = 8
       expect(calculateModuleCompletedTests(userProgress, module)).toBe(8);
     });
 

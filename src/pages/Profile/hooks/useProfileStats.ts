@@ -141,7 +141,6 @@ export const useProfileStats = (userProgress: UserProgress): ProfileStats | null
       }
     }
 
-    // Пересчитываем completedTests для каждого модуля
     for (const module of learningPathData.modules) {
       const moduleStat = moduleStatsMap.get(module.id);
       if (moduleStat) {

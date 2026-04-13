@@ -51,7 +51,7 @@ import { UserProgress } from '../models/UserProgress.js';
 export const saveLessonProgress = async (req, res) => {
   try {
     const { lessonId, progress } = req.body;
-    const userId = req.userId; // Из JWT токена через middleware
+    const userId = req.userId;
 
     if (!lessonId || !progress) {
       return res.status(400).json({ message: 'lessonId and progress are required' });

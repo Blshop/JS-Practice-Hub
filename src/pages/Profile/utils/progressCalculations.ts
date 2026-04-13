@@ -88,12 +88,10 @@ export function calculateTotalEarnedXP(userProgress: UserProgress, modules: Modu
   );
 }
 
-// Расчет общего количества тестов в модуле
 export function calculateModuleTotalTests(module: ModuleData): number {
   return module.lessons.reduce((sum, lesson) => sum + lesson.totalTasks, 0);
 }
 
-// Расчет завершенных тестов в модуле
 export function calculateModuleCompletedTests(
   userProgress: UserProgress,
   module: ModuleData,
