@@ -1,27 +1,56 @@
 # JS-Practice-Hub
 
-**JS-Practice-Hub** — это веб-приложение для тренировки знаний по JavaScript и подготовки к техническим интервью. Платформа содержит интерактивные задания, включая drag-and-drop вопросы на правильный порядок выполнения кода, тестовые вопросы с выбором одного или нескольких правильных ответов, а также практические упражнения для закрепления ключевых концепций языка.
+**JS-Practice-Hub** - это веб-приложение для тренировки знаний по JavaScript и подготовки к техническим интервью. Платформа содержит интерактивные задания, включая drag-and-drop вопросы на правильный порядок выполнения кода, тестовые вопросы с выбором одного или нескольких правильных ответов, а также практические упражнения для закрепления ключевых концепций языка.
 
-В приложении реализованы уровни сложности, что позволяет постепенно углублять знания — от базовых тем до продвинутых концепций. Также предусмотрено хранение статистики для отслеживания прогресса пользователя и анализа результатов. Проект направлен на развитие глубокого понимания асинхронности, работы event loop, замыканий, прототипов и других ключевых механизмов JavaScript.
+В приложении реализованы уровни сложности, что позволяет постепенно углублять знания - от базовых тем до продвинутых концепций. Также предусмотрено хранение статистики для отслеживания прогресса пользователя и анализа результатов. Проект направлен на развитие глубокого понимания асинхронности, работы event loop, замыканий, прототипов и других ключевых механизмов JavaScript.
 
-## Ссылка на deploy
+## 📌 Чем гордимся
+
+- **Красивый и современный дизайн, с анимациями и адаптивностью**
+- **Законченное приложение поможет получить новые и закрепить уже имеющиеся знания по многим темам JavaScript, облекчит подготовку к техническим интервью и собеседованиям**
+- **Надежная аутентификация** - собственная реализация бэка, JWT с refresh‑токенами и httpOnly cookie.
+- **Реактивный UI на MobX** - состояние сессии автоматически синхронизируется с компонентами, а PrivateRoute корректно обрабатывает загрузку и сетевые ошибки.
+- **Тестовая дисциплина** - unit‑тесты и интеграционные тесты.
+
+## 🗂 Доска (Trello)
+
+- Ссылка: (https://trello.com/b/BFPlnOWW/tandem)
+- Скриншот текущего состояния:  
+  ![Trello board](https://github.com/user-attachments/assets/d2fff516-efbc-404d-b9ba-c2240d57e17f)
+
+## 📝 Meeting Notes
+
+- [2026-02-16](https://github.com/Blshop/JS-Practice-Hub/blob/main/meeting-notes/2026-02-16.md)
+- [2026-02-22](https://github.com/Blshop/JS-Practice-Hub/blob/main/meeting-notes/2026-02-22.md)
+- [2026-03-01](https://github.com/Blshop/JS-Practice-Hub/blob/main/meeting-notes/2026-03-01.md)
+- [2026-03-22](https://github.com/Blshop/JS-Practice-Hub/blob/main/meeting-notes/2026-03-22.md)
+- [2026-03-31](https://github.com/Blshop/JS-Practice-Hub/blob/main/meeting-notes/2026-03-31.md)
+
+## 🔍 Лучшие PR
+
+1. **[#4 - feat: basic UI components (Button, Text, Input, Checkbox, Radio, Select)](https://github.com/Blshop/JS-Practice-Hub/pull/4)** - Набор базовых UI-компонентов для проекта, включая компоненты Button, Text, Input, Checkbox, Radio и Select с полной поддержкой стилизации и вариантов отображения.
+2. **[#46 - Авторизация/Регистрация. Storage](https://github.com/Blshop/JS-Practice-Hub/pull/46)** - Добавлена библиотека MobX для централизованного управления состоянием приложения.
+3. **[#87 - Страница с тестами](https://github.com/Blshop/JS-Practice-Hub/pull/87)** - Добавлен полноценный модуль Quiz с поддержкой динамической загрузки вопросов, отображением различных типов заданий, проверкой ответов, прогресс‑баром, объяснениями и удобным пользовательским интерфейсом.
+4. **[#107 - Сохранение прогресса тестов](https://github.com/Blshop/JS-Practice-Hub/pull/107)** - Отправка данных о прохождении квиза на сервер, сохранение результатов.
+
+## 🚀 Ссылка на deploy
 
 - https://js-practice-hub-frontend.onrender.com/
 - https://blshop.github.io/JS-Practice-Hub/ (запасная, только клиент)
 
 ## 👨‍💻 Состав команды
 
-- **Nikita Erechtchenko** — https://github.com/Blshop
-- **Roman Shamaluk**— https://github.com/GorodeN
-- **Dmitry Astapenko** — https://github.com/DmitryAstapenko
+- **Nikita Erechtchenko** - https://github.com/Blshop
+- **Roman Shamaluk**- https://github.com/GorodeN
+- **Dmitry Astapenko** - https://github.com/DmitryAstapenko
 
 ## 🎓 Ментор
 
-- **Alina Husarava** — https://github.com/spadarynjaALINA
+- **Alina Husarava** - https://github.com/spadarynjaALINA
 
 ## 🏫 Организация
 
-- **The Rolling Scopes (@rollingscopes)** — https://github.com/rollingscopes
+- **The Rolling Scopes (@rollingscopes)** - https://github.com/rollingscopes
 
 ## 📹 Видео-доказательство функциональности (Страница 404, Loading state, Обработка ошибок API)
 
@@ -117,5 +146,8 @@
 
 ### Swagger (Документация API)
 
+**Деплой:** https://js-practice-hub.onrender.com/api-docs/
+
+**Локально:**
 - Запустить сервер
 - Перейти на `{SERVER_URL}/api-docs/` (по умолч. `http://localhost:5000/api-docs/`)
