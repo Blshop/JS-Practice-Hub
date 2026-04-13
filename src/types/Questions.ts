@@ -1,56 +1,50 @@
-export type QuestionType =
-  | 'single-correct'
-  | 'multiple-correct'
-  | 'yes-no'
-  | 'predict-output'
-  | 'drag-and-drop';
+export type QuestionType = 'single-correct' | 'multiple-correct' | 'yes-no' | 'predict-output';
+
+export type LocalizedString = {
+  en: string;
+  ru?: string;
+};
 
 export interface BaseQuestion {
   id: string;
   type: QuestionType;
   theme: string;
-  question: string;
+  question: LocalizedString;
   code?: string;
-  explanation: string;
+  explanation: LocalizedString;
 }
 
-// Single correct
 export interface SingleCorrectQuestion extends BaseQuestion {
   type: 'single-correct';
-  options: { id: string; text: string }[];
+  options: { id: string; text: LocalizedString }[];
   correctId: string;
 }
 
-// Multiple correct
 export interface MultipleCorrectQuestion extends BaseQuestion {
   type: 'multiple-correct';
-  options: { id: string; text: string }[];
+  options: { id: string; text: LocalizedString }[];
   correctIds: string[];
 }
 
-// Yes / No
 export interface YesNoQuestion extends BaseQuestion {
   type: 'yes-no';
-  correct: 'yes' | 'no';
+  answer: 'yes' | 'no';
 }
 
-// Predict output
 export interface PredictOutputQuestion extends BaseQuestion {
   type: 'predict-output';
   answer: string;
-}
-
-// Drag and Drop
-export interface DragAndDropQuestion extends BaseQuestion {
-  type: 'drag-and-drop';
-  items: { id: string; text: string }[];
-  correctOrder?: string[];
-  correctGroups?: Record<string, string[]>;
 }
 
 export type Question =
   | SingleCorrectQuestion
   | MultipleCorrectQuestion
   | YesNoQuestion
-  | PredictOutputQuestion
-  | DragAndDropQuestion;
+  | PredictOutputQuestion;
+
+export type AnswerType = string | string[] | 'yes' | 'no';
+
+export interface QuizSummary {
+  correct: number;
+  total: number;
+}

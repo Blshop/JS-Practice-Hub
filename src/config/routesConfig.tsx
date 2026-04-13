@@ -6,7 +6,12 @@ import Auth from 'pages/Auth';
 import LoginForm from 'pages/Auth/components/LoginForm';
 import RegisterForm from 'pages/Auth/components/RegisterForm';
 import Demo from 'pages/Demo';
+import QuizPage from 'pages/Quiz';
 import Main from 'pages/Main';
+import Profile from 'pages/Profile';
+import PrivateRoute from 'components/PrivateRoute';
+import NotFound from 'pages/NotFound';
+import About from 'pages/About';
 
 export const routesConfig: RouteObject[] = [
   {
@@ -16,19 +21,31 @@ export const routesConfig: RouteObject[] = [
     children: [
       {
         path: routes.main.mask,
-        element: <Main />,
+        element: (
+          <PrivateRoute>
+            <Main />
+          </PrivateRoute>
+        ),
       },
       {
         path: routes.profile.mask,
-        element: <>Профиль пользователя</>,
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
       },
       {
         path: routes.about.mask,
-        element: <>О приложении</>,
+        element: <About />,
       },
       {
         path: routes.auth.mask,
-        element: <Auth />,
+        element: (
+          <PrivateRoute inverted>
+            <Auth />
+          </PrivateRoute>
+        ),
         children: [
           {
             index: true,
@@ -42,16 +59,29 @@ export const routesConfig: RouteObject[] = [
             path: 'register',
             element: <RegisterForm />,
           },
+          {
+            path: '*',
+            element: <Navigate to={routes.auth.login} replace />,
+          },
         ],
       },
       {
         path: routes.demo.mask,
         element: <Demo />,
       },
+      {
+        path: routes.quiz.mask,
+        element: (
+          <PrivateRoute>
+            <QuizPage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '*',
+        handle: { hideHeaderFooter: true },
+        element: <NotFound />,
+      },
     ],
-  },
-  {
-    path: '*',
-    element: <Navigate to={routes.main.mask} replace />,
   },
 ];

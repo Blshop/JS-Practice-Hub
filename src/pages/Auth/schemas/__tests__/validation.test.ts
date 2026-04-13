@@ -1,5 +1,20 @@
-import { loginSchema } from '../loginSchema';
-import { registerSchema } from '../registerSchema';
+import { createLoginSchema } from '../loginSchema';
+import { createRegisterSchema } from '../registerSchema';
+
+const loginSchema = createLoginSchema({
+  emailInvalid: 'Invalid email',
+  passwordMin: 'Password must be at least 6 characters',
+  passwordUppercase: 'Password must contain at least one uppercase letter',
+  passwordDigit: 'Password must contain at least one digit',
+});
+
+const registerSchema = createRegisterSchema({
+  usernameRequired: 'Username is required',
+  emailInvalid: 'Invalid email',
+  passwordMin: 'Password must be at least 6 characters',
+  passwordUppercase: 'Password must contain at least one uppercase letter',
+  passwordDigit: 'Password must contain at least one digit',
+});
 
 describe('Валидация Auth', () => {
   describe('Авторизация (loginSchema)', () => {

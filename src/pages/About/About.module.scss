@@ -1,0 +1,314 @@
+@use 'styles/variables' as *;
+
+.about {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 3rem 1rem;
+  background: var(--color-neutral-100, #f3f4f6);
+  border-radius: $border-radius-default;
+  border: $border-default;
+  box-shadow: $box-shadow-default;
+}
+
+.heroCats {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.heroText {
+  text-align: center;
+  max-width: 520px;
+  flex: 1;
+  min-width: 260px;
+}
+
+.heroTitle {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.heroSubtitle {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  position: relative;
+  padding-bottom: 0.5rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3rem;
+    height: 3px;
+    background: $color-primary;
+    border-radius: 2px;
+  }
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.featureCard {
+  padding: 1.5rem;
+  border: $border-default;
+  border-radius: $border-radius-default;
+  box-shadow: $box-shadow-default;
+  background: var(--color-neutral-000, #fff);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 0 0 var(--shadow-color, #333);
+  }
+}
+
+.featureTitle {
+  font-size: 1rem;
+}
+
+.featureDesc {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.stackList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.stackBadge {
+  padding: 0.4rem 1rem;
+  border: 2px solid;
+  border-radius: 2rem;
+  font-family: $font-family-base;
+  font-size: 0.85rem;
+  font-weight: $font-weight-bold;
+  background: var(--color-neutral-000, #fff);
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
+  cursor: default;
+
+  &:hover {
+    transform: translateY(-2px);
+    filter: $hover-filter-default;
+  }
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.teamCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem 1.5rem 1.5rem;
+  border: $border-default;
+  border-radius: $border-radius-default;
+  box-shadow: $box-shadow-default;
+  background: var(--color-neutral-000, #fff);
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 0 0 var(--shadow-color, #333);
+
+    .githubLink {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.mentorCard {
+  border-color: $color-secondary;
+  box-shadow: 0 4px 0 0 $color-secondary;
+
+  &:hover {
+    box-shadow: 0 8px 0 0 $color-secondary;
+  }
+}
+
+.leadCard {
+  border-color: $color-warning;
+  box-shadow: 0 4px 0 0 $color-warning;
+
+  &:hover {
+    box-shadow: 0 8px 0 0 $color-warning;
+  }
+}
+
+.crownBadge {
+  display: none;
+}
+
+.teamCatWrap {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.teamName {
+  font-size: 1rem;
+}
+
+.teamRole {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: $color-neutral-500;
+}
+
+.teamDesc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-top: 0.25rem;
+  flex: 1;
+}
+
+.githubLink {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  opacity: 0.5;
+  transform: translateY(4px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.orgSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 2rem;
+  border: $border-default;
+  border-radius: $border-radius-default;
+  box-shadow: $box-shadow-default;
+  background: var(--color-neutral-100, #f3f4f6);
+}
+
+.orgDesc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+.orgLink {
+  display: inline-block;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  text-decoration: none;
+  font-size: 0.95rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.ctaSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem 2rem;
+  border: $border-default;
+  border-radius: $border-radius-default;
+  box-shadow: $box-shadow-default;
+  background: var(--color-neutral-000, #fff);
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+@keyframes crownFloat {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-3px);
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .hero {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .heroCats {
+    gap: 0.5rem;
+  }
+
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .about {
+    gap: 2.5rem;
+    padding: 1rem 1rem 3rem;
+  }
+
+  .heroCats:last-child {
+    display: none;
+  }
+
+  .featuresGrid,
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+}

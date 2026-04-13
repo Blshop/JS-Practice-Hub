@@ -1,0 +1,88 @@
+@use 'styles/variables' as var;
+@use 'styles/mixins' as mixin;
+
+.tableContainer {
+  @include mixin.flex($direction: column, $gap: 2rem);
+  padding: 2rem;
+  background-color: var.$color-neutral-000;
+  border: var.$border-default;
+  border-radius: var.$border-radius-default;
+  box-shadow: var.$box-shadow-default;
+}
+
+.tableTitle {
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.filters {
+  @include mixin.flex($direction: row, $gap: 1rem);
+}
+
+.filterInput,
+.filterSelect {
+  flex: 1;
+}
+
+.table {
+  @include mixin.flex($direction: column, $gap: 2rem);
+}
+
+.lessonRow {
+  @include mixin.flex($direction: column, $gap: 1rem);
+  padding: 1rem;
+  background-color: var.$color-neutral-100;
+  border: var.$border-default;
+  border-radius: var.$border-radius-default;
+}
+
+.lessonInfo {
+  @include mixin.flex($direction: column, $gap: 0.5rem);
+}
+
+.lessonTitle {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.moduleTitle {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.lessonStats {
+  @include mixin.flex($direction: column, $gap: 1rem);
+}
+
+.attempts {
+  @include mixin.flex($direction: row, $gap: 0.5rem, $wrap: wrap);
+}
+
+.emptyState {
+  @include mixin.flex($justify: center, $align: center);
+  padding: 2rem;
+}
+
+@media (max-width: var.$breakpoint-md) {
+  .tableContainer {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .table {
+    gap: 1rem;
+  }
+
+  .lessonRow {
+    padding: 0.5rem;
+  }
+
+  .lessonStats {
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,50 @@
+@use 'styles/variables' as var;
+@use 'styles/mixins' as mixin;
+
+.statsCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  @include mixin.flex($direction: column, $align: center, $justify: center, $gap: 0.5rem);
+  padding: 2rem;
+  background-color: var.$color-neutral-000;
+  border: var.$border-default;
+  border-radius: var.$border-radius-default;
+  box-shadow: var.$box-shadow-default;
+  text-align: center;
+}
+
+.cardValue {
+  font-size: 2.5rem;
+  font-weight: var.$font-weight-bold;
+  line-height: 1;
+}
+
+.cardLabel {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+@media (max-width: var.$breakpoint-md) {
+  .statsCards {
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: var.$breakpoint-sm) {
+  .statsCards {
+    grid-template-columns: 1fr;
+  }
+
+  .cardValue {
+    font-size: 2rem;
+  }
+}

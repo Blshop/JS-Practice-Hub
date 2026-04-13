@@ -6,14 +6,16 @@ export type CheckboxSize = 'small' | 'medium' | 'large';
 
 export type CheckboxProps = React.ComponentPropsWithRef<'input'> & {
   elementSize?: CheckboxSize;
-  label?: string;
+  label?: string | React.ReactNode;
   error?: boolean;
+  success?: boolean;
 };
 
 const Checkbox = ({
   className,
   label,
   error,
+  success,
   elementSize = 'medium',
   id,
   disabled,
@@ -36,6 +38,7 @@ const Checkbox = ({
             styles.input,
             styles[elementSize],
             { [styles.error]: !!error },
+            { [styles.success]: !!success },
             className,
           )}
           {...props}
@@ -45,6 +48,7 @@ const Checkbox = ({
             htmlFor={inputId}
             className={classNames(styles.label, styles[elementSize], {
               [styles.error]: !!error,
+              [styles.success]: !!success,
               [styles.disabled]: !!disabled,
             })}
           >

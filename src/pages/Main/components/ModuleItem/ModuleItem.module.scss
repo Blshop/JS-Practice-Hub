@@ -1,0 +1,32 @@
+@use 'styles/variables' as var;
+@use 'styles/_mixins' as mixin;
+
+.moduleItem {
+  @include mixin.flex($direction: column, $gap: 2rem);
+
+  @media (max-width: var.$breakpoint-sm) {
+    gap: 1.25rem;
+  }
+}
+
+.moduleHeader {
+  text-align: center;
+
+  &__progress {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.lessonsPath {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 120px));
+  gap: 2rem;
+  justify-items: center;
+  justify-content: center;
+
+  @media (max-width: var.$breakpoint-sm) {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 90px));
+    gap: 1.25rem;
+  }
+}

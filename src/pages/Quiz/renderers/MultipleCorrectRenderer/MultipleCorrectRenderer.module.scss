@@ -1,0 +1,44 @@
+@use 'styles/variables.scss' as var;
+@use 'styles/_mixins.scss' as mixin;
+
+.options {
+  @include mixin.flex(column, flex-start, stretch, 0.5rem);
+}
+
+.option {
+  @include mixin.flex(row, flex-start, center);
+  padding: 0.5rem 0.875rem;
+  border-radius: var.$border-radius-default;
+  background-color: var.$color-neutral-100;
+  border: 1px solid var.$color-neutral-200;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+
+  &:hover:not(.correct):not(.incorrect) {
+    background-color: var.$color-neutral-200;
+    border-color: var.$color-neutral-300;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+  }
+}
+
+.selected {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-shadow);
+}
+
+.correct {
+  background-color: var(--color-success-light);
+  border-color: var(--color-success);
+  box-shadow: 0 0 0 2px var(--color-success-shadow);
+}
+
+.incorrect {
+  background-color: var(--color-danger-light);
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 2px var(--color-danger-shadow);
+}

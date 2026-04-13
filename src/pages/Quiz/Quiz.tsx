@@ -1,0 +1,257 @@
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import Text from 'components/Text';
+import Button from 'components/Button';
+import HighlightedText from 'components/HighlightedText';
+import ProgressBar from 'components/ProgressBar';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import styles from './Quiz.module.scss';
+import { useQuiz } from './hooks/useQuiz';
+import QuestionRenderer from './renderers/QuestionRenderer';
+import { routes } from 'config/routes';
+import LoadingOverlay from 'components/LoadingOverlay';
+import { localize } from 'utils/localize';
+import type { LocalizedString } from 'types/Questions';
+import RobotCat from 'components/RobotCat';
+import type { RobotCatMood } from 'components/RobotCat';
+
+const MAX_QUESTIONS = 10;
+const MAX_MISTAKES = 2;
+
+const QuizPage: React.FC = () => {
+  const { state } = useLocation();
+  const lessonId = state?.lessonId ?? null;
+  const lessonTitle: LocalizedString | null = state?.lessonTitle ?? null;
+  const { t, i18n } = useTranslation();
+
+  const {
+    currentQuestion,
+    currentIndex,
+    totalQuestions,
+    loading,
+    error,
+    userAnswers,
+    isChecked,
+    isCorrect,
+    showExplanation,
+    handleAnswer,
+    handleCheck,
+    handleNext,
+    resetQuiz,
+    isFinished,
+    correctCount,
+    completedCount,
+    isSaving,
+    saveError,
+    retrySave,
+  } = useQuiz(lessonId, undefined, MAX_QUESTIONS, MAX_MISTAKES);
+
+  const translatedSaveError = saveError === 'save_error' ? t('quiz.saveError') : saveError;
+  const currentAnswer = currentQuestion ? userAnswers[currentQuestion.id] : undefined;
+
+  const [displayedQuestion, setDisplayedQuestion] = useState('');
+  const [catMood, setCatMood] = useState<RobotCatMood>('idle');
+  const typewriterRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const moodResetRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const questionText = currentQuestion ? (currentQuestion.question as unknown as string) : '';
+
+  const startTypewriter = useCallback((text: string) => {
+    if (typewriterRef.current) clearTimeout(typewriterRef.current);
+    if (moodResetRef.current) clearTimeout(moodResetRef.current);
+
+    let i = 0;
+    const CHAR_DELAY = 45;
+
+    const tick = () => {
+      i += 1;
+      setDisplayedQuestion(text.slice(0, i));
+      if (i < text.length) {
+        typewriterRef.current = setTimeout(tick, CHAR_DELAY);
+      } else {
+        setCatMood('idle');
+      }
+    };
+
+    typewriterRef.current = setTimeout(() => {
+      setDisplayedQuestion('');
+      setCatMood('talking');
+      typewriterRef.current = setTimeout(tick, CHAR_DELAY);
+    }, 0);
+  }, []);
+
+  useEffect(() => {
+    if (!questionText) return;
+    startTypewriter(questionText);
+    return () => {
+      if (typewriterRef.current) clearTimeout(typewriterRef.current);
+    };
+  }, [questionText, startTypewriter]);
+
+  useEffect(() => {
+    if (!isChecked) return;
+    const next: RobotCatMood = isCorrect ? 'happy' : 'sad';
+    moodResetRef.current = setTimeout(() => {
+      setCatMood(next);
+      moodResetRef.current = setTimeout(() => setCatMood('idle'), 2500);
+    }, 0);
+    return () => {
+      if (moodResetRef.current) clearTimeout(moodResetRef.current);
+    };
+  }, [isChecked, isCorrect]);
+  const isAnswerEmpty =
+    currentAnswer === undefined ||
+    (Array.isArray(currentAnswer) && currentAnswer.length === 0) ||
+    (typeof currentAnswer === 'string' && currentAnswer.trim() === '');
+  const navigate = useNavigate();
+
+  if (totalQuestions === 0) {
+    return (
+      <div className={styles.quiz}>
+        <Text tag="h1" bold className={styles.title}>
+          {t('quiz.noQuestions')}
+        </Text>
+
+        <Text className={styles.percentage}>{t('quiz.noQuestionsDesc')}</Text>
+
+        <Button
+          className={styles.buttonMain}
+          variant="primary"
+          size="large"
+          onClick={() => navigate(routes.main.mask)}
+        >
+          {t('quiz.goToStart')}
+        </Button>
+      </div>
+    );
+  }
+
+  if (isFinished) {
+    const mistakesCount = totalQuestions - correctCount;
+    const isPassed = mistakesCount <= MAX_MISTAKES;
+
+    return (
+      <div className={styles.quiz}>
+        <Text tag="h1" bold className={styles.title}>
+          {t('quiz.completed')}
+        </Text>
+
+        <div className={styles.resultsCard}>
+          <div className={styles.header}>
+            <Text tag="h2" bold>
+              {t('quiz.yourScore')}
+            </Text>
+          </div>
+
+          <Text className={styles.score}>
+            {correctCount} / {totalQuestions}
+          </Text>
+
+          {isPassed ? (
+            <Text className={`${styles.resultStatus} ${styles.passed}`}>
+              {t('quiz.quizPassed')}
+            </Text>
+          ) : (
+            <Text className={`${styles.resultStatus} ${styles.failed}`}>
+              {t('quiz.quizFailed', { max: MAX_MISTAKES })}
+            </Text>
+          )}
+
+          <div className={styles.resultsActions}>
+            <Button variant="primary" size="large" onClick={resetQuiz}>
+              {t('quiz.tryAgain')}
+            </Button>
+
+            <Button variant="secondary" size="large" onClick={() => navigate(routes.main.mask)}>
+              {t('quiz.goToStart')}
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className={styles.quiz}>
+      <LoadingOverlay isLoading={isSaving} error={translatedSaveError} onRetry={retrySave} />
+
+      <Text tag="h1" bold className={styles.title}>
+        {lessonTitle ? localize(lessonTitle, i18n.language) : ''}
+      </Text>
+
+      <ProgressBar
+        current={completedCount}
+        total={totalQuestions}
+        label={t('quiz.question', { current: currentIndex + 1, total: totalQuestions })}
+        variant="info"
+        positionInfo="top"
+      />
+
+      {loading && <Text>{t('quiz.loading')}</Text>}
+      {error && <Text error>{error}</Text>}
+
+      {currentQuestion && (
+        <div className={styles.questionContainer}>
+          <div className={styles.questionHeader}>
+            <RobotCat mood={catMood} />
+            <div className={styles.questionBody}>
+              <Text tag="h2" bold className={styles.questionText}>
+                <HighlightedText text={displayedQuestion} />
+              </Text>
+
+              {currentQuestion.code && (
+                <pre className={styles.codeBlock}>
+                  <HighlightedText text={currentQuestion.code} />
+                </pre>
+              )}
+            </div>
+          </div>
+
+          <div className={styles.optionsContainer}>
+            <QuestionRenderer
+              question={currentQuestion}
+              userAnswer={currentAnswer}
+              isChecked={isChecked}
+              onAnswer={handleAnswer}
+            />
+          </div>
+
+          {showExplanation && (
+            <div
+              className={`${styles.explanation} ${isCorrect ? styles.correct : styles.incorrect}`}
+            >
+              <Text bold>{isCorrect ? t('quiz.correct') : t('quiz.incorrect')}</Text>
+              <Text>
+                <HighlightedText text={currentQuestion.explanation as unknown as string} />
+              </Text>
+            </div>
+          )}
+
+          <div className={styles.actions}>
+            {!isChecked && (
+              <Button variant="info" size="large" onClick={handleCheck} disabled={isAnswerEmpty}>
+                {t('quiz.checkAnswer')}
+              </Button>
+            )}
+
+            {isChecked && (
+              <>
+                <Button variant="primary" size="large" onClick={handleNext}>
+                  {currentIndex < totalQuestions - 1
+                    ? t('quiz.nextQuestion')
+                    : t('quiz.finishQuiz')}
+                </Button>
+
+                <Button variant="secondary" size="large" onClick={() => navigate(routes.main.mask)}>
+                  {t('quiz.returnToStart')}
+                </Button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default QuizPage;

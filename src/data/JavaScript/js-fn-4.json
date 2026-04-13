@@ -1,0 +1,853 @@
+[
+  {
+    "id": "scope-001",
+    "type": "single-correct",
+    "theme": "global scope",
+    "question": {
+      "en": "Where are global variables accessible?",
+      "ru": "Где доступны глобальные переменные?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Only in the global scope",
+          "ru": "Только в глобальной области видимости"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Everywhere in the program",
+          "ru": "Везде в программе"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only in functions",
+          "ru": "Только в функциях"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Only in blocks",
+          "ru": "Только в блоках"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Global variables are accessible from anywhere in the program.",
+      "ru": "Глобальные переменные доступны из любого места в программе."
+    }
+  },
+  {
+    "id": "scope-002",
+    "type": "single-correct",
+    "theme": "function scope",
+    "question": {
+      "en": "What is function scope?",
+      "ru": "Что такое функциональная область видимости?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Variables are accessible only within the function",
+          "ru": "Переменные доступны только внутри функции"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Variables are accessible everywhere",
+          "ru": "Переменные доступны везде"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Variables are accessible only in blocks",
+          "ru": "Переменные доступны только в блоках"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Variables are not accessible anywhere",
+          "ru": "Переменные недоступны нигде"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Function scope means variables are only accessible within the function where they are declared.",
+      "ru": "Функциональная область видимости означает, что переменные доступны только внутри функции, где они объявлены."
+    }
+  },
+  {
+    "id": "scope-003",
+    "type": "single-correct",
+    "theme": "block scope",
+    "question": {
+      "en": "Which variables have block scope?",
+      "ru": "Какие переменные имеют блочную область видимости?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`var`",
+          "ru": "`var`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`let` and `const`",
+          "ru": "`let` и `const`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "All variables",
+          "ru": "Все переменные"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "No variables",
+          "ru": "Никакие переменные"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`let` and `const` are block-scoped, while `var` is function-scoped.",
+      "ru": "`let` и `const` имеют блочную область видимости, тогда как `var` — функциональную."
+    }
+  },
+  {
+    "id": "scope-004",
+    "type": "single-correct",
+    "theme": "lexical scope",
+    "question": {
+      "en": "What is lexical scope?",
+      "ru": "Что такое лексическая область видимости?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Scope determined at runtime",
+          "ru": "Область видимости, определяемая во время выполнения"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Scope determined by where variables are declared",
+          "ru": "Область видимости, определяемая местом объявления переменных"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Scope that changes dynamically",
+          "ru": "Область видимости, которая изменяется динамически"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Scope only for functions",
+          "ru": "Область видимости только для функций"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Lexical scope means the scope is determined by where variables and functions are declared in the code.",
+      "ru": "Лексическая область видимости означает, что область определяется местом объявления переменных и функций в коде."
+    }
+  },
+  {
+    "id": "scope-005",
+    "type": "single-correct",
+    "theme": "scope chain",
+    "question": {
+      "en": "What is the scope chain?",
+      "ru": "Что такое цепочка областей видимости?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "A chain of function calls",
+          "ru": "Цепочка вызовов функций"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "The process of looking up variables in nested scopes",
+          "ru": "Процесс поиска переменных во вложенных областях видимости"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "A chain of variable declarations",
+          "ru": "Цепочка объявлений переменных"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "A chain of block statements",
+          "ru": "Цепочка блочных операторов"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "The scope chain is how JavaScript looks up variables, starting from the current scope and moving outward.",
+      "ru": "Цепочка областей видимости — это способ поиска переменных в JavaScript, начиная с текущей области и двигаясь наружу."
+    }
+  },
+  {
+    "id": "scope-006",
+    "type": "single-correct",
+    "theme": "variable shadowing",
+    "question": {
+      "en": "What is variable shadowing?",
+      "ru": "Что такое затенение переменных?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "When a variable hides another variable with the same name in an outer scope",
+          "ru": "Когда переменная скрывает другую переменную с тем же именем во внешней области"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "When a variable is undefined",
+          "ru": "Когда переменная не определена"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "When a variable is deleted",
+          "ru": "Когда переменная удаляется"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "When a variable changes type",
+          "ru": "Когда переменная меняет тип"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Variable shadowing occurs when a variable in an inner scope has the same name as a variable in an outer scope.",
+      "ru": "Затенение переменных происходит, когда переменная во внутренней области имеет то же имя, что и переменная во внешней области."
+    }
+  },
+  {
+    "id": "scope-007",
+    "type": "yes-no",
+    "theme": "var scope",
+    "question": {
+      "en": "Is `var` block-scoped?",
+      "ru": "Имеет ли `var` блочную область видимости?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "`var` is function-scoped, not block-scoped.",
+      "ru": "`var` имеет функциональную область видимости, а не блочную."
+    }
+  },
+  {
+    "id": "scope-008",
+    "type": "yes-no",
+    "theme": "let scope",
+    "question": {
+      "en": "Is `let` block-scoped?",
+      "ru": "Имеет ли `let` блочную область видимости?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`let` is block-scoped and only accessible within the block where it's declared.",
+      "ru": "`let` имеет блочную область видимости и доступен только в блоке, где объявлен."
+    }
+  },
+  {
+    "id": "scope-009",
+    "type": "yes-no",
+    "theme": "global scope",
+    "question": {
+      "en": "Can inner functions access outer function variables?",
+      "ru": "Могут ли внутренние функции обращаться к переменным внешних функций?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Inner functions have access to variables in their outer (enclosing) scope through the scope chain.",
+      "ru": "Внутренние функции имеют доступ к переменным во внешней (охватывающей) области через цепочку областей видимости."
+    }
+  },
+  {
+    "id": "scope-010",
+    "type": "multiple-correct",
+    "theme": "scope types",
+    "question": {
+      "en": "Which are valid types of scope in JavaScript?",
+      "ru": "Какие типы областей видимости существуют в JavaScript?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Global scope",
+          "ru": "Глобальная область видимости"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Function scope",
+          "ru": "Функциональная область видимости"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Block scope",
+          "ru": "Блочная область видимости"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Module scope",
+          "ru": "Модульная область видимости"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c", "d"],
+    "explanation": {
+      "en": "JavaScript has global, function, block, and module scopes.",
+      "ru": "В JavaScript есть глобальная, функциональная, блочная и модульная области видимости."
+    }
+  },
+  {
+    "id": "scope-011",
+    "type": "multiple-correct",
+    "theme": "block scope",
+    "question": {
+      "en": "Which statements create block scope?",
+      "ru": "Какие операторы создают блочную область видимости?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`if` statement",
+          "ru": "Оператор `if`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`for` loop",
+          "ru": "Цикл `for`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Curly braces `{}`",
+          "ru": "Фигурные скобки `{}`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Function declaration",
+          "ru": "Объявление функции"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "Any statement with curly braces creates block scope for `let` and `const`.",
+      "ru": "Любой оператор с фигурными скобками создает блочную область видимости для `let` и `const`."
+    }
+  },
+  {
+    "id": "scope-012",
+    "type": "predict-output",
+    "theme": "var scope",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`function test() {`\n`  if (true) {`\n`    var x = 1;`\n`  }`\n`  console.log(x);`\n`}`\n`test();`",
+    "answer": "`1`",
+    "explanation": {
+      "en": "`var` is function-scoped, so `x` is accessible throughout the function.",
+      "ru": "`var` имеет функциональную область видимости, поэтому `x` доступна во всей функции."
+    }
+  },
+  {
+    "id": "scope-013",
+    "type": "predict-output",
+    "theme": "let scope",
+    "question": {
+      "en": "What happens?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`function test() {`\n`  if (true) {`\n`    let x = 1;`\n`  }`\n`  console.log(x);`\n`}`\n`test();`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "`let` is block-scoped, so `x` is not accessible outside the `if` block.",
+      "ru": "`let` имеет блочную область видимости, поэтому `x` недоступна вне блока `if`."
+    }
+  },
+  {
+    "id": "scope-014",
+    "type": "predict-output",
+    "theme": "shadowing",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 1;`\n`function test() {`\n`  let x = 2;`\n`  console.log(x);`\n`}`\n`test();`\n`console.log(x);`",
+    "answer": "2\n1",
+    "explanation": {
+      "en": "The inner `x` shadows the outer `x` within the function scope.",
+      "ru": "Внутренняя `x` затеняет внешнюю `x` в области видимости функции."
+    }
+  },
+  {
+    "id": "scope-015",
+    "type": "predict-output",
+    "theme": "scope chain",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 'global';`\n`function outer() {`\n`  let x = 'outer';`\n`  function inner() {`\n`    console.log(x);`\n`  }`\n`  inner();`\n`}`\n`outer();`",
+    "answer": "`outer`",
+    "explanation": {
+      "en": "The inner function accesses the closest `x` in the scope chain, which is from the outer function.",
+      "ru": "Внутренняя функция обращается к ближайшей `x` в цепочке областей видимости, которая из внешней функции."
+    }
+  },
+  {
+    "id": "scope-016",
+    "type": "predict-output",
+    "theme": "global access",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 'global';`\n`function test() {`\n`  console.log(x);`\n`}`\n`test();`",
+    "answer": "`global`",
+    "explanation": {
+      "en": "The function accesses the global variable `x` since no local `x` exists.",
+      "ru": "Функция обращается к глобальной переменной `x`, поскольку локальной `x` не существует."
+    }
+  },
+  {
+    "id": "scope-017",
+    "type": "single-correct",
+    "theme": "hoisting scope",
+    "question": {
+      "en": "Where is a `var` declaration hoisted to?",
+      "ru": "Куда поднимается объявление `var`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Top of the block",
+          "ru": "В начало блока"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Top of the function",
+          "ru": "В начало функции"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Top of the file",
+          "ru": "В начало файла"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Nowhere, it's not hoisted",
+          "ru": "Никуда, оно не поднимается"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`var` declarations are hoisted to the top of their function scope.",
+      "ru": "Объявления `var` поднимаются в начало их функциональной области видимости."
+    }
+  },
+  {
+    "id": "scope-018",
+    "type": "single-correct",
+    "theme": "const scope",
+    "question": {
+      "en": "What scope does `const` have?",
+      "ru": "Какую область видимости имеет `const`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Global scope",
+          "ru": "Глобальную область видимости"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Function scope",
+          "ru": "Функциональную область видимости"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Block scope",
+          "ru": "Блочную область видимости"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "No scope",
+          "ru": "Никакую область видимости"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "`const` has block scope, same as `let`.",
+      "ru": "`const` имеет блочную область видимости, как и `let`."
+    }
+  },
+  {
+    "id": "scope-019",
+    "type": "predict-output",
+    "theme": "loop scope",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (var i = 0; i < 3; i++) {`\n`  setTimeout(() => console.log(i), 0);`\n`}`",
+    "answer": "3\n3\n3",
+    "explanation": {
+      "en": "`var` is function-scoped, so all callbacks share the same `i` which becomes 3.",
+      "ru": "`var` имеет функциональную область видимости, поэтому все колбэки разделяют одну `i`, которая становится 3."
+    }
+  },
+  {
+    "id": "scope-020",
+    "type": "predict-output",
+    "theme": "loop scope",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (let i = 0; i < 3; i++) {`\n`  setTimeout(() => console.log(i), 0);`\n`}`",
+    "answer": "0\n1\n2",
+    "explanation": {
+      "en": "`let` creates a new binding for each iteration, so each callback gets its own `i`.",
+      "ru": "`let` создает новую привязку для каждой итерации, поэтому каждый колбэк получает свою `i`."
+    }
+  },
+  {
+    "id": "scope-021",
+    "type": "single-correct",
+    "theme": "nested functions",
+    "question": {
+      "en": "Can a nested function access variables from its parent function?",
+      "ru": "Может ли вложенная функция обращаться к переменным родительской функции?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Yes, always",
+          "ru": "Да, всегда"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "No, never",
+          "ru": "Нет, никогда"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only if declared with `var`",
+          "ru": "Только если объявлены с `var`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Only if declared with `let`",
+          "ru": "Только если объявлены с `let`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Nested functions always have access to variables in their outer scope through lexical scoping.",
+      "ru": "Вложенные функции всегда имеют доступ к переменным во внешней области через лексическую область видимости."
+    }
+  },
+  {
+    "id": "scope-022",
+    "type": "yes-no",
+    "theme": "scope pollution",
+    "question": {
+      "en": "Can variables declared without `var`, `let`, or `const` become global?",
+      "ru": "Могут ли переменные, объявленные без `var`, `let` или `const`, стать глобальными?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Variables declared without keywords become implicit globals (in non-strict mode).",
+      "ru": "Переменные, объявленные без ключевых слов, становятся неявно глобальными (в нестрогом режиме)."
+    }
+  },
+  {
+    "id": "scope-023",
+    "type": "multiple-correct",
+    "theme": "scope characteristics",
+    "question": {
+      "en": "Which statements about scope are true?",
+      "ru": "Какие утверждения об области видимости верны?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "JavaScript uses lexical scoping",
+          "ru": "JavaScript использует лексическую область видимости"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Inner scopes can access outer scopes",
+          "ru": "Внутренние области могут обращаться к внешним областям"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Outer scopes can access inner scopes",
+          "ru": "Внешние области могут обращаться к внутренним областям"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Variables can shadow outer variables",
+          "ru": "Переменные могут затенять внешние переменные"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "d"],
+    "explanation": {
+      "en": "JavaScript uses lexical scoping, inner scopes access outer scopes, and shadowing is possible. Outer scopes cannot access inner scopes.",
+      "ru": "JavaScript использует лексическую область видимости, внутренние области обращаются к внешним, и затенение возможно. Внешние области не могут обращаться к внутренним."
+    }
+  },
+  {
+    "id": "scope-024",
+    "type": "predict-output",
+    "theme": "parameter scope",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 'global';`\n`function test(x) {`\n`  console.log(x);`\n`}`\n`test('parameter');`",
+    "answer": "`parameter`",
+    "explanation": {
+      "en": "Function parameters create their own scope and shadow outer variables with the same name.",
+      "ru": "Параметры функции создают свою область видимости и затеняют внешние переменные с тем же именем."
+    }
+  },
+  {
+    "id": "scope-025",
+    "type": "predict-output",
+    "theme": "undefined access",
+    "question": {
+      "en": "What happens?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`function test() {`\n`  console.log(x);`\n`}`\n`test();`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "Accessing an undeclared variable throws a `ReferenceError`.",
+      "ru": "Обращение к необъявленной переменной вызывает `ReferenceError`."
+    }
+  },
+  {
+    "id": "scope-026",
+    "type": "single-correct",
+    "theme": "strict mode",
+    "question": {
+      "en": "What happens to undeclared variables in strict mode?",
+      "ru": "Что происходит с необъявленными переменными в строгом режиме?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "They become global",
+          "ru": "Они становятся глобальными"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "They throw a `ReferenceError`",
+          "ru": "Они вызывают `ReferenceError`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "They become `undefined`",
+          "ru": "Они становятся `undefined`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "They are ignored",
+          "ru": "Они игнорируются"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "In strict mode, assigning to undeclared variables throws a `ReferenceError`.",
+      "ru": "В строгом режиме присваивание необъявленным переменным вызывает `ReferenceError`."
+    }
+  },
+  {
+    "id": "scope-027",
+    "type": "predict-output",
+    "theme": "block shadowing",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 1;`\n`{`\n`  let x = 2;`\n`  console.log(x);`\n`}`\n`console.log(x);`",
+    "answer": "2\n1",
+    "explanation": {
+      "en": "The block-scoped `x` shadows the outer `x` only within the block.",
+      "ru": "Блочная `x` затеняет внешнюю `x` только внутри блока."
+    }
+  },
+  {
+    "id": "scope-028",
+    "type": "yes-no",
+    "theme": "function parameters",
+    "question": {
+      "en": "Do function parameters have their own scope?",
+      "ru": "Имеют ли параметры функции свою область видимости?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Function parameters create their own scope within the function.",
+      "ru": "Параметры функции создают свою область видимости внутри функции."
+    }
+  },
+  {
+    "id": "scope-029",
+    "type": "predict-output",
+    "theme": "catch scope",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`try {`\n`  throw new Error('test');`\n`} catch (e) {`\n`  let x = 'catch';`\n`  console.log(x);`\n`}`\n`// console.log(x); // Would cause ReferenceError`",
+    "answer": "`catch`",
+    "explanation": {
+      "en": "Variables declared in `catch` blocks have block scope.",
+      "ru": "Переменные, объявленные в блоках `catch`, имеют блочную область видимости."
+    }
+  },
+  {
+    "id": "scope-030",
+    "type": "single-correct",
+    "theme": "scope best practices",
+    "question": {
+      "en": "Which is the best practice for variable scope?",
+      "ru": "Какая лучшая практика для области видимости переменных?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Use global variables everywhere",
+          "ru": "Использовать глобальные переменные везде"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Declare variables in the smallest possible scope",
+          "ru": "Объявлять переменные в наименьшей возможной области видимости"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Always use `var`",
+          "ru": "Всегда использовать `var`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Never use block scope",
+          "ru": "Никогда не использовать блочную область видимости"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Best practice is to declare variables in the smallest scope needed to avoid pollution and conflicts.",
+      "ru": "Лучшая практика — объявлять переменные в наименьшей необходимой области, чтобы избежать загрязнения и конфликтов."
+    }
+  }
+]
