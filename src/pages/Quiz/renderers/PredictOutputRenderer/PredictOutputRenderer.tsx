@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Input from 'components/Input';
 import Text from 'components/Text';
+import { useTranslation } from 'react-i18next';
 import styles from './PredictOutputRenderer.module.scss';
 
 import type { PredictOutputQuestion, AnswerType } from 'types/Questions';
@@ -14,6 +15,7 @@ interface Props {
 }
 
 const PredictOutputRenderer: React.FC<Props> = ({ question, userAnswer, isChecked, onAnswer }) => {
+  const { t } = useTranslation();
   const normalize = (str: string) => str.replace(/`/g, '').trim();
 
   const userValue = typeof userAnswer === 'string' ? userAnswer : '';
@@ -26,11 +28,11 @@ const PredictOutputRenderer: React.FC<Props> = ({ question, userAnswer, isChecke
     <div className={styles.predict}>
       <Input
         type="text"
-        label="Your answer"
+        label={t('quiz.yourAnswer')}
         value={userValue}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => onAnswer(e.target.value)}
         disabled={isChecked}
-        error={isChecked && !isUserCorrect ? 'Incorrect answer' : undefined}
+        error={isChecked && !isUserCorrect ? t('quiz.incorrectAnswer') : undefined}
         success={isChecked && isUserCorrect}
         elementSize="medium"
       />
@@ -44,7 +46,7 @@ const PredictOutputRenderer: React.FC<Props> = ({ question, userAnswer, isChecke
         >
           {!isUserCorrect && question.answer && (
             <Text tag="p" className={styles.correctAnswer}>
-              Expected output: <code>{question.answer}</code>
+              {t('quiz.expectedOutput')} <code>{question.answer}</code>
             </Text>
           )}
         </div>

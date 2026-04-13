@@ -2,6 +2,8 @@ import React from 'react';
 import classNames from 'classnames';
 import Checkbox from 'components/Checkbox';
 import HighlightedText from 'components/HighlightedText';
+import { useTranslation } from 'react-i18next';
+import { localize } from 'utils/localize';
 import styles from './MultipleCorrectRenderer.module.scss';
 
 import type { MultipleCorrectQuestion, AnswerType } from 'types/Questions';
@@ -19,6 +21,7 @@ const MultipleCorrectRenderer: React.FC<Props> = ({
   isChecked,
   onAnswer,
 }) => {
+  const { i18n } = useTranslation();
   const selected = Array.isArray(userAnswer) ? userAnswer : [];
 
   return (
@@ -40,7 +43,7 @@ const MultipleCorrectRenderer: React.FC<Props> = ({
             })}
           >
             <Checkbox
-              label={<HighlightedText text={opt.text} />}
+              label={<HighlightedText text={localize(opt.text, i18n.language)} />}
               elementSize="medium"
               checked={isSelected}
               onChange={(e) => {

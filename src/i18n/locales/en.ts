@@ -92,6 +92,11 @@ const en = {
     saveError: 'Failed to save progress. Check your connection and try again.',
     quizPassed: 'Quiz passed successfully!',
     quizFailed: 'Quiz failed. More than {{max}} mistakes made',
+    yes: 'Yes',
+    no: 'No',
+    yourAnswer: 'Your answer',
+    incorrectAnswer: 'Incorrect answer',
+    expectedOutput: 'Expected output:',
   },
   learningPath: {
     title: 'Learning JavaScript',
