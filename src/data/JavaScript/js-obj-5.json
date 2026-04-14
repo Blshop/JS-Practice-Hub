@@ -1,1 +1,852 @@
-{}
+[
+  {
+    "id": "obj-copy-001",
+    "type": "single-correct",
+    "theme": "shallow copy",
+    "question": {
+      "en": "Which method creates a shallow copy of an object?",
+      "ru": "Какой метод создает поверхностную копию объекта?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`Object.assign()`",
+          "ru": "`Object.assign()`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`Object.clone()`",
+          "ru": "`Object.clone()`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`Object.copy()`",
+          "ru": "`Object.copy()`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`Object.duplicate()`",
+          "ru": "`Object.duplicate()`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`Object.assign()` creates a shallow copy by copying enumerable properties.",
+      "ru": "`Object.assign()` создает поверхностную копию, копируя перечисляемые свойства."
+    }
+  },
+  {
+    "id": "obj-copy-002",
+    "type": "single-correct",
+    "theme": "spread operator",
+    "question": {
+      "en": "What does the spread operator `{...obj}` create?",
+      "ru": "Что создает оператор spread `{...obj}`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "A deep copy",
+          "ru": "Глубокую копию"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "A shallow copy",
+          "ru": "Поверхностную копию"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "A reference",
+          "ru": "Ссылку"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "An error",
+          "ru": "Ошибку"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "The spread operator creates a shallow copy of the object.",
+      "ru": "Оператор spread создает поверхностную копию объекта."
+    }
+  },
+  {
+    "id": "obj-copy-003",
+    "type": "single-correct",
+    "theme": "deep copy",
+    "question": {
+      "en": "Which method can create a deep copy of an object?",
+      "ru": "Какой метод может создать глубокую копию объекта?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`structuredClone()`",
+          "ru": "`structuredClone()`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`Object.assign()`",
+          "ru": "`Object.assign()`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Spread operator",
+          "ru": "Оператор spread"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`Object.create()`",
+          "ru": "`Object.create()`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`structuredClone()` creates a deep copy of an object, including nested structures.",
+      "ru": "`structuredClone()` создает глубокую копию объекта, включая вложенные структуры."
+    }
+  },
+  {
+    "id": "obj-copy-004",
+    "type": "single-correct",
+    "theme": "reference vs copy",
+    "question": {
+      "en": "What happens when you assign an object to a new variable?",
+      "ru": "Что происходит, когда вы присваиваете объект новой переменной?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "A copy is created",
+          "ru": "Создается копия"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "A reference is created",
+          "ru": "Создается ссылка"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "A deep copy is created",
+          "ru": "Создается глубокая копия"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "An error occurs",
+          "ru": "Возникает ошибка"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Objects are assigned by reference, not by value.",
+      "ru": "Объекты присваиваются по ссылке, а не по значению."
+    }
+  },
+  {
+    "id": "obj-copy-005",
+    "type": "multiple-correct",
+    "theme": "shallow copy methods",
+    "question": {
+      "en": "Which methods create a shallow copy?",
+      "ru": "Какие методы создают поверхностную копию?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`Object.assign()`",
+          "ru": "`Object.assign()`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Spread operator `{...obj}`",
+          "ru": "Оператор spread `{...obj}`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`structuredClone()`",
+          "ru": "`structuredClone()`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Direct assignment `=`",
+          "ru": "Прямое присваивание `=`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b"],
+    "explanation": {
+      "en": "`Object.assign()` and spread operator create shallow copies; `structuredClone()` creates deep copy; `=` creates reference.",
+      "ru": "`Object.assign()` и оператор spread создают поверхностные копии; `structuredClone()` создает глубокую копию; `=` создает ссылку."
+    }
+  },
+  {
+    "id": "obj-copy-006",
+    "type": "yes-no",
+    "theme": "shallow copy behavior",
+    "question": {
+      "en": "Does a shallow copy create new copies of nested objects?",
+      "ru": "Создает ли поверхностная копия новые копии вложенных объектов?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "Shallow copy only copies the first level; nested objects remain references.",
+      "ru": "Поверхностная копия копирует только первый уровень; вложенные объекты остаются ссылками."
+    }
+  },
+  {
+    "id": "obj-copy-007",
+    "type": "yes-no",
+    "theme": "deep copy",
+    "question": {
+      "en": "Does `structuredClone()` copy nested objects?",
+      "ru": "Копирует ли `structuredClone()` вложенные объекты?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`structuredClone()` creates a deep copy, including all nested structures.",
+      "ru": "`structuredClone()` создает глубокую копию, включая все вложенные структуры."
+    }
+  },
+  {
+    "id": "obj-copy-008",
+    "type": "predict-output",
+    "theme": "reference behavior",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const a = { x: 1 };`\n`const b = a;`\n`b.x = 2;`\n`console.log(a.x);`",
+    "answer": "`2`",
+    "explanation": {
+      "en": "`b` is a reference to `a`, so modifying `b` affects `a`.",
+      "ru": "`b` — это ссылка на `a`, поэтому изменение `b` влияет на `a`."
+    }
+  },
+  {
+    "id": "obj-copy-009",
+    "type": "predict-output",
+    "theme": "shallow copy",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const a = { x: 1 };`\n`const b = { ...a };`\n`b.x = 2;`\n`console.log(a.x);`",
+    "answer": "`1`",
+    "explanation": {
+      "en": "Spread operator creates a shallow copy, so `a` is not affected.",
+      "ru": "Оператор spread создает поверхностную копию, поэтому `a` не затрагивается."
+    }
+  },
+  {
+    "id": "obj-copy-010",
+    "type": "predict-output",
+    "theme": "nested objects",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const a = { x: { y: 1 } };`\n`const b = { ...a };`\n`b.x.y = 2;`\n`console.log(a.x.y);`",
+    "answer": "`2`",
+    "explanation": {
+      "en": "Shallow copy doesn't copy nested objects; they remain references.",
+      "ru": "Поверхностная копия не копирует вложенные объекты; они остаются ссылками."
+    }
+  },
+  {
+    "id": "obj-copy-011",
+    "type": "single-correct",
+    "theme": "Object.assign",
+    "question": {
+      "en": "What is the first argument of `Object.assign()`?",
+      "ru": "Что является первым аргументом `Object.assign()`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "The source object",
+          "ru": "Исходный объект"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "The target object",
+          "ru": "Целевой объект"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "A copy function",
+          "ru": "Функция копирования"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "A boolean flag",
+          "ru": "Булев флаг"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "The first argument is the target object that receives properties.",
+      "ru": "Первый аргумент — это целевой объект, который получает свойства."
+    }
+  },
+  {
+    "id": "obj-copy-012",
+    "type": "single-correct",
+    "theme": "JSON methods",
+    "question": {
+      "en": "Which approach can create a deep copy using JSON?",
+      "ru": "Какой подход может создать глубокую копию с помощью JSON?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`JSON.parse(JSON.stringify(obj))`",
+          "ru": "`JSON.parse(JSON.stringify(obj))`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`JSON.copy(obj)`",
+          "ru": "`JSON.copy(obj)`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`JSON.clone(obj)`",
+          "ru": "`JSON.clone(obj)`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`JSON.duplicate(obj)`",
+          "ru": "`JSON.duplicate(obj)`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`JSON.parse(JSON.stringify(obj))` creates a deep copy but loses functions and special types.",
+      "ru": "`JSON.parse(JSON.stringify(obj))` создает глубокую копию, но теряет функции и специальные типы."
+    }
+  },
+  {
+    "id": "obj-copy-013",
+    "type": "multiple-correct",
+    "theme": "JSON limitations",
+    "question": {
+      "en": "What does `JSON.parse(JSON.stringify())` NOT preserve?",
+      "ru": "Что НЕ сохраняет `JSON.parse(JSON.stringify())`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Functions",
+          "ru": "Функции"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`undefined` values",
+          "ru": "Значения `undefined`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Dates",
+          "ru": "Даты"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Numbers",
+          "ru": "Числа"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "JSON methods lose functions, `undefined`, and convert Dates to strings.",
+      "ru": "JSON методы теряют функции, `undefined` и преобразуют даты в строки."
+    }
+  },
+  {
+    "id": "obj-copy-014",
+    "type": "yes-no",
+    "theme": "Object.assign behavior",
+    "question": {
+      "en": "Does `Object.assign()` mutate the target object?",
+      "ru": "Изменяет ли `Object.assign()` целевой объект?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`Object.assign()` modifies and returns the target object.",
+      "ru": "`Object.assign()` изменяет и возвращает целевой объект."
+    }
+  },
+  {
+    "id": "obj-copy-015",
+    "type": "predict-output",
+    "theme": "Object.assign",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const a = { x: 1 };`\n`const b = Object.assign({}, a);`\n`b.x = 2;`\n`console.log(a.x);`",
+    "answer": "`1`",
+    "explanation": {
+      "en": "`Object.assign({}, a)` creates a shallow copy into a new object.",
+      "ru": "`Object.assign({}, a)` создает поверхностную копию в новый объект."
+    }
+  },
+  {
+    "id": "obj-copy-016",
+    "type": "predict-output",
+    "theme": "structuredClone",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const a = { x: { y: 1 } };`\n`const b = structuredClone(a);`\n`b.x.y = 2;`\n`console.log(a.x.y);`",
+    "answer": "`1`",
+    "explanation": {
+      "en": "`structuredClone()` creates a deep copy, so nested objects are independent.",
+      "ru": "`structuredClone()` создает глубокую копию, поэтому вложенные объекты независимы."
+    }
+  },
+  {
+    "id": "obj-copy-017",
+    "type": "single-correct",
+    "theme": "array copying",
+    "question": {
+      "en": "Which creates a shallow copy of an array?",
+      "ru": "Что создает поверхностную копию массива?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`[...arr]`",
+          "ru": "`[...arr]`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`arr`",
+          "ru": "`arr`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`arr.copy()`",
+          "ru": "`arr.copy()`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`arr.clone()`",
+          "ru": "`arr.clone()`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Spread operator `[...arr]` creates a shallow copy of an array.",
+      "ru": "Оператор spread `[...arr]` создает поверхностную копию массива."
+    }
+  },
+  {
+    "id": "obj-copy-018",
+    "type": "multiple-correct",
+    "theme": "array copy methods",
+    "question": {
+      "en": "Which methods create a shallow copy of an array?",
+      "ru": "Какие методы создают поверхностную копию массива?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`arr.slice()`",
+          "ru": "`arr.slice()`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`[...arr]`",
+          "ru": "`[...arr]`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`Array.from(arr)`",
+          "ru": "`Array.from(arr)`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`arr = arr`",
+          "ru": "`arr = arr`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "`slice()`, spread, and `Array.from()` create shallow copies; assignment creates reference.",
+      "ru": "`slice()`, spread и `Array.from()` создают поверхностные копии; присваивание создает ссылку."
+    }
+  },
+  {
+    "id": "obj-copy-019",
+    "type": "yes-no",
+    "theme": "immutability",
+    "question": {
+      "en": "Does copying an object make it immutable?",
+      "ru": "Делает ли копирование объекта его неизменяемым?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "Copying creates a new object, but the copy itself is still mutable.",
+      "ru": "Копирование создает новый объект, но сама копия все еще изменяема."
+    }
+  },
+  {
+    "id": "obj-copy-020",
+    "type": "predict-output",
+    "theme": "array nested objects",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const a = [{ x: 1 }];`\n`const b = [...a];`\n`b[0].x = 2;`\n`console.log(a[0].x);`",
+    "answer": "`2`",
+    "explanation": {
+      "en": "Spread creates shallow copy; nested objects remain references.",
+      "ru": "Spread создает поверхностную копию; вложенные объекты остаются ссылками."
+    }
+  },
+  {
+    "id": "obj-copy-021",
+    "type": "single-correct",
+    "theme": "Object.freeze",
+    "question": {
+      "en": "What does `Object.freeze()` do?",
+      "ru": "Что делает `Object.freeze()`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Creates a copy",
+          "ru": "Создает копию"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Makes object immutable",
+          "ru": "Делает объект неизменяемым"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Deletes all properties",
+          "ru": "Удаляет все свойства"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Converts to string",
+          "ru": "Преобразует в строку"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`Object.freeze()` prevents modifications to the object.",
+      "ru": "`Object.freeze()` предотвращает изменения объекта."
+    }
+  },
+  {
+    "id": "obj-copy-022",
+    "type": "yes-no",
+    "theme": "Object.freeze",
+    "question": {
+      "en": "Does `Object.freeze()` freeze nested objects?",
+      "ru": "Замораживает ли `Object.freeze()` вложенные объекты?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "`Object.freeze()` only freezes the first level; nested objects remain mutable.",
+      "ru": "`Object.freeze()` замораживает только первый уровень; вложенные объекты остаются изменяемыми."
+    }
+  },
+  {
+    "id": "obj-copy-023",
+    "type": "predict-output",
+    "theme": "Object.assign merge",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const a = { x: 1, y: 2 };`\n`const b = { y: 3, z: 4 };`\n`const c = Object.assign({}, a, b);`\n`console.log(c.y);`",
+    "answer": "`3`",
+    "explanation": {
+      "en": "`Object.assign()` merges objects; later sources override earlier ones.",
+      "ru": "`Object.assign()` объединяет объекты; более поздние источники переопределяют ранние."
+    }
+  },
+  {
+    "id": "obj-copy-024",
+    "type": "single-correct",
+    "theme": "copy performance",
+    "question": {
+      "en": "Which is generally fastest for shallow copying?",
+      "ru": "Что обычно быстрее для поверхностного копирования?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Spread operator",
+          "ru": "Оператор spread"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`Object.assign()`",
+          "ru": "`Object.assign()`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`JSON.parse(JSON.stringify())`",
+          "ru": "`JSON.parse(JSON.stringify())`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`structuredClone()`",
+          "ru": "`structuredClone()`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Spread operator is typically fastest for shallow copies.",
+      "ru": "Оператор spread обычно самый быстрый для поверхностных копий."
+    }
+  },
+  {
+    "id": "obj-copy-025",
+    "type": "multiple-correct",
+    "theme": "copy use cases",
+    "question": {
+      "en": "When should you use deep copy?",
+      "ru": "Когда следует использовать глубокую копию?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "When object has nested structures",
+          "ru": "Когда объект имеет вложенные структуры"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "When you need complete independence",
+          "ru": "Когда нужна полная независимость"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "For simple flat objects",
+          "ru": "Для простых плоских объектов"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "When performance is critical",
+          "ru": "Когда критична производительность"
+        }
+      }
+    ],
+    "correctIds": ["a", "b"],
+    "explanation": {
+      "en": "Deep copy is needed for nested structures and complete independence.",
+      "ru": "Глубокая копия нужна для вложенных структур и полной независимости."
+    }
+  },
+  {
+    "id": "obj-copy-026",
+    "type": "predict-output",
+    "theme": "Object.freeze",
+    "question": {
+      "en": "What happens?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`const obj = Object.freeze({ x: 1 });`\n`obj.x = 2;`\n`console.log(obj.x);`",
+    "answer": "`1`",
+    "explanation": {
+      "en": "Frozen objects cannot be modified; assignment is silently ignored in non-strict mode.",
+      "ru": "Замороженные объекты нельзя изменить; присваивание молча игнорируется в нестрогом режиме."
+    }
+  },
+  {
+    "id": "obj-copy-027",
+    "type": "predict-output",
+    "theme": "spread merge",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const a = { x: 1 };`\n`const b = { x: 2, y: 3 };`\n`const c = { ...a, ...b };`\n`console.log(c.x);`",
+    "answer": "`2`",
+    "explanation": {
+      "en": "Later spread properties override earlier ones.",
+      "ru": "Более поздние свойства spread переопределяют ранние."
+    }
+  },
+  {
+    "id": "obj-copy-028",
+    "type": "single-correct",
+    "theme": "structuredClone limitations",
+    "question": {
+      "en": "What can `structuredClone()` NOT clone?",
+      "ru": "Что НЕ может клонировать `structuredClone()`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Functions",
+          "ru": "Функции"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Arrays",
+          "ru": "Массивы"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Dates",
+          "ru": "Даты"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Nested objects",
+          "ru": "Вложенные объекты"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`structuredClone()` cannot clone functions, but handles most other types.",
+      "ru": "`structuredClone()` не может клонировать функции, но обрабатывает большинство других типов."
+    }
+  },
+  {
+    "id": "obj-copy-029",
+    "type": "yes-no",
+    "theme": "array slice",
+    "question": {
+      "en": "Does `arr.slice()` create a new array?",
+      "ru": "Создает ли `arr.slice()` новый массив?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`slice()` returns a shallow copy as a new array.",
+      "ru": "`slice()` возвращает поверхностную копию как новый массив."
+    }
+  },
+  {
+    "id": "obj-copy-030",
+    "type": "predict-output",
+    "theme": "JSON deep copy",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const a = { x: { y: 1 } };`\n`const b = JSON.parse(JSON.stringify(a));`\n`b.x.y = 2;`\n`console.log(a.x.y);`",
+    "answer": "`1`",
+    "explanation": {
+      "en": "`JSON.parse(JSON.stringify())` creates a deep copy.",
+      "ru": "`JSON.parse(JSON.stringify())` создает глубокую копию."
+    }
+  }
+]

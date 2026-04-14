@@ -1,1 +1,682 @@
-[]
+[
+  {
+    "id": "ternary-001",
+    "type": "single-correct",
+    "theme": "ternary basics",
+    "question": {
+      "en": "What is the syntax of the ternary operator?",
+      "ru": "Какой синтаксис тернарного оператора?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`condition ? true : false`",
+          "ru": "`condition ? true : false`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`condition : true ? false`",
+          "ru": "`condition : true ? false`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`true ? condition : false`",
+          "ru": "`true ? condition : false`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`condition ? false : true`",
+          "ru": "`condition ? false : true`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "The ternary operator follows the pattern: `condition ? valueIfTrue : valueIfFalse`.",
+      "ru": "Тернарный оператор следует шаблону: `condition ? valueIfTrue : valueIfFalse`."
+    }
+  },
+  {
+    "id": "ternary-002",
+    "type": "single-correct",
+    "theme": "ternary operator",
+    "question": {
+      "en": "How many operands does the ternary operator have?",
+      "ru": "Сколько операндов у тернарного оператора?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "1",
+          "ru": "1"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "2",
+          "ru": "2"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "3",
+          "ru": "3"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "4",
+          "ru": "4"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "The ternary operator has 3 operands: condition, true value, and false value.",
+      "ru": "Тернарный оператор имеет 3 операнда: условие, значение true и значение false."
+    }
+  },
+  {
+    "id": "ternary-003",
+    "type": "single-correct",
+    "theme": "ternary vs if-else",
+    "question": {
+      "en": "Which statement is equivalent to `x > 5 ? 'yes' : 'no'`?",
+      "ru": "Какое утверждение эквивалентно `x > 5 ? 'yes' : 'no'`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`if (x > 5) { 'yes' } else { 'no' }`",
+          "ru": "`if (x > 5) { 'yes' } else { 'no' }`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`if (x > 5) return 'yes'; else return 'no';`",
+          "ru": "`if (x > 5) return 'yes'; else return 'no';`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`let result; if (x > 5) { result = 'yes'; } else { result = 'no'; }`",
+          "ru": "`let result; if (x > 5) { result = 'yes'; } else { result = 'no'; }`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`if (x > 5) 'yes' else 'no'`",
+          "ru": "`if (x > 5) 'yes' else 'no'`"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "The ternary operator returns a value, so it's equivalent to assigning a value based on a condition.",
+      "ru": "Тернарный оператор возвращает значение, поэтому он эквивалентен присваиванию значения на основе условия."
+    }
+  },
+  {
+    "id": "ternary-004",
+    "type": "yes-no",
+    "theme": "ternary operator",
+    "question": {
+      "en": "Can the ternary operator be nested?",
+      "ru": "Может ли тернарный оператор быть вложенным?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Ternary operators can be nested, though it can reduce readability.",
+      "ru": "Тернарные операторы могут быть вложенными, хотя это может снизить читаемость."
+    }
+  },
+  {
+    "id": "ternary-005",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 10;`\n`console.log(x > 5 ? 'yes' : 'no');`",
+    "answer": "`yes`",
+    "explanation": {
+      "en": "Since 10 > 5 is true, the first value 'yes' is returned.",
+      "ru": "Поскольку 10 > 5 истинно, возвращается первое значение 'yes'."
+    }
+  },
+  {
+    "id": "ternary-006",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 3;`\n`console.log(x > 5 ? 'yes' : 'no');`",
+    "answer": "`no`",
+    "explanation": {
+      "en": "Since 3 > 5 is false, the second value 'no' is returned.",
+      "ru": "Поскольку 3 > 5 ложно, возвращается второе значение 'no'."
+    }
+  },
+  {
+    "id": "ternary-007",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let age = 18;`\n`console.log(age >= 18 ? 'adult' : 'minor');`",
+    "answer": "`adult`",
+    "explanation": {
+      "en": "Since 18 >= 18 is true, 'adult' is returned.",
+      "ru": "Поскольку 18 >= 18 истинно, возвращается 'adult'."
+    }
+  },
+  {
+    "id": "ternary-008",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let score = 45;`\n`console.log(score >= 50 ? 'pass' : 'fail');`",
+    "answer": "`fail`",
+    "explanation": {
+      "en": "Since 45 >= 50 is false, 'fail' is returned.",
+      "ru": "Поскольку 45 >= 50 ложно, возвращается 'fail'."
+    }
+  },
+  {
+    "id": "ternary-009",
+    "type": "single-correct",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What does this expression evaluate to? `true ? 5 : 10`",
+      "ru": "Чему вычисляется это выражение? `true ? 5 : 10`"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`5`",
+          "ru": "`5`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`10`",
+          "ru": "`10`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`true`",
+          "ru": "`true`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "When the condition is true, the first value (5) is returned.",
+      "ru": "Когда условие истинно, возвращается первое значение (5)."
+    }
+  },
+  {
+    "id": "ternary-010",
+    "type": "single-correct",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What does this expression evaluate to? `false ? 5 : 10`",
+      "ru": "Чему вычисляется это выражение? `false ? 5 : 10`"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`5`",
+          "ru": "`5`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`10`",
+          "ru": "`10`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "When the condition is false, the second value (10) is returned.",
+      "ru": "Когда условие ложно, возвращается второе значение (10)."
+    }
+  },
+  {
+    "id": "ternary-011",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 0;`\n`console.log(x ? 'truthy' : 'falsy');`",
+    "answer": "`falsy`",
+    "explanation": {
+      "en": "0 is a falsy value, so the second value is returned.",
+      "ru": "0 — это ложное значение, поэтому возвращается второе значение."
+    }
+  },
+  {
+    "id": "ternary-012",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 'hello';`\n`console.log(x ? 'truthy' : 'falsy');`",
+    "answer": "`truthy`",
+    "explanation": {
+      "en": "Non-empty strings are truthy, so the first value is returned.",
+      "ru": "Непустые строки — это истинные значения, поэтому возвращается первое значение."
+    }
+  },
+  {
+    "id": "ternary-013",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = '';`\n`console.log(x ? 'truthy' : 'falsy');`",
+    "answer": "`falsy`",
+    "explanation": {
+      "en": "Empty strings are falsy, so the second value is returned.",
+      "ru": "Пустые строки — это ложные значения, поэтому возвращается второе значение."
+    }
+  },
+  {
+    "id": "ternary-014",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = null;`\n`console.log(x ? 'truthy' : 'falsy');`",
+    "answer": "`falsy`",
+    "explanation": {
+      "en": "`null` is a falsy value, so the second value is returned.",
+      "ru": "`null` — это ложное значение, поэтому возвращается второе значение."
+    }
+  },
+  {
+    "id": "ternary-015",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = undefined;`\n`console.log(x ? 'truthy' : 'falsy');`",
+    "answer": "`falsy`",
+    "explanation": {
+      "en": "`undefined` is a falsy value, so the second value is returned.",
+      "ru": "`undefined` — это ложное значение, поэтому возвращается второе значение."
+    }
+  },
+  {
+    "id": "ternary-016",
+    "type": "predict-output",
+    "theme": "nested ternary",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 15;`\n`console.log(x > 20 ? 'high' : x > 10 ? 'medium' : 'low');`",
+    "answer": "`medium`",
+    "explanation": {
+      "en": "15 is not > 20, but 15 > 10, so 'medium' is returned.",
+      "ru": "15 не > 20, но 15 > 10, поэтому возвращается 'medium'."
+    }
+  },
+  {
+    "id": "ternary-017",
+    "type": "predict-output",
+    "theme": "nested ternary",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 5;`\n`console.log(x > 20 ? 'high' : x > 10 ? 'medium' : 'low');`",
+    "answer": "`low`",
+    "explanation": {
+      "en": "5 is not > 20 and not > 10, so 'low' is returned.",
+      "ru": "5 не > 20 и не > 10, поэтому возвращается 'low'."
+    }
+  },
+  {
+    "id": "ternary-018",
+    "type": "predict-output",
+    "theme": "nested ternary",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 25;`\n`console.log(x > 20 ? 'high' : x > 10 ? 'medium' : 'low');`",
+    "answer": "`high`",
+    "explanation": {
+      "en": "25 > 20 is true, so 'high' is returned.",
+      "ru": "25 > 20 истинно, поэтому возвращается 'high'."
+    }
+  },
+  {
+    "id": "ternary-019",
+    "type": "single-correct",
+    "theme": "ternary operator",
+    "question": {
+      "en": "Can you assign the result of a ternary operator to a variable?",
+      "ru": "Можно ли присвоить результат тернарного оператора переменной?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "No, it's not allowed",
+          "ru": "Нет, это не разрешено"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Yes, it returns a value",
+          "ru": "Да, он возвращает значение"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only if the condition is true",
+          "ru": "Только если условие истинно"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Only if the condition is false",
+          "ru": "Только если условие ложно"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "The ternary operator returns a value that can be assigned to a variable.",
+      "ru": "Тернарный оператор возвращает значение, которое можно присвоить переменной."
+    }
+  },
+  {
+    "id": "ternary-020",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let result = 5 > 3 ? 'yes' : 'no';`\n`console.log(result);`",
+    "answer": "`yes`",
+    "explanation": {
+      "en": "The ternary operator evaluates to 'yes' and is assigned to result.",
+      "ru": "Тернарный оператор вычисляется в 'yes' и присваивается переменной result."
+    }
+  },
+  {
+    "id": "ternary-021",
+    "type": "single-correct",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is the return type of a ternary operator?",
+      "ru": "Какой тип возвращает тернарный оператор?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Always boolean",
+          "ru": "Всегда boolean"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Always the same type as the condition",
+          "ru": "Всегда тот же тип, что и условие"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The type of whichever branch is executed",
+          "ru": "Тип ветви, которая выполняется"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Always undefined",
+          "ru": "Всегда undefined"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "The ternary operator returns the value of the executed branch, which can be any type.",
+      "ru": "Тернарный оператор возвращает значение выполненной ветви, которое может быть любого типа."
+    }
+  },
+  {
+    "id": "ternary-022",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 10;`\n`console.log(typeof (x > 5 ? 'yes' : 'no'));`",
+    "answer": "`string`",
+    "explanation": {
+      "en": "Both branches return strings, so the result is a string.",
+      "ru": "Обе ветви возвращают строки, поэтому результат — строка."
+    }
+  },
+  {
+    "id": "ternary-023",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 10;`\n`console.log(typeof (x > 5 ? 100 : 'no'));`",
+    "answer": "`number`",
+    "explanation": {
+      "en": "Since x > 5 is true, the first branch (100) is returned, which is a number.",
+      "ru": "Поскольку x > 5 истинно, возвращается первая ветвь (100), которая является числом."
+    }
+  },
+  {
+    "id": "ternary-024",
+    "type": "yes-no",
+    "theme": "ternary operator",
+    "question": {
+      "en": "Is the ternary operator the only conditional operator in JavaScript?",
+      "ru": "Является ли тернарный оператор единственным условным оператором в JavaScript?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "The ternary operator is the only conditional operator in JavaScript.",
+      "ru": "Тернарный оператор — единственный условный оператор в JavaScript."
+    }
+  },
+  {
+    "id": "ternary-025",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 5;`\n`let y = x > 3 ? x * 2 : x + 10;`\n`console.log(y);`",
+    "answer": "`10`",
+    "explanation": {
+      "en": "Since 5 > 3 is true, y = 5 * 2 = 10.",
+      "ru": "Поскольку 5 > 3 истинно, y = 5 * 2 = 10."
+    }
+  },
+  {
+    "id": "ternary-026",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 2;`\n`let y = x > 3 ? x * 2 : x + 10;`\n`console.log(y);`",
+    "answer": "`12`",
+    "explanation": {
+      "en": "Since 2 > 3 is false, y = 2 + 10 = 12.",
+      "ru": "Поскольку 2 > 3 ложно, y = 2 + 10 = 12."
+    }
+  },
+  {
+    "id": "ternary-027",
+    "type": "single-correct",
+    "theme": "ternary operator",
+    "question": {
+      "en": "Which is more readable for complex conditions?",
+      "ru": "Что более читаемо для сложных условий?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Nested ternary operators",
+          "ru": "Вложенные тернарные операторы"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "if/else statements",
+          "ru": "Операторы if/else"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Both are equally readable",
+          "ru": "Оба одинаково читаемы"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Neither is readable",
+          "ru": "Ни один не читаем"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "For complex conditions, if/else statements are generally more readable than nested ternary operators.",
+      "ru": "Для сложных условий операторы if/else обычно более читаемы, чем вложенные тернарные операторы."
+    }
+  },
+  {
+    "id": "ternary-028",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let status = 'active';`\n`console.log(status === 'active' ? 'User is active' : 'User is inactive');`",
+    "answer": "`User is active`",
+    "explanation": {
+      "en": "Since status === 'active' is true, the first value is returned.",
+      "ru": "Поскольку status === 'active' истинно, возвращается первое значение."
+    }
+  },
+  {
+    "id": "ternary-029",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let role = 'user';`\n`console.log(role === 'admin' ? 'Full access' : 'Limited access');`",
+    "answer": "`Limited access`",
+    "explanation": {
+      "en": "Since role === 'admin' is false, the second value is returned.",
+      "ru": "Поскольку role === 'admin' ложно, возвращается второе значение."
+    }
+  },
+  {
+    "id": "ternary-030",
+    "type": "predict-output",
+    "theme": "ternary operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let num = 42;`\n`console.log(num % 2 === 0 ? 'even' : 'odd');`",
+    "answer": "`even`",
+    "explanation": {
+      "en": "Since 42 % 2 === 0 is true, 'even' is returned.",
+      "ru": "Поскольку 42 % 2 === 0 истинно, возвращается 'even'."
+    }
+  }
+]

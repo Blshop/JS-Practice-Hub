@@ -1,1 +1,825 @@
-{}
+[
+  {
+    "id": "dest-001",
+    "type": "single-correct",
+    "theme": "array destructuring",
+    "question": {
+      "en": "What does array destructuring allow you to do?",
+      "ru": "Что позволяет делать деструктуризация массива?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Extract values into variables",
+          "ru": "Извлекать значения в переменные"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Delete array elements",
+          "ru": "Удалять элементы массива"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Sort array elements",
+          "ru": "Сортировать элементы массива"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Reverse array order",
+          "ru": "Переворачивать порядок массива"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Array destructuring extracts values from arrays into distinct variables.",
+      "ru": "Деструктуризация массива извлекает значения из массивов в отдельные переменные."
+    }
+  },
+  {
+    "id": "dest-002",
+    "type": "single-correct",
+    "theme": "object destructuring",
+    "question": {
+      "en": "What syntax is used for object destructuring?",
+      "ru": "Какой синтаксис используется для деструктуризации объекта?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`[]`",
+          "ru": "`[]`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`{}`",
+          "ru": "`{}`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`()`",
+          "ru": "`()`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`<>`",
+          "ru": "`<>`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Object destructuring uses curly braces `{}`.",
+      "ru": "Деструктуризация объекта использует фигурные скобки `{}`."
+    }
+  },
+  {
+    "id": "dest-003",
+    "type": "single-correct",
+    "theme": "default values",
+    "question": {
+      "en": "What happens if a destructured property doesn't exist?",
+      "ru": "Что происходит, если деструктурируемое свойство не существует?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "It throws an error",
+          "ru": "Выбрасывается ошибка"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "It becomes `undefined`",
+          "ru": "Оно становится `undefined`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "It becomes `null`",
+          "ru": "Оно становится `null`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "It becomes an empty string",
+          "ru": "Оно становится пустой строкой"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Missing properties in destructuring default to `undefined`.",
+      "ru": "Отсутствующие свойства при деструктуризации по умолчанию становятся `undefined`."
+    }
+  },
+  {
+    "id": "dest-004",
+    "type": "single-correct",
+    "theme": "renaming",
+    "question": {
+      "en": "How do you rename a variable during object destructuring?",
+      "ru": "Как переименовать переменную при деструктуризации объекта?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`{ oldName -> newName }`",
+          "ru": "`{ oldName -> newName }`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`{ oldName: newName }`",
+          "ru": "`{ oldName: newName }`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`{ oldName as newName }`",
+          "ru": "`{ oldName as newName }`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`{ oldName = newName }`",
+          "ru": "`{ oldName = newName }`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Use colon syntax: `{ oldName: newName }` to rename during destructuring.",
+      "ru": "Используйте синтаксис с двоеточием: `{ oldName: newName }` для переименования при деструктуризации."
+    }
+  },
+  {
+    "id": "dest-005",
+    "type": "single-correct",
+    "theme": "nested destructuring",
+    "question": {
+      "en": "Can you destructure nested objects?",
+      "ru": "Можно ли деструктурировать вложенные объекты?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Yes",
+          "ru": "Да"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "No",
+          "ru": "Нет"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only with arrays",
+          "ru": "Только с массивами"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Only one level deep",
+          "ru": "Только на один уровень вглубь"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Nested destructuring allows extracting values from deeply nested structures.",
+      "ru": "Вложенная деструктуризация позволяет извлекать значения из глубоко вложенных структур."
+    }
+  },
+  {
+    "id": "dest-006",
+    "type": "multiple-correct",
+    "theme": "array destructuring",
+    "question": {
+      "en": "Which statements about array destructuring are true?",
+      "ru": "Какие утверждения о деструктуризации массива верны?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "It uses square brackets `[]`",
+          "ru": "Использует квадратные скобки `[]`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Position matters",
+          "ru": "Позиция имеет значение"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "You can skip elements",
+          "ru": "Можно пропускать элементы"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "It modifies the original array",
+          "ru": "Изменяет исходный массив"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "Array destructuring uses `[]`, position matters, and you can skip elements; it doesn't modify the original.",
+      "ru": "Деструктуризация массива использует `[]`, позиция важна, можно пропускать элементы; не изменяет оригинал."
+    }
+  },
+  {
+    "id": "dest-007",
+    "type": "multiple-correct",
+    "theme": "object destructuring",
+    "question": {
+      "en": "Which statements about object destructuring are correct?",
+      "ru": "Какие утверждения о деструктуризации объекта верны?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Property names must match",
+          "ru": "Имена свойств должны совпадать"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Order doesn't matter",
+          "ru": "Порядок не имеет значения"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "You can provide default values",
+          "ru": "Можно указывать значения по умолчанию"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "It deletes properties from the object",
+          "ru": "Удаляет свойства из объекта"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "Object destructuring matches by property name, order doesn't matter, and supports defaults; doesn't modify the original.",
+      "ru": "Деструктуризация объекта сопоставляет по имени свойства, порядок не важен, поддерживает значения по умолчанию; не изменяет оригинал."
+    }
+  },
+  {
+    "id": "dest-008",
+    "type": "yes-no",
+    "theme": "array destructuring",
+    "question": {
+      "en": "Can you swap variables using array destructuring?",
+      "ru": "Можно ли поменять переменные местами используя деструктуризацию массива?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Array destructuring allows elegant variable swapping: `[a, b] = [b, a]`.",
+      "ru": "Деструктуризация массива позволяет элегантно менять переменные местами: `[a, b] = [b, a]`."
+    }
+  },
+  {
+    "id": "dest-009",
+    "type": "yes-no",
+    "theme": "default values",
+    "question": {
+      "en": "Can you set default values in destructuring?",
+      "ru": "Можно ли устанавливать значения по умолчанию при деструктуризации?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Both array and object destructuring support default values using `=`.",
+      "ru": "И деструктуризация массива, и объекта поддерживают значения по умолчанию с помощью `=`."
+    }
+  },
+  {
+    "id": "dest-010",
+    "type": "yes-no",
+    "theme": "function parameters",
+    "question": {
+      "en": "Can destructuring be used in function parameters?",
+      "ru": "Можно ли использовать деструктуризацию в параметрах функции?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Destructuring in function parameters is a common pattern for extracting values from arguments.",
+      "ru": "Деструктуризация в параметрах функции — распространенный паттерн для извлечения значений из аргументов."
+    }
+  },
+  {
+    "id": "dest-011",
+    "type": "predict-output",
+    "theme": "array destructuring",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const [a, b] = [1, 2, 3];`\n`console.log(a);`",
+    "answer": "`1`",
+    "explanation": {
+      "en": "Array destructuring assigns the first element to `a`.",
+      "ru": "Деструктуризация массива присваивает первый элемент переменной `a`."
+    }
+  },
+  {
+    "id": "dest-012",
+    "type": "predict-output",
+    "theme": "array destructuring",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const [, , c] = [1, 2, 3];`\n`console.log(c);`",
+    "answer": "`3`",
+    "explanation": {
+      "en": "Commas skip elements; `c` gets the third element.",
+      "ru": "Запятые пропускают элементы; `c` получает третий элемент."
+    }
+  },
+  {
+    "id": "dest-013",
+    "type": "predict-output",
+    "theme": "object destructuring",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const { x, y } = { x: 10, y: 20 };`\n`console.log(x);`",
+    "answer": "`10`",
+    "explanation": {
+      "en": "Object destructuring extracts the `x` property.",
+      "ru": "Деструктуризация объекта извлекает свойство `x`."
+    }
+  },
+  {
+    "id": "dest-014",
+    "type": "predict-output",
+    "theme": "default values",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const { a = 5 } = {};`\n`console.log(a);`",
+    "answer": "`5`",
+    "explanation": {
+      "en": "Default value `5` is used when property `a` is missing.",
+      "ru": "Значение по умолчанию `5` используется, когда свойство `a` отсутствует."
+    }
+  },
+  {
+    "id": "dest-015",
+    "type": "predict-output",
+    "theme": "renaming",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const { name: userName } = { name: 'Alice' };`\n`console.log(userName);`",
+    "answer": "`'Alice'`",
+    "explanation": {
+      "en": "The `name` property is extracted and renamed to `userName`.",
+      "ru": "Свойство `name` извлекается и переименовывается в `userName`."
+    }
+  },
+  {
+    "id": "dest-016",
+    "type": "single-correct",
+    "theme": "rest pattern",
+    "question": {
+      "en": "What does the rest pattern `...` do in destructuring?",
+      "ru": "Что делает rest-паттерн `...` при деструктуризации?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Collects remaining elements",
+          "ru": "Собирает оставшиеся элементы"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Spreads elements",
+          "ru": "Распространяет элементы"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Deletes elements",
+          "ru": "Удаляет элементы"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Reverses elements",
+          "ru": "Переворачивает элементы"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "The rest pattern collects remaining elements into an array or object.",
+      "ru": "Rest-паттерн собирает оставшиеся элементы в массив или объект."
+    }
+  },
+  {
+    "id": "dest-017",
+    "type": "single-correct",
+    "theme": "nested destructuring",
+    "question": {
+      "en": "What syntax extracts a nested property?",
+      "ru": "Какой синтаксис извлекает вложенное свойство?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`{ outer.inner }`",
+          "ru": "`{ outer.inner }`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`{ outer: { inner } }`",
+          "ru": "`{ outer: { inner } }`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`{ outer[inner] }`",
+          "ru": "`{ outer[inner] }`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`{ outer -> inner }`",
+          "ru": "`{ outer -> inner }`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Nested destructuring uses nested braces: `{ outer: { inner } }`.",
+      "ru": "Вложенная деструктуризация использует вложенные скобки: `{ outer: { inner } }`."
+    }
+  },
+  {
+    "id": "dest-018",
+    "type": "multiple-correct",
+    "theme": "use cases",
+    "question": {
+      "en": "Where is destructuring commonly used?",
+      "ru": "Где обычно используется деструктуризация?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Function parameters",
+          "ru": "Параметры функций"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Import statements",
+          "ru": "Операторы импорта"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Variable assignments",
+          "ru": "Присваивание переменных"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Loop conditions",
+          "ru": "Условия циклов"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "Destructuring is common in function parameters, imports, and assignments.",
+      "ru": "Деструктуризация часто используется в параметрах функций, импортах и присваиваниях."
+    }
+  },
+  {
+    "id": "dest-019",
+    "type": "predict-output",
+    "theme": "rest pattern",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const [a, ...rest] = [1, 2, 3, 4];`\n`console.log(rest.length);`",
+    "answer": "`3`",
+    "explanation": {
+      "en": "The rest pattern collects `[2, 3, 4]`, which has length 3.",
+      "ru": "Rest-паттерн собирает `[2, 3, 4]`, длина которого равна 3."
+    }
+  },
+  {
+    "id": "dest-020",
+    "type": "predict-output",
+    "theme": "nested destructuring",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const { user: { name } } = { user: { name: 'Bob' } };`\n`console.log(name);`",
+    "answer": "`'Bob'`",
+    "explanation": {
+      "en": "Nested destructuring extracts `name` from the nested `user` object.",
+      "ru": "Вложенная деструктуризация извлекает `name` из вложенного объекта `user`."
+    }
+  },
+  {
+    "id": "dest-021",
+    "type": "single-correct",
+    "theme": "array destructuring",
+    "question": {
+      "en": "What happens if you destructure more variables than array elements?",
+      "ru": "Что происходит, если деструктурировать больше переменных, чем элементов массива?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Error is thrown",
+          "ru": "Выбрасывается ошибка"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Extra variables become `undefined`",
+          "ru": "Дополнительные переменные становятся `undefined`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Extra variables become `null`",
+          "ru": "Дополнительные переменные становятся `null`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Array is extended",
+          "ru": "Массив расширяется"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Extra variables in destructuring default to `undefined`.",
+      "ru": "Дополнительные переменные при деструктуризации по умолчанию становятся `undefined`."
+    }
+  },
+  {
+    "id": "dest-022",
+    "type": "predict-output",
+    "theme": "default values",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const [x = 10, y = 20] = [5];`\n`console.log(y);`",
+    "answer": "`20`",
+    "explanation": {
+      "en": "The second element is missing, so default value `20` is used for `y`.",
+      "ru": "Второй элемент отсутствует, поэтому для `y` используется значение по умолчанию `20`."
+    }
+  },
+  {
+    "id": "dest-023",
+    "type": "predict-output",
+    "theme": "swapping",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let a = 1, b = 2;`\n`[a, b] = [b, a];`\n`console.log(a);`",
+    "answer": "`2`",
+    "explanation": {
+      "en": "Array destructuring swaps the values; `a` becomes `2`.",
+      "ru": "Деструктуризация массива меняет значения местами; `a` становится `2`."
+    }
+  },
+  {
+    "id": "dest-024",
+    "type": "yes-no",
+    "theme": "object destructuring",
+    "question": {
+      "en": "Does the order of properties matter in object destructuring?",
+      "ru": "Имеет ли значение порядок свойств при деструктуризации объекта?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "Object destructuring matches by property name, not order.",
+      "ru": "Деструктуризация объекта сопоставляет по имени свойства, а не по порядку."
+    }
+  },
+  {
+    "id": "dest-025",
+    "type": "multiple-correct",
+    "theme": "rest pattern",
+    "question": {
+      "en": "Which statements about the rest pattern are true?",
+      "ru": "Какие утверждения о rest-паттерне верны?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "It uses `...` syntax",
+          "ru": "Использует синтаксис `...`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "It must be the last element",
+          "ru": "Должен быть последним элементом"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "It collects remaining items",
+          "ru": "Собирает оставшиеся элементы"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "It can be used multiple times",
+          "ru": "Может использоваться несколько раз"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "Rest pattern uses `...`, must be last, and collects remaining items; can only be used once.",
+      "ru": "Rest-паттерн использует `...`, должен быть последним, собирает оставшиеся элементы; может использоваться только один раз."
+    }
+  },
+  {
+    "id": "dest-026",
+    "type": "predict-output",
+    "theme": "function parameters",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`function greet({ name }) {`\n`  return name;`\n`}`\n`console.log(greet({ name: 'Eve' }));`",
+    "answer": "`'Eve'`",
+    "explanation": {
+      "en": "Function parameter destructuring extracts `name` from the argument object.",
+      "ru": "Деструктуризация параметра функции извлекает `name` из объекта-аргумента."
+    }
+  },
+  {
+    "id": "dest-027",
+    "type": "predict-output",
+    "theme": "renaming with defaults",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const { age: years = 18 } = {};`\n`console.log(years);`",
+    "answer": "`18`",
+    "explanation": {
+      "en": "Property `age` is missing, so the default value `18` is assigned to `years`.",
+      "ru": "Свойство `age` отсутствует, поэтому значение по умолчанию `18` присваивается переменной `years`."
+    }
+  },
+  {
+    "id": "dest-028",
+    "type": "single-correct",
+    "theme": "mixed destructuring",
+    "question": {
+      "en": "Can you mix array and object destructuring?",
+      "ru": "Можно ли смешивать деструктуризацию массива и объекта?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Yes, for nested structures",
+          "ru": "Да, для вложенных структур"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "No, never",
+          "ru": "Нет, никогда"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only in functions",
+          "ru": "Только в функциях"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Only with rest pattern",
+          "ru": "Только с rest-паттерном"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "You can mix array and object destructuring when working with nested structures.",
+      "ru": "Можно смешивать деструктуризацию массива и объекта при работе с вложенными структурами."
+    }
+  },
+  {
+    "id": "dest-029",
+    "type": "predict-output",
+    "theme": "mixed destructuring",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const [{ x }] = [{ x: 5 }];`\n`console.log(x);`",
+    "answer": "`5`",
+    "explanation": {
+      "en": "Array destructuring extracts the first element, then object destructuring extracts `x`.",
+      "ru": "Деструктуризация массива извлекает первый элемент, затем деструктуризация объекта извлекает `x`."
+    }
+  },
+  {
+    "id": "dest-030",
+    "type": "predict-output",
+    "theme": "rest pattern object",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const { a, ...rest } = { a: 1, b: 2, c: 3 };`\n`console.log(Object.keys(rest).length);`",
+    "answer": "`2`",
+    "explanation": {
+      "en": "Rest pattern collects remaining properties `{ b: 2, c: 3 }`, which has 2 keys.",
+      "ru": "Rest-паттерн собирает оставшиеся свойства `{ b: 2, c: 3 }`, у которого 2 ключа."
+    }
+  }
+]

@@ -1,1 +1,941 @@
-{}
+[
+  {
+    "id": "obj-001",
+    "type": "single-correct",
+    "theme": "object creation",
+    "question": {
+      "en": "Which syntax creates an object literal?",
+      "ru": "Какой синтаксис создает объектный литерал?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`new Object()`",
+          "ru": "`new Object()`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`{}`",
+          "ru": "`{}`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`Object.create()`",
+          "ru": "`Object.create()`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`[]`",
+          "ru": "`[]`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`{}` is the object literal syntax for creating objects.",
+      "ru": "`{}` — это синтаксис объектного литерала для создания объектов."
+    }
+  },
+  {
+    "id": "obj-002",
+    "type": "single-correct",
+    "theme": "property access",
+    "question": {
+      "en": "How do you access a property named `name` in object `obj`?",
+      "ru": "Как получить доступ к свойству `name` в объекте `obj`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`obj.name` or `obj['name']`",
+          "ru": "`obj.name` или `obj['name']`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Only `obj.name`",
+          "ru": "Только `obj.name`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only `obj['name']`",
+          "ru": "Только `obj['name']`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`obj->name`",
+          "ru": "`obj->name`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "JavaScript supports both dot notation and bracket notation for property access.",
+      "ru": "JavaScript поддерживает как точечную нотацию, так и скобочную для доступа к свойствам."
+    }
+  },
+  {
+    "id": "obj-003",
+    "type": "single-correct",
+    "theme": "object methods",
+    "question": {
+      "en": "What is a method in an object?",
+      "ru": "Что такое метод в объекте?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "A property that holds a function",
+          "ru": "Свойство, которое содержит функцию"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "A property that holds a string",
+          "ru": "Свойство, которое содержит строку"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "A special keyword",
+          "ru": "Специальное ключевое слово"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "A type of loop",
+          "ru": "Тип цикла"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "A method is a property whose value is a function.",
+      "ru": "Метод — это свойство, значением которого является функция."
+    }
+  },
+  {
+    "id": "obj-004",
+    "type": "single-correct",
+    "theme": "property names",
+    "question": {
+      "en": "Can object property names contain spaces?",
+      "ru": "Могут ли имена свойств объекта содержать пробелы?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Yes, but only with bracket notation",
+          "ru": "Да, но только со скобочной нотацией"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "No, never",
+          "ru": "Нет, никогда"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Yes, with dot notation",
+          "ru": "Да, с точечной нотацией"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Only in strict mode",
+          "ru": "Только в строгом режиме"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Property names with spaces must use bracket notation: `obj['my property']`.",
+      "ru": "Имена свойств с пробелами должны использовать скобочную нотацию: `obj['my property']`."
+    }
+  },
+  {
+    "id": "obj-005",
+    "type": "single-correct",
+    "theme": "computed properties",
+    "question": {
+      "en": "What are computed property names?",
+      "ru": "Что такое вычисляемые имена свойств?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Property names defined using expressions in `[]`",
+          "ru": "Имена свойств, определенные с помощью выражений в `[]`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Properties that calculate their values",
+          "ru": "Свойства, которые вычисляют свои значения"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Properties created by functions",
+          "ru": "Свойства, созданные функциями"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Properties with numeric names",
+          "ru": "Свойства с числовыми именами"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Computed property names use expressions in brackets: `{ [key]: value }`.",
+      "ru": "Вычисляемые имена свойств используют выражения в скобках: `{ [key]: value }`."
+    }
+  },
+  {
+    "id": "obj-006",
+    "type": "single-correct",
+    "theme": "shorthand syntax",
+    "question": {
+      "en": "What does property shorthand allow?",
+      "ru": "Что позволяет сокращенный синтаксис свойств?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Using variable name as both key and value",
+          "ru": "Использовать имя переменной как ключ и значение"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Skipping semicolons",
+          "ru": "Пропускать точки с запятой"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Creating nested objects",
+          "ru": "Создавать вложенные объекты"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Defining private properties",
+          "ru": "Определять приватные свойства"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Property shorthand: `{ name }` is equivalent to `{ name: name }`.",
+      "ru": "Сокращенный синтаксис: `{ name }` эквивалентен `{ name: name }`."
+    }
+  },
+  {
+    "id": "obj-007",
+    "type": "single-correct",
+    "theme": "method shorthand",
+    "question": {
+      "en": "What is the shorthand syntax for methods?",
+      "ru": "Каков сокращенный синтаксис для методов?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`methodName() {}`",
+          "ru": "`methodName() {}`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`methodName: function() {}`",
+          "ru": "`methodName: function() {}`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`function methodName() {}`",
+          "ru": "`function methodName() {}`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`=> methodName() {}`",
+          "ru": "`=> methodName() {}`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Method shorthand: `methodName() {}` instead of `methodName: function() {}`.",
+      "ru": "Сокращенный синтаксис метода: `methodName() {}` вместо `methodName: function() {}`."
+    }
+  },
+  {
+    "id": "obj-008",
+    "type": "single-correct",
+    "theme": "property deletion",
+    "question": {
+      "en": "How do you delete a property from an object?",
+      "ru": "Как удалить свойство из объекта?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`delete obj.property`",
+          "ru": "`delete obj.property`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`obj.property = null`",
+          "ru": "`obj.property = null`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`remove obj.property`",
+          "ru": "`remove obj.property`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`obj.property.delete()`",
+          "ru": "`obj.property.delete()`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "The `delete` operator removes a property from an object.",
+      "ru": "Оператор `delete` удаляет свойство из объекта."
+    }
+  },
+  {
+    "id": "obj-009",
+    "type": "single-correct",
+    "theme": "property existence",
+    "question": {
+      "en": "How do you check if a property exists in an object?",
+      "ru": "Как проверить, существует ли свойство в объекте?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`'property' in obj`",
+          "ru": "`'property' in obj`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`obj.has('property')`",
+          "ru": "`obj.has('property')`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`obj.exists('property')`",
+          "ru": "`obj.exists('property')`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`obj.contains('property')`",
+          "ru": "`obj.contains('property')`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "The `in` operator checks if a property exists in an object.",
+      "ru": "Оператор `in` проверяет, существует ли свойство в объекте."
+    }
+  },
+  {
+    "id": "obj-010",
+    "type": "yes-no",
+    "theme": "object mutability",
+    "question": {
+      "en": "Can you add properties to an object after creation?",
+      "ru": "Можно ли добавлять свойства к объекту после создания?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Objects are mutable; you can add, modify, or delete properties at any time.",
+      "ru": "Объекты изменяемы; вы можете добавлять, изменять или удалять свойства в любое время."
+    }
+  },
+  {
+    "id": "obj-011",
+    "type": "yes-no",
+    "theme": "property order",
+    "question": {
+      "en": "Are object properties ordered?",
+      "ru": "Упорядочены ли свойства объекта?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Modern JavaScript maintains insertion order for string keys (with some exceptions for integer keys).",
+      "ru": "Современный JavaScript сохраняет порядок вставки для строковых ключей (с некоторыми исключениями для целочисленных ключей)."
+    }
+  },
+  {
+    "id": "obj-012",
+    "type": "yes-no",
+    "theme": "bracket notation",
+    "question": {
+      "en": "Can bracket notation use variables as property names?",
+      "ru": "Может ли скобочная нотация использовать переменные как имена свойств?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Bracket notation evaluates expressions: `obj[variable]`.",
+      "ru": "Скобочная нотация вычисляет выражения: `obj[variable]`."
+    }
+  },
+  {
+    "id": "obj-013",
+    "type": "multiple-correct",
+    "theme": "object creation methods",
+    "question": {
+      "en": "Which are valid ways to create objects?",
+      "ru": "Какие способы создания объектов являются допустимыми?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Object literal `{}`",
+          "ru": "Объектный литерал `{}`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`new Object()`",
+          "ru": "`new Object()`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`Object.create()`",
+          "ru": "`Object.create()`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Constructor functions",
+          "ru": "Функции-конструкторы"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c", "d"],
+    "explanation": {
+      "en": "All four methods can create objects in JavaScript.",
+      "ru": "Все четыре метода могут создавать объекты в JavaScript."
+    }
+  },
+  {
+    "id": "obj-014",
+    "type": "multiple-correct",
+    "theme": "property access",
+    "question": {
+      "en": "When must you use bracket notation?",
+      "ru": "Когда необходимо использовать скобочную нотацию?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Property names with spaces",
+          "ru": "Имена свойств с пробелами"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Property names starting with numbers",
+          "ru": "Имена свойств, начинающиеся с цифр"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Dynamic property names from variables",
+          "ru": "Динамические имена свойств из переменных"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Property names with special characters",
+          "ru": "Имена свойств со специальными символами"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c", "d"],
+    "explanation": {
+      "en": "Bracket notation is required for non-standard property names and dynamic access.",
+      "ru": "Скобочная нотация требуется для нестандартных имен свойств и динамического доступа."
+    }
+  },
+  {
+    "id": "obj-015",
+    "type": "multiple-correct",
+    "theme": "ES6 features",
+    "question": {
+      "en": "Which are ES6+ object features?",
+      "ru": "Какие функции объектов появились в ES6+?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Property shorthand",
+          "ru": "Сокращенный синтаксис свойств"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Method shorthand",
+          "ru": "Сокращенный синтаксис методов"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Computed property names",
+          "ru": "Вычисляемые имена свойств"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Dot notation",
+          "ru": "Точечная нотация"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "Property shorthand, method shorthand, and computed properties are ES6 features.",
+      "ru": "Сокращенный синтаксис свойств, методов и вычисляемые свойства — это функции ES6."
+    }
+  },
+  {
+    "id": "obj-016",
+    "type": "predict-output",
+    "theme": "property access",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const obj = { name: 'Alice' };`\n`console.log(obj.name);`",
+    "answer": "`Alice`",
+    "explanation": {
+      "en": "Dot notation accesses the `name` property.",
+      "ru": "Точечная нотация обращается к свойству `name`."
+    }
+  },
+  {
+    "id": "obj-017",
+    "type": "predict-output",
+    "theme": "bracket notation",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const obj = { 'first name': 'Bob' };`\n`console.log(obj['first name']);`",
+    "answer": "`Bob`",
+    "explanation": {
+      "en": "Bracket notation is required for property names with spaces.",
+      "ru": "Скобочная нотация требуется для имен свойств с пробелами."
+    }
+  },
+  {
+    "id": "obj-018",
+    "type": "predict-output",
+    "theme": "property shorthand",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const age = 25;`\n`const obj = { age };`\n`console.log(obj.age);`",
+    "answer": "`25`",
+    "explanation": {
+      "en": "Property shorthand creates `{ age: age }` from `{ age }`.",
+      "ru": "Сокращенный синтаксис создает `{ age: age }` из `{ age }`."
+    }
+  },
+  {
+    "id": "obj-019",
+    "type": "predict-output",
+    "theme": "computed properties",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const key = 'color';`\n`const obj = { [key]: 'red' };`\n`console.log(obj.color);`",
+    "answer": "`red`",
+    "explanation": {
+      "en": "Computed property names use the value of `key` as the property name.",
+      "ru": "Вычисляемые имена свойств используют значение `key` как имя свойства."
+    }
+  },
+  {
+    "id": "obj-020",
+    "type": "predict-output",
+    "theme": "method shorthand",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const obj = {`\n`  greet() { return 'Hi'; }`\n`};`\n`console.log(obj.greet());`",
+    "answer": "`Hi`",
+    "explanation": {
+      "en": "Method shorthand defines a method without the `function` keyword.",
+      "ru": "Сокращенный синтаксис метода определяет метод без ключевого слова `function`."
+    }
+  },
+  {
+    "id": "obj-021",
+    "type": "single-correct",
+    "theme": "nested objects",
+    "question": {
+      "en": "How do you access a nested property?",
+      "ru": "Как получить доступ к вложенному свойству?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`obj.nested.property`",
+          "ru": "`obj.nested.property`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`obj->nested->property`",
+          "ru": "`obj->nested->property`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`obj::nested::property`",
+          "ru": "`obj::nested::property`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`obj.nested->property`",
+          "ru": "`obj.nested->property`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Chain dot notation to access nested properties.",
+      "ru": "Используйте цепочку точечной нотации для доступа к вложенным свойствам."
+    }
+  },
+  {
+    "id": "obj-022",
+    "type": "single-correct",
+    "theme": "object constructor",
+    "question": {
+      "en": "What does `new Object()` create?",
+      "ru": "Что создает `new Object()`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "An empty object",
+          "ru": "Пустой объект"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "An array",
+          "ru": "Массив"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "A function",
+          "ru": "Функцию"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "A class",
+          "ru": "Класс"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`new Object()` creates an empty object, equivalent to `{}`.",
+      "ru": "`new Object()` создает пустой объект, эквивалентный `{}`."
+    }
+  },
+  {
+    "id": "obj-023",
+    "type": "single-correct",
+    "theme": "Object.create",
+    "question": {
+      "en": "What does `Object.create(null)` create?",
+      "ru": "Что создает `Object.create(null)`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "An object with no prototype",
+          "ru": "Объект без прототипа"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "An empty array",
+          "ru": "Пустой массив"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "An error",
+          "ru": "Ошибку"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`Object.create(null)` creates an object without inheriting from `Object.prototype`.",
+      "ru": "`Object.create(null)` создает объект без наследования от `Object.prototype`."
+    }
+  },
+  {
+    "id": "obj-024",
+    "type": "multiple-correct",
+    "theme": "property types",
+    "question": {
+      "en": "What types can object property values be?",
+      "ru": "Какие типы могут иметь значения свойств объекта?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Primitives",
+          "ru": "Примитивы"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Objects",
+          "ru": "Объекты"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Functions",
+          "ru": "Функции"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Arrays",
+          "ru": "Массивы"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c", "d"],
+    "explanation": {
+      "en": "Object properties can hold any JavaScript value type.",
+      "ru": "Свойства объекта могут содержать любой тип значения JavaScript."
+    }
+  },
+  {
+    "id": "obj-025",
+    "type": "multiple-correct",
+    "theme": "property keys",
+    "question": {
+      "en": "What can be used as object property keys?",
+      "ru": "Что может использоваться в качестве ключей свойств объекта?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Strings",
+          "ru": "Строки"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Symbols",
+          "ru": "Символы"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Numbers (converted to strings)",
+          "ru": "Числа (преобразуются в строки)"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Objects",
+          "ru": "Объекты"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "Property keys are strings or symbols; numbers are converted to strings.",
+      "ru": "Ключи свойств — это строки или символы; числа преобразуются в строки."
+    }
+  },
+  {
+    "id": "obj-026",
+    "type": "predict-output",
+    "theme": "property deletion",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const obj = { a: 1, b: 2 };`\n`delete obj.a;`\n`console.log(obj.a);`",
+    "answer": "`undefined`",
+    "explanation": {
+      "en": "After deletion, accessing the property returns `undefined`.",
+      "ru": "После удаления обращение к свойству возвращает `undefined`."
+    }
+  },
+  {
+    "id": "obj-027",
+    "type": "predict-output",
+    "theme": "in operator",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const obj = { name: 'Tom' };`\n`console.log('name' in obj);`",
+    "answer": "`true`",
+    "explanation": {
+      "en": "The `in` operator returns `true` if the property exists.",
+      "ru": "Оператор `in` возвращает `true`, если свойство существует."
+    }
+  },
+  {
+    "id": "obj-028",
+    "type": "predict-output",
+    "theme": "dynamic properties",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const prop = 'age';`\n`const obj = { name: 'Sam', age: 30 };`\n`console.log(obj[prop]);`",
+    "answer": "`30`",
+    "explanation": {
+      "en": "Bracket notation evaluates the variable to access the property.",
+      "ru": "Скобочная нотация вычисляет переменную для доступа к свойству."
+    }
+  },
+  {
+    "id": "obj-029",
+    "type": "yes-no",
+    "theme": "object reference",
+    "question": {
+      "en": "Do objects in JavaScript pass by reference?",
+      "ru": "Передаются ли объекты в JavaScript по ссылке?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Objects are reference types; variables hold references to objects, not copies.",
+      "ru": "Объекты — это ссылочные типы; переменные содержат ссылки на объекты, а не копии."
+    }
+  },
+  {
+    "id": "obj-030",
+    "type": "predict-output",
+    "theme": "object reference",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const obj1 = { x: 1 };`\n`const obj2 = obj1;`\n`obj2.x = 5;`\n`console.log(obj1.x);`",
+    "answer": "`5`",
+    "explanation": {
+      "en": "Both variables reference the same object; modifying one affects the other.",
+      "ru": "Обе переменные ссылаются на один и тот же объект; изменение одной влияет на другую."
+    }
+  }
+]

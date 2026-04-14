@@ -1,1 +1,706 @@
-{}
+[
+  {
+    "id": "iife-001",
+    "type": "single-correct",
+    "theme": "IIFE basics",
+    "question": {
+      "en": "What does IIFE stand for?",
+      "ru": "Что означает аббревиатура IIFE?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Immediately Invoked Function Expression",
+          "ru": "Immediately Invoked Function Expression"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Instantly Initialized Function Environment",
+          "ru": "Мгновенно инициализированная функциональная среда"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Inline Invoked Function Execution",
+          "ru": "Встроенное выполнение вызванной функции"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Internal Isolated Function Expression",
+          "ru": "Внутреннее изолированное функциональное выражение"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "IIFE stands for Immediately Invoked Function Expression, a function that is executed immediately after it is defined.",
+      "ru": "IIFE расшифровывается как Immediately Invoked Function Expression — функция, которая выполняется сразу же после определения."
+    }
+  },
+  {
+    "id": "iife-002",
+    "type": "predict-output",
+    "theme": "IIFE basics",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`(function() {`\n`  console.log('Hello');`\n`})();`",
+    "answer": "`Hello`",
+    "explanation": {
+      "en": "The function is immediately invoked, so 'Hello' is printed right away.",
+      "ru": "Функция немедленно вызывается, поэтому 'Hello' выводится сразу же."
+    }
+  },
+  {
+    "id": "iife-003",
+    "type": "yes-no",
+    "theme": "IIFE basics",
+    "question": {
+      "en": "Can you call an IIFE multiple times?",
+      "ru": "Можно ли вызвать IIFE несколько раз?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "An IIFE is executed immediately and only once. To call it again, you need to store it in a variable.",
+      "ru": "IIFE выполняется немедленно и только один раз. Чтобы вызвать её снова, нужно сохранить её в переменную."
+    }
+  },
+  {
+    "id": "iife-004",
+    "type": "single-correct",
+    "theme": "IIFE syntax",
+    "question": {
+      "en": "Which is a valid IIFE syntax?",
+      "ru": "Какой синтаксис IIFE является допустимым?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`function() { console.log('test'); }();`",
+          "ru": "`function() { console.log('test'); }();`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`(function() { console.log('test'); })();`",
+          "ru": "`(function() { console.log('test'); })();`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`function test() { console.log('test'); }();`",
+          "ru": "`function test() { console.log('test'); }();`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "All of the above",
+          "ru": "Все вышеперечисленные"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "The function must be wrapped in parentheses to be treated as an expression, then immediately invoked with `()`.",
+      "ru": "Функция должна быть заключена в скобки, чтобы рассматриваться как выражение, а затем немедленно вызвана с помощью `()`."
+    }
+  },
+  {
+    "id": "iife-005",
+    "type": "predict-output",
+    "theme": "IIFE scope",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`var x = 10;`\n`(function() {`\n`  var x = 20;`\n`  console.log(x);`\n`})();`\n`console.log(x);`",
+    "answer": "20\n10",
+    "explanation": {
+      "en": "The IIFE creates its own scope; the inner `x` is 20, the outer `x` remains 10.",
+      "ru": "IIFE создает собственную область видимости; внутренний `x` равен 20, внешний `x` остается 10."
+    }
+  },
+  {
+    "id": "iife-006",
+    "type": "yes-no",
+    "theme": "IIFE parameters",
+    "question": {
+      "en": "Can an IIFE accept parameters?",
+      "ru": "Может ли IIFE принимать параметры?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "IIFE can accept parameters just like any regular function.",
+      "ru": "IIFE может принимать параметры, как и любая обычная функция."
+    }
+  },
+  {
+    "id": "iife-007",
+    "type": "predict-output",
+    "theme": "IIFE parameters",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`(function(name) {`\n`  console.log('Hello, ' + name);`\n`})('Alice');`",
+    "answer": "`Hello, Alice`",
+    "explanation": {
+      "en": "The IIFE receives 'Alice' as a parameter and prints the greeting.",
+      "ru": "IIFE получает 'Alice' в качестве параметра и выводит приветствие."
+    }
+  },
+  {
+    "id": "iife-008",
+    "type": "single-correct",
+    "theme": "IIFE return value",
+    "question": {
+      "en": "Can an IIFE return a value?",
+      "ru": "Может ли IIFE возвращать значение?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "No, IIFE cannot return values",
+          "ru": "Нет, IIFE не может возвращать значения"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Yes, and it can be assigned to a variable",
+          "ru": "Да, и оно может быть присвоено переменной"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only if it's an arrow function",
+          "ru": "Только если это стрелочная функция"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Only if it has a name",
+          "ru": "Только если она имеет имя"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "IIFE can return values, and the returned value can be assigned to a variable.",
+      "ru": "IIFE может возвращать значения, и возвращаемое значение может быть присвоено переменной."
+    }
+  },
+  {
+    "id": "iife-009",
+    "type": "predict-output",
+    "theme": "IIFE return value",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const result = (function() {`\n`  return 42;`\n`})();`\n`console.log(result);`",
+    "answer": "`42`",
+    "explanation": {
+      "en": "The IIFE returns 42, which is assigned to `result`.",
+      "ru": "IIFE возвращает 42, которое присваивается переменной `result`."
+    }
+  },
+  {
+    "id": "iife-010",
+    "type": "yes-no",
+    "theme": "IIFE naming",
+    "question": {
+      "en": "Can an IIFE have a name?",
+      "ru": "Может ли IIFE иметь имя?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "An IIFE can be a named function expression, though the name is only accessible inside the function.",
+      "ru": "IIFE может быть именованным функциональным выражением, хотя имя доступно только внутри функции."
+    }
+  },
+  {
+    "id": "iife-011",
+    "type": "predict-output",
+    "theme": "IIFE naming",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`(function named() {`\n`  console.log(typeof named);`\n`})();`",
+    "answer": "`function`",
+    "explanation": {
+      "en": "Inside the IIFE, the function name is accessible and has type 'function'.",
+      "ru": "Внутри IIFE имя функции доступно и имеет тип 'function'."
+    }
+  },
+  {
+    "id": "iife-012",
+    "type": "single-correct",
+    "theme": "IIFE use cases",
+    "question": {
+      "en": "What is a primary use case for IIFE?",
+      "ru": "Какой основной случай использования IIFE?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Creating private variables and avoiding global scope pollution",
+          "ru": "Создание приватных переменных и избежание загрязнения глобальной области видимости"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Making code run faster",
+          "ru": "Ускорение выполнения кода"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Replacing regular functions",
+          "ru": "Замена обычных функций"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Debugging code",
+          "ru": "Отладка кода"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "IIFE is commonly used to create a private scope and avoid polluting the global namespace.",
+      "ru": "IIFE обычно используется для создания приватной области видимости и избежания загрязнения глобального пространства имен."
+    }
+  },
+  {
+    "id": "iife-013",
+    "type": "predict-output",
+    "theme": "IIFE scope isolation",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`(function() {`\n`  var privateVar = 'secret';`\n`})();`\n`console.log(typeof privateVar);`",
+    "answer": "`undefined`",
+    "explanation": {
+      "en": "The variable is private to the IIFE and not accessible outside.",
+      "ru": "Переменная приватна для IIFE и недоступна снаружи."
+    }
+  },
+  {
+    "id": "iife-014",
+    "type": "multiple-correct",
+    "theme": "IIFE syntax variations",
+    "question": {
+      "en": "Which are valid IIFE syntaxes?",
+      "ru": "Какие синтаксисы IIFE являются допустимыми?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`(function() { })();`",
+          "ru": "`(function() { })();`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`!function() { }();`",
+          "ru": "`!function() { }();`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`+function() { }();`",
+          "ru": "`+function() { }();`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`function() { }();`",
+          "ru": "`function() { }();`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "Options a, b, and c are valid IIFE syntaxes. Option d is invalid because the function declaration must be converted to an expression.",
+      "ru": "Варианты a, b и c — допустимые синтаксисы IIFE. Вариант d недопустим, так как объявление функции должно быть преобразовано в выражение."
+    }
+  },
+  {
+    "id": "iife-015",
+    "type": "yes-no",
+    "theme": "IIFE with arrow functions",
+    "question": {
+      "en": "Can you use an arrow function as an IIFE?",
+      "ru": "Можно ли использовать стрелочную функцию как IIFE?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Arrow functions can be used as IIFE: `(() => { console.log('test'); })()`",
+      "ru": "Стрелочные функции могут использоваться как IIFE: `(() => { console.log('test'); })()`"
+    }
+  },
+  {
+    "id": "iife-016",
+    "type": "predict-output",
+    "theme": "IIFE with arrow functions",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`(() => {`\n`  console.log('Arrow IIFE');`\n`})();`",
+    "answer": "`Arrow IIFE`",
+    "explanation": {
+      "en": "Arrow functions work as IIFE when wrapped in parentheses and immediately invoked.",
+      "ru": "Стрелочные функции работают как IIFE, когда заключены в скобки и немедленно вызваны."
+    }
+  },
+  {
+    "id": "iife-017",
+    "type": "single-correct",
+    "theme": "IIFE module pattern",
+    "question": {
+      "en": "What pattern uses IIFE to create a module with public and private methods?",
+      "ru": "Какой паттерн использует IIFE для создания модуля с публичными и приватными методами?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Module Pattern",
+          "ru": "Module Pattern"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Factory Pattern",
+          "ru": "Factory Pattern"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Singleton Pattern",
+          "ru": "Singleton Pattern"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Observer Pattern",
+          "ru": "Observer Pattern"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "The Module Pattern uses IIFE to encapsulate private variables and expose public methods.",
+      "ru": "Module Pattern использует IIFE для инкапсуляции приватных переменных и предоставления публичных методов."
+    }
+  },
+  {
+    "id": "iife-018",
+    "type": "predict-output",
+    "theme": "IIFE module pattern",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const counter = (function() {`\n`  let count = 0;`\n`  return {`\n`    increment: function() { count++; },`\n`    getCount: function() { return count; }`\n`  };`\n`})();`\n`counter.increment();`\n`console.log(counter.getCount());`",
+    "answer": "`1`",
+    "explanation": {
+      "en": "The IIFE creates a module with private `count` and public methods to manage it.",
+      "ru": "IIFE создает модуль с приватной переменной `count` и публичными методами для управления ею."
+    }
+  },
+  {
+    "id": "iife-019",
+    "type": "yes-no",
+    "theme": "IIFE hoisting",
+    "question": {
+      "en": "Are IIFE hoisted?",
+      "ru": "Поднимаются ли IIFE?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "IIFE are function expressions, not declarations, so they are not hoisted.",
+      "ru": "IIFE — это функциональные выражения, а не объявления, поэтому они не поднимаются."
+    }
+  },
+  {
+    "id": "iife-020",
+    "type": "predict-output",
+    "theme": "IIFE with this",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const obj = {`\n`  value: 42,`\n`  test: (function() {`\n`    return this.value;`\n`  })()`\n`};`\n`console.log(obj.test);`",
+    "answer": "`undefined`",
+    "explanation": {
+      "en": "The IIFE is executed immediately in the global scope, so `this` refers to the global object, not `obj`.",
+      "ru": "IIFE выполняется немедленно в глобальной области видимости, поэтому `this` ссылается на глобальный объект, а не на `obj`."
+    }
+  },
+  {
+    "id": "iife-021",
+    "type": "single-correct",
+    "theme": "IIFE vs regular function",
+    "question": {
+      "en": "What is the main difference between IIFE and a regular function?",
+      "ru": "В чем основное отличие IIFE от обычной функции?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "IIFE is executed immediately after definition",
+          "ru": "IIFE выполняется немедленно после определения"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "IIFE cannot have parameters",
+          "ru": "IIFE не может иметь параметры"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "IIFE cannot return values",
+          "ru": "IIFE не может возвращать значения"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "IIFE is always anonymous",
+          "ru": "IIFE всегда анонимна"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "The key difference is that IIFE is executed immediately, while regular functions are called later.",
+      "ru": "Ключевое отличие в том, что IIFE выполняется немедленно, а обычные функции вызываются позже."
+    }
+  },
+  {
+    "id": "iife-022",
+    "type": "predict-output",
+    "theme": "IIFE with multiple parameters",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`(function(a, b, c) {`\n`  console.log(a + b + c);`\n`})(1, 2, 3);`",
+    "answer": "`6`",
+    "explanation": {
+      "en": "The IIFE receives three parameters and returns their sum.",
+      "ru": "IIFE получает три параметра и возвращает их сумму."
+    }
+  },
+  {
+    "id": "iife-023",
+    "type": "yes-no",
+    "theme": "IIFE in loops",
+    "question": {
+      "en": "Can IIFE be used to solve the closure problem in loops?",
+      "ru": "Может ли IIFE использоваться для решения проблемы замыкания в циклах?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "IIFE can create a new scope for each iteration, capturing the loop variable.",
+      "ru": "IIFE может создать новую область видимости для каждой итерации, захватывая переменную цикла."
+    }
+  },
+  {
+    "id": "iife-024",
+    "type": "predict-output",
+    "theme": "IIFE in loops",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (var i = 0; i < 3; i++) {`\n`  (function(j) {`\n`    setTimeout(() => console.log(j), 0);`\n`  })(i);`\n`}`",
+    "answer": "0\n1\n2",
+    "explanation": {
+      "en": "The IIFE captures each value of `i` in a separate scope, preventing the closure problem.",
+      "ru": "IIFE захватывает каждое значение `i` в отдельной области видимости, предотвращая проблему замыкания."
+    }
+  },
+  {
+    "id": "iife-025",
+    "type": "multiple-correct",
+    "theme": "IIFE benefits",
+    "question": {
+      "en": "What are benefits of using IIFE?",
+      "ru": "Какие преимущества использования IIFE?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Avoids global scope pollution",
+          "ru": "Избегает загрязнения глобальной области видимости"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Creates private variables",
+          "ru": "Создает приватные переменные"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Executes code immediately",
+          "ru": "Выполняет код немедленно"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Makes code run faster",
+          "ru": "Ускоряет выполнение кода"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "IIFE avoids global pollution, creates private scope, and executes immediately. It doesn't necessarily make code faster.",
+      "ru": "IIFE избегает загрязнения глобальной области видимости, создает приватную область видимости и выполняется немедленно. Это не обязательно ускоряет код."
+    }
+  },
+  {
+    "id": "iife-026",
+    "type": "predict-output",
+    "theme": "IIFE with default parameters",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`(function(x = 10) {`\n`  console.log(x);`\n`})();`",
+    "answer": "`10`",
+    "explanation": {
+      "en": "The IIFE uses the default parameter value since no argument is passed.",
+      "ru": "IIFE использует значение параметра по умолчанию, так как аргумент не передан."
+    }
+  },
+  {
+    "id": "iife-027",
+    "type": "yes-no",
+    "theme": "IIFE with strict mode",
+    "question": {
+      "en": "Can you use strict mode inside an IIFE?",
+      "ru": "Можно ли использовать строгий режим внутри IIFE?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "You can add 'use strict' at the beginning of an IIFE to enable strict mode for that scope.",
+      "ru": "Вы можете добавить 'use strict' в начало IIFE, чтобы включить строгий режим для этой области видимости."
+    }
+  },
+  {
+    "id": "iife-028",
+    "type": "predict-output",
+    "theme": "IIFE with strict mode",
+    "question": {
+      "en": "What happens?",
+      "ru": "Что произойдет?"
+    },
+    "code": "`(function() {`\n`  'use strict';`\n`  x = 5;`\n`})();`",
+    "answer": "`ReferenceError`",
+    "explanation": {
+      "en": "In strict mode, assigning to an undeclared variable throws a ReferenceError.",
+      "ru": "В строгом режиме присваивание необъявленной переменной вызывает ReferenceError."
+    }
+  },
+  {
+    "id": "iife-029",
+    "type": "single-correct",
+    "theme": "IIFE modern alternatives",
+    "question": {
+      "en": "What modern JavaScript feature can replace IIFE for scope isolation?",
+      "ru": "Какая современная функция JavaScript может заменить IIFE для изоляции области видимости?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Block scope with `let` and `const`",
+          "ru": "Блочная область видимости с `let` и `const`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Arrow functions",
+          "ru": "Стрелочные функции"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Classes",
+          "ru": "Классы"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Promises",
+          "ru": "Промисы"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Modern JavaScript uses block scope with `let` and `const` instead of IIFE for scope isolation.",
+      "ru": "Современный JavaScript использует блочную область видимости с `let` и `const` вместо IIFE для изоляции области видимости."
+    }
+  },
+  {
+    "id": "iife-030",
+    "type": "predict-output",
+    "theme": "IIFE complex example",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const result = (function(n) {`\n`  let sum = 0;`\n`  for (let i = 1; i <= n; i++) {`\n`    sum += i;`\n`  }`\n`  return sum;`\n`})(5);`\n`console.log(result);`",
+    "answer": "`15`",
+    "explanation": {
+      "en": "The IIFE calculates the sum of numbers from 1 to 5, which is 15.",
+      "ru": "IIFE вычисляет сумму чисел от 1 до 5, что равно 15."
+    }
+  }
+]
