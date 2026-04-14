@@ -1,1 +1,883 @@
-{}
+[
+  {
+    "id": "arr-001",
+    "type": "single-correct",
+    "theme": "array creation",
+    "question": {
+      "en": "Which method creates a new array from an array-like object?",
+      "ru": "Какой метод создает новый массив из объекта, похожего на массив?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`Array.from()`",
+          "ru": "`Array.from()`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`Array.of()`",
+          "ru": "`Array.of()`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`Array.create()`",
+          "ru": "`Array.create()`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`Array.parse()`",
+          "ru": "`Array.parse()`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`Array.from()` converts array-like objects (like strings or NodeLists) into arrays.",
+      "ru": "`Array.from()` преобразует объекты, похожие на массивы (такие как строки или NodeLists), в массивы."
+    }
+  },
+  {
+    "id": "arr-002",
+    "type": "single-correct",
+    "theme": "push method",
+    "question": {
+      "en": "What does the `push()` method return?",
+      "ru": "Что возвращает метод `push()`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "The modified array",
+          "ru": "Измененный массив"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "The new length of the array",
+          "ru": "Новую длину массива"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The added element",
+          "ru": "Добавленный элемент"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`push()` returns the new length of the array after adding elements.",
+      "ru": "`push()` возвращает новую длину массива после добавления элементов."
+    }
+  },
+  {
+    "id": "arr-003",
+    "type": "single-correct",
+    "theme": "pop method",
+    "question": {
+      "en": "What does `pop()` do?",
+      "ru": "Что делает `pop()`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Removes the first element",
+          "ru": "Удаляет первый элемент"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Removes the last element",
+          "ru": "Удаляет последний элемент"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Removes all elements",
+          "ru": "Удаляет все элементы"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Removes elements at a specific index",
+          "ru": "Удаляет элементы по определенному индексу"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`pop()` removes and returns the last element of an array.",
+      "ru": "`pop()` удаляет и возвращает последний элемент массива."
+    }
+  },
+  {
+    "id": "arr-004",
+    "type": "single-correct",
+    "theme": "shift method",
+    "question": {
+      "en": "What does `shift()` return?",
+      "ru": "Что возвращает `shift()`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "The new length",
+          "ru": "Новую длину"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "The removed first element",
+          "ru": "Удаленный первый элемент"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The modified array",
+          "ru": "Измененный массив"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`shift()` removes and returns the first element of an array.",
+      "ru": "`shift()` удаляет и возвращает первый элемент массива."
+    }
+  },
+  {
+    "id": "arr-005",
+    "type": "single-correct",
+    "theme": "unshift method",
+    "question": {
+      "en": "What does `unshift()` do?",
+      "ru": "Что делает `unshift()`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Adds elements to the end",
+          "ru": "Добавляет элементы в конец"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Adds elements to the beginning",
+          "ru": "Добавляет элементы в начало"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Removes elements from the beginning",
+          "ru": "Удаляет элементы с начала"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Reverses the array",
+          "ru": "Разворачивает массив"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`unshift()` adds one or more elements to the beginning of an array.",
+      "ru": "`unshift()` добавляет один или несколько элементов в начало массива."
+    }
+  },
+  {
+    "id": "arr-006",
+    "type": "single-correct",
+    "theme": "slice method",
+    "question": {
+      "en": "Does `slice()` modify the original array?",
+      "ru": "Изменяет ли `slice()` исходный массив?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Yes, always",
+          "ru": "Да, всегда"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "No, it returns a new array",
+          "ru": "Нет, возвращает новый массив"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only if the array is empty",
+          "ru": "Только если массив пуст"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Only if no arguments are passed",
+          "ru": "Только если аргументы не переданы"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`slice()` returns a shallow copy of a portion of an array without modifying the original.",
+      "ru": "`slice()` возвращает поверхностную копию части массива без изменения исходного."
+    }
+  },
+  {
+    "id": "arr-007",
+    "type": "single-correct",
+    "theme": "splice method",
+    "question": {
+      "en": "What does `splice()` return?",
+      "ru": "Что возвращает `splice()`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "The modified array",
+          "ru": "Измененный массив"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "An array of removed elements",
+          "ru": "Массив удаленных элементов"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The number of removed elements",
+          "ru": "Количество удаленных элементов"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`splice()` returns an array containing the removed elements.",
+      "ru": "`splice()` возвращает массив, содержащий удаленные элементы."
+    }
+  },
+  {
+    "id": "arr-008",
+    "type": "single-correct",
+    "theme": "concat method",
+    "question": {
+      "en": "Does `concat()` modify the original array?",
+      "ru": "Изменяет ли `concat()` исходный массив?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Yes",
+          "ru": "Да"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "No, it returns a new array",
+          "ru": "Нет, возвращает новый массив"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only if arrays are nested",
+          "ru": "Только если массивы вложены"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Only if the array is empty",
+          "ru": "Только если массив пуст"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`concat()` returns a new array without modifying the original arrays.",
+      "ru": "`concat()` возвращает новый массив без изменения исходных массивов."
+    }
+  },
+  {
+    "id": "arr-009",
+    "type": "single-correct",
+    "theme": "indexOf method",
+    "question": {
+      "en": "What does `indexOf()` return if the element is not found?",
+      "ru": "Что возвращает `indexOf()`, если элемент не найден?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`-1`",
+          "ru": "`-1`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`indexOf()` returns `-1` if the element is not found in the array.",
+      "ru": "`indexOf()` возвращает `-1`, если элемент не найден в массиве."
+    }
+  },
+  {
+    "id": "arr-010",
+    "type": "single-correct",
+    "theme": "includes method",
+    "question": {
+      "en": "What does `includes()` return?",
+      "ru": "Что возвращает `includes()`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "The index of the element",
+          "ru": "Индекс элемента"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "A boolean value",
+          "ru": "Логическое значение"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The element itself",
+          "ru": "Сам элемент"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "The number of occurrences",
+          "ru": "Количество вхождений"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`includes()` returns `true` if the array contains the element, `false` otherwise.",
+      "ru": "`includes()` возвращает `true`, если массив содержит элемент, иначе `false`."
+    }
+  },
+  {
+    "id": "arr-011",
+    "type": "single-correct",
+    "theme": "reverse method",
+    "question": {
+      "en": "Does `reverse()` modify the original array?",
+      "ru": "Изменяет ли `reverse()` исходный массив?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "No, it returns a new array",
+          "ru": "Нет, возвращает новый массив"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Yes, it modifies in place",
+          "ru": "Да, изменяет на месте"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only if the array has one element",
+          "ru": "Только если массив имеет один элемент"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Only if the array is empty",
+          "ru": "Только если массив пуст"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`reverse()` reverses the array in place and returns the reversed array.",
+      "ru": "`reverse()` разворачивает массив на месте и возвращает развернутый массив."
+    }
+  },
+  {
+    "id": "arr-012",
+    "type": "single-correct",
+    "theme": "join method",
+    "question": {
+      "en": "What does `join()` return?",
+      "ru": "Что возвращает `join()`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "An array",
+          "ru": "Массив"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "A string",
+          "ru": "Строку"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "A number",
+          "ru": "Число"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "A boolean",
+          "ru": "Логическое значение"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`join()` returns a string by concatenating all array elements with a separator.",
+      "ru": "`join()` возвращает строку, объединяя все элементы массива с разделителем."
+    }
+  },
+  {
+    "id": "arr-013",
+    "type": "single-correct",
+    "theme": "sort method",
+    "question": {
+      "en": "Does `sort()` modify the original array?",
+      "ru": "Изменяет ли `sort()` исходный массив?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "No, it returns a new array",
+          "ru": "Нет, возвращает новый массив"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Yes, it modifies in place",
+          "ru": "Да, изменяет на месте"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only for numeric arrays",
+          "ru": "Только для числовых массивов"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Only for string arrays",
+          "ru": "Только для строковых массивов"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`sort()` sorts the array in place and returns the sorted array.",
+      "ru": "`sort()` сортирует массив на месте и возвращает отсортированный массив."
+    }
+  },
+  {
+    "id": "arr-014",
+    "type": "multiple-correct",
+    "theme": "mutating methods",
+    "question": {
+      "en": "Which methods modify the original array?",
+      "ru": "Какие методы изменяют исходный массив?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`push()`",
+          "ru": "`push()`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`slice()`",
+          "ru": "`slice()`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`splice()`",
+          "ru": "`splice()`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`concat()`",
+          "ru": "`concat()`"
+        }
+      }
+    ],
+    "correctIds": ["a", "c"],
+    "explanation": {
+      "en": "`push()` and `splice()` modify the original array. `slice()` and `concat()` return new arrays.",
+      "ru": "`push()` и `splice()` изменяют исходный массив. `slice()` и `concat()` возвращают новые массивы."
+    }
+  },
+  {
+    "id": "arr-015",
+    "type": "multiple-correct",
+    "theme": "non-mutating methods",
+    "question": {
+      "en": "Which methods do NOT modify the original array?",
+      "ru": "Какие методы НЕ изменяют исходный массив?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`slice()`",
+          "ru": "`slice()`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`concat()`",
+          "ru": "`concat()`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`reverse()`",
+          "ru": "`reverse()`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`join()`",
+          "ru": "`join()`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "d"],
+    "explanation": {
+      "en": "`slice()`, `concat()`, and `join()` do not modify the original array. `reverse()` modifies in place.",
+      "ru": "`slice()`, `concat()` и `join()` не изменяют исходный массив. `reverse()` изменяет на месте."
+    }
+  },
+  {
+    "id": "arr-016",
+    "type": "yes-no",
+    "theme": "push return value",
+    "question": {
+      "en": "Does `push()` return the modified array?",
+      "ru": "Возвращает ли `push()` измененный массив?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "`push()` returns the new length of the array, not the array itself.",
+      "ru": "`push()` возвращает новую длину массива, а не сам массив."
+    }
+  },
+  {
+    "id": "arr-017",
+    "type": "yes-no",
+    "theme": "slice parameters",
+    "question": {
+      "en": "Can `slice()` accept negative indices?",
+      "ru": "Может ли `slice()` принимать отрицательные индексы?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`slice()` accepts negative indices to count from the end of the array.",
+      "ru": "`slice()` принимает отрицательные индексы для подсчета с конца массива."
+    }
+  },
+  {
+    "id": "arr-018",
+    "type": "yes-no",
+    "theme": "splice parameters",
+    "question": {
+      "en": "Can `splice()` add elements while removing?",
+      "ru": "Может ли `splice()` добавлять элементы при удалении?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`splice()` can remove elements and insert new ones at the same position.",
+      "ru": "`splice()` может удалять элементы и вставлять новые в той же позиции."
+    }
+  },
+  {
+    "id": "arr-019",
+    "type": "yes-no",
+    "theme": "sort default behavior",
+    "question": {
+      "en": "Does `sort()` sort numbers numerically by default?",
+      "ru": "Сортирует ли `sort()` числа численно по умолчанию?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "`sort()` converts elements to strings and sorts them lexicographically by default.",
+      "ru": "`sort()` преобразует элементы в строки и сортирует их лексикографически по умолчанию."
+    }
+  },
+  {
+    "id": "arr-020",
+    "type": "predict-output",
+    "theme": "push method",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = [1, 2];`\n`const result = arr.push(3);`\n`console.log(result);`",
+    "answer": "`3`",
+    "explanation": {
+      "en": "`push()` returns the new length of the array (3).",
+      "ru": "`push()` возвращает новую длину массива (3)."
+    }
+  },
+  {
+    "id": "arr-021",
+    "type": "predict-output",
+    "theme": "pop method",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = [1, 2, 3];`\n`console.log(arr.pop());`",
+    "answer": "`3`",
+    "explanation": {
+      "en": "`pop()` removes and returns the last element (3).",
+      "ru": "`pop()` удаляет и возвращает последний элемент (3)."
+    }
+  },
+  {
+    "id": "arr-022",
+    "type": "predict-output",
+    "theme": "slice method",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = [1, 2, 3, 4];`\n`console.log(arr.slice(1, 3));`",
+    "answer": "`[2, 3]`",
+    "explanation": {
+      "en": "`slice(1, 3)` returns elements from index 1 up to (but not including) index 3.",
+      "ru": "`slice(1, 3)` возвращает элементы с индекса 1 до (но не включая) индекс 3."
+    }
+  },
+  {
+    "id": "arr-023",
+    "type": "predict-output",
+    "theme": "splice method",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = [1, 2, 3];`\n`arr.splice(1, 1, 'a');`\n`console.log(arr);`",
+    "answer": "`[1, 'a', 3]`",
+    "explanation": {
+      "en": "`splice(1, 1, 'a')` removes 1 element at index 1 and inserts 'a'.",
+      "ru": "`splice(1, 1, 'a')` удаляет 1 элемент по индексу 1 и вставляет 'a'."
+    }
+  },
+  {
+    "id": "arr-024",
+    "type": "predict-output",
+    "theme": "concat method",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr1 = [1, 2];`\n`const arr2 = [3, 4];`\n`console.log(arr1.concat(arr2));`",
+    "answer": "`[1, 2, 3, 4]`",
+    "explanation": {
+      "en": "`concat()` combines two arrays into a new array.",
+      "ru": "`concat()` объединяет два массива в новый массив."
+    }
+  },
+  {
+    "id": "arr-025",
+    "type": "predict-output",
+    "theme": "join method",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = ['a', 'b', 'c'];`\n`console.log(arr.join('-'));`",
+    "answer": "`'a-b-c'`",
+    "explanation": {
+      "en": "`join('-')` concatenates array elements with '-' as separator.",
+      "ru": "`join('-')` объединяет элементы массива с '-' в качестве разделителя."
+    }
+  },
+  {
+    "id": "arr-026",
+    "type": "predict-output",
+    "theme": "indexOf method",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = [1, 2, 3, 2];`\n`console.log(arr.indexOf(2));`",
+    "answer": "`1`",
+    "explanation": {
+      "en": "`indexOf(2)` returns the index of the first occurrence of 2.",
+      "ru": "`indexOf(2)` возвращает индекс первого вхождения 2."
+    }
+  },
+  {
+    "id": "arr-027",
+    "type": "predict-output",
+    "theme": "includes method",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = [1, 2, 3];`\n`console.log(arr.includes(2));`",
+    "answer": "`true`",
+    "explanation": {
+      "en": "`includes(2)` returns `true` because 2 is in the array.",
+      "ru": "`includes(2)` возвращает `true`, потому что 2 находится в массиве."
+    }
+  },
+  {
+    "id": "arr-028",
+    "type": "predict-output",
+    "theme": "reverse method",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = [1, 2, 3];`\n`arr.reverse();`\n`console.log(arr);`",
+    "answer": "`[3, 2, 1]`",
+    "explanation": {
+      "en": "`reverse()` reverses the array in place.",
+      "ru": "`reverse()` разворачивает массив на месте."
+    }
+  },
+  {
+    "id": "arr-029",
+    "type": "predict-output",
+    "theme": "sort method",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = [3, 1, 2];`\n`arr.sort();`\n`console.log(arr);`",
+    "answer": "`[1, 2, 3]`",
+    "explanation": {
+      "en": "`sort()` sorts the array lexicographically (as strings).",
+      "ru": "`sort()` сортирует массив лексикографически (как строки)."
+    }
+  },
+  {
+    "id": "arr-030",
+    "type": "predict-output",
+    "theme": "Array.from method",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const str = 'hello';`\n`console.log(Array.from(str));`",
+    "answer": "`['h', 'e', 'l', 'l', 'o']`",
+    "explanation": {
+      "en": "`Array.from()` converts a string into an array of characters.",
+      "ru": "`Array.from()` преобразует строку в массив символов."
+    }
+  }
+]

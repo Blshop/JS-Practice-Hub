@@ -1,1 +1,941 @@
-{}
+[
+  {
+    "id": "nc-001",
+    "type": "single-correct",
+    "theme": "nullish coalescing basics",
+    "question": {
+      "en": "What operator is used for nullish coalescing?",
+      "ru": "Какой оператор используется для нулевого слияния?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`||`",
+          "ru": "`||`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`??`",
+          "ru": "`??`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`?.`",
+          "ru": "`?.`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`&&`",
+          "ru": "`&&`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "The `??` operator is the nullish coalescing operator.",
+      "ru": "Оператор `??` — это оператор нулевого слияния."
+    }
+  },
+  {
+    "id": "nc-002",
+    "type": "single-correct",
+    "theme": "nullish values",
+    "question": {
+      "en": "Which values are considered nullish?",
+      "ru": "Какие значения считаются нулевыми (nullish)?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`null` and `undefined`",
+          "ru": "`null` и `undefined`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`null`, `undefined`, and `0`",
+          "ru": "`null`, `undefined` и `0`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "All falsy values",
+          "ru": "Все ложные значения"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Only `null`",
+          "ru": "Только `null`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Only `null` and `undefined` are considered nullish values.",
+      "ru": "Только `null` и `undefined` считаются нулевыми значениями."
+    }
+  },
+  {
+    "id": "nc-003",
+    "type": "single-correct",
+    "theme": "vs logical OR",
+    "question": {
+      "en": "What is the main difference between `??` and `||`?",
+      "ru": "В чём основное различие между `??` и `||`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`??` checks only for `null`/`undefined`, `||` checks for falsy values",
+          "ru": "`??` проверяет только `null`/`undefined`, `||` проверяет ложные значения"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "They are identical",
+          "ru": "Они идентичны"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`??` is faster",
+          "ru": "`??` быстрее"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`||` only works with booleans",
+          "ru": "`||` работает только с булевыми значениями"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`??` returns the right operand only when the left is `null` or `undefined`, while `||` returns the right operand for any falsy value.",
+      "ru": "`??` возвращает правый операнд только когда левый — `null` или `undefined`, тогда как `||` возвращает правый операнд для любого ложного значения."
+    }
+  },
+  {
+    "id": "nc-004",
+    "type": "single-correct",
+    "theme": "behavior",
+    "question": {
+      "en": "What does `0 ?? 5` return?",
+      "ru": "Что возвращает `0 ?? 5`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`5`",
+          "ru": "`5`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`0` is not nullish, so it is returned.",
+      "ru": "`0` не является нулевым значением, поэтому возвращается оно."
+    }
+  },
+  {
+    "id": "nc-005",
+    "type": "single-correct",
+    "theme": "behavior",
+    "question": {
+      "en": "What does `null ?? 'default'` return?",
+      "ru": "Что возвращает `null ?? 'default'`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`'default'`",
+          "ru": "`'default'`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`null` is nullish, so the right operand `'default'` is returned.",
+      "ru": "`null` является нулевым значением, поэтому возвращается правый операнд `'default'`."
+    }
+  },
+  {
+    "id": "nc-006",
+    "type": "single-correct",
+    "theme": "behavior",
+    "question": {
+      "en": "What does `'' ?? 'fallback'` return?",
+      "ru": "Что возвращает `'' ?? 'fallback'`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`''`",
+          "ru": "`''`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`'fallback'`",
+          "ru": "`'fallback'`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Empty string is not nullish, so it is returned.",
+      "ru": "Пустая строка не является нулевым значением, поэтому возвращается она."
+    }
+  },
+  {
+    "id": "nc-007",
+    "type": "single-correct",
+    "theme": "vs logical OR",
+    "question": {
+      "en": "What does `0 || 5` return?",
+      "ru": "Что возвращает `0 || 5`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`5`",
+          "ru": "`5`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`||` treats `0` as falsy and returns the right operand `5`.",
+      "ru": "`||` рассматривает `0` как ложное значение и возвращает правый операнд `5`."
+    }
+  },
+  {
+    "id": "nc-008",
+    "type": "single-correct",
+    "theme": "behavior",
+    "question": {
+      "en": "What does `false ?? true` return?",
+      "ru": "Что возвращает `false ?? true`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`true`",
+          "ru": "`true`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`false` is not nullish, so it is returned.",
+      "ru": "`false` не является нулевым значением, поэтому возвращается оно."
+    }
+  },
+  {
+    "id": "nc-009",
+    "type": "single-correct",
+    "theme": "behavior",
+    "question": {
+      "en": "What does `undefined ?? 10` return?",
+      "ru": "Что возвращает `undefined ?? 10`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`10`",
+          "ru": "`10`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`undefined` is nullish, so the right operand `10` is returned.",
+      "ru": "`undefined` является нулевым значением, поэтому возвращается правый операнд `10`."
+    }
+  },
+  {
+    "id": "nc-010",
+    "type": "yes-no",
+    "theme": "nullish values",
+    "question": {
+      "en": "Is `0` considered a nullish value?",
+      "ru": "Считается ли `0` нулевым значением (nullish)?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "Only `null` and `undefined` are nullish; `0` is not.",
+      "ru": "Только `null` и `undefined` являются нулевыми значениями; `0` — нет."
+    }
+  },
+  {
+    "id": "nc-011",
+    "type": "yes-no",
+    "theme": "nullish values",
+    "question": {
+      "en": "Is an empty string (`''`) considered nullish?",
+      "ru": "Считается ли пустая строка (`''`) нулевым значением?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "Empty strings are not nullish, only `null` and `undefined` are.",
+      "ru": "Пустые строки не являются нулевыми значениями, только `null` и `undefined`."
+    }
+  },
+  {
+    "id": "nc-012",
+    "type": "yes-no",
+    "theme": "nullish values",
+    "question": {
+      "en": "Is `NaN` considered a nullish value?",
+      "ru": "Считается ли `NaN` нулевым значением?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "`NaN` is not nullish; only `null` and `undefined` are nullish.",
+      "ru": "`NaN` не является нулевым значением; только `null` и `undefined` являются нулевыми."
+    }
+  },
+  {
+    "id": "nc-013",
+    "type": "multiple-correct",
+    "theme": "nullish values",
+    "question": {
+      "en": "Which values are nullish?",
+      "ru": "Какие значения являются нулевыми (nullish)?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`''`",
+          "ru": "`''`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b"],
+    "explanation": {
+      "en": "Only `null` and `undefined` are nullish values.",
+      "ru": "Только `null` и `undefined` являются нулевыми значениями."
+    }
+  },
+  {
+    "id": "nc-014",
+    "type": "multiple-correct",
+    "theme": "vs logical OR",
+    "question": {
+      "en": "For which values do `??` and `||` behave differently?",
+      "ru": "Для каких значений `??` и `||` ведут себя по-разному?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`''`",
+          "ru": "`''`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`false`",
+          "ru": "`false`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "`??` treats `0`, `''`, and `false` as valid values, while `||` treats them as falsy.",
+      "ru": "`??` рассматривает `0`, `''` и `false` как допустимые значения, тогда как `||` рассматривает их как ложные."
+    }
+  },
+  {
+    "id": "nc-015",
+    "type": "multiple-correct",
+    "theme": "use cases",
+    "question": {
+      "en": "When is `??` more appropriate than `||`?",
+      "ru": "Когда `??` более уместен, чем `||`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "When `0` is a valid value",
+          "ru": "Когда `0` является допустимым значением"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "When empty string is valid",
+          "ru": "Когда пустая строка допустима"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "When `false` is a valid value",
+          "ru": "Когда `false` является допустимым значением"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "When working with booleans only",
+          "ru": "Когда работаем только с булевыми значениями"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "`??` is better when falsy values like `0`, `''`, or `false` are valid and should not trigger the fallback.",
+      "ru": "`??` лучше, когда ложные значения вроде `0`, `''` или `false` допустимы и не должны вызывать запасное значение."
+    }
+  },
+  {
+    "id": "nc-016",
+    "type": "predict-output",
+    "theme": "behavior",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log(null ?? 'default');`",
+    "answer": "`'default'`",
+    "explanation": {
+      "en": "`null` is nullish, so `'default'` is returned.",
+      "ru": "`null` является нулевым значением, поэтому возвращается `'default'`."
+    }
+  },
+  {
+    "id": "nc-017",
+    "type": "predict-output",
+    "theme": "behavior",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log(0 ?? 42);`",
+    "answer": "`0`",
+    "explanation": {
+      "en": "`0` is not nullish, so it is returned.",
+      "ru": "`0` не является нулевым значением, поэтому возвращается оно."
+    }
+  },
+  {
+    "id": "nc-018",
+    "type": "predict-output",
+    "theme": "vs logical OR",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log('' ?? 'text');`",
+    "answer": "`''`",
+    "explanation": {
+      "en": "Empty string is not nullish, so it is returned.",
+      "ru": "Пустая строка не является нулевым значением, поэтому возвращается она."
+    }
+  },
+  {
+    "id": "nc-019",
+    "type": "predict-output",
+    "theme": "vs logical OR",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log('' || 'text');`",
+    "answer": "`'text'`",
+    "explanation": {
+      "en": "`||` treats empty string as falsy and returns `'text'`.",
+      "ru": "`||` рассматривает пустую строку как ложное значение и возвращает `'text'`."
+    }
+  },
+  {
+    "id": "nc-020",
+    "type": "predict-output",
+    "theme": "behavior",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log(undefined ?? 100);`",
+    "answer": "`100`",
+    "explanation": {
+      "en": "`undefined` is nullish, so `100` is returned.",
+      "ru": "`undefined` является нулевым значением, поэтому возвращается `100`."
+    }
+  },
+  {
+    "id": "nc-021",
+    "type": "single-correct",
+    "theme": "chaining",
+    "question": {
+      "en": "What does `null ?? undefined ?? 'value'` return?",
+      "ru": "Что возвращает `null ?? undefined ?? 'value'`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`null`",
+          "ru": "`null`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`'value'`",
+          "ru": "`'value'`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`SyntaxError`",
+          "ru": "`SyntaxError`"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "Both `null` and `undefined` are nullish, so the chain continues to `'value'`.",
+      "ru": "И `null`, и `undefined` являются нулевыми значениями, поэтому цепочка продолжается до `'value'`."
+    }
+  },
+  {
+    "id": "nc-022",
+    "type": "single-correct",
+    "theme": "precedence",
+    "question": {
+      "en": "Can you mix `??` with `&&` or `||` without parentheses?",
+      "ru": "Можно ли смешивать `??` с `&&` или `||` без скобок?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Yes, always",
+          "ru": "Да, всегда"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "No, it causes a `SyntaxError`",
+          "ru": "Нет, это вызывает `SyntaxError`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only with `&&`",
+          "ru": "Только с `&&`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Only with `||`",
+          "ru": "Только с `||`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Mixing `??` with `&&` or `||` without explicit parentheses causes a `SyntaxError`.",
+      "ru": "Смешивание `??` с `&&` или `||` без явных скобок вызывает `SyntaxError`."
+    }
+  },
+  {
+    "id": "nc-023",
+    "type": "single-correct",
+    "theme": "use cases",
+    "question": {
+      "en": "What is the primary use case for `??`?",
+      "ru": "Каков основной случай использования `??`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Providing default values only for `null`/`undefined`",
+          "ru": "Предоставление значений по умолчанию только для `null`/`undefined`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Replacing all falsy values",
+          "ru": "Замена всех ложных значений"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Type checking",
+          "ru": "Проверка типов"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "String concatenation",
+          "ru": "Конкатенация строк"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`??` is designed to provide default values specifically when a value is `null` or `undefined`.",
+      "ru": "`??` предназначен для предоставления значений по умолчанию именно когда значение `null` или `undefined`."
+    }
+  },
+  {
+    "id": "nc-024",
+    "type": "multiple-correct",
+    "theme": "behavior",
+    "question": {
+      "en": "Which expressions return the left operand?",
+      "ru": "Какие выражения возвращают левый операнд?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`0 ?? 5`",
+          "ru": "`0 ?? 5`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`false ?? true`",
+          "ru": "`false ?? true`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`'' ?? 'default'`",
+          "ru": "`'' ?? 'default'`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`null ?? 'default'`",
+          "ru": "`null ?? 'default'`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "`0`, `false`, and `''` are not nullish, so they are returned.",
+      "ru": "`0`, `false` и `''` не являются нулевыми значениями, поэтому они возвращаются."
+    }
+  },
+  {
+    "id": "nc-025",
+    "type": "multiple-correct",
+    "theme": "behavior",
+    "question": {
+      "en": "Which expressions return the right operand?",
+      "ru": "Какие выражения возвращают правый операнд?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`null ?? 'value'`",
+          "ru": "`null ?? 'value'`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`undefined ?? 42`",
+          "ru": "`undefined ?? 42`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`0 ?? 10`",
+          "ru": "`0 ?? 10`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`NaN ?? 5`",
+          "ru": "`NaN ?? 5`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b"],
+    "explanation": {
+      "en": "Only `null` and `undefined` trigger the right operand.",
+      "ru": "Только `null` и `undefined` вызывают возврат правого операнда."
+    }
+  },
+  {
+    "id": "nc-026",
+    "type": "predict-output",
+    "theme": "behavior",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log(false ?? 'fallback');`",
+    "answer": "`false`",
+    "explanation": {
+      "en": "`false` is not nullish, so it is returned.",
+      "ru": "`false` не является нулевым значением, поэтому возвращается оно."
+    }
+  },
+  {
+    "id": "nc-027",
+    "type": "predict-output",
+    "theme": "chaining",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`console.log(null ?? 0 ?? 'default');`",
+    "answer": "`0`",
+    "explanation": {
+      "en": "`null` is nullish, so evaluation continues to `0`, which is not nullish and is returned.",
+      "ru": "`null` является нулевым значением, поэтому вычисление продолжается до `0`, который не является нулевым и возвращается."
+    }
+  },
+  {
+    "id": "nc-028",
+    "type": "predict-output",
+    "theme": "vs logical OR",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const count = 0;`\n`console.log(count ?? 10);`",
+    "answer": "`0`",
+    "explanation": {
+      "en": "`0` is a valid value and not nullish, so it is returned.",
+      "ru": "`0` является допустимым значением и не является нулевым, поэтому возвращается оно."
+    }
+  },
+  {
+    "id": "nc-029",
+    "type": "yes-no",
+    "theme": "precedence",
+    "question": {
+      "en": "Does `a ?? b || c` require parentheses to avoid a `SyntaxError`?",
+      "ru": "Требует ли `a ?? b || c` скобок, чтобы избежать `SyntaxError`?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Mixing `??` with `||` or `&&` without parentheses causes a `SyntaxError`.",
+      "ru": "Смешивание `??` с `||` или `&&` без скобок вызывает `SyntaxError`."
+    }
+  },
+  {
+    "id": "nc-030",
+    "type": "predict-output",
+    "theme": "use cases",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const name = '';`\n`console.log(name ?? 'Anonymous');`",
+    "answer": "`''`",
+    "explanation": {
+      "en": "Empty string is not nullish, so it is returned instead of the fallback.",
+      "ru": "Пустая строка не является нулевым значением, поэтому возвращается она вместо запасного значения."
+    }
+  }
+]

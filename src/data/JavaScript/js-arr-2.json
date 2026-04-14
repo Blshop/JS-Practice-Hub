@@ -1,1 +1,851 @@
-{}
+[
+  {
+    "id": "arr-iter-001",
+    "type": "single-correct",
+    "theme": "for loop",
+    "question": {
+      "en": "Which loop is most commonly used to iterate over arrays?",
+      "ru": "Какой цикл наиболее часто используется для перебора массивов?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`for...in`",
+          "ru": "`for...in`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`for...of`",
+          "ru": "`for...of`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "traditional `for`",
+          "ru": "традиционный `for`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`while`",
+          "ru": "`while`"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "The traditional `for` loop is the most common and efficient way to iterate over arrays.",
+      "ru": "Традиционный цикл `for` — наиболее распространённый и эффективный способ перебора массивов."
+    }
+  },
+  {
+    "id": "arr-iter-002",
+    "type": "single-correct",
+    "theme": "forEach method",
+    "question": {
+      "en": "What does the `forEach` method return?",
+      "ru": "Что возвращает метод `forEach`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "A new array",
+          "ru": "Новый массив"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`undefined`",
+          "ru": "`undefined`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "A boolean",
+          "ru": "Булево значение"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "The original array",
+          "ru": "Исходный массив"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`forEach` always returns `undefined` and is used for side effects only.",
+      "ru": "`forEach` всегда возвращает `undefined` и используется только для побочных эффектов."
+    }
+  },
+  {
+    "id": "arr-iter-003",
+    "type": "single-correct",
+    "theme": "for...of loop",
+    "question": {
+      "en": "What does `for...of` iterate over?",
+      "ru": "Что перебирает цикл `for...of`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Object keys",
+          "ru": "Ключи объекта"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Array values",
+          "ru": "Значения массива"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Array indices",
+          "ru": "Индексы массива"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Prototype chain",
+          "ru": "Цепь прототипов"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`for...of` iterates over the values of an iterable (like arrays).",
+      "ru": "`for...of` перебирает значения итерируемого объекта (например, массивов)."
+    }
+  },
+  {
+    "id": "arr-iter-004",
+    "type": "single-correct",
+    "theme": "for...in loop",
+    "question": {
+      "en": "What does `for...in` iterate over?",
+      "ru": "Что перебирает цикл `for...in`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Array values",
+          "ru": "Значения массива"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Array indices",
+          "ru": "Индексы массива"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Enumerable properties",
+          "ru": "Перечисляемые свойства"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "All properties",
+          "ru": "Все свойства"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "`for...in` iterates over enumerable properties, including inherited ones.",
+      "ru": "`for...in` перебирает перечисляемые свойства, включая унаследованные."
+    }
+  },
+  {
+    "id": "arr-iter-005",
+    "type": "yes-no",
+    "theme": "forEach break",
+    "question": {
+      "en": "Can you use `break` inside a `forEach` loop?",
+      "ru": "Можно ли использовать `break` внутри цикла `forEach`?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "`forEach` doesn't support `break` or `continue`; use a traditional `for` loop instead.",
+      "ru": "`forEach` не поддерживает `break` или `continue`; используйте традиционный цикл `for`."
+    }
+  },
+  {
+    "id": "arr-iter-006",
+    "type": "yes-no",
+    "theme": "for...of break",
+    "question": {
+      "en": "Can you use `break` inside a `for...of` loop?",
+      "ru": "Можно ли использовать `break` внутри цикла `for...of`?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`for...of` supports `break` and `continue` statements.",
+      "ru": "`for...of` поддерживает операторы `break` и `continue`."
+    }
+  },
+  {
+    "id": "arr-iter-007",
+    "type": "multiple-correct",
+    "theme": "iteration methods",
+    "question": {
+      "en": "Which methods iterate over arrays?",
+      "ru": "Какие методы перебирают массивы?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`forEach`",
+          "ru": "`forEach`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`map`",
+          "ru": "`map`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`filter`",
+          "ru": "`filter`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`push`",
+          "ru": "`push`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "`forEach`, `map`, and `filter` all iterate over arrays; `push` adds elements.",
+      "ru": "`forEach`, `map` и `filter` перебирают массивы; `push` добавляет элементы."
+    }
+  },
+  {
+    "id": "arr-iter-008",
+    "type": "predict-output",
+    "theme": "for...of",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = [1, 2, 3];`\n`for (const val of arr) {`\n`  console.log(val);`\n`}`",
+    "answer": "1\n2\n3",
+    "explanation": {
+      "en": "`for...of` iterates over array values.",
+      "ru": "`for...of` перебирает значения массива."
+    }
+  },
+  {
+    "id": "arr-iter-009",
+    "type": "predict-output",
+    "theme": "for...in",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = [10, 20, 30];`\n`for (const idx in arr) {`\n`  console.log(idx);`\n`}`",
+    "answer": "0\n1\n2",
+    "explanation": {
+      "en": "`for...in` iterates over indices (as strings).",
+      "ru": "`for...in` перебирает индексы (как строки)."
+    }
+  },
+  {
+    "id": "arr-iter-010",
+    "type": "single-correct",
+    "theme": "forEach callback",
+    "question": {
+      "en": "What parameters does the `forEach` callback receive?",
+      "ru": "Какие параметры получает callback `forEach`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Only the element",
+          "ru": "Только элемент"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Element and index",
+          "ru": "Элемент и индекс"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Element, index, and array",
+          "ru": "Элемент, индекс и массив"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Index and array only",
+          "ru": "Только индекс и массив"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "`forEach` callback receives: element, index, and the entire array.",
+      "ru": "Callback `forEach` получает: элемент, индекс и весь массив."
+    }
+  },
+  {
+    "id": "arr-iter-011",
+    "type": "yes-no",
+    "theme": "for...in arrays",
+    "question": {
+      "en": "Is `for...in` recommended for iterating arrays?",
+      "ru": "Рекомендуется ли использовать `for...in` для перебора массивов?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "`for...in` is not recommended for arrays; use `for`, `for...of`, or `forEach` instead.",
+      "ru": "`for...in` не рекомендуется для массивов; используйте `for`, `for...of` или `forEach`."
+    }
+  },
+  {
+    "id": "arr-iter-012",
+    "type": "single-correct",
+    "theme": "while loop",
+    "question": {
+      "en": "How do you iterate with a `while` loop?",
+      "ru": "Как перебирать с помощью цикла `while`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Automatically with index",
+          "ru": "Автоматически с индексом"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Manually increment index",
+          "ru": "Вручную увеличивать индекс"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Using `next()` method",
+          "ru": "Используя метод `next()`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Not possible",
+          "ru": "Невозможно"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "With `while`, you must manually manage the index variable.",
+      "ru": "С `while` нужно вручную управлять переменной индекса."
+    }
+  },
+  {
+    "id": "arr-iter-013",
+    "type": "predict-output",
+    "theme": "forEach with index",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`[10, 20, 30].forEach((val, idx) => {`\n`  console.log(idx, val);`\n`});`",
+    "answer": "0 10\n1 20\n2 30",
+    "explanation": {
+      "en": "`forEach` provides both value and index to the callback.",
+      "ru": "`forEach` предоставляет callback как значение, так и индекс."
+    }
+  },
+  {
+    "id": "arr-iter-014",
+    "type": "single-correct",
+    "theme": "for loop",
+    "question": {
+      "en": "What is the typical structure of a `for` loop?",
+      "ru": "Какова типичная структура цикла `for`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`for (init; condition; update)`",
+          "ru": "`for (init; condition; update)`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`for (element of array)`",
+          "ru": "`for (element of array)`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`for (key in object)`",
+          "ru": "`for (key in object)`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`for (callback)`",
+          "ru": "`for (callback)`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Traditional `for` loop has three parts: initialization, condition, and update.",
+      "ru": "Традиционный цикл `for` имеет три части: инициализация, условие и обновление."
+    }
+  },
+  {
+    "id": "arr-iter-015",
+    "type": "yes-no",
+    "theme": "forEach return",
+    "question": {
+      "en": "Can you return a value from inside `forEach`?",
+      "ru": "Можно ли вернуть значение из `forEach`?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "Returning from `forEach` callback only exits that iteration, not the entire loop.",
+      "ru": "Возврат из callback `forEach` выходит только из этой итерации, а не из всего цикла."
+    }
+  },
+  {
+    "id": "arr-iter-016",
+    "type": "multiple-correct",
+    "theme": "loop control",
+    "question": {
+      "en": "Which loops support `break` and `continue`?",
+      "ru": "Какие циклы поддерживают `break` и `continue`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "traditional `for`",
+          "ru": "традиционный `for`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`for...of`",
+          "ru": "`for...of`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`forEach`",
+          "ru": "`forEach`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`while`",
+          "ru": "`while`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "d"],
+    "explanation": {
+      "en": "`for`, `for...of`, and `while` support `break` and `continue`; `forEach` does not.",
+      "ru": "`for`, `for...of` и `while` поддерживают `break` и `continue`; `forEach` — нет."
+    }
+  },
+  {
+    "id": "arr-iter-017",
+    "type": "predict-output",
+    "theme": "for loop break",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (let i = 0; i < 5; i++) {`\n`  if (i === 3) break;`\n`  console.log(i);`\n`}`",
+    "answer": "0\n1\n2",
+    "explanation": {
+      "en": "`break` exits the loop when `i` equals 3.",
+      "ru": "`break` выходит из цикла, когда `i` равно 3."
+    }
+  },
+  {
+    "id": "arr-iter-018",
+    "type": "predict-output",
+    "theme": "for loop continue",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (let i = 0; i < 5; i++) {`\n`  if (i === 2) continue;`\n`  console.log(i);`\n`}`",
+    "answer": "0\n1\n3\n4",
+    "explanation": {
+      "en": "`continue` skips the current iteration when `i` equals 2.",
+      "ru": "`continue` пропускает текущую итерацию, когда `i` равно 2."
+    }
+  },
+  {
+    "id": "arr-iter-019",
+    "type": "single-correct",
+    "theme": "for...of vs for...in",
+    "question": {
+      "en": "What is the main difference between `for...of` and `for...in`?",
+      "ru": "В чём главное отличие между `for...of` и `for...in`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`for...of` is faster",
+          "ru": "`for...of` быстрее"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`for...of` iterates values, `for...in` iterates keys",
+          "ru": "`for...of` перебирает значения, `for...in` перебирает ключи"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`for...in` is for arrays only",
+          "ru": "`for...in` только для массивов"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "They are identical",
+          "ru": "Они идентичны"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`for...of` iterates over values; `for...in` iterates over enumerable keys/indices.",
+      "ru": "`for...of` перебирает значения; `for...in` перебирает перечисляемые ключи/индексы."
+    }
+  },
+  {
+    "id": "arr-iter-020",
+    "type": "yes-no",
+    "theme": "forEach async",
+    "question": {
+      "en": "Does `forEach` wait for async operations to complete?",
+      "ru": "Ждёт ли `forEach` завершения асинхронных операций?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "`forEach` doesn't wait for promises; use `for...of` or `for` with `await` instead.",
+      "ru": "`forEach` не ждёт промисы; используйте `for...of` или `for` с `await`."
+    }
+  },
+  {
+    "id": "arr-iter-021",
+    "type": "single-correct",
+    "theme": "array length",
+    "question": {
+      "en": "How do you get the length of an array?",
+      "ru": "Как получить длину массива?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`array.size`",
+          "ru": "`array.size`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`array.length`",
+          "ru": "`array.length`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`array.count()`",
+          "ru": "`array.count()`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`array.getLength()`",
+          "ru": "`array.getLength()`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Arrays have a `length` property that returns the number of elements.",
+      "ru": "Массивы имеют свойство `length`, которое возвращает количество элементов."
+    }
+  },
+  {
+    "id": "arr-iter-022",
+    "type": "predict-output",
+    "theme": "for loop with length",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = ['a', 'b', 'c'];`\n`for (let i = 0; i < arr.length; i++) {`\n`  console.log(arr[i]);`\n`}`",
+    "answer": "a\nb\nc",
+    "explanation": {
+      "en": "Traditional `for` loop iterates using array indices.",
+      "ru": "Традиционный цикл `for` перебирает, используя индексы массива."
+    }
+  },
+  {
+    "id": "arr-iter-023",
+    "type": "single-correct",
+    "theme": "forEach scope",
+    "question": {
+      "en": "What is the scope of variables declared in `forEach` callback?",
+      "ru": "Какова область видимости переменных, объявленных в callback `forEach`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Global scope",
+          "ru": "Глобальная область видимости"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Function scope",
+          "ru": "Область видимости функции"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Block scope (each iteration)",
+          "ru": "Блочная область видимости (каждая итерация)"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Array scope",
+          "ru": "Область видимости массива"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "Variables in `forEach` callback have block scope for each iteration.",
+      "ru": "Переменные в callback `forEach` имеют блочную область видимости для каждой итерации."
+    }
+  },
+  {
+    "id": "arr-iter-024",
+    "type": "yes-no",
+    "theme": "for...of strings",
+    "question": {
+      "en": "Can you use `for...of` to iterate over strings?",
+      "ru": "Можно ли использовать `for...of` для перебора строк?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`for...of` works with any iterable, including strings.",
+      "ru": "`for...of` работает с любым итерируемым объектом, включая строки."
+    }
+  },
+  {
+    "id": "arr-iter-025",
+    "type": "predict-output",
+    "theme": "for...of string",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (const char of 'abc') {`\n`  console.log(char);`\n`}`",
+    "answer": "a\nb\nc",
+    "explanation": {
+      "en": "`for...of` iterates over string characters.",
+      "ru": "`for...of` перебирает символы строки."
+    }
+  },
+  {
+    "id": "arr-iter-026",
+    "type": "single-correct",
+    "theme": "forEach this",
+    "question": {
+      "en": "What is `this` inside a `forEach` callback?",
+      "ru": "Что такое `this` внутри callback `forEach`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "The array",
+          "ru": "Массив"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "The current element",
+          "ru": "Текущий элемент"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "The global object",
+          "ru": "Глобальный объект"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Depends on context",
+          "ru": "Зависит от контекста"
+        }
+      }
+    ],
+    "correctId": "d",
+    "explanation": {
+      "en": "`this` in `forEach` depends on whether you use arrow function or regular function.",
+      "ru": "`this` в `forEach` зависит от того, используете ли вы стрелочную функцию или обычную."
+    }
+  },
+  {
+    "id": "arr-iter-027",
+    "type": "multiple-correct",
+    "theme": "iteration methods",
+    "question": {
+      "en": "Which methods are used for array iteration?",
+      "ru": "Какие методы используются для перебора массивов?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`some`",
+          "ru": "`some`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`every`",
+          "ru": "`every`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`find`",
+          "ru": "`find`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`sort`",
+          "ru": "`sort`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "`some`, `every`, and `find` iterate over arrays; `sort` modifies the array.",
+      "ru": "`some`, `every` и `find` перебирают массивы; `sort` изменяет массив."
+    }
+  },
+  {
+    "id": "arr-iter-028",
+    "type": "predict-output",
+    "theme": "while loop",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = [1, 2, 3];`\n`let i = 0;`\n`while (i < arr.length) {`\n`  console.log(arr[i]);`\n`  i++;`\n`}`",
+    "answer": "1\n2\n3",
+    "explanation": {
+      "en": "`while` loop manually iterates using index.",
+      "ru": "Цикл `while` вручную перебирает, используя индекс."
+    }
+  },
+  {
+    "id": "arr-iter-029",
+    "type": "yes-no",
+    "theme": "for...in inherited",
+    "question": {
+      "en": "Does `for...in` iterate over inherited properties?",
+      "ru": "Перебирает ли `for...in` унаследованные свойства?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`for...in` iterates over all enumerable properties, including inherited ones.",
+      "ru": "`for...in` перебирает все перечисляемые свойства, включая унаследованные."
+    }
+  },
+  {
+    "id": "arr-iter-030",
+    "type": "predict-output",
+    "theme": "for...of with entries",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = ['x', 'y', 'z'];`\n`for (const [idx, val] of arr.entries()) {`\n`  console.log(idx, val);`\n`}`",
+    "answer": "0 x\n1 y\n2 z",
+    "explanation": {
+      "en": "`entries()` returns an iterator of [index, value] pairs.",
+      "ru": "`entries()` возвращает итератор пар [индекс, значение]."
+    }
+  }
+]

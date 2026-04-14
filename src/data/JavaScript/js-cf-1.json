@@ -1,1 +1,795 @@
-[]
+[
+  {
+    "id": "if-else-001",
+    "type": "single-correct",
+    "theme": "if statement basics",
+    "question": {
+      "en": "What does an `if` statement do?",
+      "ru": "Что делает оператор `if`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Executes code if a condition is true",
+          "ru": "Выполняет код, если условие истинно"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Executes code if a condition is false",
+          "ru": "Выполняет код, если условие ложно"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Repeats code multiple times",
+          "ru": "Повторяет код несколько раз"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Declares a variable",
+          "ru": "Объявляет переменную"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "An `if` statement executes a block of code only if the condition evaluates to true.",
+      "ru": "Оператор `if` выполняет блок кода только если условие истинно."
+    }
+  },
+  {
+    "id": "if-else-002",
+    "type": "single-correct",
+    "theme": "else clause",
+    "question": {
+      "en": "What is the purpose of an `else` clause?",
+      "ru": "Какова цель предложения `else`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "To execute code if the `if` condition is false",
+          "ru": "Выполнить код, если условие `if` ложно"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "To execute code if the `if` condition is true",
+          "ru": "Выполнить код, если условие `if` истинно"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "To declare a new variable",
+          "ru": "Объявить новую переменную"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "To create a loop",
+          "ru": "Создать цикл"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "The `else` clause provides an alternative block of code to execute when the `if` condition is false.",
+      "ru": "Предложение `else` предоставляет альтернативный блок кода для выполнения, когда условие `if` ложно."
+    }
+  },
+  {
+    "id": "if-else-003",
+    "type": "single-correct",
+    "theme": "else if",
+    "question": {
+      "en": "What does `else if` allow you to do?",
+      "ru": "Что позволяет вам делать `else if`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Check multiple conditions in sequence",
+          "ru": "Проверить несколько условий последовательно"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Check all conditions at once",
+          "ru": "Проверить все условия одновременно"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Create a loop",
+          "ru": "Создать цикл"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Declare multiple variables",
+          "ru": "Объявить несколько переменных"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`else if` allows you to check additional conditions if the previous `if` or `else if` conditions are false.",
+      "ru": "`else if` позволяет проверить дополнительные условия, если предыдущие условия `if` или `else if` ложны."
+    }
+  },
+  {
+    "id": "if-else-004",
+    "type": "single-correct",
+    "theme": "condition evaluation",
+    "question": {
+      "en": "Which condition is true?",
+      "ru": "Какое условие истинно?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`5 > 10`",
+          "ru": "`5 > 10`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`5 < 10`",
+          "ru": "`5 < 10`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`5 === '5'`",
+          "ru": "`5 === '5'`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`5 !== 5`",
+          "ru": "`5 !== 5`"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`5 < 10` is true; the others are false.",
+      "ru": "`5 < 10` истинно; остальные ложны."
+    }
+  },
+  {
+    "id": "if-else-005",
+    "type": "single-correct",
+    "theme": "logical operators",
+    "question": {
+      "en": "What does the `&&` operator do?",
+      "ru": "Что делает оператор `&&`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Returns true if both conditions are true",
+          "ru": "Возвращает true, если оба условия истинны"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Returns true if either condition is true",
+          "ru": "Возвращает true, если одно из условий истинно"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Negates a condition",
+          "ru": "Отрицает условие"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Compares two values",
+          "ru": "Сравнивает два значения"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "The `&&` (AND) operator returns true only if both conditions are true.",
+      "ru": "Оператор `&&` (И) возвращает true только если оба условия истинны."
+    }
+  },
+  {
+    "id": "if-else-006",
+    "type": "single-correct",
+    "theme": "logical operators",
+    "question": {
+      "en": "What does the `||` operator do?",
+      "ru": "Что делает оператор `||`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Returns true if both conditions are true",
+          "ru": "Возвращает true, если оба условия истинны"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Returns true if either condition is true",
+          "ru": "Возвращает true, если одно из условий истинно"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Negates a condition",
+          "ru": "Отрицает условие"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Compares two values",
+          "ru": "Сравнивает два значения"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "The `||` (OR) operator returns true if at least one condition is true.",
+      "ru": "Оператор `||` (ИЛИ) возвращает true, если хотя бы одно условие истинно."
+    }
+  },
+  {
+    "id": "if-else-007",
+    "type": "single-correct",
+    "theme": "logical operators",
+    "question": {
+      "en": "What does the `!` operator do?",
+      "ru": "Что делает оператор `!`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Returns true if both conditions are true",
+          "ru": "Возвращает true, если оба условия истинны"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Returns true if either condition is true",
+          "ru": "Возвращает true, если одно из условий истинно"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Negates (inverts) a condition",
+          "ru": "Отрицает (инвертирует) условие"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Compares two values",
+          "ru": "Сравнивает два значения"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "The `!` (NOT) operator inverts the boolean value of a condition.",
+      "ru": "Оператор `!` (НЕ) инвертирует булево значение условия."
+    }
+  },
+  {
+    "id": "if-else-008",
+    "type": "yes-no",
+    "theme": "if statement basics",
+    "question": {
+      "en": "Can an `if` statement exist without an `else` clause?",
+      "ru": "Может ли оператор `if` существовать без предложения `else`?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "An `if` statement can stand alone; the `else` clause is optional.",
+      "ru": "Оператор `if` может стоять отдельно; предложение `else` необязательно."
+    }
+  },
+  {
+    "id": "if-else-009",
+    "type": "yes-no",
+    "theme": "else if",
+    "question": {
+      "en": "Can you have multiple `else if` clauses?",
+      "ru": "Можете ли вы иметь несколько предложений `else if`?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "You can chain multiple `else if` clauses to check many conditions.",
+      "ru": "Вы можете связать несколько предложений `else if` для проверки многих условий."
+    }
+  },
+  {
+    "id": "if-else-010",
+    "type": "yes-no",
+    "theme": "logical operators",
+    "question": {
+      "en": "Does `true && false` evaluate to true?",
+      "ru": "Оценивается ли `true && false` как true?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "`true && false` evaluates to false because both conditions must be true.",
+      "ru": "`true && false` оценивается как false, потому что оба условия должны быть истинны."
+    }
+  },
+  {
+    "id": "if-else-011",
+    "type": "predict-output",
+    "theme": "if statement basics",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`if (5 > 3) {`\n`  console.log('yes');`\n`}`",
+    "answer": "`yes`",
+    "explanation": {
+      "en": "The condition `5 > 3` is true, so the code inside the `if` block executes.",
+      "ru": "Условие `5 > 3` истинно, поэтому код внутри блока `if` выполняется."
+    }
+  },
+  {
+    "id": "if-else-012",
+    "type": "predict-output",
+    "theme": "if-else",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`if (5 < 3) {`\n`  console.log('yes');`\n`} else {`\n`  console.log('no');`\n`}`",
+    "answer": "`no`",
+    "explanation": {
+      "en": "The condition `5 < 3` is false, so the `else` block executes.",
+      "ru": "Условие `5 < 3` ложно, поэтому выполняется блок `else`."
+    }
+  },
+  {
+    "id": "if-else-013",
+    "type": "predict-output",
+    "theme": "else if",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 5;`\n`if (x < 3) {`\n`  console.log('small');`\n`} else if (x < 10) {`\n`  console.log('medium');`\n`} else {`\n`  console.log('large');`\n`}`",
+    "answer": "`medium`",
+    "explanation": {
+      "en": "The first condition is false, but the second condition `5 < 10` is true.",
+      "ru": "Первое условие ложно, но второе условие `5 < 10` истинно."
+    }
+  },
+  {
+    "id": "if-else-014",
+    "type": "predict-output",
+    "theme": "logical operators",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`if (5 > 3 && 2 < 4) {`\n`  console.log('both true');`\n`}`",
+    "answer": "`both true`",
+    "explanation": {
+      "en": "Both conditions are true, so the `&&` operator returns true.",
+      "ru": "Оба условия истинны, поэтому оператор `&&` возвращает true."
+    }
+  },
+  {
+    "id": "if-else-015",
+    "type": "predict-output",
+    "theme": "logical operators",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`if (5 > 10 || 2 < 4) {`\n`  console.log('at least one true');`\n`}`",
+    "answer": "`at least one true`",
+    "explanation": {
+      "en": "The second condition is true, so the `||` operator returns true.",
+      "ru": "Второе условие истинно, поэтому оператор `||` возвращает true."
+    }
+  },
+  {
+    "id": "if-else-016",
+    "type": "predict-output",
+    "theme": "logical operators",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`if (!(5 > 10)) {`\n`  console.log('not greater');`\n`}`",
+    "answer": "`not greater`",
+    "explanation": {
+      "en": "The condition `5 > 10` is false, and `!false` is true.",
+      "ru": "Условие `5 > 10` ложно, и `!false` истинно."
+    }
+  },
+  {
+    "id": "if-else-017",
+    "type": "single-correct",
+    "theme": "comparison operators",
+    "question": {
+      "en": "What does `===` check?",
+      "ru": "Что проверяет `===`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Value only",
+          "ru": "Только значение"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Type only",
+          "ru": "Только тип"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Value and type",
+          "ru": "Значение и тип"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Reference only",
+          "ru": "Только ссылку"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "`===` checks both value and type without type coercion.",
+      "ru": "`===` проверяет и значение, и тип без приведения типов."
+    }
+  },
+  {
+    "id": "if-else-018",
+    "type": "single-correct",
+    "theme": "comparison operators",
+    "question": {
+      "en": "What does `==` check?",
+      "ru": "Что проверяет `==`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Value only",
+          "ru": "Только значение"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Type only",
+          "ru": "Только тип"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Value and type with coercion",
+          "ru": "Значение и тип с приведением"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Reference only",
+          "ru": "Только ссылку"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "`==` performs type coercion before comparing values.",
+      "ru": "`==` выполняет приведение типов перед сравнением значений."
+    }
+  },
+  {
+    "id": "if-else-019",
+    "type": "predict-output",
+    "theme": "comparison operators",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`if (5 === '5') {`\n`  console.log('equal');`\n`} else {`\n`  console.log('not equal');`\n`}`",
+    "answer": "`not equal`",
+    "explanation": {
+      "en": "`===` checks type, and `5` (number) is not the same type as `'5'` (string).",
+      "ru": "`===` проверяет тип, и `5` (число) не того же типа, что `'5'` (строка)."
+    }
+  },
+  {
+    "id": "if-else-020",
+    "type": "predict-output",
+    "theme": "comparison operators",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`if (5 == '5') {`\n`  console.log('equal');`\n`} else {`\n`  console.log('not equal');`\n`}`",
+    "answer": "`equal`",
+    "explanation": {
+      "en": "`==` performs type coercion, so `5` and `'5'` are considered equal.",
+      "ru": "`==` выполняет приведение типов, поэтому `5` и `'5'` считаются равными."
+    }
+  },
+  {
+    "id": "if-else-021",
+    "type": "multiple-correct",
+    "theme": "if-else structure",
+    "question": {
+      "en": "Which statements about `if-else` are true?",
+      "ru": "Какие утверждения о `if-else` верны?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "An `if` can exist without `else`",
+          "ru": "`if` может существовать без `else`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "An `else` must follow an `if`",
+          "ru": "`else` должен следовать за `if`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "You can have multiple `else if` clauses",
+          "ru": "Вы можете иметь несколько предложений `else if`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "An `else` can exist without an `if`",
+          "ru": "`else` может существовать без `if`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "`if` is optional for `else`, but `else` requires an `if`.",
+      "ru": "`if` необязателен для `else`, но `else` требует `if`."
+    }
+  },
+  {
+    "id": "if-else-022",
+    "type": "multiple-correct",
+    "theme": "logical operators",
+    "question": {
+      "en": "Which expressions evaluate to true?",
+      "ru": "Какие выражения оцениваются как true?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`true && true`",
+          "ru": "`true && true`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`true || false`",
+          "ru": "`true || false`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`!false`",
+          "ru": "`!false`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`false && true`",
+          "ru": "`false && true`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "All except `false && true` evaluate to true.",
+      "ru": "Все кроме `false && true` оцениваются как true."
+    }
+  },
+  {
+    "id": "if-else-023",
+    "type": "yes-no",
+    "theme": "nested if",
+    "question": {
+      "en": "Can you nest `if` statements inside other `if` statements?",
+      "ru": "Можете ли вы вложить операторы `if` внутри других операторов `if`?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "You can nest `if` statements to check multiple conditions at different levels.",
+      "ru": "Вы можете вложить операторы `if` для проверки нескольких условий на разных уровнях."
+    }
+  },
+  {
+    "id": "if-else-024",
+    "type": "predict-output",
+    "theme": "nested if",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 5;`\n`if (x > 0) {`\n`  if (x > 10) {`\n`    console.log('big');`\n`  } else {`\n`    console.log('small');`\n`  }`\n`}`",
+    "answer": "`small`",
+    "explanation": {
+      "en": "The outer condition is true, but the inner condition `5 > 10` is false.",
+      "ru": "Внешнее условие истинно, но внутреннее условие `5 > 10` ложно."
+    }
+  },
+  {
+    "id": "if-else-025",
+    "type": "single-correct",
+    "theme": "truthy falsy",
+    "question": {
+      "en": "Which value is falsy?",
+      "ru": "Какое значение является ложным (falsy)?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`1`",
+          "ru": "`1`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`'0'`",
+          "ru": "`'0'`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`0`",
+          "ru": "`0`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`[]`",
+          "ru": "`[]`"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "`0` is falsy; the others are truthy.",
+      "ru": "`0` является ложным; остальные истинны."
+    }
+  },
+  {
+    "id": "if-else-026",
+    "type": "predict-output",
+    "theme": "truthy falsy",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`if (0) {`\n`  console.log('yes');`\n`} else {`\n`  console.log('no');`\n`}`",
+    "answer": "`no`",
+    "explanation": {
+      "en": "`0` is falsy, so the `else` block executes.",
+      "ru": "`0` является ложным, поэтому выполняется блок `else`."
+    }
+  },
+  {
+    "id": "if-else-027",
+    "type": "predict-output",
+    "theme": "truthy falsy",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`if ('') {`\n`  console.log('yes');`\n`} else {`\n`  console.log('no');`\n`}`",
+    "answer": "`no`",
+    "explanation": {
+      "en": "An empty string is falsy, so the `else` block executes.",
+      "ru": "Пустая строка является ложной, поэтому выполняется блок `else`."
+    }
+  },
+  {
+    "id": "if-else-028",
+    "type": "predict-output",
+    "theme": "logical operators",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let x = 5;`\n`if (x > 0 && x < 10) {`\n`  console.log('in range');`\n`}`",
+    "answer": "`in range`",
+    "explanation": {
+      "en": "Both conditions are true, so the code executes.",
+      "ru": "Оба условия истинны, поэтому код выполняется."
+    }
+  },
+  {
+    "id": "if-else-029",
+    "type": "yes-no",
+    "theme": "comparison operators",
+    "question": {
+      "en": "Is `5 !== '5'` true?",
+      "ru": "Является ли `5 !== '5'` true?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`!==` checks that value and type are different.",
+      "ru": "`!==` проверяет, что значение и тип различаются."
+    }
+  },
+  {
+    "id": "if-else-030",
+    "type": "predict-output",
+    "theme": "else if",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`let grade = 85;`\n`if (grade >= 90) {`\n`  console.log('A');`\n`} else if (grade >= 80) {`\n`  console.log('B');`\n`} else if (grade >= 70) {`\n`  console.log('C');`\n`} else {`\n`  console.log('F');`\n`}`",
+    "answer": "`B`",
+    "explanation": {
+      "en": "The first condition is false, but the second condition `85 >= 80` is true.",
+      "ru": "Первое условие ложно, но второе условие `85 >= 80` истинно."
+    }
+  }
+]
