@@ -1,4 +1,5 @@
 import { UserProgress } from '../models/UserProgress.js';
+import { t } from '../utils/localization.js';
 
 /**
  * @swagger
@@ -54,7 +55,9 @@ export const saveLessonProgress = async (req, res) => {
     const userId = req.userId;
 
     if (!lessonId || !progress) {
-      return res.status(400).json({ message: 'lessonId and progress are required' });
+      return res
+        .status(400)
+        .json({ message: t('progress.lessonId_and_progress_required', req.lang) });
     }
 
     if (
@@ -62,7 +65,7 @@ export const saveLessonProgress = async (req, res) => {
       typeof progress.failedAttempt !== 'number' ||
       !Array.isArray(progress.questions)
     ) {
-      return res.status(400).json({ message: 'Invalid progress data structure' });
+      return res.status(400).json({ message: t('progress.invalid_progress_structure', req.lang) });
     }
 
     let userProgress = await UserProgress.findOne({ userId });
@@ -76,13 +79,13 @@ export const saveLessonProgress = async (req, res) => {
     await userProgress.save();
 
     res.json({
-      message: 'Progress saved successfully',
+      message: t('progress.progress_saved_successfully', req.lang),
       lessonId,
       progress: userProgress.lessons.get(lessonId),
     });
   } catch (error) {
     console.error('Error saving lesson progress:', error);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: t('auth.server_error', req.lang) });
   }
 };
 
@@ -120,6 +123,6 @@ export const getUserProgress = async (req, res) => {
     res.json({ lessons: lessonsObject });
   } catch (error) {
     console.error('Error getting user progress:', error);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: t('auth.server_error', req.lang) });
   }
 };

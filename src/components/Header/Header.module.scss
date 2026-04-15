@@ -218,6 +218,10 @@
 .usernameText {
   color: var.$color-neutral-900;
   font-weight: var.$font-weight-bold;
+  width: 6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .profileArrow {

@@ -8,6 +8,7 @@ import {
   getRefreshTokenExpiry,
 } from '../services/tokenService.js';
 import { getCookieOptions } from '../utils/cookie.js';
+import { t } from '../utils/localization.js';
 
 /**
  * @swagger
@@ -54,7 +55,7 @@ export const register = async (req, res) => {
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ message: 'Email already registered' });
+      return res.status(400).json({ message: t('auth.email_already_registered', req.lang) });
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -85,7 +86,7 @@ export const register = async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: t('auth.server_error', req.lang) });
   }
 };
 
@@ -131,12 +132,12 @@ export const login = async (req, res) => {
 
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+      return res.status(401).json({ message: t('auth.invalid_credentials', req.lang) });
     }
 
     const isValid = await user.comparePassword(password);
     if (!isValid) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+      return res.status(401).json({ message: t('auth.invalid_credentials', req.lang) });
     }
 
     const accessToken = generateAccessToken(user._id);
@@ -163,7 +164,7 @@ export const login = async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: t('auth.server_error', req.lang) });
   }
 };
 
@@ -193,14 +194,14 @@ export const refresh = async (req, res) => {
   try {
     const { refreshToken } = req.cookies;
     if (!refreshToken) {
-      return res.status(401).json({ message: 'No refresh token' });
+      return res.status(401).json({ message: t('auth.no_refresh_token', req.lang) });
     }
 
     let decoded;
     try {
       decoded = verifyRefreshToken(refreshToken);
     } catch (err) {
-      return res.status(401).json({ message: 'Invalid refresh token' });
+      return res.status(401).json({ message: t('auth.invalid_refresh_token', req.lang) });
     }
 
     const storedToken = await RefreshToken.findOne({
@@ -208,12 +209,12 @@ export const refresh = async (req, res) => {
       userId: decoded.userId,
     });
     if (!storedToken) {
-      return res.status(401).json({ message: 'Invalid refresh token' });
+      return res.status(401).json({ message: t('auth.invalid_refresh_token', req.lang) });
     }
 
     if (storedToken.expiresAt < new Date()) {
       await RefreshToken.deleteOne({ _id: storedToken._id });
-      return res.status(401).json({ message: 'Refresh token expired' });
+      return res.status(401).json({ message: t('auth.refresh_token_expired', req.lang) });
     }
 
     await RefreshToken.deleteOne({ _id: storedToken._id });
@@ -221,7 +222,7 @@ export const refresh = async (req, res) => {
     const user = await User.findById(decoded.userId).select('-passwordHash');
 
     if (!user) {
-      return res.status(401).json({ message: 'User not found' });
+      return res.status(401).json({ message: t('auth.user_not_found', req.lang) });
     }
 
     const newAccessToken = generateAccessToken(user._id);
@@ -246,7 +247,7 @@ export const refresh = async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: t('auth.server_error', req.lang) });
   }
 };
 
@@ -277,10 +278,10 @@ export const logout = async (req, res) => {
       await RefreshToken.deleteOne({ token: refreshToken });
     }
     res.clearCookie('refreshToken', getCookieOptions());
-    res.json({ message: 'Logged out successfully' });
+    res.json({ message: t('auth.logged_out_successfully', req.lang) });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: t('auth.server_error', req.lang) });
   }
 };
 
@@ -319,11 +320,11 @@ export const getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.userId).select('-passwordHash');
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: t('auth.user_not_found', req.lang) });
     }
     res.json({ user });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: t('auth.server_error', req.lang) });
   }
 };

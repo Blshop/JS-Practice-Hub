@@ -1,5 +1,4 @@
-import { Navigate } from 'react-router';
-import type { RouteObject } from 'react-router';
+import { Navigate, type RouteObject } from 'react-router-dom';
 import App from '../App';
 import { routes } from './routes';
 import Auth from 'pages/Auth';
