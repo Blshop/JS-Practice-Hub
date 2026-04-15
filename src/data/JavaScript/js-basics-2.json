@@ -443,7 +443,7 @@
     "theme": "data types",
     "question": {
       "en": "Which of the following are primitive types?",
-      "ru": "Какие из следующих являются примитивными типами?"
+      "ru": "Какие из следующих вариантов являются примитивными типами?"
     },
     "options": [
       {
@@ -531,7 +531,7 @@
     "theme": "quirks",
     "question": {
       "en": "Which of the following are known JavaScript type quirks?",
-      "ru": "Какие из следующих являются известными странностями типов JavaScript?"
+      "ru": "Какие из следующих выражений являются известными странностями типов JavaScript?"
     },
     "options": [
       {
