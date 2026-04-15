@@ -58,6 +58,12 @@
 
 - **Alina Husarava** - https://github.com/spadarynjaALINA
 
+## 📔 Дневники разработчиков
+
+- [Dmitry Astapenko (DmitryAstapenko)](https://github.com/Blshop/JS-Practice-Hub/tree/8ffff94d87a5e0b092c7e92dadc5ef787f315f01/development-notes/dmitryastapenko)
+- [Roman Shamaluk (GorodeN)](https://github.com/Blshop/JS-Practice-Hub/tree/8ffff94d87a5e0b092c7e92dadc5ef787f315f01/development-notes/GorodeN)
+- [Nikita Erechtchenko (Blshop)](https://github.com/Blshop/JS-Practice-Hub/tree/8ffff94d87a5e0b092c7e92dadc5ef787f315f01/development-notes/Blshop)
+
 ## 🏫 Организация
 
 - **The Rolling Scopes (@rollingscopes)** - https://github.com/rollingscopes
