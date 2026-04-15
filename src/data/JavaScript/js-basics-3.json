@@ -814,10 +814,10 @@
         }
       }
     ],
-    "correctIds": ["a", "c", "d"],
+    "correctIds": ["a", "b", "c", "d"],
     "explanation": {
-      "en": "These are classic coercion cases; `'1' == true` is false.",
-      "ru": "Это классические случаи приведения; `'1' == true` — false."
+      "en": "All are classic coercion cases: `null == undefined` is true by spec; `'1' == true` becomes `1 == 1`; `0 == false` becomes `0 == 0`; `'' == false` becomes `0 == 0`.",
+      "ru": "Все являются классическими случаями приведения: `null == undefined` истинно по спецификации; `'1' == true` становится `1 == 1`; `0 == false` становится `0 == 0`; `'' == false` становится `0 == 0`."
     }
   },
   {

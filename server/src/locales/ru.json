@@ -1,0 +1,19 @@
+{
+  "auth": {
+    "email_already_registered": "Email уже зарегистрирован",
+    "invalid_credentials": "Неверные учетные данные",
+    "no_refresh_token": "Отсутствует refresh токен",
+    "invalid_refresh_token": "Недействительный refresh токен",
+    "refresh_token_expired": "Срок действия refresh токена истёк",
+    "user_not_found": "Пользователь не найден",
+    "server_error": "Ошибка сервера",
+    "logged_out_successfully": "Вы вышли из системы",
+    "no_token_provided": "Токен не предоставлен",
+    "invalid_token": "Недействительный токен"
+  },
+  "progress": {
+    "lessonId_and_progress_required": "lessonId и progress обязательны",
+    "invalid_progress_structure": "Неверная структура данных прогресса",
+    "progress_saved_successfully": "Прогресс успешно сохранён"
+  }
+}

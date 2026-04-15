@@ -814,10 +814,10 @@
         }
       }
     ],
-    "correctIds": ["a", "b", "c"],
+    "correctIds": ["a", "b", "c", "d"],
     "explanation": {
-      "en": "All calls with at least one argument are valid. `fn()` would make `a` undefined.",
-      "ru": "Все вызовы с хотя бы одним аргументом допустимы. `fn()` сделает `a` равным undefined."
+      "en": "All calls are valid. JavaScript allows calling functions with fewer arguments than parameters - missing parameters become `undefined`.",
+      "ru": "Все вызовы допустимы. JavaScript позволяет вызывать функции с меньшим количеством аргументов, чем параметров - отсутствующие параметры становятся `undefined`."
     }
   },
   {

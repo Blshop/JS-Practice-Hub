@@ -1,0 +1,19 @@
+{
+  "auth": {
+    "email_already_registered": "Email already registered",
+    "invalid_credentials": "Invalid credentials",
+    "no_refresh_token": "No refresh token",
+    "invalid_refresh_token": "Invalid refresh token",
+    "refresh_token_expired": "Refresh token expired",
+    "user_not_found": "User not found",
+    "server_error": "Server error",
+    "logged_out_successfully": "Logged out successfully",
+    "no_token_provided": "No token provided",
+    "invalid_token": "Invalid token"
+  },
+  "progress": {
+    "lessonId_and_progress_required": "lessonId and progress are required",
+    "invalid_progress_structure": "Invalid progress data structure",
+    "progress_saved_successfully": "Progress saved successfully"
+  }
+}

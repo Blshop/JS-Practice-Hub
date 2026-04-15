@@ -1,1 +1,885 @@
-[]
+[
+  {
+    "id": "for-001",
+    "type": "single-correct",
+    "theme": "for loop basics",
+    "question": {
+      "en": "What is the correct syntax for a for loop?",
+      "ru": "Какой правильный синтаксис цикла for?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`for (let i = 0; i < 10; i++)`",
+          "ru": "`for (let i = 0; i < 10; i++)`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`for (let i = 0; i < 10)`",
+          "ru": "`for (let i = 0; i < 10)`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`for (i = 0; i < 10; i++)`",
+          "ru": "`for (i = 0; i < 10; i++)`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`for i in 0 to 10`",
+          "ru": "`for i in 0 to 10`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "A for loop requires initialization, condition, and increment/decrement.",
+      "ru": "Цикл for требует инициализации, условия и увеличения/уменьшения."
+    }
+  },
+  {
+    "id": "for-002",
+    "type": "single-correct",
+    "theme": "loop initialization",
+    "question": {
+      "en": "What does the first part of a for loop do?",
+      "ru": "Что делает первая часть цикла for?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Checks the condition",
+          "ru": "Проверяет условие"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Initializes the counter variable",
+          "ru": "Инициализирует переменную счетчика"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Increments the counter",
+          "ru": "Увеличивает счетчик"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Executes the loop body",
+          "ru": "Выполняет тело цикла"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "The first part initializes the loop variable before the loop starts.",
+      "ru": "Первая часть инициализирует переменную цикла перед началом цикла."
+    }
+  },
+  {
+    "id": "for-003",
+    "type": "single-correct",
+    "theme": "loop condition",
+    "question": {
+      "en": "What happens when the condition in a for loop is false?",
+      "ru": "Что происходит, когда условие в цикле for ложно?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "The loop continues",
+          "ru": "Цикл продолжается"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "The loop exits",
+          "ru": "Цикл выходит"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "An error is thrown",
+          "ru": "Выбрасывается ошибка"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "The loop repeats indefinitely",
+          "ru": "Цикл повторяется бесконечно"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "When the condition becomes false, the loop terminates.",
+      "ru": "Когда условие становится ложным, цикл завершается."
+    }
+  },
+  {
+    "id": "for-004",
+    "type": "single-correct",
+    "theme": "loop increment",
+    "question": {
+      "en": "What does `i++` do in a for loop?",
+      "ru": "Что делает `i++` в цикле for?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Decrements i by 1",
+          "ru": "Уменьшает i на 1"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Increments i by 1",
+          "ru": "Увеличивает i на 1"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Multiplies i by 1",
+          "ru": "Умножает i на 1"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Resets i to 0",
+          "ru": "Сбрасывает i на 0"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`i++` is the post-increment operator that increases i by 1 after each iteration.",
+      "ru": "`i++` — это оператор постинкремента, который увеличивает i на 1 после каждой итерации."
+    }
+  },
+  {
+    "id": "for-005",
+    "type": "predict-output",
+    "theme": "loop execution",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (let i = 0; i < 3; i++) {`\n`  console.log(i);`\n`}`",
+    "answer": "0\n1\n2",
+    "explanation": {
+      "en": "The loop runs 3 times with i values 0, 1, and 2.",
+      "ru": "Цикл выполняется 3 раза со значениями i 0, 1 и 2."
+    }
+  },
+  {
+    "id": "for-006",
+    "type": "predict-output",
+    "theme": "loop with decrement",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (let i = 3; i > 0; i--) {`\n`  console.log(i);`\n`}`",
+    "answer": "3\n2\n1",
+    "explanation": {
+      "en": "The loop decrements i and runs while i > 0.",
+      "ru": "Цикл уменьшает i и выполняется, пока i > 0."
+    }
+  },
+  {
+    "id": "for-007",
+    "type": "predict-output",
+    "theme": "loop with break",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (let i = 0; i < 5; i++) {`\n`  if (i === 3) break;`\n`  console.log(i);`\n`}`",
+    "answer": "0\n1\n2",
+    "explanation": {
+      "en": "The `break` statement exits the loop when i equals 3.",
+      "ru": "Оператор `break` выходит из цикла, когда i равно 3."
+    }
+  },
+  {
+    "id": "for-008",
+    "type": "predict-output",
+    "theme": "loop with continue",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (let i = 0; i < 4; i++) {`\n`  if (i === 2) continue;`\n`  console.log(i);`\n`}`",
+    "answer": "0\n1\n3",
+    "explanation": {
+      "en": "The `continue` statement skips the current iteration when i equals 2.",
+      "ru": "Оператор `continue` пропускает текущую итерацию, когда i равно 2."
+    }
+  },
+  {
+    "id": "for-009",
+    "type": "single-correct",
+    "theme": "nested loops",
+    "question": {
+      "en": "How many times will the inner loop execute in nested loops?",
+      "ru": "Сколько раз выполнится внутренний цикл в вложенных циклах?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Once",
+          "ru": "Один раз"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Outer loop iterations × inner loop iterations",
+          "ru": "Итерации внешнего цикла × итерации внутреннего цикла"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Outer loop iterations only",
+          "ru": "Только итерации внешнего цикла"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Inner loop iterations only",
+          "ru": "Только итерации внутреннего цикла"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "The inner loop executes completely for each iteration of the outer loop.",
+      "ru": "Внутренний цикл выполняется полностью для каждой итерации внешнего цикла."
+    }
+  },
+  {
+    "id": "for-010",
+    "type": "predict-output",
+    "theme": "nested loops",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (let i = 0; i < 2; i++) {`\n`  for (let j = 0; j < 2; j++) {`\n`    console.log(i, j);`\n`  }`\n`}`",
+    "answer": "0 0\n0 1\n1 0\n1 1",
+    "explanation": {
+      "en": "The inner loop runs twice for each outer loop iteration.",
+      "ru": "Внутренний цикл выполняется дважды для каждой итерации внешнего цикла."
+    }
+  },
+  {
+    "id": "for-011",
+    "type": "single-correct",
+    "theme": "loop scope",
+    "question": {
+      "en": "What is the scope of the variable declared in a for loop?",
+      "ru": "Какова область видимости переменной, объявленной в цикле for?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Global scope",
+          "ru": "Глобальная область видимости"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Function scope",
+          "ru": "Область видимости функции"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Block scope (the loop)",
+          "ru": "Блочная область видимости (цикл)"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "No scope",
+          "ru": "Без области видимости"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "Variables declared with `let` in a for loop are block-scoped to the loop.",
+      "ru": "Переменные, объявленные с `let` в цикле for, имеют блочную область видимости цикла."
+    }
+  },
+  {
+    "id": "for-012",
+    "type": "predict-output",
+    "theme": "loop scope",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (let i = 0; i < 2; i++) {}`\n`console.log(typeof i);`",
+    "answer": "`undefined`",
+    "explanation": {
+      "en": "`i` is block-scoped to the loop and not accessible outside.",
+      "ru": "`i` имеет блочную область видимости цикла и недоступна снаружи."
+    }
+  },
+  {
+    "id": "for-013",
+    "type": "single-correct",
+    "theme": "for loop variations",
+    "question": {
+      "en": "What can be omitted in a for loop?",
+      "ru": "Что можно опустить в цикле for?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Only the initialization",
+          "ru": "Только инициализацию"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Only the condition",
+          "ru": "Только условие"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Any part",
+          "ru": "Любую часть"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Nothing",
+          "ru": "Ничего"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "All parts of a for loop can be omitted, creating an infinite loop if no break is used.",
+      "ru": "Все части цикла for можно опустить, создав бесконечный цикл, если не использовать break."
+    }
+  },
+  {
+    "id": "for-014",
+    "type": "predict-output",
+    "theme": "infinite loop",
+    "question": {
+      "en": "What will happen with this code?",
+      "ru": "Что произойдет с этим кодом?"
+    },
+    "code": "`for (;;) {`\n`  console.log('infinite');`\n`  break;`\n`}`",
+    "answer": "`infinite`",
+    "explanation": {
+      "en": "An empty for loop runs infinitely unless stopped by `break`.",
+      "ru": "Пустой цикл for выполняется бесконечно, если не остановлен `break`."
+    }
+  },
+  {
+    "id": "for-015",
+    "type": "single-correct",
+    "theme": "loop with array",
+    "question": {
+      "en": "How do you iterate through an array with a for loop?",
+      "ru": "Как перебрать массив с помощью цикла for?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`for (let i = 0; i < arr.length; i++)`",
+          "ru": "`for (let i = 0; i < arr.length; i++)`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`for (let i = 0; i <= arr.length; i++)`",
+          "ru": "`for (let i = 0; i <= arr.length; i++)`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`for (let i = 1; i < arr.length; i++)`",
+          "ru": "`for (let i = 1; i < arr.length; i++)`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`for (let i = 0; i < arr.length - 1; i++)`",
+          "ru": "`for (let i = 0; i < arr.length - 1; i++)`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Use `i < arr.length` to iterate through all array elements starting from index 0.",
+      "ru": "Используйте `i < arr.length` для перебора всех элементов массива, начиная с индекса 0."
+    }
+  },
+  {
+    "id": "for-016",
+    "type": "predict-output",
+    "theme": "loop with array",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const arr = [10, 20, 30];`\n`for (let i = 0; i < arr.length; i++) {`\n`  console.log(arr[i]);`\n`}`",
+    "answer": "10\n20\n30",
+    "explanation": {
+      "en": "The loop accesses each array element by index.",
+      "ru": "Цикл обращается к каждому элементу массива по индексу."
+    }
+  },
+  {
+    "id": "for-017",
+    "type": "single-correct",
+    "theme": "loop with string",
+    "question": {
+      "en": "Can you iterate through a string with a for loop?",
+      "ru": "Можно ли перебрать строку с помощью цикла for?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "No, strings are not iterable",
+          "ru": "Нет, строки не итерируемы"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Yes, using `str.length` like arrays",
+          "ru": "Да, используя `str.length` как массивы"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Only with for...of",
+          "ru": "Только с for...of"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Only with for...in",
+          "ru": "Только с for...in"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Strings have a `.length` property and can be accessed by index like arrays.",
+      "ru": "Строки имеют свойство `.length` и могут быть доступны по индексу, как массивы."
+    }
+  },
+  {
+    "id": "for-018",
+    "type": "predict-output",
+    "theme": "loop with string",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`const str = 'hi';`\n`for (let i = 0; i < str.length; i++) {`\n`  console.log(str[i]);`\n`}`",
+    "answer": "h\ni",
+    "explanation": {
+      "en": "The loop accesses each character of the string by index.",
+      "ru": "Цикл обращается к каждому символу строки по индексу."
+    }
+  },
+  {
+    "id": "for-019",
+    "type": "multiple-correct",
+    "theme": "loop control",
+    "question": {
+      "en": "Which statements control loop flow?",
+      "ru": "Какие операторы управляют потоком цикла?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`break`",
+          "ru": "`break`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`continue`",
+          "ru": "`continue`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`return`",
+          "ru": "`return`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`skip`",
+          "ru": "`skip`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "`break` exits the loop, `continue` skips to the next iteration, and `return` exits the function.",
+      "ru": "`break` выходит из цикла, `continue` переходит к следующей итерации, `return` выходит из функции."
+    }
+  },
+  {
+    "id": "for-020",
+    "type": "single-correct",
+    "theme": "loop with condition",
+    "question": {
+      "en": "What is the difference between `i < 5` and `i <= 5`?",
+      "ru": "В чем разница между `i < 5` и `i <= 5`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "No difference",
+          "ru": "Нет разницы"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`i < 5` runs 5 times, `i <= 5` runs 6 times",
+          "ru": "`i < 5` выполняется 5 раз, `i <= 5` выполняется 6 раз"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`i < 5` runs 6 times, `i <= 5` runs 5 times",
+          "ru": "`i < 5` выполняется 6 раз, `i <= 5` выполняется 5 раз"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "They are the same",
+          "ru": "Они одинаковые"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "`i < 5` runs for i = 0,1,2,3,4 (5 times), while `i <= 5` includes i = 5 (6 times).",
+      "ru": "`i < 5` выполняется для i = 0,1,2,3,4 (5 раз), а `i <= 5` включает i = 5 (6 раз)."
+    }
+  },
+  {
+    "id": "for-021",
+    "type": "predict-output",
+    "theme": "loop with multiple statements",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (let i = 0; i < 3; i += 2) {`\n`  console.log(i);`\n`}`",
+    "answer": "0\n2",
+    "explanation": {
+      "en": "The loop increments by 2 each time, so it runs for i = 0 and i = 2.",
+      "ru": "Цикл увеличивается на 2 каждый раз, поэтому выполняется для i = 0 и i = 2."
+    }
+  },
+  {
+    "id": "for-022",
+    "type": "single-correct",
+    "theme": "loop initialization",
+    "question": {
+      "en": "Can you declare multiple variables in a for loop?",
+      "ru": "Можно ли объявить несколько переменных в цикле for?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "No",
+          "ru": "Нет"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Yes, separated by commas",
+          "ru": "Да, разделенные запятыми"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Yes, separated by semicolons",
+          "ru": "Да, разделенные точками с запятой"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Only in nested loops",
+          "ru": "Только во вложенных циклах"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "You can declare multiple variables in the initialization part separated by commas.",
+      "ru": "Вы можете объявить несколько переменных в части инициализации, разделенные запятыми."
+    }
+  },
+  {
+    "id": "for-023",
+    "type": "predict-output",
+    "theme": "loop with multiple variables",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (let i = 0, j = 10; i < 3; i++, j--) {`\n`  console.log(i, j);`\n`}`",
+    "answer": "0 10\n1 9\n2 8",
+    "explanation": {
+      "en": "Multiple variables can be initialized and updated in a for loop.",
+      "ru": "Несколько переменных можно инициализировать и обновлять в цикле for."
+    }
+  },
+  {
+    "id": "for-024",
+    "type": "yes-no",
+    "theme": "loop with break",
+    "question": {
+      "en": "Does `break` exit only the current loop in nested loops?",
+      "ru": "Выходит ли `break` только из текущего цикла во вложенных циклах?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`break` exits only the innermost loop it is in.",
+      "ru": "`break` выходит только из самого внутреннего цикла, в котором он находится."
+    }
+  },
+  {
+    "id": "for-025",
+    "type": "predict-output",
+    "theme": "nested loops with break",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (let i = 0; i < 2; i++) {`\n`  for (let j = 0; j < 3; j++) {`\n`    if (j === 1) break;`\n`    console.log(i, j);`\n`  }`\n`}`",
+    "answer": "0 0\n1 0",
+    "explanation": {
+      "en": "`break` exits the inner loop, so the outer loop continues.",
+      "ru": "`break` выходит из внутреннего цикла, поэтому внешний цикл продолжается."
+    }
+  },
+  {
+    "id": "for-026",
+    "type": "single-correct",
+    "theme": "loop performance",
+    "question": {
+      "en": "What is a common performance issue with for loops?",
+      "ru": "Какая распространенная проблема производительности с циклами for?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Calling `.length` on each iteration",
+          "ru": "Вызов `.length` на каждой итерации"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Using `let` instead of `var`",
+          "ru": "Использование `let` вместо `var`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Using `i++` instead of `++i`",
+          "ru": "Использование `i++` вместо `++i`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "No performance issues",
+          "ru": "Нет проблем с производительностью"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Calling `.length` on each iteration can be slow; cache it in a variable.",
+      "ru": "Вызов `.length` на каждой итерации может быть медленным; кэшируйте его в переменной."
+    }
+  },
+  {
+    "id": "for-027",
+    "type": "yes-no",
+    "theme": "loop with var",
+    "question": {
+      "en": "Is the loop variable accessible outside the loop if declared with `var`?",
+      "ru": "Доступна ли переменная цикла вне цикла, если объявлена с `var`?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "`var` is function-scoped, so it is accessible outside the loop.",
+      "ru": "`var` имеет функциональную область видимости, поэтому она доступна вне цикла."
+    }
+  },
+  {
+    "id": "for-028",
+    "type": "predict-output",
+    "theme": "loop with var scope",
+    "question": {
+      "en": "What will be printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`for (var i = 0; i < 2; i++) {}`\n`console.log(i);`",
+    "answer": "`2`",
+    "explanation": {
+      "en": "`var` is function-scoped, so i is accessible and equals 2 after the loop.",
+      "ru": "`var` имеет функциональную область видимости, поэтому i доступна и равна 2 после цикла."
+    }
+  },
+  {
+    "id": "for-029",
+    "type": "single-correct",
+    "theme": "loop alternatives",
+    "question": {
+      "en": "Which is NOT a loop in JavaScript?",
+      "ru": "Какой из них НЕ является циклом в JavaScript?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`for`",
+          "ru": "`for`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`while`",
+          "ru": "`while`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`repeat`",
+          "ru": "`repeat`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`do...while`",
+          "ru": "`do...while`"
+        }
+      }
+    ],
+    "correctId": "c",
+    "explanation": {
+      "en": "`repeat` is not a loop construct in JavaScript.",
+      "ru": "`repeat` не является конструкцией цикла в JavaScript."
+    }
+  },
+  {
+    "id": "for-030",
+    "type": "multiple-correct",
+    "theme": "for loop features",
+    "question": {
+      "en": "Which statements about for loops are true?",
+      "ru": "Какие утверждения о циклах for верны?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "They can iterate through arrays",
+          "ru": "Они могут перебирать массивы"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "They can be nested",
+          "ru": "Они могут быть вложенными"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "They can be exited with `break`",
+          "ru": "Они могут быть выходом с `break`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "They always run at least once",
+          "ru": "Они всегда выполняются хотя бы один раз"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "For loops can iterate arrays, be nested, and be exited with break, but they don't run if the condition is false.",
+      "ru": "Циклы for могут перебирать массивы, быть вложенными и выходить с break, но не выполняются, если условие ложно."
+    }
+  }
+]

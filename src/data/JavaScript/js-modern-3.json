@@ -1,1 +1,969 @@
-{}
+[
+  {
+    "id": "mod-001",
+    "type": "single-correct",
+    "theme": "module basics",
+    "question": {
+      "en": "What keyword is used to export a value from a module?",
+      "ru": "Какое ключевое слово используется для экспорта значения из модуля?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`export`",
+          "ru": "`export`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`module`",
+          "ru": "`module`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`send`",
+          "ru": "`send`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`share`",
+          "ru": "`share`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`export` is used to export values from a module.",
+      "ru": "`export` используется для экспорта значений из модуля."
+    }
+  },
+  {
+    "id": "mod-002",
+    "type": "single-correct",
+    "theme": "module basics",
+    "question": {
+      "en": "What keyword is used to import a value from a module?",
+      "ru": "Какое ключевое слово используется для импорта значения из модуля?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`import`",
+          "ru": "`import`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`require`",
+          "ru": "`require`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`include`",
+          "ru": "`include`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`load`",
+          "ru": "`load`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`import` is the ES6 keyword for importing module values.",
+      "ru": "`import` — это ключевое слово ES6 для импорта значений модуля."
+    }
+  },
+  {
+    "id": "mod-003",
+    "type": "single-correct",
+    "theme": "default export",
+    "question": {
+      "en": "How many default exports can a module have?",
+      "ru": "Сколько экспортов по умолчанию может иметь модуль?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "0",
+          "ru": "0"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "1",
+          "ru": "1"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "2",
+          "ru": "2"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "unlimited",
+          "ru": "неограниченно"
+        }
+      }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "A module can have only one default export.",
+      "ru": "Модуль может иметь только один экспорт по умолчанию."
+    }
+  },
+  {
+    "id": "mod-004",
+    "type": "single-correct",
+    "theme": "named export",
+    "question": {
+      "en": "How do you export multiple named values?",
+      "ru": "Как экспортировать несколько именованных значений?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`export { a, b, c }`",
+          "ru": "`export { a, b, c }`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`export a, b, c`",
+          "ru": "`export a, b, c`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`export [a, b, c]`",
+          "ru": "`export [a, b, c]`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`export (a, b, c)`",
+          "ru": "`export (a, b, c)`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Named exports use curly braces: `export { a, b, c }`.",
+      "ru": "Именованные экспорты используют фигурные скобки: `export { a, b, c }`."
+    }
+  },
+  {
+    "id": "mod-005",
+    "type": "single-correct",
+    "theme": "import syntax",
+    "question": {
+      "en": "How do you import a default export?",
+      "ru": "Как импортировать экспорт по умолчанию?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`import myFunc from './module.js'`",
+          "ru": "`import myFunc from './module.js'`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`import { myFunc } from './module.js'`",
+          "ru": "`import { myFunc } from './module.js'`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`import * as myFunc from './module.js'`",
+          "ru": "`import * as myFunc from './module.js'`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`import default myFunc from './module.js'`",
+          "ru": "`import default myFunc from './module.js'`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Default exports are imported without curly braces.",
+      "ru": "Экспорты по умолчанию импортируются без фигурных скобок."
+    }
+  },
+  {
+    "id": "mod-006",
+    "type": "single-correct",
+    "theme": "import syntax",
+    "question": {
+      "en": "How do you import named exports?",
+      "ru": "Как импортировать именованные экспорты?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`import { a, b } from './module.js'`",
+          "ru": "`import { a, b } from './module.js'`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`import a, b from './module.js'`",
+          "ru": "`import a, b from './module.js'`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`import [a, b] from './module.js'`",
+          "ru": "`import [a, b] from './module.js'`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`import (a, b) from './module.js'`",
+          "ru": "`import (a, b) from './module.js'`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Named exports are imported using curly braces.",
+      "ru": "Именованные экспорты импортируются с использованием фигурных скобок."
+    }
+  },
+  {
+    "id": "mod-007",
+    "type": "single-correct",
+    "theme": "namespace import",
+    "question": {
+      "en": "What does `import * as utils from './utils.js'` do?",
+      "ru": "Что делает `import * as utils from './utils.js'`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Imports all exports as an object",
+          "ru": "Импортирует все экспорты как объект"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Imports only the default export",
+          "ru": "Импортирует только экспорт по умолчанию"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Imports nothing",
+          "ru": "Ничего не импортирует"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Throws an error",
+          "ru": "Выбрасывает ошибку"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "The `* as` syntax imports all exports as properties of an object.",
+      "ru": "Синтаксис `* as` импортирует все экспорты как свойства объекта."
+    }
+  },
+  {
+    "id": "mod-008",
+    "type": "single-correct",
+    "theme": "renaming",
+    "question": {
+      "en": "How do you rename an import?",
+      "ru": "Как переименовать импорт?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`import { oldName as newName } from './module.js'`",
+          "ru": "`import { oldName as newName } from './module.js'`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`import { oldName: newName } from './module.js'`",
+          "ru": "`import { oldName: newName } from './module.js'`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`import oldName rename newName from './module.js'`",
+          "ru": "`import oldName rename newName from './module.js'`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`import oldName -> newName from './module.js'`",
+          "ru": "`import oldName -> newName from './module.js'`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Use `as` keyword to rename imports: `import { oldName as newName }`.",
+      "ru": "Используйте ключевое слово `as` для переименования импортов: `import { oldName as newName }`."
+    }
+  },
+  {
+    "id": "mod-009",
+    "type": "single-correct",
+    "theme": "renaming",
+    "question": {
+      "en": "How do you rename an export?",
+      "ru": "Как переименовать экспорт?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`export { myFunc as publicFunc }`",
+          "ru": "`export { myFunc as publicFunc }`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`export myFunc as publicFunc`",
+          "ru": "`export myFunc as publicFunc`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`export { myFunc: publicFunc }`",
+          "ru": "`export { myFunc: publicFunc }`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`export myFunc -> publicFunc`",
+          "ru": "`export myFunc -> publicFunc`"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Use `as` keyword to rename exports: `export { myFunc as publicFunc }`.",
+      "ru": "Используйте ключевое слово `as` для переименования экспортов: `export { myFunc as publicFunc }`."
+    }
+  },
+  {
+    "id": "mod-010",
+    "type": "yes-no",
+    "theme": "module scope",
+    "question": {
+      "en": "Are modules automatically in strict mode?",
+      "ru": "Находятся ли модули автоматически в строгом режиме?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "ES6 modules are always in strict mode by default.",
+      "ru": "Модули ES6 всегда находятся в строгом режиме по умолчанию."
+    }
+  },
+  {
+    "id": "mod-011",
+    "type": "yes-no",
+    "theme": "module scope",
+    "question": {
+      "en": "Can you use `import` statements anywhere in the code?",
+      "ru": "Можно ли использовать операторы `import` в любом месте кода?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "`import` statements must be at the top level of a module.",
+      "ru": "Операторы `import` должны находиться на верхнем уровне модуля."
+    }
+  },
+  {
+    "id": "mod-012",
+    "type": "yes-no",
+    "theme": "re-export",
+    "question": {
+      "en": "Can you re-export values from another module?",
+      "ru": "Можно ли реэкспортировать значения из другого модуля?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "You can re-export using `export { x } from './module.js'`.",
+      "ru": "Вы можете реэкспортировать, используя `export { x } from './module.js'`."
+    }
+  },
+  {
+    "id": "mod-013",
+    "type": "multiple-correct",
+    "theme": "export types",
+    "question": {
+      "en": "Which are valid export syntaxes?",
+      "ru": "Какие синтаксисы экспорта являются допустимыми?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`export const x = 5;`",
+          "ru": "`export const x = 5;`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`export { x };`",
+          "ru": "`export { x };`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`export default x;`",
+          "ru": "`export default x;`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`export x;`",
+          "ru": "`export x;`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "You can export inline, as a list, or as default. `export x;` alone is invalid.",
+      "ru": "Вы можете экспортировать встроенно, списком или по умолчанию. `export x;` само по себе недопустимо."
+    }
+  },
+  {
+    "id": "mod-014",
+    "type": "multiple-correct",
+    "theme": "import types",
+    "question": {
+      "en": "Which are valid import syntaxes?",
+      "ru": "Какие синтаксисы импорта являются допустимыми?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "`import x from './module.js'`",
+          "ru": "`import x from './module.js'`"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "`import { x } from './module.js'`",
+          "ru": "`import { x } from './module.js'`"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "`import * as all from './module.js'`",
+          "ru": "`import * as all from './module.js'`"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "`import './module.js'`",
+          "ru": "`import './module.js'`"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c", "d"],
+    "explanation": {
+      "en": "All these syntaxes are valid: default, named, namespace, and side-effect imports.",
+      "ru": "Все эти синтаксисы допустимы: по умолчанию, именованный, пространство имен и импорт с побочными эффектами."
+    }
+  },
+  {
+    "id": "mod-015",
+    "type": "multiple-correct",
+    "theme": "module characteristics",
+    "question": {
+      "en": "Which statements about ES6 modules are true?",
+      "ru": "Какие утверждения о модулях ES6 верны?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Modules have their own scope",
+          "ru": "Модули имеют свою собственную область видимости"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Modules are always in strict mode",
+          "ru": "Модули всегда находятся в строгом режиме"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Imports are hoisted",
+          "ru": "Импорты поднимаются"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Modules can be loaded synchronously only",
+          "ru": "Модули могут загружаться только синхронно"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "Modules have their own scope, are strict by default, and imports are hoisted. Modules can be loaded asynchronously.",
+      "ru": "Модули имеют свою область видимости, строгие по умолчанию, и импорты поднимаются. Модули могут загружаться асинхронно."
+    }
+  },
+  {
+    "id": "mod-016",
+    "type": "predict-output",
+    "theme": "default export",
+    "question": {
+      "en": "What is exported?",
+      "ru": "Что экспортируется?"
+    },
+    "code": "`// module.js`\n`export default function() { return 42; }`\n`// main.js`\n`import myFunc from './module.js';`\n`console.log(typeof myFunc);`",
+    "answer": "`function`",
+    "explanation": {
+      "en": "The default export is a function.",
+      "ru": "Экспорт по умолчанию — это функция."
+    }
+  },
+  {
+    "id": "mod-017",
+    "type": "predict-output",
+    "theme": "named export",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`// module.js`\n`export const x = 10;`\n`// main.js`\n`import { x } from './module.js';`\n`console.log(x);`",
+    "answer": "`10`",
+    "explanation": {
+      "en": "Named export `x` is imported and has value `10`.",
+      "ru": "Именованный экспорт `x` импортируется и имеет значение `10`."
+    }
+  },
+  {
+    "id": "mod-018",
+    "type": "predict-output",
+    "theme": "namespace import",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`// module.js`\n`export const a = 1;`\n`export const b = 2;`\n`// main.js`\n`import * as mod from './module.js';`\n`console.log(mod.a + mod.b);`",
+    "answer": "`3`",
+    "explanation": {
+      "en": "Namespace import creates an object with all exports.",
+      "ru": "Импорт пространства имен создает объект со всеми экспортами."
+    }
+  },
+  {
+    "id": "mod-019",
+    "type": "predict-output",
+    "theme": "renaming",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`// module.js`\n`export const x = 5;`\n`// main.js`\n`import { x as y } from './module.js';`\n`console.log(y);`",
+    "answer": "`5`",
+    "explanation": {
+      "en": "`x` is imported and renamed to `y`.",
+      "ru": "`x` импортируется и переименовывается в `y`."
+    }
+  },
+  {
+    "id": "mod-020",
+    "type": "predict-output",
+    "theme": "mixed exports",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`// module.js`\n`export const x = 1;`\n`export default 42;`\n`// main.js`\n`import def, { x } from './module.js';`\n`console.log(def + x);`",
+    "answer": "`43`",
+    "explanation": {
+      "en": "You can import both default and named exports together.",
+      "ru": "Вы можете импортировать и экспорт по умолчанию, и именованные экспорты вместе."
+    }
+  },
+  {
+    "id": "mod-021",
+    "type": "single-correct",
+    "theme": "side effects",
+    "question": {
+      "en": "What does `import './module.js'` do?",
+      "ru": "Что делает `import './module.js'`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Executes the module without importing anything",
+          "ru": "Выполняет модуль без импорта чего-либо"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Imports all exports",
+          "ru": "Импортирует все экспорты"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Throws an error",
+          "ru": "Выбрасывает ошибку"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Does nothing",
+          "ru": "Ничего не делает"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "This syntax imports a module for its side effects only.",
+      "ru": "Этот синтаксис импортирует модуль только ради его побочных эффектов."
+    }
+  },
+  {
+    "id": "mod-022",
+    "type": "single-correct",
+    "theme": "dynamic import",
+    "question": {
+      "en": "What does `import()` return?",
+      "ru": "Что возвращает `import()`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "A Promise",
+          "ru": "Promise"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "The module object",
+          "ru": "Объект модуля"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "undefined",
+          "ru": "undefined"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "An array",
+          "ru": "Массив"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Dynamic `import()` returns a Promise that resolves to the module object.",
+      "ru": "Динамический `import()` возвращает Promise, который разрешается в объект модуля."
+    }
+  },
+  {
+    "id": "mod-023",
+    "type": "single-correct",
+    "theme": "re-export",
+    "question": {
+      "en": "What does `export * from './module.js'` do?",
+      "ru": "Что делает `export * from './module.js'`?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Re-exports all named exports",
+          "ru": "Реэкспортирует все именованные экспорты"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Re-exports the default export",
+          "ru": "Реэкспортирует экспорт по умолчанию"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Imports all exports",
+          "ru": "Импортирует все экспорты"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Throws an error",
+          "ru": "Выбрасывает ошибку"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "`export *` re-exports all named exports, but not the default export.",
+      "ru": "`export *` реэкспортирует все именованные экспорты, но не экспорт по умолчанию."
+    }
+  },
+  {
+    "id": "mod-024",
+    "type": "multiple-correct",
+    "theme": "module benefits",
+    "question": {
+      "en": "What are benefits of ES6 modules?",
+      "ru": "Каковы преимущества модулей ES6?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Better code organization",
+          "ru": "Лучшая организация кода"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Encapsulation",
+          "ru": "Инкапсуляция"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Reusability",
+          "ru": "Переиспользуемость"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Automatic minification",
+          "ru": "Автоматическая минификация"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "Modules provide organization, encapsulation, and reusability. Minification is a build tool feature.",
+      "ru": "Модули обеспечивают организацию, инкапсуляцию и переиспользуемость. Минификация — это функция инструментов сборки."
+    }
+  },
+  {
+    "id": "mod-025",
+    "type": "multiple-correct",
+    "theme": "export restrictions",
+    "question": {
+      "en": "Which statements about exports are true?",
+      "ru": "Какие утверждения об экспортах верны?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "You can have multiple named exports",
+          "ru": "Можно иметь несколько именованных экспортов"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "You can have only one default export",
+          "ru": "Можно иметь только один экспорт по умолчанию"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "Exports must be at the top level",
+          "ru": "Экспорты должны быть на верхнем уровне"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "You cannot mix default and named exports",
+          "ru": "Нельзя смешивать экспорты по умолчанию и именованные"
+        }
+      }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "You can have multiple named exports, one default export, and they must be top-level. You can mix both types.",
+      "ru": "Можно иметь несколько именованных экспортов, один экспорт по умолчанию, и они должны быть на верхнем уровне. Можно смешивать оба типа."
+    }
+  },
+  {
+    "id": "mod-026",
+    "type": "predict-output",
+    "theme": "live binding",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`// module.js`\n`export let count = 0;`\n`export function increment() { count++; }`\n`// main.js`\n`import { count, increment } from './module.js';`\n`increment();`\n`console.log(count);`",
+    "answer": "`1`",
+    "explanation": {
+      "en": "Imports are live bindings; changes in the module are reflected.",
+      "ru": "Импорты — это живые привязки; изменения в модуле отражаются."
+    }
+  },
+  {
+    "id": "mod-027",
+    "type": "predict-output",
+    "theme": "export expression",
+    "question": {
+      "en": "What is printed?",
+      "ru": "Что будет выведено?"
+    },
+    "code": "`// module.js`\n`export default 5 + 5;`\n`// main.js`\n`import result from './module.js';`\n`console.log(result);`",
+    "answer": "`10`",
+    "explanation": {
+      "en": "You can export expressions as default exports.",
+      "ru": "Вы можете экспортировать выражения как экспорты по умолчанию."
+    }
+  },
+  {
+    "id": "mod-028",
+    "type": "yes-no",
+    "theme": "import mutability",
+    "question": {
+      "en": "Can you modify an imported value?",
+      "ru": "Можно ли изменить импортированное значение?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "Imported bindings are read-only; you cannot reassign them.",
+      "ru": "Импортированные привязки доступны только для чтения; вы не можете их переназначить."
+    }
+  },
+  {
+    "id": "mod-029",
+    "type": "yes-no",
+    "theme": "circular dependencies",
+    "question": {
+      "en": "Can ES6 modules have circular dependencies?",
+      "ru": "Могут ли модули ES6 иметь циклические зависимости?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "ES6 modules support circular dependencies through live bindings.",
+      "ru": "Модули ES6 поддерживают циклические зависимости через живые привязки."
+    }
+  },
+  {
+    "id": "mod-030",
+    "type": "single-correct",
+    "theme": "module loading",
+    "question": {
+      "en": "When are ES6 modules evaluated?",
+      "ru": "Когда оцениваются модули ES6?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "en": "Only once, when first imported",
+          "ru": "Только один раз, при первом импорте"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Every time they are imported",
+          "ru": "Каждый раз, когда они импортируются"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "en": "At compile time",
+          "ru": "Во время компиляции"
+        }
+      },
+      {
+        "id": "d",
+        "text": {
+          "en": "Never",
+          "ru": "Никогда"
+        }
+      }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "Modules are evaluated only once, and the same instance is shared across all imports.",
+      "ru": "Модули оцениваются только один раз, и один и тот же экземпляр используется во всех импортах."
+    }
+  }
+]

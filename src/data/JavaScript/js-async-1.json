@@ -1,1 +1,483 @@
-{}
+[
+  {
+    "id": "el-001",
+    "type": "single-correct",
+    "theme": "event loop",
+    "question": {
+      "en": "What is the primary purpose of the Event Loop?",
+      "ru": "Какова основная цель цикла событий?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "en": "Execute all code synchronously", "ru": "Выполнять весь код синхронно" }
+      },
+      {
+        "id": "b",
+        "text": {
+          "en": "Manage asynchronous operations",
+          "ru": "Управлять асинхронными операциями"
+        }
+      },
+      { "id": "c", "text": { "en": "Prevent memory leaks", "ru": "Предотвращать утечки памяти" } },
+      { "id": "d", "text": { "en": "Optimize CPU", "ru": "Оптимизировать CPU" } }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Event Loop manages async operations and callbacks.",
+      "ru": "Цикл событий управляет асинхронными операциями и обратными вызовами."
+    }
+  },
+  {
+    "id": "el-002",
+    "type": "single-correct",
+    "theme": "call stack",
+    "question": {
+      "en": "What happens when call stack is full?",
+      "ru": "Что происходит при переполнении стека вызовов?"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Functions are queued", "ru": "Функции ставятся в очередь" } },
+      { "id": "b", "text": { "en": "RangeError is thrown", "ru": "Выбрасывается RangeError" } },
+      { "id": "c", "text": { "en": "Program pauses", "ru": "Программа приостанавливается" } },
+      { "id": "d", "text": { "en": "Oldest function removed", "ru": "Удаляется старая функция" } }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Stack overflow throws RangeError.",
+      "ru": "Переполнение стека выбрасывает RangeError."
+    }
+  },
+  {
+    "id": "el-003",
+    "type": "single-correct",
+    "theme": "callback queue",
+    "question": {
+      "en": "When do callbacks execute from queue?",
+      "ru": "Когда выполняются обратные вызовы из очереди?"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Immediately after added", "ru": "Сразу после добавления" } },
+      { "id": "b", "text": { "en": "When stack is empty", "ru": "Когда стек пуст" } },
+      { "id": "c", "text": { "en": "At program end", "ru": "В конце программы" } },
+      { "id": "d", "text": { "en": "In parallel", "ru": "Параллельно" } }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Callbacks execute when call stack is empty.",
+      "ru": "Обратные вызовы выполняются когда стек вызовов пуст."
+    }
+  },
+  {
+    "id": "el-004",
+    "type": "multiple-correct",
+    "theme": "components",
+    "question": {
+      "en": "Which are Event Loop components?",
+      "ru": "Какие компоненты входят в цикл событий?"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Call Stack", "ru": "Стек вызовов" } },
+      { "id": "b", "text": { "en": "Callback Queue", "ru": "Очередь обратных вызовов" } },
+      { "id": "c", "text": { "en": "Web APIs", "ru": "Web API" } },
+      { "id": "d", "text": { "en": "Memory Heap", "ru": "Куча памяти" } }
+    ],
+    "correctIds": ["a", "b", "c", "d"],
+    "explanation": {
+      "en": "All are part of Event Loop system.",
+      "ru": "Все части системы цикла событий."
+    }
+  },
+  {
+    "id": "el-005",
+    "type": "yes-no",
+    "theme": "blocking",
+    "question": {
+      "en": "Does sync code block Event Loop?",
+      "ru": "Блокирует ли синхронный код цикл событий?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Sync code blocks until completion.",
+      "ru": "Синхронный код блокирует до завершения."
+    }
+  },
+  {
+    "id": "el-006",
+    "type": "predict-output",
+    "theme": "execution",
+    "question": { "en": "What prints?", "ru": "Что выведется?" },
+    "code": "console.log('a');\nsetTimeout(()=>console.log('b'),0);\nconsole.log('c');",
+    "answer": "a\nc\nb",
+    "explanation": {
+      "en": "Sync first, then setTimeout.",
+      "ru": "Синхронный код, затем setTimeout."
+    }
+  },
+  {
+    "id": "el-007",
+    "type": "single-correct",
+    "theme": "microtask",
+    "question": { "en": "What uses Microtask Queue?", "ru": "Что использует очередь микротасков?" },
+    "options": [
+      { "id": "a", "text": { "en": "DOM updates", "ru": "Обновления DOM" } },
+      { "id": "b", "text": { "en": "Promises", "ru": "Промисы" } },
+      { "id": "c", "text": { "en": "setTimeout", "ru": "setTimeout" } },
+      { "id": "d", "text": { "en": "Events", "ru": "События" } }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "Promises use microtask queue.",
+      "ru": "Промисы используют очередь микротасков."
+    }
+  },
+  {
+    "id": "el-008",
+    "type": "multiple-correct",
+    "theme": "microtasks",
+    "question": { "en": "Which are microtasks?", "ru": "Какие являются микротасками?" },
+    "options": [
+      { "id": "a", "text": { "en": "Promise callbacks", "ru": "Обратные вызовы промисов" } },
+      { "id": "b", "text": { "en": "setTimeout", "ru": "setTimeout" } },
+      { "id": "c", "text": { "en": "MutationObserver", "ru": "MutationObserver" } },
+      { "id": "d", "text": { "en": "setInterval", "ru": "setInterval" } }
+    ],
+    "correctIds": ["a", "c"],
+    "explanation": {
+      "en": "Promises and MutationObserver are microtasks.",
+      "ru": "Промисы и MutationObserver — микротаски."
+    }
+  },
+  {
+    "id": "el-009",
+    "type": "predict-output",
+    "theme": "priority",
+    "question": { "en": "What prints?", "ru": "Что выведется?" },
+    "code": "console.log('a');\nPromise.resolve().then(()=>console.log('b'));\nsetTimeout(()=>console.log('c'),0);\nconsole.log('d');",
+    "answer": "a\nd\nb\nc",
+    "explanation": {
+      "en": "Sync, then microtasks, then macrotasks.",
+      "ru": "Синхронный, затем микротаски, затем макротаски."
+    }
+  },
+  {
+    "id": "el-010",
+    "type": "yes-no",
+    "theme": "continuous",
+    "question": {
+      "en": "Does Event Loop run continuously?",
+      "ru": "Работает ли цикл событий непрерывно?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Event Loop continuously checks for tasks.",
+      "ru": "Цикл событий непрерывно проверяет задачи."
+    }
+  },
+  {
+    "id": "el-011",
+    "type": "single-correct",
+    "theme": "web api",
+    "question": { "en": "Which is a Web API?", "ru": "Какой является Web API?" },
+    "options": [
+      { "id": "a", "text": { "en": "setTimeout", "ru": "setTimeout" } },
+      { "id": "b", "text": { "en": "console.log", "ru": "console.log" } },
+      { "id": "c", "text": { "en": "Array.map", "ru": "Array.map" } },
+      { "id": "d", "text": { "en": "Math.random", "ru": "Math.random" } }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "setTimeout is provided by browser.",
+      "ru": "setTimeout предоставляется браузером."
+    }
+  },
+  {
+    "id": "el-012",
+    "type": "multiple-correct",
+    "theme": "macrotasks",
+    "question": { "en": "Which are macrotasks?", "ru": "Какие являются макротасками?" },
+    "options": [
+      { "id": "a", "text": { "en": "setTimeout", "ru": "setTimeout" } },
+      { "id": "b", "text": { "en": "setInterval", "ru": "setInterval" } },
+      { "id": "c", "text": { "en": "Promise.then", "ru": "Promise.then" } },
+      { "id": "d", "text": { "en": "requestAnimationFrame", "ru": "requestAnimationFrame" } }
+    ],
+    "correctIds": ["a", "b", "d"],
+    "explanation": {
+      "en": "setTimeout, setInterval, RAF are macrotasks.",
+      "ru": "setTimeout, setInterval, RAF — макротаски."
+    }
+  },
+  {
+    "id": "el-013",
+    "type": "predict-output",
+    "theme": "microtask",
+    "question": { "en": "What prints?", "ru": "Что выведется?" },
+    "code": "console.log(1);\nqueueMicrotask(()=>console.log(2));\nconsole.log(3);",
+    "answer": "1\n3\n2",
+    "explanation": {
+      "en": "Sync first, then microtasks.",
+      "ru": "Синхронный код, затем микротаски."
+    }
+  },
+  {
+    "id": "el-014",
+    "type": "yes-no",
+    "theme": "promise",
+    "question": {
+      "en": "Are Promise callbacks microtasks?",
+      "ru": "Являются ли обратные вызовы промисов микротасками?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "All Promise callbacks are microtasks.",
+      "ru": "Все обратные вызовы промисов — микротаски."
+    }
+  },
+  {
+    "id": "el-015",
+    "type": "single-correct",
+    "theme": "phases",
+    "question": {
+      "en": "What happens after microtasks?",
+      "ru": "Что происходит после микротасков?"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Program ends", "ru": "Программа завершается" } },
+      { "id": "b", "text": { "en": "Next macrotask", "ru": "Следующий макротаск" } },
+      { "id": "c", "text": { "en": "Browser renders", "ru": "Браузер рендерит" } },
+      { "id": "d", "text": { "en": "All above", "ru": "Все выше" } }
+    ],
+    "correctId": "d",
+    "explanation": {
+      "en": "After microtasks: render, macrotask, end.",
+      "ru": "После микротасков: рендер, макротаск, конец."
+    }
+  },
+  {
+    "id": "el-016",
+    "type": "predict-output",
+    "theme": "complex",
+    "question": { "en": "What prints?", "ru": "Что выведется?" },
+    "code": "console.log('a');\nsetTimeout(()=>console.log('b'),0);\nPromise.resolve().then(()=>console.log('c'));\nconsole.log('d');",
+    "answer": "a\nd\nc\nb",
+    "explanation": {
+      "en": "Sync, microtasks, macrotasks.",
+      "ru": "Синхронный, микротаски, макротаски."
+    }
+  },
+  {
+    "id": "el-017",
+    "type": "yes-no",
+    "theme": "blocking",
+    "question": {
+      "en": "Can sync function block interactions?",
+      "ru": "Может ли синхронная функция заблокировать взаимодействие?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Long sync code blocks Event Loop.",
+      "ru": "Долгий синхронный код блокирует цикл событий."
+    }
+  },
+  {
+    "id": "el-018",
+    "type": "single-correct",
+    "theme": "timeout",
+    "question": {
+      "en": "What does setTimeout(fn,0) guarantee?",
+      "ru": "Что гарантирует setTimeout(fn,0)?"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Runs immediately", "ru": "Выполняется немедленно" } },
+      { "id": "b", "text": { "en": "After stack empty", "ru": "После очистки стека" } },
+      { "id": "c", "text": { "en": "Next frame", "ru": "Следующий кадр" } },
+      { "id": "d", "text": { "en": "Never runs", "ru": "Никогда не выполняется" } }
+    ],
+    "correctId": "b",
+    "explanation": {
+      "en": "setTimeout(fn,0) runs after stack is empty.",
+      "ru": "setTimeout(fn,0) выполняется после очистки стека."
+    }
+  },
+  {
+    "id": "el-019",
+    "type": "multiple-correct",
+    "theme": "loop",
+    "question": {
+      "en": "Which about Event Loop are true?",
+      "ru": "Какие утверждения о цикле событий верны?"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Single-threaded", "ru": "Однопоточен" } },
+      { "id": "b", "text": { "en": "Microtasks first", "ru": "Микротаски первыми" } },
+      { "id": "c", "text": { "en": "Parallel execution", "ru": "Параллельное выполнение" } },
+      { "id": "d", "text": { "en": "Waits for empty stack", "ru": "Ждет пустого стека" } }
+    ],
+    "correctIds": ["a", "b", "d"],
+    "explanation": {
+      "en": "Single-threaded, microtasks first, waits for empty stack.",
+      "ru": "Однопоточен, микротаски первыми, ждет пустого стека."
+    }
+  },
+  {
+    "id": "el-020",
+    "type": "yes-no",
+    "theme": "rendering",
+    "question": {
+      "en": "Does browser render in Event Loop?",
+      "ru": "Выполняет ли браузер рендеринг в цикле событий?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Browser renders between macrotasks.",
+      "ru": "Браузер рендерит между макротасками."
+    }
+  },
+  {
+    "id": "el-021",
+    "type": "single-correct",
+    "theme": "queue order",
+    "question": { "en": "Callback queue order?", "ru": "Порядок очереди обратных вызовов?" },
+    "options": [
+      { "id": "a", "text": { "en": "LIFO", "ru": "LIFO" } },
+      { "id": "b", "text": { "en": "FIFO", "ru": "FIFO" } },
+      { "id": "c", "text": { "en": "Random", "ru": "Случайный" } },
+      { "id": "d", "text": { "en": "Priority", "ru": "Приоритет" } }
+    ],
+    "correctId": "b",
+    "explanation": { "en": "Callback queue is FIFO.", "ru": "Очередь обратных вызовов — FIFO." }
+  },
+  {
+    "id": "el-022",
+    "type": "predict-output",
+    "theme": "nested",
+    "question": { "en": "What prints?", "ru": "Что выведется?" },
+    "code": "setTimeout(()=>{console.log('a');setTimeout(()=>console.log('b'),0);},0);\nconsole.log('c');",
+    "answer": "c\na\nb",
+    "explanation": {
+      "en": "Sync, outer timeout, inner timeout.",
+      "ru": "Синхронный, внешний timeout, внутренний timeout."
+    }
+  },
+  {
+    "id": "el-023",
+    "type": "yes-no",
+    "theme": "starvation",
+    "question": {
+      "en": "Can microtasks starve macrotasks?",
+      "ru": "Могут ли микротаски голодать макротаски?"
+    },
+    "answer": "yes",
+    "explanation": {
+      "en": "Infinite microtasks prevent macrotasks.",
+      "ru": "Бесконечные микротаски предотвращают макротаски."
+    }
+  },
+  {
+    "id": "el-024",
+    "type": "single-correct",
+    "theme": "raf",
+    "question": {
+      "en": "When does requestAnimationFrame run?",
+      "ru": "Когда выполняется requestAnimationFrame?"
+    },
+    "options": [
+      { "id": "a", "text": { "en": "Before render", "ru": "Перед рендерингом" } },
+      { "id": "b", "text": { "en": "After render", "ru": "После рендеринга" } },
+      { "id": "c", "text": { "en": "During render", "ru": "Во время рендеринга" } },
+      { "id": "d", "text": { "en": "Immediately", "ru": "Немедленно" } }
+    ],
+    "correctId": "a",
+    "explanation": {
+      "en": "RAF runs before browser renders.",
+      "ru": "RAF выполняется перед рендерингом браузером."
+    }
+  },
+  {
+    "id": "el-025",
+    "type": "multiple-correct",
+    "theme": "blocking",
+    "question": { "en": "What blocks Event Loop?", "ru": "Что блокирует цикл событий?" },
+    "options": [
+      { "id": "a", "text": { "en": "Long sync code", "ru": "Долгий синхронный код" } },
+      { "id": "b", "text": { "en": "Infinite loops", "ru": "Бесконечные циклы" } },
+      { "id": "c", "text": { "en": "Heavy compute", "ru": "Тяжелые вычисления" } },
+      { "id": "d", "text": { "en": "Promise reject", "ru": "Отклонение промиса" } }
+    ],
+    "correctIds": ["a", "b", "c"],
+    "explanation": {
+      "en": "Sync code, loops, compute block.",
+      "ru": "Синхронный код, циклы, вычисления блокируют."
+    }
+  },
+  {
+    "id": "el-026",
+    "type": "predict-output",
+    "theme": "promise chain",
+    "question": { "en": "What prints?", "ru": "Что выведется?" },
+    "code": "Promise.resolve().then(()=>console.log(1)).then(()=>console.log(2)).then(()=>console.log(3));\nconsole.log(4);",
+    "answer": "4\n1\n2\n3",
+    "explanation": {
+      "en": "Sync first, then promise chain.",
+      "ru": "Синхронный код, затем цепь промисов."
+    }
+  },
+  {
+    "id": "el-027",
+    "type": "yes-no",
+    "theme": "workers",
+    "question": {
+      "en": "Do Web Workers share Event Loop?",
+      "ru": "Используют ли Web Workers один цикл событий?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "Web Workers have separate Event Loop.",
+      "ru": "Web Workers имеют отдельный цикл событий."
+    }
+  },
+  {
+    "id": "el-028",
+    "type": "single-correct",
+    "theme": "async",
+    "question": { "en": "What is async/await built on?", "ru": "На чем построен async/await?" },
+    "options": [
+      { "id": "a", "text": { "en": "Callbacks", "ru": "Обратные вызовы" } },
+      { "id": "b", "text": { "en": "Promises", "ru": "Промисы" } },
+      { "id": "c", "text": { "en": "Generators", "ru": "Генераторы" } },
+      { "id": "d", "text": { "en": "All above", "ru": "Все выше" } }
+    ],
+    "correctId": "d",
+    "explanation": {
+      "en": "async/await uses Promises, callbacks, generators.",
+      "ru": "async/await использует промисы, обратные вызовы, генераторы."
+    }
+  },
+  {
+    "id": "el-029",
+    "type": "predict-output",
+    "theme": "mixed",
+    "question": { "en": "What prints?", "ru": "Что выведется?" },
+    "code": "console.log('a');\nsetTimeout(()=>console.log('b'),0);\nPromise.resolve().then(()=>console.log('c')).then(()=>console.log('d'));\nconsole.log('e');",
+    "answer": "a\ne\nc\nd\nb",
+    "explanation": {
+      "en": "Sync, microtasks, macrotasks.",
+      "ru": "Синхронный, микротаски, макротаски."
+    }
+  },
+  {
+    "id": "el-030",
+    "type": "yes-no",
+    "theme": "spec",
+    "question": {
+      "en": "Is Event Loop in JS spec?",
+      "ru": "Входит ли цикл событий в спецификацию JS?"
+    },
+    "answer": "no",
+    "explanation": {
+      "en": "Event Loop is in browser/runtime spec, not JS spec.",
+      "ru": "Цикл событий в спецификации браузера/runtime, не JS."
+    }
+  }
+]

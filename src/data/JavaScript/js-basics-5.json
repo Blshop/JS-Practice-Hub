@@ -37,10 +37,10 @@
         }
       }
     ],
-    "correctId": "c",
+    "correctId": "d",
     "explanation": {
-      "en": "There are 7 falsy values: `false`, `0`, `-0`, `0n`, `''`, `null`, `undefined`, and `NaN`.",
-      "ru": "Существует 7 ложных значений: `false`, `0`, `-0`, `0n`, `''`, `null`, `undefined` и `NaN`."
+      "en": "There are 8 falsy values: `false`, `0`, `-0`, `0n`, `''`, `null`, `undefined`, and `NaN`.",
+      "ru": "Существует 8 ложных значений: `false`, `0`, `-0`, `0n`, `''`, `null`, `undefined` и `NaN`."
     }
   },
   {
@@ -259,8 +259,8 @@
     ],
     "correctId": "b",
     "explanation": {
-      "en": "`NaN` is one of the 7 falsy values.",
-      "ru": "`NaN` — одно из 7 ложных значений."
+      "en": "`NaN` is one of the 8 falsy values.",
+      "ru": "`NaN` — одно из 8 ложных значений."
     }
   },
   {
@@ -405,8 +405,8 @@
     },
     "answer": "yes",
     "explanation": {
-      "en": "Empty string is one of the 7 falsy values.",
-      "ru": "Пустая строка — одно из 7 ложных значений."
+      "en": "Empty string is one of the 8 falsy values.",
+      "ru": "Пустая строка — одно из 8 ложных значений."
     }
   },
   {
@@ -565,8 +565,8 @@
     ],
     "correctIds": ["a", "b", "c"],
     "explanation": {
-      "en": "The 7 falsy values are: `false`, `0`, `-0`, `0n`, `''`, `null`, `undefined`, `NaN`.",
-      "ru": "7 ложных значений: `false`, `0`, `-0`, `0n`, `''`, `null`, `undefined`, `NaN`."
+      "en": "The 8 falsy values are: `false`, `0`, `-0`, `0n`, `''`, `null`, `undefined`, `NaN`.",
+      "ru": "8 ложных значений: `false`, `0`, `-0`, `0n`, `''`, `null`, `undefined`, `NaN`."
     }
   },
   {
@@ -919,8 +919,8 @@
     },
     "answer": "yes",
     "explanation": {
-      "en": "`undefined` is one of the 7 falsy values.",
-      "ru": "`undefined` — одно из 7 ложных значений."
+      "en": "`undefined` is one of the 8 falsy values.",
+      "ru": "`undefined` — одно из 8 ложных значений."
     }
   },
   {

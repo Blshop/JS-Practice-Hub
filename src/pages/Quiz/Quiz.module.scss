@@ -198,6 +198,21 @@
   }
 }
 
+.header {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var.$color-neutral-900;
+
+  @media (max-width: var.$breakpoint-md) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: var.$breakpoint-xs) {
+    font-size: 1.15rem;
+  }
+}
+
 .score {
   font-size: 3rem;
   font-weight: 700;
