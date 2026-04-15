@@ -531,7 +531,7 @@
     "theme": "quirks",
     "question": {
       "en": "Which of the following are known JavaScript type quirks?",
-      "ru": "Какие из следующих являются известными особенностями типов JavaScript?"
+      "ru": "Какие из следующих являются известными странностями типов JavaScript?"
     },
     "options": [
       {
@@ -551,22 +551,22 @@
       {
         "id": "c",
         "text": {
-          "en": "`typeof undefined === 'null'`",
-          "ru": "`typeof undefined === 'null'`"
+          "en": "`typeof [] === 'object'`",
+          "ru": "`typeof [] === 'object'`"
         }
       },
       {
         "id": "d",
         "text": {
-          "en": "`typeof Symbol() === 'symbol'`",
-          "ru": "`typeof Symbol() === 'symbol'`"
+          "en": "`typeof function(){} === 'function'`",
+          "ru": "`typeof function(){} === 'function'`"
         }
       }
     ],
-    "correctIds": ["a", "b"],
+    "correctIds": ["a", "b", "c"],
     "explanation": {
-      "en": "`typeof null` and `typeof NaN` are classic JS quirks.",
-      "ru": "`typeof null` и `typeof NaN` — классические особенности JS."
+      "en": "`typeof null` returns `object` (bug), `typeof NaN` returns `number` (counterintuitive), and arrays return `object` instead of `array`.",
+      "ru": "`typeof null` возвращает `object` (ошибка), `typeof NaN` возвращает `number` (неинтуитивно), а массивы возвращают `object` вместо `array`."
     }
   },
   {
