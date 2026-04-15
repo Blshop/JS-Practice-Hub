@@ -7,11 +7,13 @@ import authRoutes from './routes/authRoutes.js';
 import progressRoutes from './routes/progressRoutes.js';
 import swaggerUi from 'swagger-ui-express';
 import { specs } from './config/swagger.js';
+import { languageMiddleware } from './middleware/languageMiddleware.js';
 
 export const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(languageMiddleware);
 app.use(
   cors({
     origin: CLIENT_URL,
